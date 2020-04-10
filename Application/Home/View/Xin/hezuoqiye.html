@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<title>忒666</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1,user-scalable=no">
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black">
+		<link rel="stylesheet" href="__PUBLIC__/xin/css/mui.min.css">
+		<link rel="stylesheet" href="__PUBLIC__/xin/css/swiper.min.css" />
+		<link rel="stylesheet" href="__PUBLIC__/xin/css/index.css" />
+		<link rel="stylesheet" type="text/css" href="__PUBLIC__/xin/css/jfall.css" />
+		<style type="text/css">
+			.spxq-numbers {
+				width: 100%;
+				padding: .3rem;
+				display: inline-block;
+				background: #fff;
+			}
+			
+			.spxq-right {
+				/* width: 2.9rem; */
+				display: flex;
+				justify-content: space-between;
+			}
+			
+			.spxq-right .shop-one {
+				display: inline-block;
+				width: 33%;
+				height: 0.5rem;
+				text-align: center;
+				line-height: 0.5rem;
+				/* border: 1px solid red; */
+			}
+			.dres img{
+				width: 100%;
+				display: block;
+				margin: 0 auto;
+				padding: 0 ;
+			}
+		</style>
+		<script src="__PUBLIC__/xin/js/rem.js"></script>
+		<script>
+		var _hmt = _hmt || [];
+		(function() {
+		  var hm = document.createElement("script");
+		  hm.src = "https://hm.baidu.com/hm.js?27840755bf9c5ae945c2936a17ab0b8b";
+		  var s = document.getElementsByTagName("script")[0]; 
+		  s.parentNode.insertBefore(hm, s);
+		})();
+		</script>
+	</head>
+
+	<body>
+		<include file="Include/right"/>
+		<!--侧滑菜单容器-->
+		<div id="offCanvasWrapper" class="mui-off-canvas-wrap mui-draggable mui-scalable">
+			<!--菜单部分-->
+			 <include file="Include/left" />
+			<!--主体-->
+			<div class="mui-inner-wrap">
+				<!--header-->
+				<header class="mui-bar mui-bar-nav zt-header">
+					<!---->
+					<a href="{:U('Home/Xin/index')}" class="mui-pull-left"><img class="header-list_img" src="__PUBLIC__/xin/images/logo-icon.png" /></a>
+					<a id="offCanvasBtn" href="#offCanvasSide" class="mui-pull-right"><img src="__PUBLIC__/xin/images/cd-icon.png" alt="" /></a>
+					<h1 class="mui-title header-list_txt">
+						{$temp.name}
+					</h1>
+				</header>
+				<div id="offCanvasContentScroll" class="mui-content mui-scroll-wrapper">
+					<div class="mui-scroll">
+						<div class="cpxq-box">
+							<div class="cpxq-xqshow">
+								<img src="{$temp.base_img}" alt="" />
+							</div>
+							<div class="hz_txt">
+								<div class="hz_txttop">
+									<span style="font-size: 0.35rem;">公司介绍:</span> 
+									<div class="dres ">{$temp.jieshao}</div>
+								</div>
+								<div class="hz_txtbtn">
+									<span style="font-size: 0.35rem;">联系电话:</span>
+									{$temp.photo}
+								</div>
+								<div class="hz_txtbtn">
+									<span style="font-size: 0.35rem;">公司地址:</span>
+									{$temp.address}
+								</div>
+							</div>
+							<!-- <div class="hz_shop">
+								<div class="zh_shoptop">
+									<div class="zh_shopico">
+										<img src="{$temp.logo}" />
+									</div>
+									<div class="zh_shopname">
+										{$temp.name}
+									</div>
+								</div>
+								
+							</div> -->
+
+							<div class="mk-box" style="margin-top:0.2rem ; padding-top: 0.5rem;">
+								<div class="mk-showbox">
+									<div class="tj-box">
+										<volist name="store" id="vo">
+											<a href="{:U('Home/Che/cpxq',array('id'=>$vo['art_id']))}">
+												<div class="tj-list">
+													<div class="tj-img"><img src="{$vo.art_img_url}" alt=""></div>
+													<div class="tj-txt">
+														<div class="tj-name">{$vo.product_title}</div>
+														<div class="tj-fir">
+															<span class="tj-fir-red">会员价：{$vo.huiyuan}</span>
+															<span>商城价：{$vo.jiage}</span>
+														</div>
+													</div>
+												</div>
+											</a>
+										</volist>
+										
+										
+
+									</div>
+								</div>
+							</div>
+							 <include file="Include/footer" />
+						</div>
+					</div>
+				</div>
+				<!-- off-canvas backdrop -->
+				<div class="mui-off-canvas-backdrop"></div>
+
+			</div>
+		</div>
+		<script src="__PUBLIC__/xin/js/mui.min.js"></script>
+		<script src="__PUBLIC__/xin/js/jquery.min.js"></script>
+		<script src="__PUBLIC__/xin/js/swiper.min.js"></script>
+		<script src="ckplayer/ckplayer.min.js"></script>
+		<script src="__PUBLIC__/xin/js/index.js"></script>
+	</body>
+
+</html>

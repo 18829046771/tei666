@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<title>常见问题</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1,user-scalable=no">
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black">
+		<link rel="stylesheet" href="__PUBLIC__/xin/css/mui.min.css">
+		<link rel="stylesheet" href="__PUBLIC__/xin/css/index.css" />
+		<script src="__PUBLIC__/xin/js/rem.js"></script>
+		<style type="text/css">
+			.top_txt{
+				width: 100%;
+				height: 1rem;
+				line-height: 1rem;
+				text-align: center;
+				font-size: 0.35rem;
+				font-weight: 600;
+			}
+			.top_list{
+				width: 100%;
+				box-sizing: border-box;
+				padding:0 15px;
+				display: inline-block;
+			}
+			.lists{
+				width: 100%;
+				display: inline-block;
+				background-color: white;
+				border-radius: 5px;
+				padding: 15px;
+				box-sizing: border-box;
+				
+			}
+			.list_top{
+				width: 100%;
+				/*height: 1rem;*/
+				position: relative;
+				display: inline-block;
+				
+			}
+			.wen{
+				position: absolute;
+				display: inline-block;
+				width: 0.4rem;
+				height: 0.4rem;
+				text-align: center;
+				line-height: 0.4rem;
+				background-color:#fc4f02;
+				font-size: 0.25rem;
+				color: white;
+				border-radius: 5px;
+			}
+			.da{ 
+					position: absolute;
+				display: inline-block;
+				width: 0.4rem;
+				height: 0.4rem;
+				text-align: center;
+				line-height: 0.4rem;
+				background-color:#37c27f;
+				font-size: 0.25rem;
+				color: white;
+				border-radius: 5px;
+			}
+			.dati{
+				width:100%;
+				box-sizing: border-box;
+				padding-left:12%;
+				display: inline-block;
+				font-size: 0.25rem;
+			}
+			.wenti{
+				font-size: 0.25rem;
+				width:100%;
+				font-weight: 600;
+				box-sizing: border-box;
+				padding-left:12%;
+				display: inline-block;
+				
+			}
+			.mar-btn{
+				margin-bottom: 0.2rem;
+				font-weight: 550;
+			}
+			.bts{
+				/*margin: 0.2rem 0;*/
+				margin-bottom: 0.3rem;
+			}
+		</style>
+	</head>
+
+	<body>
+
+			<!--主体-->
+			<div class="mui-scroll">
+				<div class="top_txt">
+					忒惠玩常见问题
+				</div>
+				<div class="top_list">
+					<volist name="temp" id="vo">
+						<div class="lists bts">
+							<div class="list_top mar-btn">
+								<span class="wen">
+									问
+								</span>
+								<div class="wenti">
+									{$vo.wen}
+								</div>
+							</div>
+							<div class="list_top">
+								<span class="da">
+									答
+								</span>
+								<div class="dati">
+									{$vo.da}
+								</div>
+							</div>
+						</div>
+					</volist>
+					
+				</div>
+			</div>
+				<script src="__PUBLIC__/xin/js/mui.min.js"></script>
+				<script src="__PUBLIC__/xin/js/jquery.min.js"></script>
+				<script src="__PUBLIC__/xin/js/index.js"></script>
+	</body>
+
+</html>

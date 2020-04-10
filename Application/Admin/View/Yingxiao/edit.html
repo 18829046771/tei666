@@ -1,0 +1,90 @@
+<extend name="Index:app" />
+<block name="css">
+
+</block>
+<block name="content">
+    <div class="row">
+        <div class="col-xs-12">
+            <div class="box">
+
+                <div class="box-header">
+                    <h3 class="box-title"><a href="{:U('yingxiao/addstpre',array('id'=>$temp['id']))}" class="btn btn-primary Normal">添加专场产品</a></h3>
+                    <div class="box-tools">
+                        <div class="input-group input-group-sm" >
+
+                        </div>
+                    </div>
+                </div>
+                <form class="form-horizontal">
+                    <div class="box-header">
+                        <h3 class="box-title">管理专场产品</h3>
+                    </div>
+                </form>
+                <!-- /.box-header -->
+                <form class="form-horizontal" action="{:U('yingxiao/bian_dele')}" method="post" enctype="multipart/form-data" id="r_list">
+                	<input type="text" hidden id="chang_id" name="chang_id" value="{$temp.id}">
+                <div class="box-body table-responsive no-padding" >
+                    <table class="table table-hover">
+                        <tr>
+                            <th>产品名称</th>
+                            <th>供应商</th>
+                            <th>直属分类</th>
+                            <th>添加时间</th>
+                            <th>操作功能</th>
+                        </tr>
+                        <volist name="store" id="vo">
+                            <tr>
+                                <td>{$vo.store_name}</td>
+                                <td>{$vo.gong}</td>
+                                <td>{$vo.fen}</td>
+                                <td>{$vo.time}</td>
+                                <td>
+                                    <a href="{:U('yingxiao/bian',array('id'=>$vo['id']))}" class="btn btn-primary btn-xs">编辑</a>
+                                    <a href="{:U('yingxiao/bian_shan',array('id'=>$vo['id']))}" class="btn btn-primary btn-xs">删除</a>
+                                    
+                                    <input type="checkbox" name="{$vo.id}" value="{$vo.id}" id="checkbox"/>
+                                </td>
+                            </tr>
+                        </volist>
+                    </table>
+                </div>
+                <!-- /.box-body -->
+                <div class="box-footer clearfix" style="text-align: center;">
+                    
+                    <div class="form-group">
+                    <a href="javascript:checkbox_all();" class="btn btn-primary btn-xs">全选</a>&nbsp;<a href="javascript:checkbox_none();" class="btn btn-primary btn-xs">取消全选</a>
+                    <input type="submit" id="btn1" value="删除"class="btn btn-primary btn-xs"/>
+                    </div>
+                </div>
+                </form>
+            </div>
+            <!-- /.box -->
+        </div>
+    </div>
+</block>
+<block name="js">
+    <script>
+
+        function checkbox_all()
+        {
+            $('#r_list :checkbox').each(function(){
+                if(!$(this).is(':checked'))
+                {
+                    $(this).click();
+                    $('#r_list :checkbox').attr('checked',true);
+                }
+            });
+        }
+        function checkbox_none()
+        {
+            $('#r_list :checkbox').each(function(){
+                if($(this).is(':checked'))
+                {
+                    $(this).click();
+                }
+            });
+        }
+    </script>
+</block>
+
+

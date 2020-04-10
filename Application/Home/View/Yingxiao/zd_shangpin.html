@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<title>忒666</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1,user-scalable=no">
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black">
+		<link rel="stylesheet" href="__PUBLIC__/xin/css/mui.min.css">
+		<link rel="stylesheet" href="__PUBLIC__/xin/css/swiper.min.css" />
+		<link rel="stylesheet" href="__PUBLIC__/xin/css/index.css" />
+		<link rel="stylesheet" type="text/css" href="__PUBLIC__/xin/css/zdall.css" />
+		<style type="text/css">
+			.spxq-numbers {
+				width: 100%;
+				padding: .3rem;
+				display: inline-block;
+				background: #fff;
+			}
+			
+			.spxq-right {
+				/* width: 2.9rem; */
+				display: flex;
+				justify-content: space-between;
+			}
+			
+			.spxq-right .shop-one {
+				display: inline-block;
+				width: 33%;
+				height: 0.5rem;
+				text-align: center;
+				line-height: 0.5rem;
+				/* border: 1px solid red; */
+			}
+		</style>
+		<script src="__PUBLIC__/xin/js/rem.js"></script>
+	</head>
+
+	<body>
+		<include file="Include/right"/>
+		<!--侧滑菜单容器-->
+		<div id="offCanvasWrapper" class="mui-off-canvas-wrap mui-draggable mui-scalable">
+			<!--菜单部分-->
+			<aside id="offCanvasSide" class="mui-off-canvas-right">
+				<div id="offCanvasSideScroll" class="mui-scroll-wrapper">
+					<div class="mui-scroll">
+						<div class="content">
+							<div class="right-box">
+								<!--header-->
+								<div class="right-header flex-s">
+									<a href="index.html"><span class="right-backIndex">返回首页</span></a>
+									<span id="offCanvasHide" class="right-hide"><img src="__PUBLIC__/xin/images/closeempty.png" alt="" /></span>
+								</div>
+								<!--top-->
+								<div class="right-top">
+									<div class="right-imgbox">
+										<img src="__PUBLIC__/xin/images/1.png" alt="" />
+									</div>
+									<p class="right-name">会员名称</p>
+								</div>
+								<!--list-->
+								<div class="right-listbox">
+									<a href="czdq.html">
+										<div class="right-list">
+											<div class="right-list_img"><img src="__PUBLIC__/xin/images/czdq-img.png" alt="" /></div>
+											<div class="right-list_txt">车载电器</div>
+										</div>
+									</a>
+									<a href="">
+										<div class="right-list">
+											<div class="right-list_img"><img src="__PUBLIC__/xin/images/gjy-img.png" alt="" /></div>
+											<div class="right-list_txt">国际游</div>
+										</div>
+									</a>
+									<a href="">
+										<div class="right-list">
+											<div class="right-list_img"><img src="__PUBLIC__/xin/images/qczs-img.png" alt="" /></div>
+											<div class="right-list_txt">汽车装饰</div>
+										</div>
+									</a>
+									<a href="">
+										<div class="right-list">
+											<div class="right-list_img"><img src="__PUBLIC__/xin/images/gny-img.png" alt="" /></div>
+											<div class="right-list_txt">国内游</div>
+										</div>
+									</a>
+									<a href="">
+										<div class="right-list">
+											<div class="right-list_img"><img src="__PUBLIC__/xin/images/aqzj-img.png" alt="" /></div>
+											<div class="right-list_txt">安全自驾</div>
+										</div>
+									</a>
+									<a href="">
+										<div class="right-list">
+											<div class="right-list_img"><img src="__PUBLIC__/xin/images/sny-img.png" alt="" /></div>
+											<div class="right-list_txt">省内游</div>
+										</div>
+									</a>
+									<a href="">
+										<div class="right-list">
+											<div class="right-list_img"><img src="__PUBLIC__/xin/images/wxby-img.png" alt="" /></div>
+											<div class="right-list_txt">维修保养</div>
+										</div>
+									</a>
+									<a href="">
+										<div class="right-list">
+											<div class="right-list_img"><img src="__PUBLIC__/xin/images/qzy-img.png" alt="" /></div>
+											<div class="right-list_txt">亲子游</div>
+										</div>
+									</a>
+									<a href="">
+										<div class="right-list">
+											<div class="right-list_img"><img src="__PUBLIC__/xin/images/pjsj-img.png" alt="" /></div>
+											<div class="right-list_txt">配件升级</div>
+										</div>
+									</a>
+									<a href="">
+										<div class="right-list">
+											<div class="right-list_img"><img src="__PUBLIC__/xin/images/srdz-img.png" alt="" /></div>
+											<div class="right-list_txt">私人定制</div>
+										</div>
+									</a>
+									<a href="">
+										<div class="right-list">
+											<div class="right-list_img"><img src="__PUBLIC__/xin/images/grzx-img.png" alt="" /></div>
+											<div class="right-list_txt">个人中心</div>
+										</div>
+									</a>
+
+								</div>
+
+							</div>
+						</div>
+					</div>
+				</div>
+			</aside>
+			<!--主体-->
+			<div class="mui-inner-wrap">
+				<!--header-->
+				<header class="mui-bar mui-bar-nav zt-header">
+					<!---->
+					<a href="{:U('Home/Xin/index')}" class="mui-pull-left"><img class="header-list_img" src="__PUBLIC__/xin/images/logo-icon.png" /></a>
+					<a id="offCanvasBtn" href="#offCanvasSide" class="mui-pull-right"><img src="__PUBLIC__/xin/images/cd-icon.png" alt="" /></a>
+					<h1 class="mui-title header-list_txt">
+						限时购商品
+					</h1>
+				</header>
+				<div id="offCanvasContentScroll" class="mui-content mui-scroll-wrapper">
+					<div class="mui-scroll">
+						<div class="cpxq-box">
+							<!--banner-->
+							<div class="swiper-container swiper-container4 cpxq-banner">
+								<div class="swiper-wrapper">
+									<div class="swiper-slide"><img src="__PUBLIC__/xin/images/8.png" alt="" /></div>
+									<div class="swiper-slide"><img src="__PUBLIC__/xin/images/8.png" alt="" /></div>
+									<div class="swiper-slide"><img src="__PUBLIC__/xin/images/8.png" alt="" /></div>
+									<div class="swiper-slide"><img src="__PUBLIC__/xin/images/8.png" alt="" /></div>
+								</div>
+								<!-- Add Pagination -->
+								<div class="swiper-pagination swiper-pagination4"></div>
+							</div>
+							<!--txt-->
+							<div class="cpxq-txtbox" style="padding:0.2rem 0 ; padding-top: 0;">
+								<div class="cpxq-firbox xs_shopmoney">
+									<div class="xs_carleft">
+										<span style="color: white;">￥<span style="font-size: 0.4rem;">10086</span></span><span style="margin-left: 0.3rem; color: white; font-size: 0.2rem;">商城价<span style="text-decoration: line-through;">100</span></span>
+									</div>
+									<div class="xs_carright">
+										<div class="carright_btn" style="margin-top:0.1rem ;">
+											限量<span class="mk_time pnum">25</span>件
+										</div>
+										<div class="carright_top" style="margin-top:0 ;">
+											先到先得售完即止
+										</div>
+										
+									</div>
+								</div>
+								<div class="cpxq-name" style="padding: 0 0.3rem; margin: 0.2rem 0;">美国哈曼JBL GT7-6C 6.5寸入门级汽车载音响套装直推喇叭原装正品</div>
+								<div class="xs_shoptime">
+									此商品9月9日10:00开抢，请提前加购！
+								</div>
+
+							</div>
+							<!--number-->
+							<!--<div class="spxq-numbers flex-s">
+								<div class="spxq-left" style="margin-bottom: 5px;">产品规格</div>
+								<div class="spxq-right">
+									<div class="shop-one jf_active">
+										测试001
+									</div>
+									<div class="shop-one">
+										测试001
+									</div>
+									<div class="shop-one">
+										测试001
+									</div>
+								</div>
+							</div>-->
+							<!--number-->
+							<div class="spxq-number flex-s">
+								<div class="spxq-left">购买数量</div>
+								<div class="spxq-right">
+									<div class="number-s btn-op"><img src="__PUBLIC__/xin/images/number-s.jpg" alt="" /></div>
+									<input class="number-sl" type="number" value="1" min="0" />
+									<div class="number-j btn-op"><img src="__PUBLIC__/xin/images/number-j.jpg" alt="" /></div>
+								</div>
+							</div>
+							<!--详情-->
+							<div class="cpxq-xqbox">
+								<div class="cpxq-title"><img src="__PUBLIC__/xin/images/xq-icon.png" alt="" /> 详情</div>
+								<div class="cpxq-xqshowbox">
+									<div class="cpxq-spbox">
+										<div class="cpxq-sp"></div>
+									</div>
+									<!--后台传过来的-->
+									<div class="cpxq-xqshow">
+										<img src="__PUBLIC__/xin/images/xsgimg.png" alt="" />
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<!-- off-canvas backdrop -->
+				<div class="mui-off-canvas-backdrop"></div>
+				<div class="cpxq-bom_box flex-s">
+					<div class="cpxq-bom_left">
+						<a href="cpxq.html">
+							<div class="cpxq-bom_list active">
+								<div class="cpxq-bom_img"><img src="__PUBLIC__/xin/images/xq-xx-icon2.png" alt="" /></div>
+								<div class="cpxq-bom_name">纵览</div>
+								<div class="cpxq-bom_active"><img src="__PUBLIC__/xin/images/coxq-bom_active.png" alt="" /></div>
+							</div>
+						</a>
+						<a href="cpxq_sysm.html">
+							<div class="cpxq-bom_list">
+								<div class="cpxq-bom_img"><img src="__PUBLIC__/xin/images/xq-sysm-icon.png" alt="" /></div>
+								<div class="cpxq-bom_name">使用说明</div>
+							</div>
+						</a>
+						<a href="cpxq_zz.html">
+							<div class="cpxq-bom_list">
+								<div class="cpxq-bom_img"><img src="__PUBLIC__/xin/images/xq-zz-icon.png" alt="" /></div>
+								<div class="cpxq-bom_name">资质</div>
+							</div>
+						</a>
+						<a href="cpxq_pl.html">
+							<div class="cpxq-bom_list">
+								<div class="cpxq-bom_img"><img src="__PUBLIC__/xin/images/xq-pl-icon.png" alt="" /></div>
+								<div class="cpxq-bom_name">评论</div>
+							</div>
+						</a>
+					</div>
+					<div class="cpxq-bom_right">立即购买</div>
+				</div>
+			</div>
+		</div>
+		<script src="__PUBLIC__/xin/js/mui.min.js"></script>
+		<script src="__PUBLIC__/xin/js/jquery.min.js"></script>
+		<script src="__PUBLIC__/xin/js/swiper.min.js"></script>
+		<script src="__PUBLIC__/xin/ckplayer/ckplayer.min.js"></script>
+		<script src="__PUBLIC__/xin/js/index.js"></script>
+		<script>
+			var swiper1 = new Swiper('.swiper-container4', {
+				pagination: '.swiper-pagination4',
+				paginationClickable: true,
+				loop: true,
+				autoplay: 2000
+			});
+
+			//视频
+			var videoObject = {
+				container: '.cpxq-sp', //容器的ID或className
+				variable: 'player', //播放函数名称
+				poster: '__PUBLIC__/xin/images/9.png', //封面图片
+				//flashplayer:true,
+				video: [ //视频地址列表形式
+					['http://vdo.361weixin.cn/%E5%92%8C%E5%BD%A9%E5%8D%B0%20%E9%98%B2%E8%AF%88%E9%AA%97.mp4', 'video/mp4']
+				]
+			};
+			var player = new ckplayer(videoObject);
+			$('.shop-one').on("tap", function() {
+				console.log(123)
+				var allbtn = $('.shop-one')
+				for(var all = 0; all < allbtn.length; all++) {
+					$(allbtn[all]).removeClass('jf_active')
+				}
+				$(this).addClass('jf_active')
+			});
+		</script>
+	</body>
+
+</html>

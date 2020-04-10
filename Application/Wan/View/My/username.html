@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<title>关于我们</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1,user-scalable=no">
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black">
+		<link rel="stylesheet" type="text/css" href="__PUBLIC__/xin/css/mui.min.css" />
+		<link rel="stylesheet" href="__PUBLIC__/xin/css/swiper.min.css" />
+		<link rel="stylesheet" href="__PUBLIC__/xin/css/index.css" />
+		<link rel="stylesheet" type="text/css" href="__PUBLIC__/xin/css/jfall.css" />
+		<script src="__PUBLIC__/xin/js/rem.js"></script>
+	</head>
+
+	<body>
+
+		<!--主体-->
+		<div class="mui-inner-wrap">
+
+			<div id="offCanvasContentScroll" class="mui-content mui-scroll-wrapper">
+				<div class="mui-scroll">
+					<!--顶部切换-->
+					<div class="ue_txt">
+						<div class="txt_idnex">
+							{$temp.content}
+						</div>
+					</div>
+				</div>
+			</div>
+			<!-- off-canvas backdrop -->
+			<div class="mui-off-canvas-backdrop"></div>
+		</div>
+		<script src="__PUBLIC__/xin/js/mui.min.js"></script>
+		<script src="__PUBLIC__/xin/js/jquery.min.js"></script>
+		<script src="__PUBLIC__/xin/js/swiper.min.js"></script>
+		<script src="__PUBLIC__/xin/js/index.js"></script>
+		<script>
+			$('.xs_time').on("tap", function() {
+				var tabs = $(".xs_time")
+				for(var a = 0; a < tabs.length; a++) {
+					tabs[a].classList.remove('xs_now')
+					tabs[a].classList.add('xs_no')
+				}
+				this.classList.add('xs_now')
+				var act = this.getAttribute('data-num')
+				var demo = $("#" + act)
+				var show = $(".xs_shop")
+				for(var i = 0; i < show.length; i++) {
+					show[i].style.display = "none"
+
+				}
+				demo.css('display', 'block')
+			});
+		</script>
+	</body>
+
+</html>

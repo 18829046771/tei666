@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<title>忒666</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1,user-scalable=no">
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black">
+		<link rel="stylesheet" href="__PUBLIC__/xin/css/mui.min.css">
+		<link rel="stylesheet" href="__PUBLIC__/xin/css/swiper.min.css" />
+		<link rel="stylesheet" href="__PUBLIC__/xin/css/index.css" />
+		<script src="__PUBLIC__/xin/js/rem.js"></script>
+	</head>
+	<style>
+		.mk-showbox {
+			padding-top: .2rem;
+		}
+		.ytx-list-txt {
+    padding: .15rem 0;
+}
+	</style>
+
+	<body>
+		<include file="Include/right"/>
+		<!--侧滑菜单容器-->
+		<div id="offCanvasWrapper" class="mui-off-canvas-wrap mui-draggable mui-scalable">
+			<!--菜单部分-->
+			<include file="Include/left" />
+			<!--主体-->
+			<div class="mui-inner-wrap">
+				<!--header-->
+				<header class="mui-bar mui-bar-nav zt-header">
+					<!---->
+					<a href="{:U('Home/Xin/index')}" class="mui-pull-left"><img class="header-list_img" src="__PUBLIC__/xin/images/logo-icon.png" /></a>
+					<a id="offCanvasBtn" href="#offCanvasSide" class="mui-pull-right"><img src="__PUBLIC__/xin/images/cd-icon.png" alt="" /></a>
+					<h1 class="mui-title header-list_txt">
+						{$name}
+					</h1>
+				</header>
+				<div id="offCanvasContentScroll" class="mui-content mui-scroll-wrapper">
+					<div class="mui-scroll">
+						<php>$empty = '<div style="text-align: center;color: #666;margin-top: 100px;">本栏目产品正在更新中，敬请期待！</div>';</php>
+						<volist name="temp" id="vo" empty="$empty">
+							<div class="mk-box">
+								<div class="mk-showbox">
+									<a href="{:U('Home/Tourism/ytx_cpxq',array('id'=>$vo['art_id']))}">
+										<div class="ytx-list-box">
+											<div class="ytx-list-img"><img src="{$vo.art_img_url}" alt="" /></div>
+											<div class="ytx-list-txt">
+												<div class="yxt-list-name">
+													{$vo.product_title}
+													<span class="float-r color-red">会员价：{$vo.huiyuan}/人起</span>
+												</div>
+												<div class="ytx-list-show" style="text-align: right;margin-top: 0.15rem;">商城价：{$vo.jiage}/人起</div>
+											</div>
+										</div>
+									</a>
+								</div>
+							</div>
+						</volist>
+                    <!--<div class="mk-box">
+							<div class="mk-showbox">
+								<a href="ytx_cpxq.html">
+									<div class="ytx-list-box">
+										<div class="ytx-list-img"><img src="__PUBLIC__/xin/images/15.png" alt="" /></div>
+										<div class="ytx-list-txt">
+											<div class="yxt-list-name">
+												苏梅岛双方六日（自由行）
+												<span class="float-r color-red">4380元/人起</span>
+											</div>
+											<div class="ytx-list-show">不逃离、不乏味，生活一样可以很有趣生活一样可以很有趣生活一样可以很有趣</div>
+										</div>
+									</div>
+								</a>
+							</div>
+						</div>
+						<div class="mk-box">
+							<div class="mk-showbox">
+								<a href="ytx_cpxq.html">
+									<div class="ytx-list-box">
+										<div class="ytx-list-img"><img src="__PUBLIC__/xin/images/15.png" alt="" /></div>
+										<div class="ytx-list-txt">
+											<div class="yxt-list-name">
+												苏梅岛双方六日（自由行）
+												<span class="float-r color-red">4380元/人起</span>
+											</div>
+											<div class="ytx-list-show">不逃离、不乏味，生活一样可以很有趣生活一样可以很有趣生活一样可以很有趣</div>
+										</div>
+									</div>
+								</a>
+							</div>
+						</div>
+						<div class="mk-box">
+							<div class="mk-showbox">
+								<a href="ytx_cpxq.html">
+									<div class="ytx-list-box">
+										<div class="ytx-list-img"><img src="__PUBLIC__/xin/images/15.png" alt="" /></div>
+										<div class="ytx-list-txt">
+											<div class="yxt-list-name">
+												苏梅岛双方六日（自由行）
+												<span class="float-r color-red">4380元/人起</span>
+											</div>
+											<div class="ytx-list-show">不逃离、不乏味，生活一样可以很有趣生活一样可以很有趣生活一样可以很有趣</div>
+										</div>
+									</div>
+								</a>
+							</div>
+						</div>-->
+					</div>
+				</div>
+				<!-- off-canvas backdrop -->
+				<div class="mui-off-canvas-backdrop"></div>
+			</div>
+		</div>
+		<script src="__PUBLIC__/xin/js/mui.min.js"></script>
+		<script src="__PUBLIC__/xin/js/jquery.min.js"></script>
+		<script src="__PUBLIC__/xin/js/swiper.min.js"></script>
+		<script src="__PUBLIC__/xin/js/index.js"></script>
+		<script>
+			//banner
+			var swiper1 = new Swiper('.swiper-container1', {
+				pagination: '.swiper-pagination1',
+				paginationClickable: true,
+				loop: true,
+				autoplay: 2000
+			});
+		</script>
+	</body>
+
+</html>

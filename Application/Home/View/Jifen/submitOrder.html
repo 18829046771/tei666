@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<title>忒666</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1,user-scalable=no">
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black">
+		<link rel="stylesheet" href="__PUBLIC__/xin/css/mui.min.css">
+		<link rel="stylesheet" href="__PUBLIC__/xin/css/swiper.min.css" />
+		<link rel="stylesheet" href="__PUBLIC__/xin/css/index.css" />
+		<link rel="stylesheet" href="__PUBLIC__/xin/css/oderitem.css" />
+		<script src="__PUBLIC__/xin/js/rem.js"></script>
+		<style type="text/css">
+			.zt-header a img {
+				width: 0.28rem;
+				margin-top: .22rem;
+			}
+			
+			.zt-header {
+				background: white !important;
+				height: 1rem;
+				transition: all .1s;
+			}
+			
+			.clearfix:after {
+				content: "020";
+				display: block;
+				height: 0;
+				clear: both;
+				visibility: hidden;
+			}
+			.pay{
+				margin-left: 5%;
+				display: inline-block;
+			}
+			.txtnowarp2 {
+	display: -webkit-box;
+	-webkit-box-orient: vertical;
+	-webkit-line-clamp: 2;
+	overflow: hidden;
+}
+
+		</style>
+	</head>
+
+	<body>
+<include file="Include/right" />
+		
+		<!--header-->
+		<header class="mui-bar mui-bar-nav zt-header">
+			<!---->
+			<a href="javascript:history.back(-1)" class="mui-pull-left ss-togbtn"><img src="__PUBLIC__/xin/images/back.png" /></a>
+
+			<h1 class="mui-title" style="color: black;">
+						确认订单
+					</h1>
+		</header>
+		<div class="top">
+			<if condition="!empty($address)">
+			<div class="map">
+				<div class="map_top">
+					<span>
+					{$address.name}
+					</span>
+					<span>
+					{$address.dian}
+					</span>
+				</div>
+				<div class="map_btn">
+					<span style="float: left; width: 15%;">地址:</span>
+					<span style="float: left; width:85%; padding-right: 10px;">{$address.address}{$address.xiangqing}</span>
+				</div>
+			</div>
+				<else/>
+			<div class="map" style="height: 0.8rem;line-height: 0.8rem">
+				添加收货地址
+			</div>
+			</if>
+
+			<form>
+				<input type="hidden" name="goods_id" value="{$goodsInfo.art_id}" />
+				<input type="hidden" name="sel_num" value="{$Think.get.sel_num}" />
+				<input type="hidden" name="sel_price" value="{$goodsInfo.sel_price}" />
+				<input type="hidden" name="sel_spec" value="{$goodsInfo.sel_spec}" />
+			</form>
+
+			<div class="item">
+				<div class="item_top">
+					忒666
+				</div>
+				<div class="item_list">
+					<div class="list_one">
+						<div class="one_top clearfix">
+							<div class="top_left">
+								<img src="{$goodsInfo.art_img_url}" />
+							</div>
+							<div class="top_center">
+								<div class="shop_name txtnowarp2" style="	line-height:0.5rem;">
+									{$goodsInfo.product_title}
+								</div>
+								<div class="shop_num">
+									￥{$goodsInfo.sel_price}
+								</div>
+							</div>
+							<div class="top_right">
+								x{$Think.get.sel_num}
+							</div>
+						</div>
+						<!--<div class="list_txt">-->
+							<!--订单编号：<span>{$temp.paysn}</span>-->
+						<!--</div>-->
+						<!--<div class="list_txt">-->
+							<!--下单时间：<span>{$temp.time}</span>-->
+						<!--</div>-->
+						<!--<div class="list_txt">-->
+							<!--运&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;费：<span>{$store.youdi}</span>-->
+						<!--</div>-->
+					</div>
+					
+				</div>
+
+			</div>
+				<a class="pay now_dh">
+					立即兑换
+				</a>
+		</div>
+		<script src="__PUBLIC__/xin/js/mui.min.js"></script>
+		<script src="__PUBLIC__/xin/js/jquery.min.js"></script>
+		<script src="__PUBLIC__/xin/js/swiper.min.js"></script>
+		<script>
+            mui('body').on('tap', '.now_dh', function(event){
+                mui.init({
+                    swipeBack: true //启用右滑关闭功能
+                });
+                var btnArray = ['取消', '确定'];
+                mui.confirm('确定要兑换吗？','提示', btnArray, function(e) {
+
+                    if(e.index == 1) {
+
+                        pay()
+
+                    }else{
+
+                    }
+                });
+            });
+
+
+			if(performance.navigation.type == 2){ //返回
+			    location.reload();
+			}
+
+			function pay(){
+				// alert("请设置收货地址");
+				$('.pay').text('稍等片刻...');
+				$.ajax({
+					url:"{:U('jifen/dhDo')}",
+					type:'post',
+					data:$('form').serialize(),
+					success:function (data) {
+						if(data.state == 0){
+                            $('.pay').text('立即兑换');
+							var zong=data.zong;
+							var jifen=data.jifen;
+						    window.location.href='/index.php/Home/jifen/jifenbuzu/zong/'+zong+'/jifen/'+jifen+'.html';
+						}else{
+                            window.location.href='/index.php/Home/jifen/success.html';
+						}
+                    }
+				})
+			}
+			$(".map").click(function (){
+				window.location.href='/index.php/Home/My/mapdemo.html';
+			})
+		</script>
+	</body>
+
+</html>

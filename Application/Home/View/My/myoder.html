@@ -1,0 +1,431 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<title>忒666</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1,user-scalable=no">
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black">
+		<link rel="stylesheet" href="__PUBLIC__/xin/css/mui.min.css">
+		<link rel="stylesheet" href="__PUBLIC__/xin/css/swiper.min.css" />
+		<link rel="stylesheet" href="__PUBLIC__/xin/css/index.css" />
+		<link rel="stylesheet" type="text/css" href="__PUBLIC__/xin/css/myoder.css" />
+		<script src="__PUBLIC__/xin/js/rem.js"></script>
+		<style type="text/css">
+			.zt-header a img {
+				width: 0.28rem;
+				margin-top: .22rem;
+			}
+			
+			.zt-header {
+				background: white !important;
+				height: 1rem;
+				transition: all .1s;
+			}
+			.shop_list{
+				display: none;
+			}
+		</style>
+	</head>
+
+	<body>
+		<include file="Include/right"/>
+		<!--header-->
+		<header class="mui-bar mui-bar-nav zt-header">
+			<!---->
+			<a href="javascript:history.back(-1)" class="mui-pull-left ss-togbtn"><img src="__PUBLIC__/xin/images/back.png" /></a>
+
+			<h1 class="mui-title" style="color: black;">
+						我的订单
+			</h1>
+		</header>
+		<div class="top">
+			<div class="top_tab">
+				<div class="tab  <if condition="$tyy eq 1">one</if>" data-num="quan">
+					全部
+				</div>
+				<div class="tab <if condition="$tyy eq 2">one</if> " data-num="fu">
+					待付款
+				</div>
+				<div class="tab <if condition="$tyy eq 3">one</if>" data-num="fa">
+					待发货
+				</div>
+				<div class="tab <if condition="$tyy eq 4">one</if>" data-num="shou">
+					待收货
+				</div>
+				<div class="tab <if condition="$tyy eq 5">one</if>" data-num="ping">
+					待评价
+				</div>
+				
+			</div>
+			<!-----------------------------------全部--------------------------------->
+			<div class="shop_list" id="quan"  >
+				<volist name="quanbu" id="vo">
+					<div class="list_one">
+						<a href="{:U('My/orderdet', ['id' => $vo['id']])}" style="color: #000;">
+							<div class="one_txt">
+								<div class="tex_left">
+									订单号:{$vo.paysn}
+								</div>
+								<div class="tex_right">
+		                             <if condition="$vo['ster'] eq 0 and $vo['tuikuan'] eq 0">待付款</if>
+		                             <if condition="$vo['ster'] eq 1 and $vo['tuikuan'] eq 0">待发货</if>
+		                             <if condition="$vo['ster'] eq 2 and $vo['tuikuan'] eq 0">待收货</if>
+		                             <if condition="$vo['ster'] eq 3 and $vo['tuikuan'] eq 0">待评价</if>
+		                             <if condition="$vo['ster'] eq 4 and $vo['tuikuan'] eq 0">已完成</if>
+		                             <if condition="$vo['tuikuan'] eq 1">退款中</if>
+		                             <if condition="$vo['tuikuan'] eq 2">已退款</if>
+								</div>
+							</div>
+							<div class="one_index">
+								<div class="index_img">
+									<img src="{$vo.img}" alt="" />
+								</div>
+								<div class="index_txt">
+									{$vo.name}
+								</div>
+							</div>
+							<div class="one_item">
+								订单总价: <span>{$vo.zong}</span>
+							</div>
+							<div class="one_item">
+								订单时间: <span>{$vo.time}</span>
+							</div>
+						</a>
+
+						<if condition="$vo['ster'] eq 0 and $vo['tuikuan'] eq 0">
+							<div class="one_some">
+								<span class="some_left quxiao" ids="{$vo.id}">取消订单</span>
+								<a href="/wx_pay/example/jsapi.php?order_sn={$vo.paysn}&order_amount={$vo.zong}&order_id={$vo.store_id}"><span class="some_ringht">去支付</span></a>
+							</div>
+						</if>
+						<if condition="$vo['ster'] eq 1 and $vo['tuikuan'] eq 0">
+							<div class="one_some">
+	
+								<span ids="{$vo.id}" class="some_ringht tuikuan">我要退款</span>
+							</div>
+						</if>
+						
+						<if condition="$vo['ster'] eq 2 and $vo['tuikuan'] eq 0">
+							<div class="one_some">
+								<a href="{:U('My/wl',array('id'=>$vo['id']))}"><span class="some_left wuliu">查看物流</span></a>
+								<span ids="{$vo.id}" class="some_ringht shouhuo">确定收货</span>
+							</div>
+						</if>
+						
+						<if condition="$vo['ster'] eq 3 and $vo['tuikuan'] eq 0">
+							<div class="one_some">
+								<span ids="{$vo.id}" class="some_left tuikuan">我要退款</span>
+								<a href="{:U('Che/fbpl',array('id'=>$vo['store_id'],'dingid'=>$vo['id']))}"><span  class="some_ringht ">去评价</span></a>
+							</div>
+						</if>
+						<if condition="$vo['ster'] eq 4 and $vo['tuikuan'] eq 0">
+							 <div class="one_some">
+								<span ids="{$vo.id}" class="some_left tuikuan">我要退款</span>
+								
+							</div>
+						</if>
+	                    <if condition="$vo['tuikuan'] eq 1">
+	                    	<div class="one_some">
+								<span ids="{$vo.id}" class="some_ringht chexiao">撤销退款</span>
+								
+							</div>
+	                    </if>
+                        <if condition="$vo['tuikuan'] eq 2">
+                     	
+                        </if>
+					</div>
+				</volist>
+				
+			</div>
+			
+			
+			<!-------------------------------------------代付款-------------------------------------->
+			<div class="shop_list" id="fu" >
+				<volist name="temp" id="vo">
+					<div class="list_one">
+						<a href="{:U('My/orderdet', ['id' => $vo['id']])}" style="color: #000;">
+							<div class="one_txt">
+								<div class="tex_left">
+									订单号:{$vo.paysn}
+								</div>
+								<div class="tex_right">
+									待付款
+								</div>
+							</div>
+							<div class="one_index">
+								<div class="index_img">
+									<img src="{$vo.img}" alt="" />
+								</div>
+								<div class="index_txt">
+									{$vo.name}
+								</div>
+							</div>
+							<div class="one_item">
+								订单总价: <span>{$vo.zong}</span>
+							</div>
+							<div class="one_item">
+								订单时间: <span>{$vo.time}</span>
+							</div>
+						</a>
+
+						<div class="one_some">
+							<span class="some_left quxiao" ids="{$vo.id}">取消订单</span>
+							<a href="/wx_pay/example/jsapi.php?order_sn={$vo.paysn}&order_amount={$vo.zong}&order_id={$vo.store_id}"><span class="some_ringht">去支付</span></a>
+						</div>
+					</div>
+				</volist>
+				
+				
+			</div>
+			<!-------------------------------------------代发货-------------------------------------->
+			<div class="shop_list" id="fa"  >
+				<volist name="tem" id="vo">
+					<div class="list_one">
+						<a href="{:U('My/orderdet', ['id' => $vo['id']])}" style="color: #000;">
+							<div class="one_txt">
+								<div class="tex_left">
+									订单号:{$vo.paysn}
+								</div>
+								<div class="tex_right">
+									待发货
+								</div>
+							</div>
+							<div class="one_index">
+								<div class="index_img">
+									<img src="{$vo.img}" alt="" />
+								</div>
+								<div class="index_txt">
+									{$vo.name}
+								</div>
+							</div>
+							<div class="one_item">
+								订单总价: <span>{$vo.zong}</span>
+							</div>
+							<div class="one_item">
+								订单时间: <span>{$vo.time}</span>
+							</div>
+						</a>
+
+						<div class="one_some">
+	
+							<span ids="{$vo.id}" class="some_ringht tuikuan">我要退款</span>
+						</div>
+					</div>
+				</volist>
+				
+				
+			</div>
+			<!-----------------------------待收货------------------------------------>
+			<div class="shop_list" id="shou"  >
+				<volist name="te" id="vo">
+					<div class="list_one">
+						<a href="{:U('My/orderdet', ['id' => $vo['id']])}" style="color: #000;">
+							<div class="one_txt">
+								<div class="tex_left">
+									订单号:{$vo.paysn}
+								</div>
+								<div class="tex_right">
+									待收货
+								</div>
+							</div>
+							<div class="one_index">
+								<div class="index_img">
+									<img src="{$vo.img}" alt="" />
+								</div>
+								<div class="index_txt">
+									{$vo.name}
+								</div>
+							</div>
+							<div class="one_item">
+								订单总价: <span>{$vo.zong}</span>
+							</div>
+							<div class="one_item">
+								订单时间: <span>{$vo.time}</span>
+							</div>
+						</a>
+
+						<div class="one_some">
+							<a href="{:U('My/wl',array('id'=>$vo['id']))}"><span class="some_left wuliu">查看物流</span></a>
+							<span ids="{$vo.id}" class="some_ringht shouhuo">确定收货</span>
+							
+						</div>
+					</div>
+				</volist>
+				
+
+			</div>
+			
+			
+			
+			<!-----------------------------------待评价--------------------------------->
+			
+			
+			<div class="shop_list" id="ping" >
+				<volist name="ping" id="vo">
+					<div class="list_one">
+						<a href="{:U('My/orderdet', ['id' => $vo['id']])}" style="color: #000;">
+							<div class="one_txt">
+								<div class="tex_left">
+									订单号:{$vo.paysn}
+								</div>
+								<div class="tex_right">
+									待评价
+								</div>
+							</div>
+							<div class="one_index">
+								<div class="index_img">
+									<img src="{$vo.img}" alt="" />
+								</div>
+								<div class="index_txt">
+									{$vo.name}
+								</div>
+							</div>
+							<div class="one_item">
+								订单总价: <span>{$vo.zong}</span>
+							</div>
+							<div class="one_item">
+								订单时间: <span>{$vo.time}</span>
+							</div>
+						</a>
+
+						<div class="one_some">
+							<span ids="{$vo.id}" class="some_left tuikuan">我要退款</span>
+							<a href="{:U('Che/fbpl',array('id'=>$vo['store_id'],'dingid'=>$vo['id']))}"><span  class="some_ringht ">去评价</span></a>
+						</div>
+					</div>
+				</volist>
+				
+
+			</div>
+			
+		</div>
+		
+		<img src="__PUBLIC__/xin/images/wuhuo.png" alt="" id="wuhuo" style="display: none;" />
+		</div>
+		<script src="__PUBLIC__/xin/js/mui.min.js"></script>
+		<script src="__PUBLIC__/xin/js/jquery.min.js"></script>
+		<script src="__PUBLIC__/xin/js/swiper.min.js"></script>
+		<include file="public/comm" />
+		<script>
+			  
+			function ids(){
+				 var ids=$(".one").attr("data-num");
+				 var mo = $("#" + ids);
+				 var show = $(".shop_list");
+				  show.css('display', 'none');
+				 mo.css('display', 'block');
+			}
+			ids();
+			 
+			$(function() {
+				
+				
+				
+			
+				var tabs = $(".tab")
+				
+				$(".tab").click(function() {
+					var tabs = $(".tab")
+					for(var a = 0; a < tabs.length; a++) {
+						tabs[a].classList.remove('one')
+
+					}
+					this.classList.add('one')
+					var act = this.getAttribute('data-num')
+					var demo = $("#" + act)
+					var show = $(".shop_list")
+					for(var i = 0; i < show.length; i++) {
+						console.log()
+						show[i].style.display = "none"
+
+					}
+					
+					demo.css('display', 'block')
+
+				})
+
+			})
+		</script>
+	</body>
+
+</html>
+
+<script>
+	//取消订单
+	$(".quxiao").click(function(){
+		var id=$(this).attr("ids");
+		$.ajax({
+            type : "POST",
+            contenttype :"application/x-www-form-urlencoded;charset=utf-8", 
+            url:"{:U('Home/My/quxiao')}",
+            data : {'id':id},
+            dataType : 'json',
+            success: function(data){
+			    if(data.state==1){
+			    	 alert(data.msg);
+			    	 window.location.reload();
+			    }else{
+			    	 alert(data.msg);
+			    }
+            }
+        });
+	})
+	
+	// 我要退款
+	$(".tuikuan").click(function(){
+		var id=$(this).attr("ids");
+		mui.confirm('您确定要退款吗？','温馨提示',['取消', '确定'],function(e){
+			if(e.index == 1){
+				window.location.href = "{:U('My/tk')}?id=" + id;
+			}
+		});
+	});
+	
+	//撤销退款
+	$(".chexiao").click(function(){
+		var id=$(this).attr("ids");
+		mui.confirm('您确定要撤销退款吗？','温馨提示',['取消', '确定'],function(e){
+			if(e.index == 1){
+				$.ajax({
+		            type : "POST",
+		            contenttype :"application/x-www-form-urlencoded;charset=utf-8", 
+		            url:"{:U('Home/My/chexiao')}",
+		            data : {'id':id},
+		            dataType : 'json',
+		            success: function(data){
+					    if(data.state==1){
+					    	 alert(data.msg);
+					    	 window.location.reload();
+					    }else{
+					    	 alert(data.msg);
+					    }
+		            }
+		        });
+			}
+		});
+	})
+	//  确定收货
+	$(".shouhuo").click(function(){
+		var id=$(this).attr("ids");
+		$.ajax({
+            type : "POST",
+            contenttype :"application/x-www-form-urlencoded;charset=utf-8", 
+            url:"{:U('Home/My/shouhuo')}",
+            data : {'id':id},
+            dataType : 'json',
+            success: function(data){
+			    if(data.state==1){
+			    	 alert(data.msg);
+			    	 window.location.reload();
+			    }else{
+			    	 alert(data.msg);
+			    }
+            }
+        });
+	});
+	
+	
+	
+</script>

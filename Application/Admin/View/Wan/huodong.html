@@ -1,0 +1,142 @@
+<extend name="Index:app" />
+<block name="css">
+
+</block>
+<block name="content">
+    <div class="row">
+        <div class="col-xs-12">
+            <div class="box">
+
+                <div class="box-header">
+                    <h3 class="box-title"><a href="{:U('Wan/add')}" class="btn btn-primary Normal">添加活动</a></h3>
+                    <div class="box-tools">
+                        <div class="input-group input-group-sm" >
+
+                        </div>
+                    </div>
+                </div>
+                <div class="box-header">
+                    <h3 class="box-title">活动管理</h3>
+                    <form class="form-inline" action="{:U('Wan/huodong')}" method="get">
+                        <div class="input-group input-group-sm">
+                            <select class="form-control" id="type" name="type">
+                                <option value="">请选择参与类型</option>
+                                <option value="1">免费仅限会员参与</option>
+                                <option value="2">会员非会员均可参加</option>
+                                <option value="3">仅会员可参加</option>
+                            </select>
+                        </div>
+                        <div class="input-group input-group-sm">
+                            <select id="is_sj" name="is_sj"  class="form-control">
+                          	     <option value="">请选择</option>
+                          	     <option value="1">上架</option>
+                          	     <option value="2">下架</option>
+                            </select>
+                        </div>
+                        <div class="input-group input-group-sm">
+                            <input type="text"  placeholder="请输入活动名称"  id="ming" name="ming" value="{$ming}" class="form-control">
+                        </div>
+                        <input type="submit"  value="搜索" class="btn btn-primary btn-sm">
+                    </form>
+                </div>
+                <!-- /.box-header -->
+                <div class="box-body table-responsive no-padding" >
+                    <table class="table table-hover">
+                        <tr>
+                            <th>活动名称</th>
+                            <th>参与人数</th>
+                            <th>封面图片</th>
+                            <th>参与类型</th>
+                            <th>是否上架</th>
+                            <!-- <th>排序</th> -->
+                            <th>活动开始时间</th>
+                            <th>添加时间</th>
+                            <th>操作功能</th>
+                        </tr>
+                        <volist name="list" id="vo">
+                            <tr>
+                                <td>{$vo.title}</td>
+                                <th>{$vo.num}</th>
+                                <td><img src="{$vo.photo}" style="width: 50px;height: 40px;object-fit: cover;" /></td>
+                                <td>{:huodongType($vo['type'])}</td>
+                                <td>
+                                	 <if condition="$vo['is_sj'] eq 1">
+                                	 	上架
+                                	 	<else/>
+                                	 	下架
+                                	 </if>
+                                </td>
+                                <!-- <td>
+                                	<input type="text" class="pai" name="{$vo.id}" id="{$vo.id}" value="{$vo.pai}">
+                                </td> -->
+                                <td>{:date('Y-m-d H:i:s', $vo['start_time'])}</td>
+                                <td>{:date('Y-m-d H:i:s', $vo['add_time'])}</td>
+                                <td>
+                                    <a href="{:U('Wan/edit', ['id' => $vo['id']])}"  class="btn btn-primary btn-xs">编辑</a>
+     
+                                   <!-- <div class="btn btn-primary btn-xs  mo" ids="{$vo.id}" data-toggle="modal" data-target="#myModal" >删除</div>   -->
+                                </td>
+                            </tr>
+                        </volist>
+                    </table>
+                </div>
+
+                <!-- /.box-body -->
+                <div class="box-footer clearfix" style="text-align: center;">
+                    <ul class="pagination pagination-sm no-margin">
+                        {$show}
+                    </ul>
+                    <div class="form-group">
+                   </div>
+                </div>
+            </div>
+            <!-- /.box -->
+        </div>
+    </div>
+    <!-- 模态框（Modal） -->
+    <form class="form-horizontal" action="{:U('Wan/delete')}" method="post">
+		<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+			<div class="modal-dialog">
+				<div class="modal-content">
+					<div class="modal-header">
+						<button type="button" class="close" data-dismiss="modal" aria-hidden="true">
+							&times;
+						</button>
+						<h4 class="modal-title" id="myModalLabel">
+							提示框
+						</h4>
+					</div>
+					<div class="modal-body">
+						确定删除此活动？
+					</div>
+					<input type="text" hidden name="id" id="artse" value="">
+					<div class="modal-footer">
+						<button type="button" class="btn btn-default" data-dismiss="modal">关闭
+						</button>
+						<button type="submit"  class="btn btn-primary">
+							删除
+						</button>
+					</div>
+				</div>
+			</div>
+		</div>
+    
+      </form>
+
+</block>
+<block name="js">
+    <script>
+        $("#type").val('{$type}');
+        $("#is_sj").val('{$is_sj}');
+    	 $(".mo").click(function(){
+    	 	  var num = $(this).attr('ids');
+    	 	  $("#artse").val(num);
+    	 });
+    	 $(".pai").blur(function(){
+    	 	  var id=$(this).attr('id');
+    	 	  var val = $(this).val();
+    	 	  window.location.href ="/index.php/Admin/Wan/paixu?id=" + id + '&val=' + val;
+    	 });
+    </script>
+</block>
+

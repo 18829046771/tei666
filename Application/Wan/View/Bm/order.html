@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<title>忒惠玩</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1,user-scalable=no">
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black">
+		<link rel="stylesheet" href="__PUBLIC__/wan/css/mui.min.css">
+		<link rel="stylesheet" href="__PUBLIC__/wan/css/swiper.min.css" />
+		<link rel="stylesheet" href="__PUBLIC__/wan/css/index.css" />
+		<script src="__PUBLIC__/wan/js/rem.js"></script>
+		<style type="text/css">
+
+		</style>
+	</head>
+
+	<body>
+		<!--<header class="mui-bar mui-bar-nav zt-header">
+			<a href="javascript:history.back(-1)" class="mui-pull-left ss-togbtn"><img src="__PUBLIC__/wan/images/back.png"></a>
+			<h1 class="mui-title" style="color: black;">
+				订单详情
+			</h1>
+		</header>-->
+		<div class="myplayindex">
+			<div class="demo_a">
+				<div class="d_list_center">
+					<div class="d_list_centerleft">
+						<div class="d_shopimg">
+							<img src="{$hd.photo}" />
+						</div>
+					</div>
+					<div class="d_list_centerright">
+						<div class="d_shopname">{$hd.title}</div>
+						<div class="d_shopnindex">
+							活动地址：<span class="color_black">{$hd.address}</span>
+						</div>
+						<div class="d_shopnindex">
+							活动时间：<span class="color_black">{:date('Y-m-d H:i:s', $hd['start_time'])}</span>
+						</div>
+						<div class="d_shopnindex">
+							联系电话：<span class="color_black">{$hd.phone}</span>
+						</div>
+						<div class="d_shopnindex" style="margin-top:0.4rem ;">
+							数量：<span class="color_black"><span id="fen">1</span>份</span> 合计：<span class="color_black heji">¥{$hd.money}</span>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="c_list c_lista">
+				<div class="c_listleft">
+					活动单价
+				</div>
+				<div class="c_listright c_listrighta">
+					￥{$hd.money}
+				</div>
+			</div>
+			<div class="c_list c_lista">
+				<div class="c_listleft">
+					购买数量
+				</div>
+				<div class="c_listright c_listrighta c_txtright c_paddings">
+					<span class="guige_jian"></span>
+					<span class="guige_num">1</span>
+					<span class="guige_jia"></span>
+				</div>
+			</div>
+			<div class="c_list c_lista" style="margin-top: 0.2rem;">
+				<div class="c_listleft">
+					姓名
+				</div>
+				<div class="c_listright c_listrighta">
+			
+					<input class="c_input" type="text" name="sename" id="sename" value="{$user.sename}">
+				</div>
+			</div>
+			<div class="c_list c_lista" style="margin-bottom: 0.2rem;">
+				<div class="c_listleft">
+					电话号码
+				</div>
+				<div class="c_listright c_listrighta">
+			
+					<input class="c_input" type="text" name="photo" id="photo" value="{$user.photo}">
+				</div>
+			</div>
+			
+			<!--收费区域   如果是免费就把这部分去掉-->
+			<div class="e_list">
+				<div class="e_list_top">
+					选择支付方式
+				</div>
+				<div class="e_list_center">
+					<div class="e_list_cleft e_weixinico e_paddig">
+						微信支付
+					</div>
+					<div class="e_list_cright e_payactive">
+						
+					</div>
+				</div>
+			</div>
+			<!--收费区域end-->
+			
+			
+			<div class="f_list f_margin" style='height: 1.3rem'>
+				<div class="f_listleft f_noactive" id="ok">
+					我已阅读并同意
+				</div>
+				<a href="{:U('Bm/tiaokuan')}" class="f_listright">
+					活动服务条款
+				</a>
+				<div class="tishi">
+					备注：不支持随时退款(活动开始72小时内不支持退款)
+				</div>
+			</div>
+		</div>
+		<div class="nav_a">
+	
+			<div class="nav_aleft">
+				<eq name="hd.type" value="1">免费<else />合计：<span class="heji">¥{$hd.money}</span></eq>
+			</div>
+			
+			<div class="nav_aright ljzf_btn">
+				立即支付
+			</div>
+		</div>
+	</body>
+	<script src="__PUBLIC__/wan/js/jquery.min.js" type="text/javascript" charset="utf-8"></script>
+	<script src="__PUBLIC__/wan/js/mui.min.js" type="text/javascript" charset="utf-8"></script>
+	<script type="text/javascript">
+		var num = 1;
+		var maxNum = parseInt('{$hd.sy}');
+
+		// 加功能
+		$('.c_list').on('click', '.guige_jia', function() {
+			// 获取产品个数
+			var jiaNum = $('.guige_num').text();
+			jiaNum = parseInt(jiaNum);
+			if (jiaNum >= maxNum) {
+				mui.alert('购买数量超过剩余名额！');
+			}else{
+				jiaNum++;
+				js(jiaNum);
+			}
+		});
+
+		// 减功能
+		$('.c_list').on('click', '.guige_jian', function() {
+			var jianNum = $('.guige_num').text();
+			jianNum = parseInt(jianNum);
+			if(jianNum > 1) {
+				jianNum--;
+			}
+			js(jianNum);
+		});
+
+		// 计算
+		function js(numb) {
+			var money = '{$hd.money}';
+			var heji = numb * money;
+			// 改变商品数量
+			$('.guige_num').text(numb);
+			$("#fen").text(numb);
+			$(".heji").text('￥' + heji);
+			num = numb;
+		}
+		var ok = 0;
+		$('#ok').click(function(){
+			if(!$(this).hasClass('f_active')){
+				$(this).removeClass('f_noactive');
+				$(this).addClass('f_active');
+				ok = 1;
+			}else{
+				$(this).removeClass('f_active');
+				$(this).addClass('f_noactive');
+				ok = 0;
+			}
+		});
+		$('.e_payactive').click(function(){
+			$(this).toggleClass('e_payactive_active');
+		});
+		
+		$('.ljzf_btn').click(function(){
+			if (ok == 0) {
+				mui.alert('请选择我已同意并阅读活动服务条款！');
+				return false;
+			}
+			var sename = $("#sename").val();
+			if (sename == '') {
+				mui.alert('请输入真实姓名！');
+				return false;
+			}
+			var photo = $("#photo").val();
+			if (photo == '') {
+				mui.alert('请输入手机号码！');
+				return false;
+			}
+
+			// 验证手机号码
+			if(!(/^1[3|4|5|7|8][0-9]\d{4,8}$/.test(photo))){ 
+				mui.alert('手机号码格式错误！');
+				return false;
+			}
+
+			if (photo.length < 11) {
+				mui.alert('手机号码长度不足11位！');
+				return false;
+			}
+
+			window.location.href = "{:U('Bm/pay')}?num=" + num + "&hid=" + '{$hd.id}&sename=' + sename + "&photo=" + photo;
+		});
+	</script>
+
+</html>

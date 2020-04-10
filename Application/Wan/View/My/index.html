@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<title>忒惠玩</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1,user-scalable=no">
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black">
+		<link rel="stylesheet" href="__PUBLIC__/wan/css/mui.min.css">
+		<link rel="stylesheet" href="__PUBLIC__/wan/css/swiper.min.css" />
+		<link rel="stylesheet" href="__PUBLIC__/wan/css/index.css" />
+		<script src="__PUBLIC__/wan/js/rem.js"></script>
+	</head>
+
+	<body>
+		<div class="wd_box">
+			<div class="index_user">
+				<img class="index_userbgm" src="__PUBLIC__/wan/images/userbgm.png" />
+				<div class="index_userico">
+					<img src="{$userInfo.img}" />
+				</div>
+				<div class="index_usertxt">
+					{$userInfo.sename}
+				</div>
+			</div>
+			<a href="{:U('My/info')}" class="a_list">
+				<div class="a_left list_bottom userico">
+					个人信息
+				</div>
+				<div class="a_right list_bottom">
+	
+				</div>
+			</a>
+			<a href="{:U('My/play')}" class="a_list">
+				<div class="a_left list_bottom userworkico">
+					我报名的活动
+				</div>
+				<div class="a_right list_bottom">
+	
+				</div>
+			</a>
+
+			<if condition="$userInfo['type'] eq 1">
+				<a href="{:U('Home/Huiyuan/vipindex')}" class="a_list">
+			<else/>
+				<a href="{:U('Home/Huiyuan/myvip')}" class="a_list">
+			</if>
+
+				<div class="a_left list_bottom uservipico">
+					会员中心
+				</div>
+				<div class="a_right list_bottom">
+	
+				</div>
+			</a>
+			<a href="{:U('My/longtime')}" class="a_list">
+				<div class="a_left list_bottom userwentiico">
+					常见问题
+				</div>
+				<div class="a_right list_bottom">
+	
+				</div>
+			</a>
+			<a href="{:U('My/username')}" class="a_list">
+				<div class="a_left  useraboutico">
+					关于我们
+				</div>
+				<div class="a_right ">
+	
+				</div>
+			</a>
+		</div>
+		<!--bom-->
+		
+		<include file="Include/nav"/>
+		
+	</body>
+	<script src="__PUBLIC__/wan/js/jquery.min.js" type="text/javascript" charset="utf-8"></script>
+	<script src="__PUBLIC__/wan/js/mui.min.js"></script>
+	<script src="__PUBLIC__/wan/js/city.data-3.js"></script>
+	<script src="__PUBLIC__/wan/js/mui.picker.min.js"></script>
+	<script src="__PUBLIC__/wan/js/mui.poppicker.js"></script>
+	<script src="__PUBLIC__/wan/js/index2.js"></script>
+	<script>
+		mui.init();
+
+		selectNav(3);
+	</script>
+</html>

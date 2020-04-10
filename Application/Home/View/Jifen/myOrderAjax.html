@@ -1,0 +1,55 @@
+<volist name="list" id="vo">
+	<div class="list_one">
+		<div class="one_txt">
+			<div class="tex_left">
+				订单号:{$vo.paysn}
+			</div>
+			<div class="tex_right">
+				<if condition="$vo.ster eq 1">待发货</if>
+				<if condition="$vo.ster eq 2">待收货</if>
+				<if condition="$vo.ster eq 3">待评价</if>
+			</div>
+		</div>
+		<div class="one_index">
+			<div class="index_img">
+				<img src="{$vo.img}" alt="" />
+			</div>
+			<div class="index_txt">
+				{$vo.name}
+			</div>
+		</div>
+		<div class="one_item">
+			订单总价: <span>{$vo.zong}积分</span>
+		</div>
+		<div class="one_item">
+			订单时间: <span>{$vo.time}</span>
+		</div>
+		<div class="one_some">
+
+			<if condition="$vo.ster eq 2"><span onclick="receive({$vo.id})" class="some_ringht">确认收货</span></if>
+			<if condition="$vo.ster eq 3"><span onclick="location.href='{:U('jifen/fbpl')}?gid={$vo.goods_id}&oid={$vo.id}'" class="some_ringht">去评价</span></if>
+
+		</div>
+	</div>
+</volist>
+
+<script>
+	//确认收货
+	function receive(id) {
+		mui.confirm('亲,收到宝贝了吗？','提示',['还没有','收到了'],function(e){
+			if(e.index == 1){
+			    var index = layer.load()
+			    $.ajax({
+					url:"{:U('jifen/commitReceive')}",
+					type:'post',
+					data:{'id':id},
+					success:function (data) {
+						layer.close(index)
+						layer.msg(data.info)
+						ajaxList(2,'',1)
+                    }
+				})
+			}
+		})
+    }
+</script>

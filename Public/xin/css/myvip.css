@@ -1,0 +1,178 @@
+* .tops {
+  width: 100%;
+  background-color: #f5dad1;
+  box-sizing: border-box;
+  display: inline-block;
+  padding-bottom: 0.5rem;
+}
+* .tops .headers {
+  position: absolute;
+  width: 100%;
+  background-color: #f5dad1;
+  height: 5rem;
+  background-image: url(../images/viptop.png);
+  background-position: top center;
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+}
+* .tops .header_top {
+  position: absolute;
+  background-color: #f5dad1;
+  top: 4.4rem;
+  width: 100%;
+  display: inline-block;
+  height: 4rem;
+  background-image: url(../images/db.png);
+  background-position: center center;
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+  padding: 0.5rem 6%;
+  overflow: hidden;
+}
+* .tops .header_top .top_list {
+  display: inline-block;
+  width: 32%;
+  height: 1.5rem;
+  margin-bottom: 4%;
+  background-position: center 15%;
+  background-repeat: no-repeat;
+  background-size: 30%;
+}
+* .tops .header_top .top_list .list_txt {
+  margin-top: 1rem;
+  width: 100%;
+  height: 0.25rem;
+  font-size: 0.25rem;
+  line-height: 0.25rem;
+  text-align: center;
+}
+* .tops .header_top .buff {
+  background-image: url(../images/buff.png);
+}
+* .tops .header_top .cb {
+  background-image: url(../images/cb.png);
+}
+* .tops .header_top .jf {
+  background-image: url(../images/jf.png);
+}
+* .tops .header_top .hd {
+  background-image: url(../images/hd.png);
+}
+* .tops .header_top .hym {
+  background-image: url(../images/hym.png);
+}
+* .tops .header_top .jfh {
+  background-image: url(../images/jfh.png);
+}
+* .tops .header_top .border {
+  border-right: 1px solid #C7C7CC;
+}
+* .tops .kt_vip {
+  margin-top: 8.8rem;
+  width: 100%;
+  height: 1rem;
+  background-image: url(../images/ktvip.png);
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: 97%;
+  border-radius: 5px;
+}
+* .tops .kt_vip .vip_mopey {
+  display: inline-block;
+  box-sizing: border-box;
+  margin-left: 10%;
+  width: 50%;
+  height: 1rem;
+  text-align: center;
+  line-height: 1rem;
+  color: white;
+  font-size: 0.3rem;
+}
+* .tops .kt_vip .vip_mopey strong {
+  font-size: 0.4rem;
+}
+* .tops .buffs {
+  margin-top: 0.6rem;
+  width: 100%;
+  display: inline-block;
+}
+* .tops .buffs .isimg {
+  width: 100%;
+  height: 4rem;
+}
+* .tops .buffs .isimg img {
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  display: block;
+}
+* .tops .buffs .buff_txt {
+  display: inline-block;
+  width: 92%;
+  background-image: url(../images/isbuff.png);
+  background-position: top center;
+  background-repeat: no-repeat;
+  background-size: 100%;
+  border-radius: 5px;
+  padding-bottom: 5%;
+  margin-left: 4%;
+}
+* .tops .buffs .buff_txt .txt_top {
+  padding: 0 5%;
+  width: 3.4rem;
+  height: 0.7rem;
+  margin: 0 auto;
+  font-size: 0.3rem;
+  text-align: center;
+  line-height: 0.7rem;
+  color: white;
+}
+* .tops .buffs .buff_txt .txt_ite {
+  padding: 0 5%;
+  width: 100%;
+  margin-top: 0.3rem;
+  font-size: 0.3rem;
+}
+* .tops .buffs .buff_txt .shop {
+  padding: 0 5%;
+  margin: 0.25rem 0;
+  width: 100%;
+  height: 1.1rem;
+}
+* .tops .buffs .buff_txt .shop .shop_img {
+  width: 1.1rem;
+  height: 1.1rem;
+  float: left;
+}
+* .tops .buffs .buff_txt .shop .shop_img img {
+  width: 100%;
+  height: 100%;
+  display: block;
+  margin: 0;
+  padding: 0;
+}
+* .tops .buffs .buff_txt .shop .shop_txt {
+  padding: 0 5%;
+  padding-left: 1.3rem;
+  width: 100%;
+  height: 1.1rem;
+}
+* .tops .buffs .buff_txt .shop .shop_txt .txt_name {
+  width: 100%;
+  height: 0.5rem;
+  font-size: 0.3rem;
+}
+* .tops .buffs .buff_txt .shop .shop_txt .text_money {
+  text-align: center;
+  width: 100%;
+  height: 0.6rem;
+  font-size: 0.3rem;
+}
+* .tops .buffs .buff_txt .text_index {
+  background-color: white;
+  padding: 0 5%;
+  width: 100%;
+  display: inline-block;
+  font-size: 0.3rem;
+}

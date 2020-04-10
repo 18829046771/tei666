@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<title>忒666</title>
+		<script src="__PUBLIC__/wo/js/mui.min.js"></script>
+		<link href="__PUBLIC__/wo/css/mui.min.css" rel="stylesheet" />
+		<link rel="stylesheet" href="__PUBLIC__/wo/css/gxf.css" />
+		<link rel="stylesheet" href="__PUBLIC__/wo/css/myapp.css">
+		<link rel="stylesheet" href="__PUBLIC__/xin/css/index.css" />
+		<script type="text/javascript" src="/plugins/kdniao/jquery.min.js"></script>
+		<script type="text/javascript" src="/plugins/kdniao/kdniao2.js"></script>
+		
+		<script type="text/javascript" charset="utf-8">
+			mui.init();
+		</script>
+		<!--物流样式-->
+		<script src="__PUBLIC__/wo/js/rem.js"></script>
+		<link rel="stylesheet" href="__PUBLIC__/wo/css/wlstyle.css">
+	</head>
+	<style>
+		.mui-checkbox input[type=checkbox],
+		.mui-radio input[type=radio] {
+			top: 8px
+		}
+		
+		#queryContext h2 {
+			display: none !important;
+			margin: 0 !important
+		}
+		
+		#queryContext .header .th span {
+			margin-top: 8px;
+		}
+		
+		.#queryContext .tbody .kd_tb td .fir {
+			margin: 0;
+		}
+		
+		#queryContext .tbody .kd_tb td {
+			font-size: 12px;
+		}
+	</style>
+
+	<body>
+<include file="Include/right"/>
+		
+		<header class="mui-bar mui-bar-nav zt-header">
+			<!---->
+			<a href="{:U('Home/Xin/index')}" class="mui-pull-left"><img class="header-list_img" src="__PUBLIC__/xin/images/logo-icon.png" /></a>
+			<a id="offCanvasBtn" href="#offCanvasSide" class="mui-pull-right"><img src="__PUBLIC__/xin/images/cd-icon.png" alt="" /></a>
+			<h1 class="mui-title header-list_txt">
+						物流详情
+			</h1>
+		</header>
+		<div class="mui-content">
+			<div class="zl-list" style="margin:0;height:auto">
+				<div class="zl-showbox">
+					<div class="zl-imgbox">
+						<img src="{$temp.img}" alt="" />
+					</div>
+					<div class="zl-right">
+						<p class="zl-name font30">{$temp.name}</p>
+						<p class="zl-name font28 color999">{$name}：{$dan}</p>
+
+					</div>
+				</div>
+			</div>
+			<div class="wl-bottom" style="background: #fff;padding-top:0;margin-top:10px;">
+				<div id="queryContext" class="fix"></div>
+			</div>
+		</div>
+	</body>
+	<script src="__PUBLIC__/wo/js/jquery.min.js"></script>
+
+</html>
+<script type="text/javascript">
+	$(function() {
+		var dan = "{$dan}";
+		var name = "{$name}";
+		//		 alert(dan);
+		//		 alert(name);
+		//如果使用页面自动加载，需要在页面加载中调用以下函数
+		//		kdniao.query("3863890005544","韵达快递");
+		kdniao.query(dan, name);
+	});
+</script>

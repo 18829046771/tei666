@@ -1,0 +1,447 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<title>忒666</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1,user-scalable=no">
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black">
+		<link rel="stylesheet" href="__PUBLIC__/xin/css/mui.min.css">
+		<link rel="stylesheet" href="__PUBLIC__/xin/css/swiper.min.css" />
+		<link rel="stylesheet" href="__PUBLIC__/xin/css/index.css" />
+		<script src="__PUBLIC__/xin/js/rem.js"></script>
+		<style type="text/css">
+			input{
+				-webkit-user-select: auto;
+			}
+			.srdz {
+				width: 100%;
+				display: inline-block;
+				background-color: white;
+				padding: 0 0.2rem;
+			}
+			
+			.srdz_list {
+				width: 100%;
+				height: 0.82rem;
+				line-height: 0.82rem;
+				border-bottom: 1px solid #efefef;
+				font-size: 0;
+			}
+			
+			.list_name {
+				width: 20%;
+				height: 0.8rem;
+				display: inline-block;
+				line-height: 0.8rem;
+				font-size: 0.3rem;
+				vertical-align: top;
+				text-align: center;
+			}
+			
+			.list_tav {
+				width: 80%;
+				height: 0.8rem;
+				display: inline-block;
+				line-height: 0.8rem;
+				vertical-align: top;
+				font-size: 0.3rem;
+			}
+			
+			.mui-input-row {
+				width: 30%;
+				display: inline-block;
+			}
+			
+			.mui-checkbox.mui-left label,
+			.mui-radio.mui-left label {
+				padding-right: 15px;
+				padding-left: 45px;
+			}
+			
+			.mui-checkbox input[type=checkbox]:before,
+			.mui-radio input[type=radio]:before {
+				font-family: Muiicons;
+				font-size: 18px;
+				font-weight: 400;
+				line-height: 1;
+				text-decoration: none;
+				color: #aaa;
+				border-radius: 0;
+				background: 0 0;
+				-webkit-font-smoothing: antialiased;
+			}
+			
+			.mui-checkbox input[type=checkbox]:checked:before,
+			.mui-radio input[type=radio]:checked:before {
+				color: #ff9600;
+			}
+			
+			.mui-checkbox input[type=checkbox],
+			.mui-radio input[type=radio] {
+				position: absolute;
+				top: 8px;
+				right: 20px;
+				display: inline-block;
+				width: 28px;
+				height: 26px;
+				border: 0;
+				outline: 0!important;
+				background-color: transparent;
+				-webkit-appearance: none;
+			}
+			
+			.tav_ipt {
+				padding: 9px 10px;
+				width: 100% !important;
+				border: 1px solid transparent !important;
+				margin-bottom: 0 !important;
+				height: 0.75rem !important;
+				line-height: 0.75rem !important;
+				font-size: 0.3rem !important;
+			}
+			
+			.lyix_listtop {
+				width: 100%;
+				height: .85rem;
+				padding: 0 .2rem;
+				margin: 0.1rem 0;
+			}
+			
+			.title_left_blue {
+				margin-top: 0.2rem;
+				width: .1rem;
+				height: .45rem;
+				background: #314e86;
+				float: left;
+				margin-right: .2rem;
+			}
+			
+			.lyin_listname {
+				display: inline-block;
+				font-size: .3rem;
+				font-weight: 600;
+				color: #333;
+				height: .85rem;
+				line-height: 0.85rem;
+			}
+			
+			.srdz_leb {
+				width: 100%;
+				height: 1.6rem;
+				font-size: 0;
+			}
+			
+			.leb_one {
+				width: 33.3%;
+				display: inline-block;
+				height: 1.6rem;
+			}
+			
+			.leb_one_top {
+				width: 100%;
+				line-height: 0.8rem;
+				text-align: center;
+				font-size: 0.3rem;
+				height: 0.8rem;
+			}
+			
+			.leb_one_btn {
+				width: 100%;
+				line-height: 0.8rem;
+				text-align: center;
+				font-size: 0.3rem;
+				height: 0.8rem;
+			}
+			
+			.yy_timebtn {
+				border-radius: 5px;
+				
+				width: 70%;
+				height: 0.8rem;
+				line-height: 0.8rem;
+				text-align: center;
+				background-color: white;
+				border: 1px solid #e1e1e1;
+				box-sizing: border-box;
+				padding: 0 0.1rem;
+			}
+			
+			.time_ico {
+				appearance: none;
+				-moz-appearance: none;
+				-webkit-appearance: none;
+				background-image: url(__PUBLIC__/xin/images/toleft.png);
+				background-repeat: no-repeat;
+				background-position: 90% center;
+				background-size: 10%;
+			}
+			
+			.leb_tbn {
+				width: 70%;
+				height: 0.8rem;
+				/*line-height: 0.8rem;*/
+				text-align: center;
+				background-color: #ff9600;
+				color: white;
+				font-size: 0.3rem;
+				border-radius: 5px;
+				margin: 1rem ;
+			}
+		</style>
+	</head>
+
+	<body>
+		<include file="Include/right"/>
+		<!--侧滑菜单容器-->
+		<div id="offCanvasWrapper" class="mui-off-canvas-wrap mui-draggable mui-scalable">
+			<!--菜单部分-->
+			<include file="Include/left" />
+			<!--主体-->
+			<div class="mui-inner-wrap">
+				<!--header-->
+				<header class="mui-bar mui-bar-nav zt-header">
+					<!---->
+					<a href="{:U('Home/Xin/index')}" class="mui-pull-left"><img class="header-list_img" src="__PUBLIC__/xin/images/logo-icon.png" /></a>
+					<a id="offCanvasBtn" href="#offCanvasSide" class="mui-pull-right"><img src="__PUBLIC__/xin/images/cd-icon.png" alt="" /></a>
+					<h1 class="mui-title header-list_txt">
+						私人订制
+					</h1>
+				</header>
+				<form   action="{:U('Tourism/dingzhi')}" method="post" enctype="multipart/form-data" onsubmit="return  toVaild()" >
+				<div id="offCanvasContentScroll" class="mui-content mui-scroll-wrapper">
+						
+					<div class="mui-scroll">
+						<div class="srdz">
+							<div class="srdz_list">
+								<div class="list_name">
+									性&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;别
+								</div>
+								<div class="list_tav">
+									<div class="mui-input-row mui-radio mui-left">
+										<label>男</label>
+										<input name="sex" value="1" type="radio">
+									</div>
+									<div class="mui-input-row mui-radio mui-left">
+										<label>女</label>
+										<input name="sex" value="2" type="radio">
+									</div>
+								</div>
+							</div>
+							<div class="srdz_list">
+								<div class="list_name">
+									姓&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;名
+								</div>
+								<div class="list_tav">
+									<input type="text" placeholder="请输入姓名" name="name" id="name" value="" /class="tav_ipt">
+								</div>
+							</div>
+							<div class="srdz_list">
+								<div class="list_name">
+									联系方式
+								</div>
+								<div class="list_tav">
+									<input type="number" placeholder="请输入手机号码" name="phone" id="phone" value="" /class="tav_ipt">
+								</div>
+							</div>
+							<div class="srdz_list">
+								<div class="list_name">
+									生&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;日
+								</div>
+								<div class="list_tav">
+									<input type="date" placeholder="请输入生日" name="shengri" id="shengri" value="" /class="tav_ipt">
+								</div>
+							</div>
+							<div class="srdz_list">
+								<div class="list_name">
+									入住时间
+								</div>
+								<div class="list_tav">
+									<input type="date" placeholder="请输入入住时间" name="zhutime" id="zhutime" value="" /class="tav_ipt">
+								</div>
+							</div>
+							<div class="srdz_list">
+								<div class="list_name">
+									预计人数
+								</div>
+								<div class="list_tav">
+									<input type="text" placeholder="请输入人数" name="shu" id="shu" value="" /class="tav_ipt">
+								</div>
+							</div>
+
+						</div>
+						<div class="lyix_listtop">
+							<div class="title_left_blue"></div>
+							<div class="lyin_listname">定制要求</div>
+
+						</div>
+						<div class="srdz">
+
+							<div class="srdz_list">
+								<div class="list_name">
+									目的地
+								</div>
+								<div class="list_tav">
+									<input type="text" placeholder="请输入目的地" name="mudizhi" id="mudizhi" value="" /class="tav_ipt">
+								</div>
+							</div>
+							<div class="srdz_list">
+								<div class="list_name">
+									景区景点
+								</div>
+								<div class="list_tav">
+									<input type="text" placeholder="请输入景区景点" name="jingdian" id="jingdian" value="" /class="tav_ipt">
+								</div>
+							</div>
+							<div class="srdz_leb">
+								<div class="leb_one">
+									<div class="leb_one_top">
+										当地酒店标志
+									</div>
+									<div class="leb_one_btn">
+										<select class="yy_timebtn time_ico" name="jidian" id="jidian">
+											<option value="经济型">经济型</option>
+											<option value="舒适型">舒适型</option>
+											<option value="豪华型">豪华型</option>
+											
+										</select>
+									</div>
+								</div>
+								<div class="leb_one">
+									<div class="leb_one_top">
+										当地旅游用车
+									</div>
+									<div class="leb_one_btn">
+										<select class="yy_timebtn time_ico" name="che" id="che">
+											<option value="经济型">经济型</option>
+											<option value="舒适型">舒适型</option>
+											<option value="豪华型">豪华型</option>
+										
+										</select>
+									</div>
+								</div>
+								<div class="leb_one">
+									<div class="leb_one_top">
+										当地旅游服务
+									</div>
+									<div class="leb_one_btn">
+										<select class="yy_timebtn time_ico" name="fuwu" id="fuwu">
+											<option value="经济型">经济型</option>
+											<option value="舒适型">舒适型</option>
+											<option value="豪华型">豪华型</option>
+										
+										</select>
+									</div>
+								</div>
+
+							</div>
+							<button type="submit" class="leb_tbn">
+								保存
+							</button>
+						</div>
+					</div>
+				
+				</div>
+				</form>
+				<!-- off-canvas backdrop -->
+				<div class="mui-off-canvas-backdrop"></div>
+			</div>
+		</div>
+		<script src="__PUBLIC__/xin/js/mui.min.js"></script>
+		<script src="__PUBLIC__/xin/js/jquery.min.js"></script>
+		<script src="__PUBLIC__/xin/js/swiper.min.js"></script>
+		<script src="__PUBLIC__/xin/js/index.js"></script>
+		<script>
+			
+			function toVaild(){
+				        var val=$('input:radio[name="sex"]:checked').val();
+				            if(val==null){
+				                alert("请选择性别");
+				                return false;
+				            }
+				            
+				
+				
+				
+					    var name=$("#name").val();
+		                if(name==''){
+		                	alert("请输入姓名");
+		                	return false;
+		                }
+		               
+		                
+		                var photo=$("#phone").val();
+		                if(photo==''){
+		                	alert("请输入手机号");
+		                		return false;
+		                }
+		                if(!(/^1[3|4|5|8][0-9]\d{4,8}$/.test(photo))) {
+							alert("请输入正确的11位电话号码");
+							return false;
+		                }
+		                
+		              
+		                
+		                var shengri=$("#shengri").val();
+		                if(shengri==''){
+		                	alert("请输入生日");
+		                		return false;
+		                }
+		                
+		                
+		                var zhutime=$("#zhutime").val();
+		                if(zhutime==''){
+		                	alert("请输入入住时间");
+		                	return false;
+		                }
+		                
+		                var shu=$("#shu").val();
+		                if(shu==''){
+		                	alert("请输入人数");
+		                	return false;
+		                }
+		                
+		                var mudizhi=$("#mudizhi").val();
+		                if(mudizhi==''){
+		                	alert("请输入目的地");
+		                	return false;
+		                }
+		                
+		                
+		                var jingdian=$("#jingdian").val();
+		                if(jingdian==''){
+		                	alert("请输入景点");
+		                	return false;
+		                }
+		                
+		               var  jidian=$("#jidian option:selected").val();
+		                    if(jidian==''){
+		                    	alert("请选择酒店");
+		                	    return false;
+		                    }
+		                    
+		                var  che=$("#che option:selected").val();
+		                    if(che==''){
+		                    	alert("请选择旅游用车");
+		                	   return false;
+		                    }
+		                    
+		                var  fuwu=$("#fuwu option:selected").val();
+		                    if(fuwu==''){
+		                    	alert("请选择旅游服务");
+		                	   return false;
+		                    }     
+		                
+		               return true
+		                
+				
+				
+				
+			}
+			
+			
+		</script>
+	</body>
+
+</html>

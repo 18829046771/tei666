@@ -1,0 +1,119 @@
+<extend name="Index:app" />
+<block name="css">
+
+</block>
+<block name="content">
+	<div class="row">
+		<div class="col-xs-12">
+			<div class="box">
+
+				<div class="box-header">
+
+					<div class="box-tools">
+						<div class="input-group input-group-sm">
+
+						</div>
+					</div>
+				</div>
+				<form class="form-horizontal" style="" action="{:U('Log/teiwa_index')}" method="get" enctype="multipart/form-data">
+					<div class="box-header">
+						<h3 class="box-title" style="padding: 0px 30px 0px 0px;">订单列表</h3> 
+						开始时间： <input type="text" class="demo-input" placeholder="请选择日期" id="kaitime" value="{$kaitime}" name="kaitime"> 
+						结束时间：<input type="text" class="demo-input" placeholder="请选择日期" name="endtime" value="{$endtime}" id="endtime">
+						 产品名称：<input type="text" class="demo-input" placeholder="请输入产品名称" value="{$storename}" name="storename" id="storename"> 
+					       请选择供应商：     
+				        <select id="gong" name="gong">
+							<option value="">请选择供应商</option>
+							<volist name="gong" id="vo">
+								<option value="{$vo.id}" <if condition="$vo['id'] eq $gongid "> selected="selected"</if>>{$vo.name}</option>
+							</volist>
+
+						</select>
+
+						请选择服务商：
+						<select id="fuwu" name="fuwu">
+							<option value="">请选择服务商</option>
+							<volist name="fuwu" id="vo">
+								<option value="{$vo.id}" <if condition="$vo['id'] eq $fuwuid "> selected="selected"</if>>{$vo.name}</option>
+							</volist>
+
+						</select>
+						<input type="submit" value="搜索" / class="btn btn-primary btn-xs" style="margin-top:-5px">
+						<a style="margin-top: -5px;" href="{:U('Log/teiwa_daochu', ['gong' => $gongid,'fuwu'=>$fuwuid,'storename'=>$storename, 'kaitime' => $kaitime, 'endtime' => $endtime])}" class="btn btn-primary btn-xs">
+                                           导出
+                        </a>
+					</div>
+				</form>
+
+				<!--<form class="form-horizontal" style="width:19%; display: inline-block;" action="{:U('Log/che_index')}" method="post" enctype="multipart/form-data" style="width:45%;display: inline-block;">
+					<div class="box-header">
+						<input type="text" placeholder="请输入订单编号" id="ming" name="ming" style="margin-left:90px;width:150px;font-size:16px;">
+						<input type="submit" value="搜索" / class="btn btn-primary btn-xs" style="margin-top:-5px">
+					</div>
+				</form>-->
+
+				<div class="box-body table-responsive no-padding">
+					<table class="table table-hover">
+						<tr>
+							<th>订单编号</th>
+							<th>产品名称</th>
+							<th>支付时间</th>
+							<th>下单手机号</th>
+							<th>下单人姓名</th>
+							<th>收入金额</th>
+							<th>折扣</th>
+							<th>实收金额</th>
+							<!-- <th>邮费金额</th>-->
+							<!--<th>退款金额</th>-->
+							<th>交易渠道</th>
+							<th>状态</th>
+
+						</tr>
+						<volist name="list" id="vo">
+							<tr>
+								<td>{$vo.pay}</td>
+								<th>{$vo.name}</th>
+								<th>{$vo.zhifu_time}</th>
+								<td>{$vo.photo}</td>
+								<td>{$vo.sename}</td>
+								<td>{$vo.shouru}</td>
+								<td>{$vo.zhe}</td>
+								<td>{$vo.zong}</td>
+								<!--  <td>{$vo.you}</td>-->
+								<!-- <td>{$vo.tui}</td>-->
+								<td>{$vo.qu}</td>
+								<td>{$vo.zhuangtai}</td>
+
+							</tr>
+						</volist>
+					</table>
+				</div>
+				<!-- /.box-body -->
+				<div class="box-footer clearfix" style="text-align: center;">
+					<ul class="pagination pagination-sm no-margin">
+						{$page}
+					</ul>
+
+				</div>
+				<!--</form>-->
+			</div>
+			<!-- /.box -->
+		</div>
+	</div>
+</block>
+<block name="js">
+
+	<script>
+		//执行一个laydate实例
+		laydate.render({
+			elem: '#kaitime',
+			type: 'datetime'
+		});
+		//执行一个laydate实例
+		laydate.render({
+			elem: '#endtime',
+			type: 'datetime'
+		});
+	</script>
+
+</block>

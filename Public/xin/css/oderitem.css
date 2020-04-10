@@ -1,0 +1,135 @@
+* .top {
+  margin-top: 1rem;
+  width: 100%;
+  display: inline-block;
+}
+* .top .map {
+  margin-top: 2px;
+  width: 100%;
+  padding: 0 15px;
+  display: inline-block;
+  background-color: white;
+  background-image: url(../images/toleft.png);
+  background-position: 98% center;
+  background-repeat: no-repeat;
+  background-size: 3%;
+  padding-left: 20px;
+}
+* .top .map .map_top {
+  width: 100%;
+  height: 0.8rem;
+  background-image: url(../images/map.png);
+  background-position: center left;
+  background-repeat: no-repeat;
+  background-size: 5%;
+  padding-left: 20px;
+}
+* .top .map .map_top span {
+  display: inline-block;
+  height: 0.8rem;
+  line-height: 0.8rem;
+  font-size: 0.3rem;
+}
+* .top .map .map_btn {
+  width: 100%;
+  display: inline-block;
+  font-size: 0.3rem;
+  color: #a4a4a4;
+}
+* .top .map .map_btn span {
+  display: inline-block;
+  height: 100%;
+}
+* .top .item {
+  width: 100%;
+  padding: 0 15px;
+  margin-top: 0.2rem;
+  background-color: white;
+}
+* .top .item .item_top {
+  padding-left: 25px;
+  line-height: 1rem;
+  font-size: 0.3rem;
+  background-image: url(../images/homes.png);
+  background-size: 5%;
+  background-position: 2% center;
+  background-repeat: no-repeat;
+}
+* .top .item_list {
+  background-color: white;
+  width: 100%;
+  display: inline-block;
+}
+* .top .item_list .list_one {
+  width: 100%;
+  display: inline-block;
+}
+* .top .item_list .list_one .one_top {
+  width: 100%;
+  border-top: 1px solid #e5e5e5;
+  border-bottom: 1px solid #e5e5e5;
+  margin-bottom: 0.3rem;
+}
+* .top .item_list .list_one .one_top .top_left {
+  display: inline-block;
+  width:2rem;
+  box-sizing: border-box;
+  float: left;
+  height: 2rem;
+  padding: 10px 0;
+}
+* .top .item_list .list_one .one_top .top_left img {
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  display: block;
+}
+* .top .item_list .list_one .one_top .top_center {
+  width: 58%;
+  float: left;
+  height: 2rem;
+  box-sizing: border-box;
+  padding: 10px;
+}
+* .top .item_list .list_one .one_top .top_center .shop_name {
+  width: 100%;
+  height: 1rem;
+  font-size: 0.34rem;
+}
+* .top .item_list .list_one .one_top .top_center .shop_num {
+  width: 100%;
+  font-size: 0.3rem;
+  color: #858585;
+}
+* .top .item_list .list_one .one_top .top_right {
+  display: inline-block;
+  width: 10%;
+  float: right;
+  height: 2rem;
+  line-height: 2rem;
+  color: #858585;
+}
+* .top .item_list .list_one .list_txt {
+	margin: 0.05rem 0;
+  width: 100%;
+  padding-left: 15px;
+  font-size: 0.3rem;
+}
+* .top .item_list .zong {
+  width: 100%;
+  padding-left: 15px;
+  font-size: 0.3rem;
+}
+* .top .pay {
+	display:block;
+  width: 80%;
+  height: 0.8rem;
+  line-height: 0.8rem;
+  text-align: center;
+  border-radius: 5px;
+  color: white;
+  margin: 1rem auto;
+  background-color: #ff9600;
+  /*margin-left: 5%;*/
+}

@@ -1,0 +1,22 @@
+/*地址管理*/
+.dz-list{width:100%;margin-bottom:.2rem;background: #fff;}
+.dz-showtop{width:100%;height:1.6rem;display: flex;justify-content: space-between;padding:.3rem;flex-direction: column;}
+.dz-showtop p{margin:0;font-size:15px;color:#333333;}
+.dz-name{text-align: left;}
+.dz-tep{float: right;}
+.dz-bjbox{width:100%;padding:.15rem .3rem;border-top:1px solid #f0eff4;display: flex;justify-content: space-between;}
+.dz-bj{float:right;font-size:15px;padding:8px 0}
+.xz{color:#f19401;}
+.dz-bj a{color:#333}
+.dz-add{position: fixed;bottom:1px;width:100%;height:.9rem;text-align: center;}
+.mui-btn-block{background: #007aff;color:#fff;border:0;padding:.2rem 0;margin-top:50px;}
+.xz{color:#007aff}
+/**/
+.dd-top{width:100%;height:1.3rem;padding:.2rem .3rem;background: #fff;}
+.dd-topleft{width:10%;height:100%;float:left;line-height: .8rem;}
+.dd-topright{width:90%;height:100%;float:right;display: flex;justify-content: space-between;flex-direction: column;}
+.dd-topright p{margin:0;font-size:15px;color:#333;}
+.dd-fir{width:100%;padding:0 .3rem;background: #fff;font-size:15px;}
+.dd-bhbox{width:100%;padding:.1rem .3rem;margin-top:.2rem;background:#fff}
+.dd-bhbox p{margin:5px 0;}
+.dd-bh{font-size:15px;color:#333333}

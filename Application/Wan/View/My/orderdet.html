@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<title>忒惠玩</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1,user-scalable=no">
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black">
+		<link rel="stylesheet" href="__PUBLIC__/wan/css/mui.min.css">
+		<link rel="stylesheet" href="__PUBLIC__/wan/css/swiper.min.css" />
+		<link rel="stylesheet" href="__PUBLIC__/wan/css/index.css" />
+		<script src="__PUBLIC__/wan/js/rem.js"></script>
+	</head>
+
+	<body class="bgfff">
+		<div class="ddxq_box font30">
+			<div class="ddxq_modal">
+				
+				<a href="{:U('Index/det', ['id' => $hd['id']])}">
+				<div class="ddxq_title flex-s">
+					<div class="ddxq_title_name">
+						{$hd.title}
+					</div>
+					<img src="__PUBLIC__/wan/images/ddxq_r.png" alt="" />
+				</div>
+				</a>
+				<div class="ddxq_listbox">
+					<div class="ddxq_list flex-s">
+						<span class="col808">订单编号：</span>
+						<div class="ddxq-r col333">
+							<div>{$res.paysn}</div>
+						</div>
+					</div>
+					<div class="ddxq_list flex-s">
+						<span class="col808">活动日期：</span>
+						<div class="ddxq-r col333">
+							<div>{:date('Y年m月d日 H时i分', $hd['start_time'])}</div>
+						</div>
+					</div>
+					<div class="ddxq_list flex-s">
+						<span class="col808">活动地点：</span>
+						<div class="ddxq-r col333">
+							<div>{$hd.address}</div>
+						</div>
+					</div>
+					<div class="ddxq_list flex-s">
+						<span class="col808">联系电话：</span>
+						<div class="ddxq-r col333">
+							<div>{$hd.phone}</div>
+						</div>
+					</div>
+					<div class="ddxq_list flex-s">
+						<span class="col808">报名人：</span>
+						<div class="ddxq-r col333">
+							<div>{$res.name}({$res.phone})</div>
+						</div>
+					</div>
+					<div class="ddxq_list flex-s">
+						<span class="col808">数量：</span>
+						<div class="ddxq-r col333">
+							<div>{$res.number}</div>
+						</div>
+					</div>
+					<div class="ddxq_list flex-s">
+						<span class="col808">总金额：</span>
+						<div class="ddxq-r col333">
+							<div>{$res.money}</div>
+						</div>
+					</div>
+					<div class="ddxq_list flex-s">
+						<span class="col808">报名时间：</span>
+						<div class="ddxq-r col333">
+							<div>{:date('Y年m月d日 H时i分', $res['add_time'])}</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</body>
+	<script src="__PUBLIC__/wan/js/jquery.min.js" type="text/javascript" charset="utf-8"></script>
+	<script src="__PUBLIC__/wan/js/mui.min.js"></script>
+	<script src="__PUBLIC__/wan/js/city.data-3.js"></script>
+	<script src="__PUBLIC__/wan/js/mui.picker.min.js"></script>
+	<script src="__PUBLIC__/wan/js/mui.poppicker.js"></script>
+	<script src="__PUBLIC__/wan/js/index2.js"></script>
+</html>

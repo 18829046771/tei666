@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<title>忒666</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1,user-scalable=no">
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black">
+		<link rel="stylesheet" href="__PUBLIC__/xin/css/mui.min.css">
+		<link rel="stylesheet" href="__PUBLIC__/xin/css/swiper.min.css" />
+		<link rel="stylesheet" href="__PUBLIC__/xin/css/index.css" />
+		<link rel="stylesheet" type="text/css" href="__PUBLIC__/xin/css/addmap.css" />
+		<script src="__PUBLIC__/xin/js/rem.js"></script>
+		<style type="text/css">
+			.zt-header a img {
+				width: 0.28rem;
+				margin-top: .22rem;
+			}
+			
+			.zt-header {
+				background: white !important;
+				height: 1rem;
+				transition: all .1s;
+			}
+		</style>
+	</head>
+
+	<body>
+		<include file="Include/right"/>
+		<!--header-->
+		<header class="mui-bar mui-bar-nav zt-header">
+
+			<a href="javascript:history.back(-1)" class="mui-pull-left ss-togbtn"><img src="__PUBLIC__/xin/images/back.png" /></a>
+			<h1 class="mui-title" style="color: black;">
+				收货地址
+			</h1>
+		</header>
+		<form id="form1" action="{:U('My/add')}" method="post" enctype="multipart/form-data">
+			
+		
+			<div class="top">
+				<div class="top_txt">
+					<div class="demos">
+						姓名:
+					</div>
+					<input type="text" id="name" name="name" placeholder="请输入姓名" class="txts" />
+				</div>
+				<div class="top_txt">
+					<div class="demos">
+						手机号:
+					</div>
+					<input type="number" id="dian" name="dian" placeholder="请输入手机号" class="txts" />
+				</div>
+				<div class="top_txt tans">
+					<div class="demos">
+						请选择区域:
+					</div>
+					<div class="icos" style="color:#b9b9b9;">请选择</div>
+				</div>
+				<input type="text" hidden id="address" name="address" class="address" value="">
+				<input type="text" hidden id="uid" name="uid" value="{$uid}">
+				<div class="top_txt" style="height:1.55rem;">
+					<div class="demos">
+						详细地址:
+					</div>
+					<textarea type="text" id="xiangqing" name="xiangqing" placeholder="请输入详细地址" class="txtss"></textarea>
+				</div>
+				<div class="tom">
+					<div  class="tom_btn">
+						保存
+					</div>
+				</div>
+				<div id="motai" style="display: none;">
+					<div id="rabs">
+						<div class="rabs_tops">
+							<div class="stop loists">
+								取消
+							</div>
+							<div class="txt loists">
+								&nbsp;
+							</div>
+							<div class="ok loists">
+								确认
+							</div>
+						</div>
+						<div class="rabs_tab">
+							<div class="sheng actives autoA" id="">
+								选择省
+							</div>
+							<div class="shi autoB" id="">
+								选择市
+							</div>
+							<div class="qu autoC" id="">
+								选择区/县
+							</div>
+						</div>
+						<div class="rabs_item">
+							<div class="item_sheng" id="shengFaster">
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+        </form>
+		<script src="__PUBLIC__/xin/js/mui.min.js"></script>
+		<script src="__PUBLIC__/xin/js/jquery.min.js"></script>
+		<script src="__PUBLIC__/xin/js/swiper.min.js"></script>
+		<script src="__PUBLIC__/xin/js/city.data-3.js" type="text/javascript" charset="utf-8"></script>
+		<include file="public/comm" />
+		<script>
+			//禁止滚动条
+
+			//_________________________________________
+			ones()
+			//渲染省
+			function ones() {
+				$('#shengFaster').html("")
+				for(var sheng = 0; sheng < cityData3.length; sheng++) {
+					var shengHtml = $('<div></div>')
+					shengHtml.addClass('shengs')
+					shengHtml.text(cityData3[sheng].text)
+					shengHtml.attr('id', sheng);
+					$(shengHtml).click(function() {
+						twos(this)
+					})
+					$('#shengFaster').append(shengHtml)
+				}
+			}
+			//渲染市  获取省id 
+			function twos(oj) {
+				var shengkey = $(oj).attr('id')
+				var shide = cityData3[shengkey].children
+				$('.shi').addClass('actives')
+				$('.autoA').text(oj.innerText)
+				$('.autoA').attr('id', shengkey);
+				$('.autoB').text('选择市')
+				$('.autoC').text('选择区/县')
+				$('#shengFaster').html("")
+				for(var shi = 0; shi < shide.length; shi++) {
+					var shiHtml = $('<div></div>')
+					shiHtml.addClass('shengs')
+					shiHtml.text(shide[shi].text)
+					shiHtml.attr('id', shi);
+					$(shiHtml).click(function() {
+						threes(this)
+					})
+					$('#shengFaster').append(shiHtml)
+				}
+
+			}
+
+			function threes(oj) {
+				var shengs = $('.sheng').attr('id')
+				var shikey = $(oj).attr('id')
+				var qude = cityData3[shengs].children[shikey].children
+				$('.autoB').text(oj.innerText)
+				$('.autoB').attr('id', shikey);
+				$('.autoC').text('选择区/县')
+				$('.qu').addClass('actives')
+				$('#shengFaster').html("")
+				for(var qu = 0; qu < qude.length; qu++) {
+					var quHtml = $('<div></div>')
+					quHtml.addClass('shengs')
+					quHtml.text(qude[qu].text)
+					quHtml.attr('id', qu);
+					$(quHtml).click(function() {
+						fours(this)
+					})
+					$('#shengFaster').append(quHtml)
+				}
+			}
+
+			function fours(tutu) {
+				var shis = $('.shi').attr('id')
+				$('.autoC').text(tutu.innerText)
+				$('.autoC').attr('id', shis);
+			}
+			$(".sheng").click(function() {
+
+				$('.shi').removeClass('actives')
+				$('.qu').removeClass('actives')
+				$('.sheng').text('选择省')
+				$('.shi').text('选择市')
+				$('.qu').text('选择区/县')
+				ones()
+			})
+			$('.shi').click(function() {
+				$('.qu').removeClass('actives')
+				$('.qu').text('选择区/县')
+				twos($('.sheng'))
+			})
+			$('.icos').click(function() {
+				$(document.body).css({
+					"overflow-y": "hidden"
+				});
+				$('#motai').css('display', 'block')
+			})
+			$('.stop').click(function() {
+				$('.sheng').text('选择省')
+				$('.shi').text('选择市')
+				$('.qu').text('选择区/县')
+				$(document.body).css({
+					"overflow-y": "auto"
+				});
+				$('#motai').css('display', 'none')
+			})
+			$('.ok').click(function() {
+				var mapa = $('.sheng').text()
+				var mapb = $('.shi').text()
+				var mapc = $('.qu').text()
+			
+				if($('.sheng').attr('id') == "" || $('.shi').attr('id') == "" || $('.qu').attr('id') == "") {
+					layer.msg('请输入完整地址')
+					return
+				} else {
+					$(document.body).css({
+						"overflow-y": "auto"
+					});
+					$('#motai').css('display', 'none')
+					$('.icos').text(mapa + mapb + mapc)
+				   $('.address').val(mapa + mapb + mapc)
+					$('.icos').css('color', 'black')
+					$('.sheng').text('选择省')
+					$('.shi').text('选择市')
+					$('.qu').text('选择区/县')
+				}
+
+			})
+			$('.tom_btn').click(function(){
+				 
+				var name=$("#name").val();
+				if(name==''){
+					alert("请输入姓名");
+					return false;
+				}
+				
+				var dian = $("#dian").val();
+				if(dian == ''){
+					alert("请输入联系方式");
+					return false;
+				}
+
+				// 验证手机号码
+				if(!(/^1[3|4|5|7|8][0-9]\d{4,8}$/.test(dian))){ 
+					alert('手机号码格式错误！');
+					return false;
+				}
+
+				if (dian.length < 11) {
+					alert('手机号码长度不足11位！');
+					return false;
+				}
+				
+				var address=$("#address").val();
+				if(address==''){
+					alert("请选择地址");
+					return false;
+				}
+				
+				var xiangqing=$("#xiangqing").val();
+				if(xiangqing==''){
+					alert("请输入详细地址");
+					return false;
+				}
+				$("#form1").submit();
+			})
+		</script>
+	</body>
+
+</html>

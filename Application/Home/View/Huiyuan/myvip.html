@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<title>忒666</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1,user-scalable=no">
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black">
+		<link rel="stylesheet" href="__PUBLIC__/xin/css/mui.min.css">
+		<link rel="stylesheet" href="__PUBLIC__/xin/css/swiper.min.css" />
+		<link rel="stylesheet" href="__PUBLIC__/xin/css/index.css" />
+		<script src="__PUBLIC__/xin/js/rem.js"></script>
+		<link rel="stylesheet" type="text/css" href="__PUBLIC__/xin/css/myvip.css" />
+		<style type="text/css">
+			a {
+				color: black;
+			}
+			.tovips{
+				display: inline-block;
+				height: 1rem;
+				float: right;
+				width: 37%;
+			}
+		</style>
+	</head>
+
+	<body>
+		<include file="Include/right" />
+		<!--侧滑菜单容器-->
+		<div id="offCanvasWrapper" class="mui-off-canvas-wrap mui-draggable mui-scalable">
+			<!--菜单部分-->
+			 <include file="Include/left" />
+			<!--主体-->
+			<div class="mui-inner-wrap">
+				<!--header-->
+				<header class="mui-bar mui-bar-nav zt-header">
+					<!---->
+					<a href="{:U('Home/Xin/index')}" class="mui-pull-left"><img class="header-list_img" src="__PUBLIC__/xin/images/logo-icon.png" /></a>
+					<a id="offCanvasBtn" href="#offCanvasSide" class="mui-pull-right"><img src="__PUBLIC__/xin/images/cd-icon.png" alt="" /></a>
+					<h1 class="mui-title header-list_txt">
+						会员中心
+					</h1>
+				</header>
+				<div id="offCanvasContentScroll" class="mui-content mui-scroll-wrapper">
+					<div class="mui-scroll">
+						<div class="tops">
+							<div class="headers">
+
+							</div>
+							<div class="header_top ">
+								<a href="javascript:void(0)">
+									<div class="top_list hym border">
+										<div class="list_txt">
+											会员价购物
+										</div>
+									</div>
+								</a>
+								<a href="javascript:void(0)">
+									<div class="top_list jf border">
+										<div class="list_txt">
+											购物返积分
+										</div>
+									</div>
+								</a>
+
+								<a href="javascript:void(0)">
+									<div class="top_list jfh">
+
+										<div class="list_txt">
+											积分换好礼
+										</div>
+
+									</div>
+								</a>
+								<a href="javascript:void(0)">
+									<div class="top_list hd border">
+										<div class="list_txt">
+											优先参加活动
+										</div>
+									</div>
+								</a>
+								<a href="javascript:void(0)">
+									<div class="top_list cb border">
+										<div class="list_txt">
+											专属礼品
+										</div>
+									</div>
+								</a>
+								<a href="javascript:void(0)">
+									<div class="top_list buff">
+										<div class="list_txt">
+											专属权益
+										</div>
+									</div>
+								</a>
+							</div>
+							<div class="kt_vip">
+								<div class="vip_mopey">
+									超值价 <strong>66.6</strong> 元/年
+								</div>
+								<if condition="$menid neq null">
+									<a href="{:U('Huiyuan/ktvip',array('id'=>$menid))}" class="tovips"></a>
+								<else/>
+										
+									<a href="{:U('Huiyuan/ktvip')}" class="tovips"></a>
+								</if>
+								
+							</div>
+							<!--特权-------------------->
+							<!-- <div class="buffs">
+								<div class="buff_txt">
+									<div class="txt_top">
+										忒66VIP相关权益
+									</div>
+									<div class="txt_ite">
+										<strong>商品会员价</strong>
+									</div>
+									<div class="shop">
+										<div class="shop_img">
+											<img src="__PUBLIC__/xin/images/4589.png" />
+										</div>
+										<div class="shop_txt">
+											<div class="txt_name" style="overflow: hidden;text-overflow: ellipsis;white-space: nowrap;">
+												悠途智能定速巡航
+											</div>
+											<div class="text_money">
+												<span style="font-size: 0.35rem; color: red;" id="">
+													会员价:
+												</span>
+												<span style="font-size: 0.35rem; color: red;" id="">
+												1480
+												</span>
+												<span style="font-size: 0.3rem; color:#6d6d6d;" id="">
+													商城价:
+												</span>
+												<span style="font-size: 0.3rem; color:#6d6d6d;" id="">
+												1680
+												</span>
+											</div>
+										</div>
+									</div>
+									<div class="text_index">
+										商城的所有商品都会有会员价和商城价。您如果成为我们商城的尊贵VIP会员，您所购买的商品都可以享受会员价。
+									</div>
+								</div>
+
+							</div> -->
+							<!--特权---------------->
+							<!--<div class="buffs" style="padding: 0;">
+								<div class="isimg">
+									<img src="__PUBLIC__/xin/images/cbs.png" />
+								</div>
+
+							</div>-->
+							<!--特权-------------------->
+							<div class="buffs">
+								<div class="buff_txt">
+									<div class="txt_top">
+										专属权益
+									</div>
+									<div class="text_index " style="margin:0.1rem 0;">
+										1、在平台购物可以享受会员价
+									</div>
+									<div class="text_index " style="margin:0.1rem 0;">
+										2、可以优先参与平台活动。
+									</div>
+									<div class="text_index " style="margin:0.1rem 0;">
+										3、忒666平台定期会为会员提供免费门票、精美礼品、精彩活动等权益。
+									</div>
+									<div class="text_index " style="margin:0.1rem 0;">
+										4、会员在平台购物可获得积分。
+									</div>
+									<div class="text_index " style="margin:0.1rem 0;">
+										5、会员专属商城，会员可以用获得的积分在会员商城兑换超值商品或权益。
+									</div>
+								</div>
+
+							</div>
+							<div class="buffs">
+								<div class="buff_txt">
+									<div class="txt_top">
+										会员义务
+									</div>
+									<div class="text_index " style="margin:0.1rem 0;">
+										1、忒666平台希望所有会员能积极响应平台公益活动，贡献自己的一份爱心与社会责任心。
+									</div>
+									<div class="text_index " style="margin:0.1rem 0;">
+										2、会员之间相互监督共同维护这个大家庭的荣誉
+									</div>
+
+								</div>
+
+							</div>
+
+						</div>
+						
+						<include file="Include/footer" />
+						<div class="mui-off-canvas-backdrop"></div>
+					</div>
+				</div>
+				<script src="__PUBLIC__/xin/js/mui.min.js"></script>
+				<script src="__PUBLIC__/xin/js/jquery.min.js"></script>
+				<script src="__PUBLIC__/xin/js/swiper.min.js"></script>
+				<script src="__PUBLIC__/xin/js/index.js"></script>
+				<script>
+					//banner
+					var swiper1 = new Swiper('.swiper-container1', {
+						pagination: '.swiper-pagination1',
+						paginationClickable: true,
+						loop: true,
+						autoplay: 2000
+					});
+				</script>
+
+			<script type="text/javascript" src="http://res.wx.qq.com/open/js/jweixin-1.2.0.js"></script>
+			<script type="text/javascript">
+				wx.config({
+				    debug: false, // 开启调试模式,调用的所有api的返回值会在客户端alert出来，若要查看传入的参数，可以在pc端打开，参数信息会通过log打出，仅在pc端时才会打印。
+				    appId: '{$jsApiArr.appId}', // 必填，公众号的唯一标识
+				    timestamp: '{$jsApiArr.timestamp}', // 必填，生成签名的时间戳
+				    nonceStr: '{$jsApiArr.nonceStr}', // 必填，生成签名的随机串
+				    signature: '{$jsApiArr.signature}',// 必填，签名
+				    jsApiList: [
+						'onMenuShareTimeline',
+				        'onMenuShareAppMessage',
+				        'onMenuShareQQ',
+				        'onMenuShareWeibo',
+				        'onMenuShareQZone'
+				    ] // 必填，需要使用的JS接口列表，所有JS接口列表见附录2
+				});
+
+				wx.ready(function () {
+				    wx.checkJsApi({
+				        jsApiList: ['chooseImage'], // 需要检测的JS接口列表，所有JS接口列表见附录2,
+				        success: function(res) {
+				            console.log(res);
+				            // 以键值对的形式返回，可用的api值true，不可用为false
+				            // 如：{"checkResult":{"chooseImage":true},"errMsg":"checkJsApi:ok"}
+				        }
+				    });
+				    var wxShareObj = { // 分享参数
+				        title: '开通忒666会员，更多福利等你来领！', // 分享标题
+				        desc: '点击查看详情', // 分享描述
+				        link: window.location.href, // 分享链接，该链接域名或路径必须与当前页面对应的公众号JS安全域名一致
+				        // 该链接是重定向链接，因为需要获取用户code，但是该链接又无法直接写微信获取code的链接，
+				        // 所以需要点击后重新加载新的页面，来实现重定向，重新打开获取code的微信链接，实现获取用户信息的功能；
+				        imgUrl: '{$shareImg}', // 分享图标
+				        fail: function (res) {
+				            alert(JSON.stringify(res));
+				        }
+				    };
+				    // 2.1 监听“分享给朋友”，按钮点击、自定义分享内容及分享结果接口
+				    wx.onMenuShareAppMessage(wxShareObj);
+
+				    // 2.2 监听“分享到朋友圈”按钮点击、自定义分享内容及分享结果接口
+				    wx.onMenuShareTimeline(wxShareObj);
+
+				    // 2.3 监听“分享到QQ”按钮点击、自定义分享内容及分享结果接口
+				    wx.onMenuShareQQ(wxShareObj);
+
+				    // 2.4 监听“分享到微博”按钮点击、自定义分享内容及分享结果接口
+				    wx.onMenuShareWeibo(wxShareObj);
+
+				    // 2.5 监听“分享到QZone”按钮点击、自定义分享内容及分享接口
+				    wx.onMenuShareQZone(wxShareObj);
+				});
+			</script>
+	</body>
+
+</html>

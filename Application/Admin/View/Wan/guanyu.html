@@ -1,0 +1,64 @@
+<extend name="Index:app" />
+<block name="title"><title>后台管理系统-添加</title></block>
+
+<style type="text/css">
+        .img-item {
+            width: 80px!important;
+            height: 80px!important;
+            background: white;
+            text-align: center;
+            line-height: 75px;
+            margin-right:15px;
+            margin-top:15px;
+            font-size: 30px;
+            cursor: pointer;
+            border:1px solid #ccc;
+        }
+        .btn-active{background: green;border:1px solid green;color:#fff}
+        
+    </style>
+  
+<block name="content">
+    <div class="row">
+        <div class="col-md-12">
+            <!-- Horizontal Form -->
+            <div class="box box-info">
+                <div class="box-header with-border">
+                    <h3 class="box-title">内容编辑</h3>
+        
+                </div>
+                <!-- /.box-header -->
+                <!-- form start -->
+                <form class="form-horizontal" action="{:U('Wan/guanyu_edit')}" method="post" enctype="multipart/form-data">
+
+                    <div class="form-group">
+                        <label for="art_content" class="col-sm-2 control-label">内容编辑</label>
+                        <div class="col-sm-6">
+                            <textarea id="editor_id" name="art_content" style="height: 500px; width: 100%;">{$temp.content}</textarea>
+                        </div>
+                    </div>
+                    <!-- /.box-body -->
+                    <div class="box-footer">
+                        <div class="col-sm-2">
+                        </div>
+                        <div class="col-sm-10">
+                        	 <input id="ajaxfileupload" type="file" style="display:none;">
+                            <button type="submit" class="btn btn-primary">提&nbsp;&nbsp;交</button>
+                        </div>
+
+                    </div>
+                   
+                    <!-- /.box-footer -->
+                </form>
+            </div>
+            
+        </div>
+    </div>
+</block>
+<block name="js">
+
+</block>
+
+
+
+

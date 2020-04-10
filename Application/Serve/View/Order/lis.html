@@ -1,0 +1,115 @@
+<extend name="Index:app" />
+<block name="css">
+
+</block>
+<block name="content">
+    <div class="row">
+        <div class="col-xs-12">
+            <div class="box box-primary">
+
+                <div class="box-header box-primary">
+                    <h3 class="box-title">待核销</h3>
+                    <div class="box-tools">
+                        <form class="form-inline" action="{:U('Order/lis')}" method="get">
+                            <!-- /input-group -->
+                            <div class="input-group input-group-sm">
+                                <input type="text" name="ming" class="form-control" value="{$ming}" placeholder="订单号">
+                                <div class="input-group-btn">
+                                    <button type="submit" class="btn btn-default"><i class="fa fa-search"></i></button>
+                                </div>
+                            </div>
+                            <!-- /input-group -->
+                        </form>
+                    </div>
+                </div>
+
+                <!-- /.box-header -->
+                <div class="box-body table-responsive no-padding" >
+                    <div class="mailbox-controls">
+
+                    </div>
+                    <table class="table table-hover table-bordered">
+                        <tr>
+                            <th>序号</th>
+                            <th>订单号</th>
+                            <th>产品名称</th>
+                            <th>产品类别</th>
+                            <th>派单时间</th>
+                            <th>预约时间</th>
+                            <th>服务量</th>
+                            <th>服务费</th>
+                            <th>服务状态</th>
+                            <th>操作</th>
+                        </tr>
+                        <if condition="$res">
+                            <tr>
+                                <td>1</td>
+                                <td>{$res.paysn}</td>
+                                <td>{$res.chanpin_name}</td>
+                                <td>{$res.cate_name}</td>
+                                <td>{$res.time}</td>
+                                <td>{$res.fuwu_time}</td>
+                                <td>{$res.fwl}</td>
+                                <td>{$res.fwf}</td>
+                                <td>
+                                    <eq name="res.state" value="1">
+                                        <span class="label label-success radius">已核销</span>
+                                    <else />
+                                        <span class="label label-default radius">未核销</span>
+                                    </eq>
+                                </td>
+                                <td>
+                                    <neq name="res.state" value="1">
+                                        <a href="{:U('Order/hexiao', ['dingid' => $res['dingid']])}" onclick="hexiao('{$vo.chanpin_name}')" class="btn btn-primary btn-xs">核销</a>
+                                    </neq>
+                                </td>
+                            </tr>
+                        <else />
+                            <tr class="text-center">
+                                <td colspan="20" class="active">
+                                    <strong>{$msg}</strong>
+                                </td>
+                            </tr>
+                        </if>
+                    </table>
+                </div>
+                <!-- /.box-body -->
+                <div class="box-footer clearfix" style="text-align: center;">
+
+                </div>
+            </div>
+            <!-- /.box -->
+        </div>
+    </div>
+</block>
+<block name="js">
+    <script>
+        function hexiao(name){
+            if(confirm('您确定要核销【 ' + name + ' 】派单信息吗？核销之后订单完结！') == true){
+               return true;
+            }else{
+               return false;
+            }
+        }
+
+        function checkbox_all()
+        {
+            $('#r_list :checkbox').each(function(){
+                if(!$(this).is(':checked'))
+                {
+                    $(this).click();
+                    $('#r_list :checkbox').attr('checked',true);
+                }
+            });
+        }
+        function checkbox_none()
+        {
+            $('#r_list :checkbox').each(function(){
+                if($(this).is(':checked'))
+                {
+                    $(this).click();
+                }
+            });
+        }
+    </script>
+</block>

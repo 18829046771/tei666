@@ -1,0 +1,262 @@
+.t_shop {
+	margin-top: 1rem;
+	width: 100%;
+	display: inline-block;
+	min-height: 2.2rem;
+	background-color: white;
+	padding: 0.1rem 0.2rem;
+}
+
+.t_shopimg {
+	float: left;
+	margin-top: 0.1rem;
+	width: 1.8rem;
+	height: 1.8rem;
+}
+
+.t_shopname {
+	margin: 0.1rem 0;
+	height: 1.75rem;
+	box-sizing: border-box;
+	padding-left: 0.2rem;
+	font-size: 0.3rem;
+	line-height: 0.45rem;
+	display: -webkit-box;
+	-webkit-box-orient: vertical;
+	-webkit-line-clamp: 4;
+	overflow: hidden;
+}
+.t_shopimg img {
+	width: 1.8rem;
+	height: 1.8rem;
+	margin: 0;
+	padding: 0;
+	object-fit: cover;
+	display: block;
+}
+.t_lista{
+	margin-top: 0.2rem;
+	width: 100%;
+	min-height:1.5rem;
+	background-color:white;
+}
+.t_listatop{
+	width: 100%;
+	height: 1rem;
+	line-height: 1rem;
+	font-size: 0;
+	padding: 0 0.2rem;
+}
+.t_listatopl{
+	width: 25%;
+	height: 1rem;
+	line-height: 1rem;
+	font-size: 0.3rem;
+	display: inline-block;
+	vertical-align: top;
+}
+.t_listatopr{
+	width: 75%;
+	height: 1rem;
+	line-height: 1rem;
+	font-size: 0.3rem;
+	display: inline-block;
+	vertical-align: top;
+	
+	
+}
+.rico{
+	background-image: url(../images/toleft.png);
+	background-position: right center;
+	background-repeat: no-repeat;
+	background-size: 4% 40%;
+	box-sizing: border-box;
+	padding-right: 5%;
+	text-align: right;
+}
+.t_listb{
+	padding: 0 0.2rem;
+	margin-top: 0.2rem;
+	width: 100%;
+	min-height:0.8rem;
+	line-height: 0.8rem;
+	background-color:white;
+	font-size: 0;
+}
+.t_listbl{
+	width: 25%;
+	height: 0.8rem;
+	line-height: 0.8rem;
+	font-size: 0.3rem;
+	display: inline-block;
+	vertical-align: top;
+}
+.t_listbr{
+	width: 75%;
+	height: 0.8rem;
+	line-height: 0.8rem;
+	font-size: 0.3rem;
+	display: inline-block;
+	vertical-align: top;
+}
+.color_a{
+	color: #ff9600;
+}
+.color_b{
+	color: #898989;
+}
+.t_listc{
+	padding: 0 0.2rem;
+	
+	width: 100%;
+	min-height:0.8rem;
+	line-height: 0.8rem;
+	font-size: 0.3rem;
+	color: #898989;
+}
+.t_listd{
+	padding: 0 0.2rem;
+	width: 100%;
+	min-height:0.8rem;
+	line-height: 0.8rem;
+	background-color:white;
+	font-size: 0rem;
+}
+.tex{
+	width: 100%;
+	display: inline-block;
+	height: 0.78rem !important;
+	background-color: white;
+	border: 0px solid transparent !important;
+	margin-bottom: 0 !important;
+	font-size: 0.3rem;
+	padding-left: 0 !important;
+}
+.t_liste{
+	margin-top: 0.2rem;
+	padding: 0 0.2rem;
+	width: 100%;
+	display: inline-block;
+	/* min-height:0.8rem; */
+	/* line-height: 0.8rem; */
+	background-color:white;
+	font-size: 0rem;
+	padding-bottom: 0.2rem;
+}
+.t_listet{
+	width: 100%;
+	height: 0.8rem;
+	line-height: 0.8rem;
+	font-size: 0.3rem;
+}
+.t_listeb{
+	width: 100%;
+	/* height: 2rem; */
+	font-size: 0;
+	display: inline-block;
+	
+}
+.t_upimg{
+	width: 2rem;
+	height: 2rem;
+	overflow: hidden;
+	display: inline-block;
+	margin-right: 0.2rem;
+	position: relative;
+	border: 1px solid #C8C7CC;
+	border-radius: 5px;
+	line-height: 2rem;
+	text-align: center;
+	font-size: 0.25rem;
+	color: #898989;
+}
+.t_upimg input{
+	display: inline-block !important;
+	width: 1rem;
+	height: 1rem;
+	font-size: 0;
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	margin-top: -0.5rem;
+	margin-left: -0.5rem;
+	opacity: 0;
+}
+.t_upimg img{
+	width: 2rem;
+	height: 2rem;
+	display: inline-block;
+	margin: 0;
+	padding: 0;
+	object-fit: cover;
+}
+.t_bj{
+	position: fixed;
+	bottom: 0;
+	width: 100%;
+	height: 0.8rem;
+	line-height: 0.8rem;
+	text-align: center;
+	font-size: 0.3rem;
+	background-color: #ff9600;
+	color: white;
+	
+}
+.tk{
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	background: rgba(0,0,0,0.4);
+}
+.tk_index{
+	position:absolute;
+	bottom: 0;
+	left: 0;
+	width: 100%;
+	min-height: 2rem;
+	background-color: white;
+}
+.tk_gb{
+	width: 100%;
+	height: 0.8rem;
+	line-height: 0.8rem;
+	text-align: center;
+	font-size: 0.3rem;
+	background-color: #ff9600;
+	color: white;
+	margin-top: 1rem;
+}
+.tk_top{
+	width: 100%;
+	height: 1rem;
+	line-height: 1rem;
+	text-align: center;
+	font-size: 0.3rem;
+}
+.tk_list{
+	width: 100%;
+	height: 0.8rem;
+	line-height: 0.8rem;
+	font-size: 0.3rem;
+	padding: 0 0.2rem;
+	margin: 0.2rem 0;
+	background-image: url(../images/noquna.png);
+	background-position: 98% center;
+	background-repeat: no-repeat;
+	background-size: 6%;
+	box-sizing: border-box;
+	padding-right: 5%;
+	
+	border-bottom: 1px solid #f1f1f1;
+}
+.tk_xz{
+	background-image: url(../images/okquna1.png);
+	background-position: 98% center;
+	background-repeat: no-repeat;
+	background-size: 6%;
+	box-sizing: border-box;
+	padding-right: 5%;
+	
+}

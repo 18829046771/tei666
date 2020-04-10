@@ -1,0 +1,54 @@
+<aside class="main-sidebar">
+    <!-- sidebar: style can be found in sidebar.less -->
+    <section class="sidebar">
+        <!-- Sidebar user panel -->
+
+        <!-- search form -->
+
+        <!-- /.search form -->
+        <!-- sidebar menu: : style can be found in sidebar.less -->
+        <ul class="sidebar-menu" id="left_menu">
+            <li class="header"></li>
+
+            <volist name="menu_list" id="vo">
+
+                    <?php
+                     if($vo['actived']==1){
+                     ?>
+            <li class="treeview active">
+            <?php
+                    }else{
+                    ?>
+            <li class="treeview">
+                <?php
+                    }
+                    ?>
+                <a href="#">
+                    <i class="{$vo.icon}"></i>
+                    <span>{$vo['text']}</span>
+                    <i class="fa fa-angle-left pull-right"></i>
+                </a>
+                <ul class="treeview-menu">
+                    <volist name="vo['child']" id="sub">
+                        <?php
+                        if($sub['actived']==1) {
+                        ?>
+                        <li class="active">
+                            <?php
+                        }else{
+                        ?>
+                        <li>
+                            <?php
+                        }
+                        ?>
+                            <a href="{:U($sub['url'])}"><i class="fa fa-circle-o"></i>{$sub.text}</a></li>
+                    </volist>
+                </ul>
+            </li>
+
+            </volist>
+
+        </ul>
+    </section>
+    <!-- /.sidebar -->
+</aside>

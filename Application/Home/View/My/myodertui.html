@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<title>忒666</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1,user-scalable=no">
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black">
+		<link rel="stylesheet" href="__PUBLIC__/xin/css/mui.min.css">
+		<link rel="stylesheet" href="__PUBLIC__/xin/css/swiper.min.css" />
+		<link rel="stylesheet" href="__PUBLIC__/xin/css/index.css" />
+		<link rel="stylesheet" type="text/css" href="__PUBLIC__/xin/css/myoder.css" />
+		<script src="__PUBLIC__/xin/js/rem.js"></script>
+		<style type="text/css">
+			.zt-header a img {
+				width: 0.28rem;
+				margin-top: .22rem;
+			}
+			
+			.zt-header {
+				background: white !important;
+				height: 1rem;
+				transition: all .1s;
+			}
+			
+		</style>
+	</head>
+
+	<body>
+		<include file="Include/right"/>
+		<!--header-->
+		<header class="mui-bar mui-bar-nav zt-header">
+			<!---->
+			<a href="javascript:history.back(-1)" class="mui-pull-left ss-togbtn"><img src="__PUBLIC__/xin/images/back.png" /></a>
+
+			<h1 class="mui-title" style="color: black;">
+						退款订单
+			</h1>
+		</header>
+		<div class="top">
+			
+			<!-----------------------------------退款--------------------------------->
+			<div class="shop_list" id="quan"  >
+				<volist name="tui" id="vo">
+					<div class="list_one">
+						<a href="{:U('My/orderdet', ['id' => $vo['id']])}" style="color: #000;">
+							<div class="one_txt">
+								<div class="tex_left">
+									订单号:{$vo.paysn}
+								</div>
+								<div class="tex_right">
+		                           
+		                             <if condition="$vo['tuikuan'] eq 1">退款中</if>
+		                             <if condition="$vo['tuikuan'] eq 2">已退款</if>
+		                             
+								</div>
+							</div>
+							<div class="one_index">
+								<div class="index_img">
+									<img src="{$vo.img}" alt="" />
+								</div>
+								<div class="index_txt">
+									{$vo.name}
+								</div>
+							</div>
+							<div class="one_item">
+								订单总价: <span>{$vo.zong}</span>
+							</div>
+							<div class="one_item">
+								订单时间: <span>{$vo.time}</span>
+							</div>
+						</a>
+
+						<if condition="$vo['tuikuan'] eq 1">
+							<div class="one_some">
+								<span ids="{$vo.id}" class="some_ringht chexiao">撤销退款</span>
+								
+							</div>
+						</if>
+
+					</div>
+				</volist>
+				
+			</div>
+
+		</div>
+		
+		<img src="__PUBLIC__/xin/images/wuhuo.png" alt="" id="wuhuo" style="display: none;" />
+		</div>
+		<script src="__PUBLIC__/xin/js/mui.min.js"></script>
+		<script src="__PUBLIC__/xin/js/jquery.min.js"></script>
+		<script src="__PUBLIC__/xin/js/swiper.min.js"></script>
+		<include file="public/comm" />
+		<script>
+			  
+//			function ids(){
+//				 var ids=$(".one").attr("data-num");
+//				 var mo = $("#" + ids);
+//				 var show = $(".shop_list");
+//				  show.css('display', 'none');
+//				 mo.css('display', 'block');
+//			}
+//			ids();
+//			 
+//			$(function() {
+//				
+//				
+//				
+//			
+//				var tabs = $(".tab")
+//				
+//				$(".tab").click(function() {
+//					var tabs = $(".tab")
+//					for(var a = 0; a < tabs.length; a++) {
+//						tabs[a].classList.remove('one')
+//
+//					}
+//					this.classList.add('one')
+//					var act = this.getAttribute('data-num')
+//					var demo = $("#" + act)
+//					var show = $(".shop_list")
+//					for(var i = 0; i < show.length; i++) {
+//						console.log()
+//						show[i].style.display = "none"
+//
+//					}
+//					
+//					demo.css('display', 'block')
+//
+//				})
+//
+//			})
+		</script>
+	</body>
+
+</html>
+
+<script>
+	//撤销退款
+	$(".chexiao").click(function(){
+		var id=$(this).attr("ids");
+		mui.confirm('您确定要撤销退款吗？','温馨提示',['取消', '确定'],function(e){
+			if(e.index == 1){
+				$.ajax({
+		            type : "POST",
+		            contenttype :"application/x-www-form-urlencoded;charset=utf-8", 
+		            url:"{:U('Home/My/chexiao')}",
+		            data : {'id':id},
+		            dataType : 'json',
+		            success: function(data){
+		            	layer.msg(data.msg);
+					    if(data.state==1){
+					    	setTimeout(function() {
+					    	 	window.location.reload();
+					    	}, 1500);
+					    }
+		            }
+		        });
+			}
+		});
+	});
+</script>

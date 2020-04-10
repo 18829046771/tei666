@@ -1,0 +1,102 @@
+<?php
+session_start();
+$user=$_SESSION['id'];
+if(isset($_GET['action'])){
+	if($_GET['action'] == 'out'){
+		$_SESSION = array();
+		session_unset();
+	}
+}
+	if(isset($_POST['action'])){
+		if($_POST['action']=='login'){
+			$ter=uploadPic('file');
+			
+		
+		    if(!empty($ter)){
+	    	  setcookie("hui",$ter,time()+10);
+		    	   
+		    	echo '<script>opener.document.getElementById("image").value="/'.$ter.'"; window.opener=null;self.close();</script>';
+		       
+		    }
+
+			
+		   
+		}
+	}	
+
+    function uploadPic($name){
+    	$arr_last = array('gif','jpg','png','GIF','JPG','PNG');
+    	$arr_name = $_FILES[$name]['name'];  // 图片名称
+    	
+    	$arr_obj = $_FILES[$name]['tmp_name'];  //临时文件名
+    	
+    	$arr_size = $_FILES[$name]['size'];   //图片大小
+    	$arr_return = array();
+    	$arr_name_obj = array($arr_name=>$arr_obj);
+    
+    	$arr_name_size = array($arr_name=>$arr_size);
+    	foreach ($arr_name_obj as $key=>$val){
+    		$last_name = explode('.', $key);
+    		$end_name  = end($last_name);
+    		if(in_array($end_name, $arr_last) && 
+    			$arr_name_size[$key] < 1024000000){
+    			$address = 'uploads/'.uniqid().'.'.$end_name;
+    			move_uploaded_file($val, $address);
+    			$url = $address;
+    			array_push($arr_return, $url);
+    		}
+    	}
+    	return $url;
+    }
+
+    
+    
+    
+    
+ 
+    
+
+
+?>
+
+
+
+
+ 
+
+<html>
+<head>
+<title>上传图片</title>
+<meta charset="utf-8">
+ <body>
+
+ 
+<form  method="post" action="" name="form"  enctype="multipart/form-data" >
+  	 <input type="hidden" name="action" value="login">
+  <table width="400" border="0" cellspacing="1" cellpadding="0" align="center" bgcolor="#f2f2f2">
+    <tr> 
+      <td height="22" align="left" valign="middle" width="400">&nbsp;上传图片
+        
+      </td>
+    </tr>
+    <tr align="center" valign="middle" bgcolor="#FFFFFF"> 
+      <td align="left" id="upid" height="80" width="400"> 选择图片:
+        <input type="file" name="file" style="width:300'" class="tx1" value="">
+      </td>
+    </tr>
+    <tr align="center" valign="middle"> 
+      <td height="24" width="400"> 
+        <input type="submit" name="Submit" value="上传 " class="input_bot" ">
+       
+      </td>
+    </tr>
+  </table>
+</form>
+
+</body>
+</html>
+<script type="text/javascript" src="js/jquery.js" ></script>
+<script>
+	
+</script>
+

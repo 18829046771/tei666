@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<title>忒666</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1,user-scalable=no">
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black">
+		<link rel="stylesheet" href="__PUBLIC__/xin/css/mui.min.css">
+		<link rel="stylesheet" href="__PUBLIC__/xin/css/swiper.min.css" />
+		<link rel="stylesheet" href="__PUBLIC__/xin/css/index.css" />
+		<link rel="stylesheet" type="text/css" href="__PUBLIC__/xin/css/jfall.css" />
+		<style type="text/css">
+			.spxq-numbers {
+				width: 100%;
+				padding: .3rem;
+				display: inline-block;
+				background: #fff;
+			}
+			
+			.spxq-right {
+				/* width: 2.9rem; */
+				display: flex;
+				justify-content: space-between;
+			}
+			
+			.spxq-right .shop-one {
+				display: inline-block;
+				width: 33%;
+				height: 0.5rem;
+				text-align: center;
+				line-height: 0.5rem;
+				/* border: 1px solid red; */
+			}
+		</style>
+		<script src="__PUBLIC__/xin/js/rem.js"></script>
+	</head>
+
+	<body>
+		<include file="Include/right"/>
+		<!--侧滑菜单容器-->
+		<div id="offCanvasWrapper" class="mui-off-canvas-wrap mui-draggable mui-scalable">
+			<!--菜单部分-->
+			<include file="Include/left" />
+			<!--主体-->
+			<div class="mui-inner-wrap">
+				<!--header-->
+				<header class="mui-bar mui-bar-nav zt-header">
+					<!---->
+					<a href="{:U('Home/Xin/index')}" class="mui-pull-left"><img class="header-list_img" src="__PUBLIC__/xin/images/logo-icon.png" /></a>
+					<a id="offCanvasBtn" href="#offCanvasSide" class="mui-pull-right"><img src="__PUBLIC__/xin/images/cd-icon.png" alt="" /></a>
+					<h1 class="mui-title header-list_txt">
+						限时购商品
+					</h1>
+				</header>
+				<div id="offCanvasContentScroll" class="mui-content mui-scroll-wrapper">
+					<div class="mui-scroll">
+						<div class="cpxq-box">
+							<!--banner-->
+							<div class="swiper-container swiper-container4 cpxq-banner">
+								<div class="swiper-wrapper">
+									<if condition="$temp['art_img_url'] neq null">
+										<div class="swiper-slide"><img src="{$temp.art_img_url}" alt="" /></div>
+									</if>
+									
+									<if condition="$temp['art_img_url_s'] neq null">
+										<div class="swiper-slide"><img src="{$temp.art_img_url_s}" alt="" /></div>
+									</if>
+									
+									<if condition="$temp['art_title'] neq null">
+										<div class="swiper-slide"><img src="{$temp.art_title}" alt="" /></div>
+									</if>
+									
+									<if condition="$temp['art_keywords'] neq null">
+										<div class="swiper-slide"><img src="{$temp.art_keywords}" alt="" /></div>
+									</if>
+									
+									<if condition="$temp['art_description'] neq null">
+										<div class="swiper-slide"><img src="{$temp.art_description}" alt="" /></div>
+									</if>
+									
+								</div>
+								<!-- Add Pagination -->
+								<div class="swiper-pagination swiper-pagination4"></div>
+							</div>
+							<!--txt-->
+							<div class="cpxq-txtbox" style="padding:0.2rem 0 ; padding-top: 0;">
+								<div class="cpxq-firbox xs_shopmoney">
+									<div class="xs_carleft">
+										<span style="color: white;">￥<span style="font-size: 0.4rem;">{$yingxiao_store.jiage}</span></span><span style="margin-left: 0.3rem; color: white; font-size: 0.2rem;">商城价<span style="text-decoration: line-through;">{$temp.jiage}</span></span>
+									</div>
+									<div class="xs_carright">
+										<div class="carright_top">
+											距优惠结束
+										</div>
+										<div class="carright_btn">
+											<span class="mk_time" id="shi"></span>&nbsp;:
+											<span class="mk_time" id="fen"></span>&nbsp;:
+											<span class="mk_time" id="miao"></span>&nbsp;
+										</div>
+									</div>
+								</div>
+								<div class="cpxq-name" style="padding: 0 0.3rem; margin-top: 0.2rem;">{$temp.product_title}</div>
+								<div class="xs_shoptime">
+									此商品{$yingxiao_store.ktime}开抢，请提前加购！
+								</div>
+
+							</div>
+							<!--number-->
+							<!--<div class="spxq-numbers flex-s">
+								<div class="spxq-left" style="margin-bottom: 5px;">产品规格</div>
+								<div class="spxq-right">
+									<div class="shop-one jf_active">
+										测试001
+									</div>
+									<div class="shop-one">
+										测试001
+									</div>
+									<div class="shop-one">
+										测试001
+									</div>
+								</div>
+							</div>-->
+							<!--number-->
+							<div class="spxq-number flex-s">
+								<div class="spxq-left">购买数量</div>
+								<div class="spxq-right">
+									<div class="number-s btn-op"><img src="__PUBLIC__/xin/images/number-s.jpg" alt="" /></div>
+									<input class="number-sl" type="number" value="1" min="0" />
+									<div class="number-j btn-op"><img src="__PUBLIC__/xin/images/number-j.jpg" alt="" /></div>
+								</div>
+							</div>
+							<!--详情-->
+							<div class="cpxq-xqbox">
+								<div class="cpxq-title"><img src="__PUBLIC__/xin/images/xq-icon.png" alt="" /> 详情</div>
+								<div class="cpxq-xqshowbox">
+									<div class="cpxq-spbox">
+										<div class="cpxq-sp"></div>
+									</div>
+									<!--后台传过来的-->
+									<div class="cpxq-xqshow">
+										{$temp.art_content}
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<!-- off-canvas backdrop -->
+				<div class="mui-off-canvas-backdrop"></div>
+				<div class="cpxq-bom_box flex-s">
+					<div class="cpxq-bom_left">
+						<a href="###">
+							<div class="cpxq-bom_list active">
+								<div class="cpxq-bom_img"><img src="__PUBLIC__/xin/images/xq-xx-icon2.png" alt="" /></div>
+								<div class="cpxq-bom_name">纵览</div>
+								<div class="cpxq-bom_active"><img src="__PUBLIC__/xin/images/coxq-bom_active.png" alt="" /></div>
+							</div>
+						</a>
+						<a href="cpxq_sysm.html">
+							<div class="cpxq-bom_list">
+								<div class="cpxq-bom_img"><img src="__PUBLIC__/xin/images/xq-sysm-icon.png" alt="" /></div>
+								<div class="cpxq-bom_name">使用说明</div>
+							</div>
+						</a>
+						<a href="cpxq_zz.html">
+							<div class="cpxq-bom_list">
+								<div class="cpxq-bom_img"><img src="__PUBLIC__/xin/images/xq-zz-icon.png" alt="" /></div>
+								<div class="cpxq-bom_name">资质</div>
+							</div>
+						</a>
+						<a href="cpxq_pl.html">
+							<div class="cpxq-bom_list">
+								<div class="cpxq-bom_img"><img src="__PUBLIC__/xin/images/xq-pl-icon.png" alt="" /></div>
+								<div class="cpxq-bom_name">评论</div>
+							</div>
+						</a>
+					</div>
+					<div class="cpxq-bom_right">立即购买</div>
+				</div>
+			</div>
+		</div>
+		<script src="__PUBLIC__/xin/js/mui.min.js"></script>
+		<script src="__PUBLIC__/xin/js/jquery.min.js"></script>
+		<script src="__PUBLIC__/xin/js/swiper.min.js"></script>
+		<script src="__PUBLIC__/xin/ckplayer/ckplayer.min.js"></script>
+		<script src="__PUBLIC__/xin/js/index.js"></script>
+		<script>
+			
+			var swiper1 = new Swiper('.swiper-container4', {
+				pagination: '.swiper-pagination4',
+				paginationClickable: true,
+				loop: true,
+				autoplay: 2000
+			});
+
+			//视频
+			var videoObject = {
+				container: '.cpxq-sp', //容器的ID或className
+				variable: 'player', //播放函数名称
+				poster: '{$temp.art_img_url}', //封面图片
+				//flashplayer:true,
+				video: [ //视频地址列表形式
+					['http://vdo.361weixin.cn/%E5%92%8C%E5%BD%A9%E5%8D%B0%20%E9%98%B2%E8%AF%88%E9%AA%97.mp4', 'video/mp4']
+				]
+			};
+			var player = new ckplayer(videoObject);
+			$('.shop-one').on("tap", function() {
+				console.log(123)
+				var allbtn = $('.shop-one')
+				for(var all = 0; all < allbtn.length; all++) {
+					$(allbtn[all]).removeClass('jf_active')
+				}
+				$(this).addClass('jf_active')
+			});
+			//倒计时
+			var  endtime="{$endtime}";
+			 console.log(endtime);
+			//倒计时
+			function getCountDown(timestamp) {
+				setInterval(function() {
+					var nowTime = new Date();
+					var endTime = new Date(timestamp * 1000);
+
+					var t = endTime.getTime() - nowTime.getTime();
+					//            var d=Math.floor(t/1000/60/60/24);
+					var hour = Math.floor(t / 1000 / 60 / 60 % 24);
+					var min = Math.floor(t / 1000 / 60 % 60);
+					var sec = Math.floor(t / 1000 % 60);
+
+					if(hour < 10) {
+						hour = "0" + hour;
+					}
+					if(min < 10) {
+						min = "0" + min;
+					}
+					if(sec < 10) {
+						sec = "0" + sec;
+					}
+					$("#shi").text(hour)
+					$("#fen").text(min)
+					$("#miao").text(sec)
+				}, 1000);
+			}
+             
+			//调用函数：
+			getCountDown(endtime); //时间戳可以去百度一下，这里的时间是2015年12月31日18：00：00
+		</script>
+	</body>
+
+</html>

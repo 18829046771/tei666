@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<title>忒666</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1,user-scalable=no">
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black">
+		<link rel="stylesheet" href="__PUBLIC__/xin/css/mui.min.css">
+		<link rel="stylesheet" href="__PUBLIC__/xin/css/swiper.min.css" />
+		<link rel="stylesheet" href="__PUBLIC__/xin/css/index.css" />
+		<link rel="stylesheet" type="text/css" href="__PUBLIC__/xin/css/t_all.css" />
+		<script src="__PUBLIC__/xin/js/rem.js"></script>
+		<style type="text/css">
+			.zt-header a img {
+				width: 0.28rem;
+				margin-top: .22rem;
+			}
+			
+			.zt-header {
+				background: white !important;
+				height: 1rem;
+				transition: all .1s;
+				box-shadow: 0 1px 6px #ccc !important;
+			}
+			.t_upimg{
+				border:0px solid #cccccc;
+			}
+		</style>
+	</head>
+
+	<body>
+		<!--header-->
+		<header class="mui-bar mui-bar-nav zt-header">
+
+			<a href="javascript:history.back(-1)" class="mui-pull-left ss-togbtn"><img src="__PUBLIC__/xin/images/back.png" /></a>
+			<h1 class="mui-title" style="color: black;">
+				申请退款
+			</h1>
+			<style type="text/css">
+				.top {
+					padding-bottom: 1.2rem;
+				}
+			</style>
+		</header>
+		<form action="{:U('My/tuikuan')}" method="post" enctype="multipart/form-data">
+			<input type="hidden" name="id" id="id" value="{$res.id}">
+			<div class="top">
+				<div class="t_shop">
+					<div class="t_shopimg">
+						<img src="{$res.img}" />
+					</div>
+					<div class="t_shopname">{$res.name}</div>
+				</div>
+				<input type="hidden" name="yuanyin" id="yuanyin">
+				<div class="t_lista">
+					<div class="t_listatop">
+						<div class="t_listatopl">
+							退款原因：
+						</div>
+						<div class="t_listatopr rico" id="codeok">
+							请选择
+						</div>
+					</div>
+				</div>
+				<div class="t_listb">
+					<div class="t_listbl">
+						退款金额：
+					</div>
+					<div class="t_listbr color_a">
+						￥{$res.zong}
+					</div>
+				</div>
+				<div class="t_listc">
+					最多¥{$res.zong}，含发货邮费¥
+					<if condition="!$gg['money_you']">0.00<else />{$gg.money_you}</if>
+				</div>
+				<div class="t_listd">
+					<div class="t_listbl">
+						退款说明：
+					</div>
+					<div class="t_listbr color_b">
+						<input type="text" class="tex" name="shuoming" rows="" cols="" placeholder="选填"></input>
+					</div>
+				</div>
+				<div class="t_liste">
+					<div class="t_listet">
+						上传凭证
+					</div>
+					<div class="t_listeb">
+						<div class="t_upimg">
+							<input type="file" name="photo1" onchange="setImg(this, 1)" />
+							<img src="__PUBLIC__/xin/images/tkimh.png" id="photo1" />
+						</div>
+						<div class="t_upimg">
+							<input type="file" name="photo2" onchange="setImg(this, 2)" />
+							<img src="__PUBLIC__/xin/images/tkimh.png" id="photo2" />
+						</div>
+						<div class="t_upimg">
+							<input type="file" name="photo3" onchange="setImg(this, 3)" />
+							<img src="__PUBLIC__/xin/images/tkimh.png" id="photo3" />
+						</div>
+					</div>
+				</div>
+				<div class="t_bj">
+					提交
+				</div>
+			</div>
+			<div class="tk" id="tk" style="display: none">
+				<div class="tk_index">
+					<div class="tk_top">
+						退款原因
+					</div>
+					<div class="tk_list">
+						多拍/错拍/不想要
+					</div>
+					<div class="tk_list">
+						质量问题
+					</div>
+					<div class="tk_gb" id="why_key">
+						关闭
+					</div>
+				</div>
+			</div>
+		</form>
+		<script src="__PUBLIC__/xin/js/mui.min.js"></script>
+		<script src="__PUBLIC__/xin/js/jquery.min.js"></script>
+		<script src="__PUBLIC__/xin/js/swiper.min.js"></script>
+		<script src="__PUBLIC__/xin/js/city.data-3.js" type="text/javascript" charset="utf-8"></script>
+		<script>
+			$('.tk_list').click(function(){
+				$('.tk_list').removeClass('tk_xz')
+				$(this).addClass('tk_xz')
+			})
+			$('#why_key').click(function(){
+				$('#tk').hide()
+			 	var objtxt= $('.tk_xz').text()
+			 	$('#codeok').text(objtxt);
+			 	$("#yuanyin").val(objtxt.replace(/(^\s*)|(\s*$)/g, ""));
+			})
+			$('#codeok').click(function(){
+				$('#tk').show()
+			});
+
+			//图片预览
+			function setImg(that, val){
+				fals = true;
+				var reads = new FileReader();
+				reads.readAsDataURL($(that).context.files[0]);
+				console.log(reads);
+				reads.onload = function(e) {
+					$('#photo' + val).attr('src',this.result);
+				};
+			}
+
+			$('.t_bj').click(function(){
+				var yuan=$("#yuanyin").val();
+				
+				if(yuan==''){
+					 alert("请选择退款原因");
+					 return false;
+				}else{
+					$('form').submit();
+				}
+				
+				
+				
+			});
+		</script>
+	</body>
+
+</html>

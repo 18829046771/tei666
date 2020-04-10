@@ -1,0 +1,190 @@
+<extend name="Index:app" />
+<block name="title"><title>后台管理系统-添加互动弄</title></block>
+
+<style type="text/css">
+        .img-item {
+            width: 80px!important;
+            height: 80px!important;
+            background: white;
+            text-align: center;
+            line-height: 75px;
+            margin-right:15px;
+            margin-top:15px;
+            font-size: 30px;
+            cursor: pointer;
+            border:1px solid #ccc;
+        }
+    </style>
+  
+<block name="content">
+    <div class="row">
+        <div class="col-md-12">
+            <!-- Horizontal Form -->
+            <div class="box box-info">
+                <div class="box-header with-border">
+                    <h3 class="box-title">编辑活动</h3>
+                </div>
+                <!-- /.box-header -->
+                <!-- form start -->
+                <form class="form-horizontal" action="{:U('Wan/edit')}" method="post" enctype="multipart/form-data">
+                    <input type="hidden" id="id" name="id"  value="{$res.id}">
+
+                    <div class="box-body">
+                        <div class="form-group">
+                            <label for="type" class="col-sm-2 control-label">参与类型</label>
+                            <div class="col-sm-6">
+                                <select class="form-control" style="width:30%;" id="type" name="type">
+                                    <option value="">请选择参与类型</option>
+                                    <option value="1">免费仅限会员参与</option>
+                                    <option value="2">会员非会员均可参加</option>
+                                    <option value="3">仅会员可参加</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="title" class="col-sm-2 control-label">活动名称</label>
+                        <div class="col-sm-6">
+                            <input type="text" class="form-control" id="title" name="title" value="{$res.title}" placeholder="活动名称">
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="num" class="col-sm-2 control-label">参与人数</label>
+                        <div class="col-sm-6">
+                            <input type="number" class="form-control" id="num" name="num" value="{$res.num}" placeholder="参与人数">
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="phone" class="col-sm-2 control-label">联系电话</label>
+                        <div class="col-sm-6">
+                            <input type="text" class="form-control" id="phone" name="phone" value="{$res.phone}" placeholder="联系电话">
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="address" class="col-sm-2 control-label">地址</label>
+                        <div class="col-sm-6">
+                            <input type="text" class="form-control" id="address" name="address" value="{$res.address}" placeholder="地址">
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="photo" class="col-sm-2 control-label">封面图片</label>
+                        <div class="col-sm-6" style="margin-top: 5px">
+                            <input type="text" name="photo" size="40" style="height:22px" id="photo" value="{$res.photo}" /> 
+                            <input type="button" class="input_bot" onClick="window.open('/index.php/Admin/Wan/photo.html','','status=no,scrollbars=no,top=20,left=110,width=420,height=165');return false;" value="选择图片" />
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="banner1" class="col-sm-2 control-label">banner1</label>
+                        <div class="col-sm-6" style="margin-top: 5px">
+                            <input type="text" name="banner1" size="40" style="height:22px" id="banner1" value="{$res.banner1}" /> 
+                            <input type="button" class="input_bot" onClick="window.open('/index.php/Admin/Wan/banner1.html','','status=no,scrollbars=no,top=20,left=110,width=420,height=165');return false;" value="选择图片" /></td>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="banner2" class="col-sm-2 control-label">banner2</label>
+                        <div class="col-sm-6" style="margin-top: 5px">
+                            <input type="text" name="banner2" size="40" style="height:22px" id="banner2" value="{$res.banner2}" /> 
+                            <input type="button" class="input_bot" onClick="window.open('/index.php/Admin/Wan/banner2.html','','status=no,scrollbars=no,top=20,left=110,width=420,height=165');return false;" value="选择图片" /></td>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="inputPassword3" class="col-sm-2 control-label">banner3</label>
+                        <div class="col-sm-6" style="margin-top: 5px">
+                            <input type="text" name="banner3" size="40" style="height:22px" id="banner3" value="{$res.banner3}" /> 
+                            <input type="button" class="input_bot" onClick="window.open('/index.php/Admin/Wan/banner3.html','','status=no,scrollbars=no,top=20,left=110,width=420,height=165');return false;" value="选择图片" /></td>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="inputPassword3" class="col-sm-2 control-label">banner4</label>
+                        <div class="col-sm-6" style="margin-top: 5px">
+                            <input type="text" name="banner4" size="40" style="height:22px" id="banner4" value="{$res.banner4}" /> 
+                            <input type="button" class="input_bot" onClick="window.open('/index.php/Admin/Wan/banner4.html','','status=no,scrollbars=no,top=20,left=110,width=420,height=165');return false;" value="选择图片" /></td>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="money" class="col-sm-2 control-label">商城价</label>
+                        <div class="col-sm-6">
+                            <input type="text" class="form-control" id="money" name="money" value="{$res.money}" placeholder="商城价">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="money_hy" class="col-sm-2 control-label">会员价</label>
+                        <div class="col-sm-6">
+                            <input type="text" class="form-control" id="money_hy" name="money_hy" value="{$res.money_hy}" placeholder="会员价">
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="start_time" class="col-sm-2 control-label">活动开始时间</label>
+                        <div class="col-sm-6">
+                            <input type="text" class="form-control" id="start_time" name="start_time" value="{$res.start_time}" placeholder="开始时间">
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="end_time" class="col-sm-2 control-label">报名截止时间</label>
+                        <div class="col-sm-6">
+                            <input type="text" class="form-control" id="end_time" name="end_time" value="{$res.end_time}" placeholder="结束时间">
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="inputEmail3" class="col-sm-2 control-label">是否上架</label>
+                        <div class="col-sm-6" style="padding:6px 0 0 12px"> 
+                            <div style="display: inline-block;margin-right:10px">&nbsp;上架&nbsp;
+                            <input style="vertical-align: middle;margin-top:-2px;" type="radio" name="is_sj" value="1" id="checkbox" <if condition="$res[is_sj] eq 1">checked="checked"</if>/></div>
+                            <div style="display: inline-block;margin-right:5px">&nbsp;下架&nbsp;
+                            <input style="vertical-align: middle;margin-top:-2px;" type="radio" name="is_sj" value="2" id="checkbox" <if condition="$res[is_sj] eq 2">checked="checked"</if>/></div>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="content" class="col-sm-2 control-label">活动详情</label>
+                        <div class="col-sm-9">
+                            <textarea id="content" name="content" style="height: 500px; width: 100%;">{$res.content}</textarea>
+                        </div>
+                    </div>
+
+                    <!-- /.box-body -->
+                    <div class="box-footer">
+                        <div class="col-sm-2">
+                        </div>
+                        <div class="col-sm-10">
+                            <button type="submit" class="btn btn-primary">提&nbsp;&nbsp;交</button>
+                        </div>
+
+                    </div>
+                    <!-- /.box-footer -->
+                </form>
+            </div>
+          
+        </div>
+    </div>
+</block>
+
+
+<block name="js">
+	<script>
+        $("#type").val('{$res.type}');
+    	// 执行一个laydate实例
+        laydate.render({
+            elem: '#start_time',
+            type: 'datetime'
+        });
+        laydate.render({
+            elem: '#end_time',
+            type: 'datetime'
+        });
+	</script>
+</block>
+

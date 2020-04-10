@@ -1,0 +1,148 @@
+<extend name="Index:app" />
+<block name="css">
+
+</block>
+<block name="content">
+    <div class="row">
+        <div class="col-xs-12">
+            <div class="box">
+
+                <div class="box-header">
+                    <h3 class="box-title"><a href="{:U('ProductManagement/add_baoxian')}" class="btn btn-primary Normal">添加产品</a></h3>
+                    <div class="box-tools">
+                        <div class="input-group input-group-sm" >
+
+                        </div>
+                    </div>
+                </div>
+                <form class="form-horizontal" action="{:U('ProductManagement/index_baoxian')}" method="post" enctype="multipart/form-data" style="width:23%;display: inline-block;">
+                    <div class="box-header">
+                        <h3 class="box-title">保险管理</h3>
+                       
+                          <select id="select2" name="select2" style="margin-left:90px;width:150px;font-size:16px;" >
+                          	 <option value="">请选择</option>
+                          	 <option value="1">上架</option>
+                          	 <option value="2">下架</option>
+                          </select>
+                           <input type="submit"  value="搜索"/ class="btn btn-primary btn-xs" style="margin-top:-5px">
+                    </div>
+                </form>
+                <form class="form-horizontal" action="{:U('ProductManagement/index_baoxian')}" method="post" enctype="multipart/form-data" style="width:45%;display: inline-block;">
+                    <div class="box-header">
+                          <input type="text"  placeholder="请输入产品名称"  id="ming" name="ming"  style="margin-left:90px;width:150px;font-size:16px;" >
+                           <input type="submit"  value="搜索"/ class="btn btn-primary btn-xs" style="margin-top:-5px">
+                    </div>
+                </form>
+                <!-- /.box-header -->
+                <form class="form-horizontal" action="{:U('ProductManagement/deleteAll')}" method="post" enctype="multipart/form-data" id="r_list">
+                <div class="box-body table-responsive no-padding" >
+                    <table class="table table-hover">
+                        <tr>
+                            <th>产品名称</th>
+                            <th>产品图片</th>
+                            <th>直属分类</th>
+                            <th>状态</th>
+                            <th>添加时间</th>
+                            <th>操作功能</th>
+                        </tr>
+                        <volist name="list" id="vo">
+                            <tr>
+                                <td>{$vo.product_title}</td>
+                                <td><img src="{$vo.art_img_url}" width="100" height="30"/></td>
+                                <td>{$vo.fen}</td>
+                                <td>
+                                	<if condition="$vo['type'] eq 1">
+                                	 	上架
+                                	 	<else/>
+                                	 	下架
+                                	 </if>
+                                </td>
+                                <td>{$vo.art_date}</td>
+                                <td>
+                                    <a href="{:U('ProductManagement/baoxian_edit',array('art_id'=>$vo['art_id']))}" class="btn btn-primary btn-xs">编辑</a>
+                                 <!--   <a href="{:U('ProductManagement/delete',array('art_id'=>$vo['art_id']))}" class="btn btn-primary btn-xs">删除</a>-->
+                                     <div class="btn btn-primary btn-xs  mo" ids="{$vo.art_id}" data-toggle="modal" data-target="#myModal" >删除</div> 
+                                    <input type="checkbox" name="{$vo.art_id}" value="{$vo.art_id}" id="checkbox"/>
+                                </td>
+                            </tr>
+                        </volist>
+                    </table>
+                </div>
+                <!-- /.box-body -->
+                <div class="box-footer clearfix" style="text-align: center;">
+                    <ul class="pagination pagination-sm no-margin">
+                        {$page}
+                    </ul>
+                    <div class="form-group">
+                    <a href="javascript:checkbox_all();" class="btn btn-primary btn-xs">全选</a>&nbsp;<a href="javascript:checkbox_none();" class="btn btn-primary btn-xs">取消全选</a>
+                    <input type="submit" id="btn1" value="删除"class="btn btn-primary btn-xs"/>
+                    </div>
+                </div>
+                </form>
+            </div>
+            <!-- /.box -->
+        </div>
+    </div>
+    
+    <!-- 模态框（Modal） -->
+    <form class="form-horizontal" action="{:U('ProductManagement/delete')}" method="post" enctype="multipart/form-data">
+    	
+  
+		<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+			<div class="modal-dialog">
+				<div class="modal-content">
+					<div class="modal-header">
+						<button type="button" class="close" data-dismiss="modal" aria-hidden="true">
+							&times;
+						</button>
+						<h4 class="modal-title" id="myModalLabel">
+							提示框
+						</h4>
+					</div>
+					<div class="modal-body">
+						确定删除此产品？
+					</div>
+					<input type="text" hidden name="art_id" id="artse" value="">
+					<div class="modal-footer">
+						<button type="button" class="btn btn-default" data-dismiss="modal">关闭
+						</button>
+						<button type="submit"  class="btn btn-primary">
+							删除
+						</button>
+					</div>
+				</div>
+			</div>
+		</div>
+    
+      </form>
+</block>
+<block name="js">
+    <script>
+    	$(".mo").click(function(){
+    	 	  var num=$(this).attr('ids');
+    	 	 $("#artse").val(num);
+    	 })
+
+        function checkbox_all()
+        {
+            $('#r_list :checkbox').each(function(){
+                if(!$(this).is(':checked'))
+                {
+                    $(this).click();
+                    $('#r_list :checkbox').attr('checked',true);
+                }
+            });
+        }
+        function checkbox_none()
+        {
+            $('#r_list :checkbox').each(function(){
+                if($(this).is(':checked'))
+                {
+                    $(this).click();
+                }
+            });
+        }
+    </script>
+</block>
+
+

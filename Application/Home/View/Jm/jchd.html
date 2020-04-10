@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<title>忒666</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1,user-scalable=no">
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black">
+		<link rel="stylesheet" href="__PUBLIC__/xin/css/mui.min.css">
+		<link rel="stylesheet" href="__PUBLIC__/xin/css/swiper.min.css" />
+		<link rel="stylesheet" href="__PUBLIC__/xin/css/index.css" />
+		<script src="__PUBLIC__/xin/js/rem.js"></script>
+		<script>
+			var _hmt = _hmt || [];
+			(function() {
+				var hm = document.createElement("script");
+				hm.src = "https://hm.baidu.com/hm.js?27840755bf9c5ae945c2936a17ab0b8b";
+				var s = document.getElementsByTagName("script")[0];
+				s.parentNode.insertBefore(hm, s);
+			})();
+		</script>
+	</head>
+	<style>
+		.mk-box {
+			padding-top: .3rem;
+		}
+		
+		.qc-ssbox {
+			padding-bottom: 0;
+		}
+		
+		.des {
+			width: 100%;
+			height: 3.2rem;
+			border-radius: 3px;
+		}
+		
+		.des>a>img {
+			width: 100%;
+			display: block;
+			padding: 0;
+			margin: 0 auto;
+			width: 100%;
+			height: 3.2rem;
+		}
+	</style>
+
+	<body>
+		<include file="Include/right" />
+
+		<!--侧滑菜单容器-->
+		<div id="offCanvasWrapper" class="mui-off-canvas-wrap mui-draggable mui-scalable">
+			<!--菜单部分-->
+			<include file="Include/left" />
+			<!--主体-->
+			<div class="mui-inner-wrap">
+				<!--header-->
+				<header class="mui-bar mui-bar-nav zt-header">
+					<!---->
+					<a href="{:U('Home/Xin/index')}" class="mui-pull-left"><img class="header-list_img" src="__PUBLIC__/xin/images/logo-icon.png" /></a>
+					<a id="offCanvasBtn" href="#offCanvasSide" class="mui-pull-right"><img src="__PUBLIC__/xin/images/cd-icon.png" alt="" /></a>
+					<h1 class="mui-title header-list_txt">
+						精彩活动
+					</h1>
+				</header>
+				<div id="offCanvasContentScroll" class="mui-content mui-scroll-wrapper">
+					<div class="mui-scroll">
+						<!--banner-->
+						<div class="lmst-img">
+							<if condition="$banns.url neq null">
+								<a href="{$banns.url}"><img src="{$banns.picture_url}" alt="" /></a>
+								<else/>
+								<a href="{$banns.url}"><img src="{$banns.picture_url}" alt="" /></a>
+
+							</if>
+
+						</div>
+						<!--896汽车加速度-->
+						<form id="form1" action="{:U('Jm/jchd')}" method="post" enctype="multipart/form-data">
+							<div class="qc-ssbox">
+								<div class="cgj-ss">
+									<div class="mui-input-row mui-search">
+										<input type="search" class="mui-input-clear" name="sou" id="search" placeholder="关键词搜索">
+									</div>
+								</div>
+							</div>
+						</form>
+						<volist name="temp" id="vo">
+							<div class="mk-box">
+								<div class="mk-showbox">
+									<div class="ytx-list-box">
+										<if condition="$vo.content neq null">
+											<div class="ytx-list-img" src='{$vo.content}' img='__PUBLIC__/xin/images/2.png'>
+											</div>
+											<else/>
+											<div class="cont des">
+												<a href="{:U('Home/Jm/hong',array('id'=>$vo['art_id']))}"><img style="width: 100%;display: inline-block;" src="{$vo.art_img_url}" /></a>
+											</div>
+
+										</if>
+
+										<div class="ytx-list-txt">
+											<div class="yxt-list-name">
+												{$vo.product_title}
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</volist>
+
+						<include file="Include/footer" />
+					</div>
+				</div>
+				<!-- off-canvas backdrop -->
+				<div class="mui-off-canvas-backdrop"></div>
+			</div>
+		</div>
+		<script src="__PUBLIC__/xin/js/mui.min.js"></script>
+		<script src="__PUBLIC__/xin/js/jquery.min.js"></script>
+		<script src="__PUBLIC__/xin/js/swiper.min.js"></script>
+		<script src="__PUBLIC__/xin/ckplayer/ckplayer.js"></script>
+		<script src="__PUBLIC__/xin/js/index.js"></script>
+		<script>
+			document.getElementById("search").addEventListener("keypress", function(event) {
+				if(event.keyCode == "13") {
+					document.activeElement.blur(); //收起虚拟键盘
+					toSearch(); // 完成搜索事件
+					event.preventDefault(); // 阻止默认事件---阻止页面刷新
+				}
+			});
+
+			function toSearch() {
+
+				$("#form1").submit();
+			}
+
+			var arr = [];
+			for(var i = 0; i < $('.ytx-list-img').length; i++) {
+				$('.ytx-list-img').eq(i).attr('id', 'spShow' + i);
+				var src = $('.ytx-list-img').eq(i).attr('src');
+				var img = $('.ytx-list-img').eq(i).attr('img');
+				arr.push({
+					'id': 'spShow' + i,
+					'src': src,
+					'img': img
+				});
+			};
+			//console.log(arr);
+			//	console.log(arr[0].id)
+			for(var j = 0; j < arr.length; j++) {
+				for(var i = 0; i < 1; i++) {
+					var videoObject = {
+						container: '#' + arr[j].id, //容器的ID或className
+						variable: play, //播放函数名称
+						flashplayer: true,
+						poster: arr[j].img, //封面图片
+						video: [ //视频地址列表形式
+							[arr[j].src, 'video/mp4']
+						]
+					};
+					//console.log(videoObject)
+
+					var play = new ckplayer(videoObject);
+				};
+				//console.log(1)
+			}
+		</script>
+	</body>
+
+</html>

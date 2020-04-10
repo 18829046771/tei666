@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<title>忒666</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1,user-scalable=no">
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black">
+		<link rel="stylesheet" href="__PUBLIC__/xin/css/mui.min.css">
+		<link rel="stylesheet" href="__PUBLIC__/xin/css/swiper.min.css" />
+		<link rel="stylesheet" href="__PUBLIC__/xin/css/index.css" />
+		<script src="__PUBLIC__/xin/js/rem.js"></script>
+	</head>
+
+	<body>
+<include file="Include/right" />
+		
+		<!--侧滑菜单容器-->
+		<div id="offCanvasWrapper" class="mui-off-canvas-wrap mui-draggable mui-scalable">
+			<!--菜单部分-->
+			<include file="Include/left" />
+			<!--主体-->
+			<div class="mui-inner-wrap">
+				<!--header-->
+				<header class="mui-bar mui-bar-nav zt-header">
+					<!---->
+					<a href="{:U('Home/Xin/index')}" class="mui-pull-left"><img class="header-list_img" src="__PUBLIC__/xin/images/logo-icon.png" /></a>
+					<a id="offCanvasBtn" href="#offCanvasSide" class="mui-pull-right"><img src="__PUBLIC__/xin/images/cd-icon.png" alt="" /></a>
+					<h1 class="mui-title header-list_txt">
+						《896汽车加速度》
+					</h1>
+				</header>
+				<div id="offCanvasContentScroll" class="mui-content mui-scroll-wrapper">
+					<div class="mui-scroll">
+						<div class="qc-box">
+							<!--top-->
+							<div class="qc-top">
+								<div class="qc-imgbox flex-s">
+									<div class="qc-img"><img src="__PUBLIC__/xin/images/21.png" alt="" /></div>
+									<div class="qc-img-right">
+										<div class="qc-top-title">896汽车加速度</div>
+										<div class="qc-top-name">主持人：马大帅</div>
+										<div class="qc-top-time">周一至周日16:00-17:00</div>
+									</div>
+								</div>
+								<div class="qc-txtshow">
+									<div class="qc-txtlist">
+										<span class="qc-txtbl">节目主要内容：</span>关注汽车文化、汽车后市场，包括汽车维修、汽车保养、汽车装潢、汽车美容、二手汽车评估、交易等...
+									</div>
+									<div class="qc-txtlist">
+										<span class="qc-txtbl">马大帅：</span>一个实实在在的真正想为大家做点实事的关中汉子。
+									</div>
+									<div class="qc-txtlist">
+										<span class="qc-txtbl">直播通道：</span>
+										<a href="">http://www.snrtv.com/node-39547.html</a>(点击该链接后选择“汽车调频FM89.6”)。
+									</div>
+								</div>
+							</div>
+							<!--bom-->
+							<div class="qc-bom">
+								<!--ss-->
+								<form id="form1" action="{:U('Jm/qcjsd')}" method="post" enctype="multipart/form-data">
+									<div class="qc-ssbox">
+										<div class="cgj-ss">
+											<div class="mui-input-row mui-search">
+												<input type="search" id="sousuo" name="sousuo" class="mui-input-clear" placeholder="关键词搜索">
+											</div>
+										</div>
+									</div>
+								</form>
+
+								<!--div-->
+								<volist name="temp" id="vo">
+									<div class="fm-list">
+										<p class="weixinAudio">
+											<audio src="http://test-audio1116.oss-cn-beijing.aliyuncs.com/%E5%85%B3%E4%BA%8E%E6%B1%BD%E8%BD%A6%E8%BD%AE%E8%83%8E%E7%9A%84%E7%9F%A5%E8%AF%86.mp3" id="media" width="1" height="1" preload></audio>
+											<!-- {$vo.content}-->
+											<span id="audio_area" class="db audio_area">
+											<span class="audio_wrp db">
+											<span class="audio_play_area">
+												<i class="icon_audio_default"></i>
+												<i class="icon_audio_playing"></i>
+											</span>
+											<span id="audio_length" class="audio_length tips_global">3:07</span>
+											<span class="db audio_info_area">
+												<strong class="db audio_title">{$vo.product_title}</strong>
+												<span class="audio_source tips_global">From/来源</span>
+											</span>
+											<span id="audio_progress" class="progress_bar" style="width: 0%;"></span>
+											</span>
+											</span>
+										</p>
+
+									</div>
+								</volist>
+
+							</div>
+						</div>
+						<!--	footer-->
+						<include file="Include/footer" />
+					</div>
+				</div>
+				<!-- off-canvas backdrop -->
+				<div class="mui-off-canvas-backdrop"></div>
+			</div>
+		</div>
+		<script src="__PUBLIC__/xin/js/mui.min.js"></script>
+		<script src="__PUBLIC__/xin/js/jquery.min.js"></script>
+		<script src="__PUBLIC__/xin/js/swiper.min.js"></script>
+		<script src="__PUBLIC__/xin/js/weixinAudio.js"></script>
+		<script src="__PUBLIC__/xin/ckplayer/ckplayer.js"></script>
+		<script src="__PUBLIC__/xin/js/index.js"></script>
+
+		<script>
+			$('.weixinAudio').weixinAudio({
+				autoplay: true,
+			});
+			document.getElementById("search").addEventListener("keypress", function(event) {
+				if(event.keyCode == "13") {
+					document.activeElement.blur(); //收起虚拟键盘
+					toSearch(); // 完成搜索事件
+					event.preventDefault(); // 阻止默认事件---阻止页面刷新
+				}
+			});
+
+			function toSearch() {
+
+				$("#form1").submit();
+			}
+		</script>
+	</body>
+
+</html>

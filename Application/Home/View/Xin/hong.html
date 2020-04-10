@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<title>忒666</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1,user-scalable=no">
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black">
+		<link rel="stylesheet" href="__PUBLIC__/xin/css/mui.min.css">
+		<link rel="stylesheet" href="__PUBLIC__/xin/css/swiper.min.css" />
+		<link rel="stylesheet" href="__PUBLIC__/xin/css/index.css" />
+		<script src="__PUBLIC__/xin/js/rem.js"></script>
+		<style type="text/css">
+			.shopindextop{
+				width: 100%;
+				display: inline-block;
+				padding: 0.4rem 0.3rem;
+				background-color: white;
+				padding-bottom: 0.2rem;
+				border-bottom: 1px solid #EFEFEF;
+			}
+			.shopindextop_tatble{
+				width: 100%;
+				display: inline-block;
+				font-size: 0.4rem;
+				line-height: 0.4rem;
+			}
+			.shopindextop_time{
+				width: 100%;
+				font-size: 0.3rem;
+				color: #ababab;
+				margin: 0.1rem 0;
+			}
+			.shopindex{
+				width: 100%;
+				display: inline-block;
+				background-color: white;
+				padding: 0.3rem 0.15rem;
+			}
+			.shopindex img{
+				max-width: 100%;
+				display: block;
+				margin: 0 auto;
+				padding: 0;
+			}
+			.shopindex p{
+				color: #000;
+			}
+		</style>
+	</head>
+
+	<body>
+		<include file="Include/right"/>
+		<!--侧滑菜单容器-->
+		<div id="offCanvasWrapper" class="mui-off-canvas-wrap mui-draggable mui-scalable">
+			<!--菜单部分-->
+			<include file="Include/left" />
+			<!--主体-->
+			<div class="mui-inner-wrap">
+				<!--header-->
+				<header class="mui-bar mui-bar-nav zt-header">
+					<!---->
+					<a href="{:U('Home/Xin/index')}" class="mui-pull-left"><img class="header-list_img" src="__PUBLIC__/xin/images/logo-icon.png" /></a>
+					<a id="offCanvasBtn" href="#offCanvasSide" class="mui-pull-right"><img src="__PUBLIC__/xin/images/cd-icon.png" alt="" /></a>
+					<h1 class="mui-title header-list_txt">
+						<!--精彩活动-->
+					</h1>
+				</header>
+				<div id="offCanvasContentScroll" class="mui-content mui-scroll-wrapper">
+					<div class="mui-scroll">
+
+						<div class="shopindextop">
+							<div class="shopindextop_tatble">
+								{$res.title}
+							</div>
+							<div class="shopindextop_time">
+								{:date('Y年m月d日 H:i:s', $res['add_time'])}
+							</div>
+						</div>
+						<div class="shopindex">{$res.content}</div>
+						<!--主体-->
+
+						<include file="Include/footer" />
+					</div>
+				</div>
+				<!-- off-canvas backdrop -->
+				<div class="mui-off-canvas-backdrop"></div>
+			</div>
+		</div>
+		<script src="__PUBLIC__/xin/js/mui.min.js"></script>
+		<script src="__PUBLIC__/xin/js/jquery.min.js"></script>
+		<script src="__PUBLIC__/xin/js/swiper.min.js"></script>
+		<script src="__PUBLIC__/xin/ckplayer/ckplayer.js"></script>
+		<script src="__PUBLIC__/xin/js/index.js"></script>
+		<script type="text/javascript" src="http://res.wx.qq.com/open/js/jweixin-1.2.0.js"></script>
+		<script type="text/javascript">
+		wx.config({
+		    debug: false, // 开启调试模式,调用的所有api的返回值会在客户端alert出来，若要查看传入的参数，可以在pc端打开，参数信息会通过log打出，仅在pc端时才会打印。
+		    appId: '{$jsApiArr.appId}', // 必填，公众号的唯一标识
+		    timestamp: '{$jsApiArr.timestamp}', // 必填，生成签名的时间戳
+		    nonceStr: '{$jsApiArr.nonceStr}', // 必填，生成签名的随机串
+		    signature: '{$jsApiArr.signature}',// 必填，签名
+		    jsApiList: [
+				'onMenuShareTimeline',
+		        'onMenuShareAppMessage',
+		        'onMenuShareQQ',
+		        'onMenuShareWeibo',
+		        'onMenuShareQZone'
+		    ] // 必填，需要使用的JS接口列表，所有JS接口列表见附录2
+		});
+
+		wx.ready(function () {
+		    wx.checkJsApi({
+		        jsApiList: ['chooseImage'], // 需要检测的JS接口列表，所有JS接口列表见附录2,
+		        success: function(res) {
+		            console.log(res);
+		            // 以键值对的形式返回，可用的api值true，不可用为false
+		            // 如：{"checkResult":{"chooseImage":true},"errMsg":"checkJsApi:ok"}
+		        }
+		    });
+		    var wxShareObj = { // 分享参数
+		        title: '{$res.title}', // 分享标题
+		        desc: '点击查看详情', // 分享描述
+		        link: window.location.href, // 分享链接，该链接域名或路径必须与当前页面对应的公众号JS安全域名一致
+		        // 该链接是重定向链接，因为需要获取用户code，但是该链接又无法直接写微信获取code的链接，
+		        // 所以需要点击后重新加载新的页面，来实现重定向，重新打开获取code的微信链接，实现获取用户信息的功能；
+		        imgUrl: '{$res.img}', // 分享图标
+		        fail: function (res) {
+		            alert(JSON.stringify(res));
+		        }
+		    };
+		    // 2.1 监听“分享给朋友”，按钮点击、自定义分享内容及分享结果接口
+		    wx.onMenuShareAppMessage(wxShareObj);
+
+		    // 2.2 监听“分享到朋友圈”按钮点击、自定义分享内容及分享结果接口
+		    wx.onMenuShareTimeline(wxShareObj);
+
+		    // 2.3 监听“分享到QQ”按钮点击、自定义分享内容及分享结果接口
+		    wx.onMenuShareQQ(wxShareObj);
+
+		    // 2.4 监听“分享到微博”按钮点击、自定义分享内容及分享结果接口
+		    wx.onMenuShareWeibo(wxShareObj);
+
+		    // 2.5 监听“分享到QZone”按钮点击、自定义分享内容及分享接口
+		    wx.onMenuShareQZone(wxShareObj);
+		});
+		</script>
+	</body>
+
+</html>

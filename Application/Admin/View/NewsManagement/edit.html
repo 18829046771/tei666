@@ -1,0 +1,181 @@
+<extend name="Index:app" />
+<block name="content">
+    <div class="row">
+        <div class="col-md-12">
+            <!-- Horizontal Form -->
+            <div class="box box-info">
+                <div class="box-header with-border">
+                    <h3 class="box-title">添加活动</h3>
+                </div>
+                <!-- /.box-header -->
+                <!-- form start -->
+                <form class="form-horizontal" action="{:U('NewsManagement/update')}" method="post" enctype="multipart/form-data">
+                    <div class="box-body">
+                         <input hidden name="ids" value="{$obj.id}"> 
+                        </div>
+                       
+                        <div class="form-group">
+                            <label for="inputPassword3" class="col-sm-2 control-label">活动名称</label>
+
+                            <div class="col-sm-6">
+                                <input type="text" class="form-control" id="art_title" name="art_title" value="{$obj.huodong_title}">
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="inputPassword3" class="col-sm-2 control-label">上传图片</label>
+                            <input hidden name="huodong_img" value="{$obj.huodong_img}">
+                            <div class="col-sm-6" style="margin-top: 5px">
+                                <input type="file" id="art_img_url" name="art_img_url" value="">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="inputPassword3" class="col-sm-2 control-label">供应商</label>
+
+                            <div class="col-sm-6">
+                                <select class="form-control" style="width:30%;"  id="gong_id" name="gong_id">
+                                    <option value="">|_&nbsp;请选择&nbsp;</option>
+                                    <volist name="gong" id="vo">
+                                        <option value="{$vo.id}">|_&nbsp;{$vo.name}&nbsp;</option>
+                                    </volist>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="inputPassword3" class="col-sm-2 control-label">价格</label>
+
+                            <div class="col-sm-6">
+                                <input type="text" class="form-control" id="art_from" name="art_from" value="{$obj.huodong_money}">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="inputPassword3" class="col-sm-2 control-label">发布人</label>
+
+                            <div class="col-sm-6">
+                                <input type="text" class="form-control" id="art_ren" name="art_ren" value="{$obj.huodong_ren}">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="inputPassword3" class="col-sm-2 control-label">活动时间</label>
+
+                            <div class="col-sm-6">
+                                <input type="text" class="form-control" id="time" name="time" value="{$obj.time}">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="inputPassword3" class="col-sm-2 control-label">活动地点</label>
+
+                            <div class="col-sm-6">
+                                <input type="text" class="form-control" id="didian" name="didian" value="{$obj.didian}">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="inputPassword3" class="col-sm-2 control-label">活动人数</label>
+
+                            <div class="col-sm-6">
+                                <input type="text" class="form-control" id="renshu" name="renshu" value="{$obj.renshu}">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="inputEmail3" class="col-sm-2 control-label">参与人</label>
+                            <div class="col-sm-6" style="padding:6px 0 0 12px"> 
+                                <div style="display: inline-block;margin-right:10px">&nbsp;普通会员&nbsp;
+	                                <if condition="$obj.type eq 0">
+	                                	<input style="vertical-align: middle;margin-top:-2px;" type="checkbox" name="type0" value="1" id="checkbox"/>
+	                                	<else/>
+	                                	<input style="vertical-align: middle;margin-top:-2px;" type="checkbox" name="type0" checked="checked" value="1" id="checkbox"/>	
+	                                	
+	                                </if>	
+                                </div>
+                                <div style="display: inline-block;margin-right:5px">&nbsp;一级会员&nbsp;
+                                    <if condition="$obj.type1 eq 0">
+	                                	<input style="vertical-align: middle;margin-top:-2px;" type="checkbox" name="type1" value="1" id="checkbox"/>
+	                                	<else/>
+	                                	<input style="vertical-align: middle;margin-top:-2px;" type="checkbox" checked="checked" name="type1" value="1" id="checkbox"/>
+	                                	
+	                                </if>	
+                               
+                                </div>
+                                <div style="display: inline-block;margin-right:5px">&nbsp;二级会员&nbsp;
+                                	<if condition="$obj.type2 eq 0">
+	                                	<input style="vertical-align: middle;margin-top:-2px;" type="checkbox" name="type2" value="1" id="checkbox"/>
+	                                	<else/>
+	                                    <input style="vertical-align: middle;margin-top:-2px;" checked="checked" type="checkbox" name="type2" value="1" id="checkbox"/>
+	                                	
+	                                </if>
+                               
+                                </div>
+                                <div style="display: inline-block;margin-right:5px">&nbsp;三级会员&nbsp;
+                                   <if condition="$obj.type3 eq 0">
+	                                	<input style="vertical-align: middle;margin-top:-2px;" type="checkbox" name="type3" value="1" id="checkbox"/>
+	                                	<else/>
+	                                    <input style="vertical-align: middle;margin-top:-2px;" checked="checked" type="checkbox" name="type3" value="1" id="checkbox"/>
+	                                	
+	                                </if>	
+                                	
+                               
+                                </div>
+                                
+                                <div style="display: inline-block;margin-right:5px">&nbsp;四级会员&nbsp;
+                                	 <if condition="$obj.type4 eq 0">
+	                                	<input style="vertical-align: middle;margin-top:-2px;" type="checkbox" name="type4" value="1" id="checkbox"/>
+	                                	<else/>
+	                                    <input style="vertical-align: middle;margin-top:-2px;" type="checkbox" checked="checked" name="type4" value="1" id="checkbox"/>
+	                                	
+	                                </if>	
+                                	
+                               
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+	                        <label for="inputPassword3" class="col-sm-2 control-label">活动详情</label>
+	
+	                        <div class="col-sm-9">
+	                            <textarea id="editor_id" name="art_content" style="height: 500px; width: 100%;">{$obj.text}</textarea>
+	                        </div>
+	                    </div>
+                   
+                    <!-- /.box-body -->
+                    <div class="box-footer">
+                        <div class="col-sm-2">
+                        </div>
+                        <div class="col-sm-10">
+                            <button type="submit" class="btn btn-primary">提&nbsp;&nbsp;交</button>
+                        </div>
+
+                    </div>
+                    <!-- /.box-footer -->
+                </form>
+            </div>
+            <!-- /.box -->
+            <!-- general form elements disabled -->
+
+            <!-- /.box -->
+        </div>
+    </div>
+</block>
+<block name="js">
+    <script>
+
+        function checkbox_all()
+        {
+            $('#r_list :checkbox').each(function(){
+                if(!$(this).is(':checked'))
+                {
+                    $(this).click();
+                    $('#r_list :checkbox').attr('checked',true);
+                }
+            });
+        }
+        function checkbox_none()
+        {
+            $('#r_list :checkbox').each(function(){
+                if($(this).is(':checked'))
+                {
+                    $(this).click();
+                }
+            });
+        }
+    </script>
+</block>

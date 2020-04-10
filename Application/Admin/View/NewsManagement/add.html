@@ -1,0 +1,172 @@
+<extend name="Index:app" />
+<block name="content">
+    <div class="row">
+        <div class="col-md-12">
+            <!-- Horizontal Form -->
+            <div class="box box-info">
+                <div class="box-header with-border">
+                    <h3 class="box-title">添加活动</h3>
+                </div>
+                <!-- /.box-header -->
+                <!-- form start -->
+                <form class="form-horizontal" action="{:U('NewsManagement/addcl')}" method="post" enctype="multipart/form-data">
+                    <div class="box-body">
+                           
+                        </div>
+                       
+                        <div class="form-group">
+                            <label for="inputPassword3" class="col-sm-2 control-label">活动名称</label>
+
+                            <div class="col-sm-6">
+                                <input type="text" class="form-control" id="art_title" name="art_title" placeholder="活动名称">
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="inputPassword3" class="col-sm-2 control-label">上传图片</label>
+
+                            <div class="col-sm-6" style="margin-top: 5px">
+                                <input type="file" id="art_img_url" name="art_img_url" value="">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="inputPassword3" class="col-sm-2 control-label">供应商</label>
+
+                            <div class="col-sm-6">
+                                <select class="form-control" style="width:30%;"  id="gong_id" name="gong_id">
+                                    <option value="">|_&nbsp;请选择&nbsp;</option>
+                                    <volist name="gong" id="vo">
+                                        <option value="{$vo.id}">|_&nbsp;{$vo.name}&nbsp;</option>
+                                    </volist>
+                                </select>
+                            </div>
+                        </div>
+                    
+                        <div class="form-group">
+                            <label for="inputPassword3" class="col-sm-2 control-label">价格</label>
+
+                            <div class="col-sm-6">
+                                <input type="text" class="form-control" id="art_from" name="art_from" placeholder="价格">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="inputPassword3" class="col-sm-2 control-label">发布人</label>
+
+                            <div class="col-sm-6">
+                                <input type="text" class="form-control" id="art_ren" name="art_ren" placeholder="发布人">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="inputPassword3" class="col-sm-2 control-label">活动时间</label>
+
+                            <div class="col-sm-6">
+                                <input type="text" class="form-control" id="time" name="time" placeholder="活动时间">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="inputPassword3" class="col-sm-2 control-label">活动地点</label>
+
+                            <div class="col-sm-6">
+                                <input type="text" class="form-control" id="didian" name="didian" placeholder="活动地点">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="inputPassword3" class="col-sm-2 control-label">活动人数</label>
+
+                            <div class="col-sm-6">
+                                <input type="text" class="form-control" id="renshu" name="renshu" placeholder="活动人数">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="inputEmail3" class="col-sm-2 control-label">参与人</label>
+                            <div class="col-sm-6" style="padding:6px 0 0 12px"> 
+                                <div style="display: inline-block;margin-right:10px">&nbsp;普通会员&nbsp;
+                                <input style="vertical-align: middle;margin-top:-2px;" type="checkbox" name="type0" value="1" id="checkbox"/></div>
+                                <div style="display: inline-block;margin-right:5px">&nbsp;一级会员&nbsp;
+                                <input style="vertical-align: middle;margin-top:-2px;" type="checkbox" name="type1" value="1" id="checkbox"/></div>
+                                <div style="display: inline-block;margin-right:5px">&nbsp;二级会员&nbsp;
+                                <input style="vertical-align: middle;margin-top:-2px;" type="checkbox" name="type2" value="1" id="checkbox"/></div>
+                                <div style="display: inline-block;margin-right:5px">&nbsp;三级会员&nbsp;
+                                <input style="vertical-align: middle;margin-top:-2px;" type="checkbox" name="type3" value="1" id="checkbox"/></div>
+                                <div style="display: inline-block;margin-right:5px">&nbsp;四级会员&nbsp;
+                                <input style="vertical-align: middle;margin-top:-2px;" type="checkbox" name="type4" value="1" id="checkbox"/></div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+	                        <label for="inputPassword3" class="col-sm-2 control-label">活动详情</label>
+	
+	                        <div class="col-sm-9">
+	                            <textarea id="editor_id" name="art_content" style="height: 500px; width: 100%;"></textarea>
+	                        </div>
+	                    </div>
+                    <!--<div class="form-group">-->
+                        <!--<label for="inputPassword3" class="col-sm-2 control-label">时间</label>-->
+
+                        <!--<div class="col-sm-6">-->
+                            <!--<input type="text" class="form-control" id="art_date" name="art_date" placeholder="时间">-->
+                        <!--</div>-->
+                    <!--</div>-->
+                        <!--<div class="form-group">-->
+                            <!--<label for="inputPassword3" class="col-sm-2 control-label">关键字</label>-->
+
+                            <!--<div class="col-sm-6">-->
+                                <!--<input type="text" class="form-control" id="art_keywords" name="art_keywords" placeholder="关键字">-->
+                            <!--</div>-->
+                        <!--</div>-->
+                        <!--<div class="form-group">-->
+                            <!--<label for="inputPassword3" class="col-sm-2 control-label">文章描述</label>-->
+
+                            <!--<div class="col-sm-6">-->
+                                <!--<textarea class="form-control" rows="3" placeholder="文章描述" id="art_description" name="art_description"></textarea>-->
+                            <!--</div>-->
+                        <!--</div>-->
+                        <!--<div class="form-group">
+                            <label for="inputPassword3" class="col-sm-2 control-label">新闻内容</label>
+
+                            <div class="col-sm-9">
+                                <textarea id="editor_id" name="art_content" style="height: 500px; width: 100%;"></textarea>
+                            </div>
+                        </div>-->
+                    <!-- /.box-body -->
+                    <div class="box-footer">
+                        <div class="col-sm-2">
+                        </div>
+                        <div class="col-sm-10">
+                            <button type="submit" class="btn btn-primary">提&nbsp;&nbsp;交</button>
+                        </div>
+
+                    </div>
+                    <!-- /.box-footer -->
+                </form>
+            </div>
+            <!-- /.box -->
+            <!-- general form elements disabled -->
+
+            <!-- /.box -->
+        </div>
+    </div>
+</block>
+<block name="js">
+    <script>
+
+        function checkbox_all()
+        {
+            $('#r_list :checkbox').each(function(){
+                if(!$(this).is(':checked'))
+                {
+                    $(this).click();
+                    $('#r_list :checkbox').attr('checked',true);
+                }
+            });
+        }
+        function checkbox_none()
+        {
+            $('#r_list :checkbox').each(function(){
+                if($(this).is(':checked'))
+                {
+                    $(this).click();
+                }
+            });
+        }
+    </script>
+</block>

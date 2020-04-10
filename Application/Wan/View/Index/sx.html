@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<title>忒惠玩</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1,user-scalable=no">
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black">
+		<link rel="stylesheet" href="__PUBLIC__/wan/css/mui.min.css">
+		<link rel="stylesheet" href="__PUBLIC__/wan/css/swiper.min.css" />
+		<link rel="stylesheet" href="__PUBLIC__/wan/css/index.css" />
+		<script src="__PUBLIC__/wan/js/rem.js"></script>
+	</head>
+	<body class="bgfff">
+		<div class="seach_okbox col333 font36">
+			<!--btn-->
+			<div class="seach_okbtn flex-s ">
+				<span class="seach_back">取消</span>
+				<span class="seach_rese">重置</span>
+			</div>
+			<!--fl-->
+			<div class="seach_okblock">
+				<div class="xian"></div>
+				<div class="seach_okcen">
+					<div class="seach_oktitle">
+						<img src="__PUBLIC__/wan/images/seach_time.png" alt="" />
+						<span class="col808">时间</span>
+					</div>
+					<div class="seach_okts font30 col808">星期</div>
+					<div class="seach_oklistbox font34">
+						<volist name="week" id="vo">
+							<div class="seach_oklist week" data-week="{$vo.date}">{$vo.week}</div>
+						</volist>
+					</div>
+					<div class="seach_okts font30 col808">活动时间</div>
+					<div class="seach_oklistbox">
+						<div class="seach_oklist day" data-day="1">上午</div>
+						<div class="seach_oklist day" data-day="2">下午</div>
+						<div class="seach_oklist day" data-day="3">晚上</div>
+					</div>
+					<div class="seach_oktitle">
+						<img src="__PUBLIC__/wan/images/seach_fy.png" alt="" />
+						<span class="col808">费用</span>
+					</div>
+					<div class="seach_oklistbox">
+						<div class="seach_oklist types" data-types="1">免费</div>
+						<div class="seach_oklist types" data-types="2">付费</div>
+					</div>
+				</div>
+			</div>
+			<!--btn-->
+			<a href="{:U('Index/seach')}">
+				<div class="pos_bom">
+					<form action="{:U('Index/seach')}" method="get">
+						<input type="hidden" name="week" id="week" value="">
+						<input type="hidden" name="day" id="day" value="">
+						<input type="hidden" name="types" id="types" value="">
+						<button type="submit" class="colfff bghhh btn_block">确定</button>
+					</form>
+				</div>
+			</a>
+		</div>
+	</body>
+	<script src="__PUBLIC__/wan/js/jquery.min.js" type="text/javascript" charset="utf-8"></script>
+	<script src="__PUBLIC__/wan/js/mui.min.js"></script>
+	<script src="__PUBLIC__/wan/js/city.data-3.js"></script>
+	<script src="__PUBLIC__/wan/js/mui.picker.min.js"></script>
+	<script src="__PUBLIC__/wan/js/mui.poppicker.js"></script>
+	<script src="__PUBLIC__/wan/js/index2.js"></script>
+	<script>
+		selectNav(1);
+
+		$('.week').click(function(){
+			$('.week').removeClass('active');
+			$(this).toggleClass('active');
+			var week = $(this).data('week');
+			$("#week").val(week);
+		});
+
+		$('.day').click(function(){
+			$('.day').removeClass('active');
+			$(this).toggleClass('active');
+			var day = $(this).data('day');
+			$("#day").val(day);
+		});
+
+		$('.types').click(function(){
+			$('.types').removeClass('active');
+			$(this).toggleClass('active');
+			var types = $(this).data('types');
+			$("#types").val(types);
+		});
+	</script>
+</html>

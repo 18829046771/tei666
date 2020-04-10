@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<title>忒666</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1,user-scalable=no">
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black">
+		<link rel="stylesheet" href="__PUBLIC__/xin/css/mui.min.css">
+		<link rel="stylesheet" href="__PUBLIC__/xin/css/swiper.min.css" />
+		<link rel="stylesheet" href="__PUBLIC__/xin/css/index.css" />
+		<script src="__PUBLIC__/xin/js/rem.js"></script>
+		<style type="text/css">
+			.czdq-firbox {
+				font-size: .2rem;
+				color: #6d6d6d;
+				display: flex;
+				margin-top: .05rem;
+				flex-wrap: wrap;
+			}
+			
+			.czdq-firbox>span {
+				display: inline-block;
+				/*width: 100% !important;*/
+				overflow: hidden;
+				text-overflow: ellipsis;
+				white-space: nowrap;
+				vertical-align: top;
+			}
+		</style>
+	</head>
+
+	<body>
+		<include file="Include/right" />
+		<!--侧滑菜单容器-->
+		<div id="offCanvasWrapper" class="mui-off-canvas-wrap mui-draggable mui-scalable">
+			<!--菜单部分-->
+			<include file="Include/left" />
+			<!--主体-->
+			<div class="mui-inner-wrap">
+				<!--header-->
+				<header class="mui-bar mui-bar-nav zt-header">
+					<!---->
+					<a href="{:U('Home/Xin/index')}" class="mui-pull-left"><img class="header-list_img" src="__PUBLIC__/xin/images/logo-icon.png" /></a>
+					<a id="offCanvasBtn" href="#offCanvasSide" class="mui-pull-right"><img src="__PUBLIC__/xin/images/cd-icon.png" alt="" /></a>
+					<h1 class="mui-title header-list_txt">
+						{$cate.cate_name}
+					</h1>
+				</header>
+				<div id="offCanvasContentScroll" class="mui-content mui-scroll-wrapper">
+					<div class="mui-scroll">
+						<div class="czdq-box">
+							<php>$empty = '<div style="text-align: center;color: #666;margin: 100px auto;">本栏目产品正在更新中，敬请期待！</div>';</php>
+							<volist name="temp" id="vo" empty="$empty">
+								<a href="{:U('Home/Che/cpxq',array('id'=>$vo['art_id']))}">
+									<div class="czdq-list">
+										<div class="czdq-img"><img src="{$vo.art_img_url}" alt="" /></div>
+										<div class="czdq-txt">
+											<div class="czdq-name">{$vo.product_title}</div>
+											<div class="czdq-firbox">
+												<span class="czdq-fir_red">会员价:{$vo.huiyuan}</span>&nbsp;&nbsp;
+												<span>商城价:{$vo.jiage}</span>
+											</div>
+										</div>
+									</div>
+								</a>
+							</volist>
+
+							<!--<a href="cpxq.html">
+								<div class="czdq-list">
+									<div class="czdq-img"><img src="__PUBLIC__/xin/images/7.png" alt="" /></div>
+									<div class="czdq-txt">
+										<div class="czdq-name">纯棉四季垫 质朴系列质朴系列质朴系列</div>
+										<div class="czdq-firbox">
+											<span class="czdq-fir_red">会员价:1680</span>&nbsp;&nbsp;
+											<span>商城价:1700</span>
+										</div>
+									</div>
+								</div>
+							</a>
+							<a href="cpxq.html">
+								<div class="czdq-list">
+									<div class="czdq-img"><img src="__PUBLIC__/xin/images/7.png" alt="" /></div>
+									<div class="czdq-txt">
+										<div class="czdq-name">纯棉四季垫 质朴系列质朴系列质朴系列</div>
+										<div class="czdq-firbox">
+											<span class="czdq-fir_red">会员价:1680</span>&nbsp;&nbsp;
+											<span>商城价:1700</span>
+										</div>
+									</div>
+								</div>
+							</a>
+							<a href="cpxq.html">
+								<div class="czdq-list">
+									<div class="czdq-img"><img src="__PUBLIC__/xin/images/7.png" alt="" /></div>
+									<div class="czdq-txt">
+										<div class="czdq-name">纯棉四季垫 质朴系列质朴系列质朴系列</div>
+										<div class="czdq-firbox">
+											<span class="czdq-fir_red">会员价:1680</span>&nbsp;&nbsp;
+											<span>商城价:1700</span>
+										</div>
+									</div>
+								</div>
+							</a>
+							<a href="cpxq.html">
+								<div class="czdq-list">
+									<div class="czdq-img"><img src="__PUBLIC__/xin/images/7.png" alt="" /></div>
+									<div class="czdq-txt">
+										<div class="czdq-name">纯棉四季垫 质朴系列质朴系列质朴系列</div>
+										<div class="czdq-firbox">
+											<span class="czdq-fir_red">会员价:1680</span>&nbsp;&nbsp;
+											<span>商城价:1700</span>
+										</div>
+									</div>
+								</div>
+							</a>
+							<a href="cpxq.html">
+								<div class="czdq-list">
+									<div class="czdq-img"><img src="__PUBLIC__/xin/images/7.png" alt="" /></div>
+									<div class="czdq-txt">
+										<div class="czdq-name">纯棉四季垫 质朴系列质朴系列质朴系列</div>
+										<div class="czdq-firbox">
+											<span class="czdq-fir_red">会员价:1680</span>&nbsp;&nbsp;
+											<span>商城价:1700</span>
+										</div>
+									</div>
+								</div>
+							</a>
+							<a href="cpxq.html">
+								<div class="czdq-list">
+									<div class="czdq-img"><img src="__PUBLIC__/xin/images/7.png" alt="" /></div>
+									<div class="czdq-txt">
+										<div class="czdq-name">纯棉四季垫 质朴系列质朴系列质朴系列</div>
+										<div class="czdq-firbox">
+											<span class="czdq-fir_red">会员价:1680</span>&nbsp;&nbsp;
+											<span>商城价:1700</span>
+										</div>
+									</div>
+								</div>
+							</a>-->
+						</div>
+					</div>
+				</div>
+				<!-- off-canvas backdrop -->
+				<div class="mui-off-canvas-backdrop"></div>
+			</div>
+		</div>
+		<script src="__PUBLIC__/xin/js/mui.min.js"></script>
+		<script src="__PUBLIC__/xin/js/jquery.min.js"></script>
+		<script src="__PUBLIC__/xin/js/swiper.min.js"></script>
+		<script src="__PUBLIC__/xin/js/index.js"></script>
+		<script>
+		</script>
+	</body>
+
+</html>

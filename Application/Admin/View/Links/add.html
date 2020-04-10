@@ -1,0 +1,96 @@
+<extend name="Index:app" />
+<block name="content">
+    <div class="row">
+        <div class="col-md-12">
+            <!-- Horizontal Form -->
+            <div class="box box-info">
+                <div class="box-header with-border">
+                    <h3 class="box-title">链接增加</h3>
+                </div>
+                <!-- /.box-header -->
+                <!-- form start -->
+                <form class="form-horizontal" action="{:U('Links/addcl')}" method="post" enctype="multipart/form-data">
+                    <div class="box-body">
+                            <div class="form-group">
+                                <label for="inputEmail3" class="col-sm-2 control-label">链接分类</label>
+                                <div class="col-sm-6">
+                                    <!-- Single button -->
+                                    <select class="form-control" style="width:30%;"  id="link_cate_id" name="link_cate_id">
+                                        <option value="0">|_&nbsp;一级分类&nbsp;</option>
+                                        <volist name="list2" id="vo">
+                                            <option value="{$vo.l_cate_id}">|_&nbsp;{$vo.l_cate_name}&nbsp;</option>
+                                        </volist>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="inputPassword3" class="col-sm-2 control-label">图片路径</label>
+
+                            <div class="col-sm-6">
+                                <input type="file" id="exampleInputFile" name="link_img_url" id="link_img_url" >
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="inputPassword3" class="col-sm-2 control-label">连接名称</label>
+
+                            <div class="col-sm-6">
+                                <input type="text" class="form-control" id="link_name" name="link_name" placeholder="连接名称">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                        <label for="inputPassword3" class="col-sm-2 control-label">链接地址</label>
+
+                        <div class="col-sm-6">
+                            <input type="text" class="form-control" id="link_href"  name="link_href" placeholder="链接地址">
+                        </div>
+                    </div>
+                        <div class="form-group">
+                            <label for="inputPassword3" class="col-sm-2 control-label">链接排序</label>
+
+                            <div class="col-sm-6">
+                                <input type="text" class="form-control" id="link_order" name="link_order" placeholder="链接排序">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="inputPassword3" class="col-sm-2 control-label">窗口方式</label>
+
+                            <div class="col-sm-6">
+                                <select class="form-control" style="width:30%;"  id="link_target" name="link_target">
+                                    <option value="_self">本窗口</option>
+                                    <option value="_blank">新窗口</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="inputPassword3" class="col-sm-2 control-label">有效状态</label>
+
+                            <div class="col-sm-6">
+                                <select class="form-control" style="width:30%;"  id="link_status" name="link_status">
+                                    <option value="0">有效</option>
+                                    <option value="1">无效</option>
+                                </select>
+                            </div>
+                        </div>
+                    <div class="form-group"></div>
+
+                    </div>
+                    <!-- /.box-body -->
+                    <div class="box-footer">
+                        <div class="col-sm-2">
+                        </div>
+                        <div class="col-sm-10">
+                            <button type="submit" class="btn btn-primary">提&nbsp;&nbsp;交</button>
+                        </div>
+
+                    </div>
+                    <!-- /.box-footer -->
+                </form>
+            </div>
+            <!-- /.box -->
+            <!-- general form elements disabled -->
+
+            <!-- /.box -->
+        </div>
+    </div>
+</block>

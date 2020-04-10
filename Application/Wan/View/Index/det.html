@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<title>忒惠玩</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1,user-scalable=no">
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black">
+		<link rel="stylesheet" href="__PUBLIC__/wan/css/mui.min.css">
+		<link rel="stylesheet" href="__PUBLIC__/wan/css/swiper.min.css" />
+		<link rel="stylesheet" href="__PUBLIC__/wan/css/index.css" />
+		<script src="__PUBLIC__/wan/js/rem.js"></script>
+		<style>
+			.modalbox{width: 100%;height:100%;position: fixed;top:0;left:0;z-index: 9999;display: none;}
+			.zz-box{width: 100%;height:100%;background: rgba(44,44,44,.7);position: absolute;left:0;top:0;z-index: 2;}
+			.modal-title{padding:0rem;height:0.8rem}
+			.modal-icon{font-size: .4rem;float: right;color: #777}
+			.modal-cen{width:6rem;height:3.55rem;background: #fff;border-radius: 5px;z-index: 10;left:0;right:0;top:0;bottom:0;margin:auto;position: absolute;overflow: hidden;}
+			.modal-show{padding:.3rem 0 .5rem 0;text-align: center;font-size: .28rem;}
+			.modal-btnbox{width: 100%;background: #f3f3f3;margin-top:.2rem}
+			.modal-btn{font-size: .28rpx;color:#666;text-align: center;height:1rem;width:50%;line-height: 1rem;}
+			.modal-btnbox .active{background: #ff9600;color:#fff}
+			.oder_indexcenter{
+				padding: 0.2rem;
+			}
+			.oder_indexcenter img {
+				width: 100%;
+				display: block;
+				padding: 0 ;
+				margin:0 auto;
+			}
+		</style>
+	</head>
+
+	<body>
+		<!--banner-->
+		<div class="swiper-container swiper-container1 index-banner">
+			<div class="swiper-wrapper">
+				<notempty name="res.banner1"><div class="swiper-slide"><img src="{$res.banner1}" alt="" /></div></notempty>
+				<notempty name="res.banner2"><div class="swiper-slide"><img src="{$res.banner2}" alt="" /></div></notempty>
+				<notempty name="res.banner3"><div class="swiper-slide"><img src="{$res.banner3}" alt="" /></div></notempty>
+				<notempty name="res.banner4"><div class="swiper-slide"><img src="{$res.banner4}" alt="" /></div></notempty>
+			</div>
+			<!-- Add Pagination -->
+			<div class="swiper-pagination swiper-pagination1"></div>
+		</div>
+		<!--banner-end-->
+		<div class="oderindex_top">
+			<if condition="!empty($res['sy']) AND ($res['flag'] != 3)">
+				<div class="b_list b_listx oderlistico">
+					<span class="b_pu">剩余名额： </span><span class="odernum"> {$res.sy}</span> <span class="b_pu">名</span>
+				</div>
+			</if>
+			<div class="b_list b_listx jinxingzhong">
+				<span class="b_pu">活动状态： </span>
+				<span class="b_btns">
+					<span class="b_kong">
+						<switch name="res.flag">
+						    <case value="1">进行中</case>
+						    <case value="2">已售罄</case>
+						    <case value="3">已结束</case>
+						    <default />未知状态
+						</switch>
+					</span>
+				</span>
+			</div>
+
+			<div class="b_list jiezhiriqi">
+				<div class="b_pu">
+					报名截止日期：{:date('Y-m-d H:i:s', $res['end_time'])}
+				</div>
+
+			</div>
+			<div class="b_list callico">
+				<div class="b_pu">
+					联系电话：{$res.phone}
+				</div>
+
+			</div>
+			<div class="b_list daydataico">
+				<div class="b_pu">
+					活动开始日期：{:date('Y-m-d H:i:s', $res['start_time'])}
+				</div>
+			</div>
+		</div>
+		<div class="oder_indexbox">
+			<div class="oder_indextop list_bottom">
+				<div class="oder_indextatle">
+					{$res.title}
+				</div>
+				<div class="oder_indextime">
+					{:date('Y-m-d H:i:s', $res['add_time'])}
+				</div>
+			</div>
+			<div class="oder_indexcenter">
+				{$res.content}
+			</div>
+		</div>
+		<div class="pay_nav">
+			<div class="yy">
+
+				<switch name="res.type">
+				    <case value="1">
+						<!--会员免费-->
+						<div class="yy_list">
+							免费 
+						</div>
+						<div class="yy_lista">
+							此活动仅限会员参加
+						</div>
+				    </case>
+				    <case value="2">
+						<!--所有人开放-->
+						<span class="bagjia">
+						会员价：¥{$res.money_hy}
+						</span>
+						<span class="somaljia">
+						商城价：¥{$res.money} 
+						</span>
+				    </case>
+				    <case value="3">
+						<!--会员收费-->
+						<div class="yy_list">
+							会员价：¥{$res.money_hy}
+						</div>
+						<div class="yy_lista">
+							此活动仅限会员参加
+						</div>
+				    </case>
+				    <default />未知状态
+				</switch>
+
+
+			</div>
+			<!--已售罄在class：topays 后添加  stoppay-->
+			<!--<a href="ddzf.html">-->
+				<switch name="res.flag">
+				    <case value="1">
+						<div class="topays ljbm_btn" id="baoming">
+							立即报名
+						</div>
+				    </case>
+				    <case value="2">
+						<div class="topays stoppay ljbm_btn">
+							已售罄
+						</div>
+				    </case>
+				    <case value="3">
+						<div class="topays stoppay ljbm_btn">
+							已结束
+						</div>
+				    </case>
+				    <default />
+				</switch>
+			<!--</a>-->
+		</div>
+
+		<!--新增弹窗  其他地方的弹窗都一样-->
+		<div class="modalbox">
+			<div class="zz-box"></div>
+			<div class="modal-cen">
+				<div class="modal-title">
+					<div class="modal-icon">
+						<span class="cloes-btn mui-icon mui-icon-closeempty" style="font-size: 0.8rem"></span>
+					</div>
+				</div>
+				<div class="modal-show">
+					<div class="modal-text">此活动仅限会员参加，</div>
+					<div class="modal-text">您还不是我们的会员。</div>
+				</div>
+				<div class="modal-btnbox flex-s">
+					<div class="modal-btn quxiao">取消</div>
+					<div class="modal-btn active" id="blhy">办理会员</div>
+				</div>
+			</div>
+		</div>
+
+	</body>
+	<script src="__PUBLIC__/wan/js/jquery.min.js" type="text/javascript" charset="utf-8"></script>
+	<script src="__PUBLIC__/wan/js/mui.min.js" type="text/javascript" charset="utf-8"></script>
+	<script src="__PUBLIC__/wan/js/swiper.min.js" type="text/javascript" charset="utf-8"></script>
+	<script type="text/javascript">
+		//banner
+		var swiper1 = new Swiper('.swiper-container1', {
+			pagination: '.swiper-pagination1',
+			paginationClickable: true,
+			loop: true,
+			autoplay: 2000
+		});
+
+		// 立即报名
+		$('#baoming').click(function(){
+			var huiyuan = '{$huiyuan}';
+			var type = '{$res.type}';
+			if (type == 1 || type == 3) {
+            	if (huiyuan != 1) {
+            		$('.modalbox').show();
+					return false;
+            	}
+			}
+			window.location.href = "{:U('Bm/order', ['hid' => $res['id']])}";
+		});
+
+		// 办理会员
+		$('#blhy').click(function(){
+			$('.modalbox').hide();
+			window.location.href = "{:U('Home/Huiyuan/myvip')}";
+		});
+
+		$('.zz-box,.cloes-btn').click(function(){
+			$('.modalbox').hide();
+		});
+		$('.zz-box,.quxiao').click(function(){
+			$('.modalbox').hide();
+		});
+	</script>
+	<script type="text/javascript" src="http://res.wx.qq.com/open/js/jweixin-1.2.0.js"></script>
+	<script type="text/javascript">
+		wx.config({
+		    debug: false, // 开启调试模式,调用的所有api的返回值会在客户端alert出来，若要查看传入的参数，可以在pc端打开，参数信息会通过log打出，仅在pc端时才会打印。
+		    appId: '{$jsApiArr.appId}', // 必填，公众号的唯一标识
+		    timestamp: '{$jsApiArr.timestamp}', // 必填，生成签名的时间戳
+		    nonceStr: '{$jsApiArr.nonceStr}', // 必填，生成签名的随机串
+		    signature: '{$jsApiArr.signature}',// 必填，签名
+		    jsApiList: [
+				'onMenuShareTimeline',
+		        'onMenuShareAppMessage',
+		        'onMenuShareQQ',
+		        'onMenuShareWeibo',
+		        'onMenuShareQZone'
+		    ] // 必填，需要使用的JS接口列表，所有JS接口列表见附录2
+		});
+
+		wx.ready(function () {
+		    wx.checkJsApi({
+		        jsApiList: ['chooseImage'], // 需要检测的JS接口列表，所有JS接口列表见附录2,
+		        success: function(res) {
+		            console.log(res);
+		            // 以键值对的形式返回，可用的api值true，不可用为false
+		            // 如：{"checkResult":{"chooseImage":true},"errMsg":"checkJsApi:ok"}
+		        }
+		    });
+		    var wxShareObj = { // 分享参数
+		        title: '{$res.title}', // 分享标题
+		        desc: '点击查看详情', // 分享描述
+		        link: window.location.href, // 分享链接，该链接域名或路径必须与当前页面对应的公众号JS安全域名一致
+		        // 该链接是重定向链接，因为需要获取用户code，但是该链接又无法直接写微信获取code的链接，
+		        // 所以需要点击后重新加载新的页面，来实现重定向，重新打开获取code的微信链接，实现获取用户信息的功能；
+		        imgUrl: '{$shareImg}', // 分享图标
+		        fail: function (res) {
+		            alert(JSON.stringify(res));
+		        }
+		    };
+		    // 2.1 监听“分享给朋友”，按钮点击、自定义分享内容及分享结果接口
+		    wx.onMenuShareAppMessage(wxShareObj);
+
+		    // 2.2 监听“分享到朋友圈”按钮点击、自定义分享内容及分享结果接口
+		    wx.onMenuShareTimeline(wxShareObj);
+
+		    // 2.3 监听“分享到QQ”按钮点击、自定义分享内容及分享结果接口
+		    wx.onMenuShareQQ(wxShareObj);
+
+		    // 2.4 监听“分享到微博”按钮点击、自定义分享内容及分享结果接口
+		    wx.onMenuShareWeibo(wxShareObj);
+
+		    // 2.5 监听“分享到QZone”按钮点击、自定义分享内容及分享接口
+		    wx.onMenuShareQZone(wxShareObj);
+		});
+	</script>
+
+</html>

@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<title>忒666</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1,user-scalable=no">
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black">
+		<link rel="stylesheet" href="__PUBLIC__/xin/css/mui.min.css">
+		<link rel="stylesheet" href="__PUBLIC__/xin/css/swiper.min.css" />
+		<link rel="stylesheet" href="__PUBLIC__/xin/css/index.css" />
+		<link rel="stylesheet" type="text/css" href="__PUBLIC__/xin/css/ktvip.css" />
+		<script src="__PUBLIC__/xin/js/rem.js"></script>
+		<style type="text/css">
+			a {
+				color: black;
+			}
+			
+			.table {
+				display: inline-block;
+				width: 100%;
+				height: 0.4rem;
+				font-size: 0.25rem;
+				text-align: center;
+				line-height: 0.4rem;
+				margin-top: 0.5rem;
+    			margin-bottom: 0.5rem;
+			}
+			
+			* .tops {
+				display: inline-block;
+				padding-top: 0;
+				position: relative;
+				width: 100%;
+			}
+			
+			* .tops .kt_ban .ban-idnex {
+				box-sizing: border-box;
+				width: 100%;
+				display: inline-block;
+				margin-top: 1.7rem;
+			}
+			
+			* .tops .header_top {
+				top: 2.2rem;
+			}
+		</style>
+	</head>
+
+	<body>
+		<include file="Include/right" /><include file="Include/right" />
+		<!--侧滑菜单容器-->
+		<div id="offCanvasWrapper" class="mui-off-canvas-wrap mui-draggable mui-scalable">
+			<!--菜单部分-->
+			<include file="Include/left" />
+			<!--主体-->
+			<div class="mui-inner-wrap">
+				<!--header-->
+				<header class="mui-bar mui-bar-nav zt-header">
+					<!---->
+					<a href="{:U('Home/Xin/index')}" class="mui-pull-left"><img class="header-list_img" src="__PUBLIC__/xin/images/logo-icon.png" /></a>
+					<a id="offCanvasBtn" href="#offCanvasSide" class="mui-pull-right"><img src="__PUBLIC__/xin/images/cd-icon.png" alt="" /></a>
+					<h1 class="mui-title header-list_txt">
+						开通会员
+					</h1>
+				</header>
+				<div id="offCanvasContentScroll" class="mui-content mui-scroll-wrapper">
+					<div class="mui-scroll">
+						<div class="tops">
+							<div class="kt_bgm">
+							</div>
+							<div class="header_top ">
+								<a href="javascript:void(0);">
+									<div class="top_list hym border">
+										<div class="list_txt">
+											会员价购物
+										</div>
+									</div>
+								</a>
+								<a href="javascript:void(0);">
+									<div class="top_list jf border">
+										<div class="list_txt">
+											购物返积分
+										</div>
+									</div>
+								</a>
+
+								<a href="javascript:void(0);">
+									<div class="top_list jfh">
+
+										<div class="list_txt">
+											积分换好礼
+										</div>
+
+									</div>
+								</a>
+								<a href="javascript:void(0);">
+									<div class="top_list hd border">
+										<div class="list_txt">
+											优先参加活动
+										</div>
+									</div>
+								</a>
+								<a href="javascript:void(0);">
+									<div class="top_list cb border">
+										<div class="list_txt">
+											专属礼品
+										</div>
+									</div>
+								</a>
+								<a href="javascript:void(0);">
+									<div class="top_list buff">
+										<div class="list_txt">
+											专属权益
+										</div>
+									</div>
+								</a>
+							</div>
+							<div class="kt_ban">
+								<div class="ban-idnex">
+									<div class="idnex_top">
+										全年忒66会员
+									</div>
+									<div class="idnex_top idnex_monye">
+										￥<span>66.6</span>/年
+									</div>
+									<div class="idnex_btn" id="kaitong">
+										开通会员,尽享权益 >
+									</div>
+									<div class="idnex_know">
+										<input name="checkbox1" value="Item 1" type="checkbox" checked class="ok">
+										<div class="read">
+											我已阅读忒66会员的
+											<a href="{:U('Huiyuan/vipxieyi')}">相关协议</a>
+										</div>
+									</div>
+									<a href="#" style="color:#979797;" class="table">
+										权益规则详情>
+									</a>
+								</div>
+							</div>
+						</div>
+
+					</div>
+					<div class="mui-off-canvas-backdrop"></div>
+				</div>
+			</div>
+			<script src="__PUBLIC__/xin/js/mui.min.js"></script>
+			<script src="__PUBLIC__/xin/js/jquery.min.js"></script>
+			<script src="__PUBLIC__/xin/js/swiper.min.js"></script>
+			<script src="__PUBLIC__/xin/js/index.js"></script>
+			<script type="text/javascript" src="http://res.wx.qq.com/open/js/jweixin-1.2.0.js"></script>
+			<script type="text/javascript">
+				wx.config({
+				    debug: false, // 开启调试模式,调用的所有api的返回值会在客户端alert出来，若要查看传入的参数，可以在pc端打开，参数信息会通过log打出，仅在pc端时才会打印。
+				    appId: '{$jsApiArr.appId}', // 必填，公众号的唯一标识
+				    timestamp: '{$jsApiArr.timestamp}', // 必填，生成签名的时间戳
+				    nonceStr: '{$jsApiArr.nonceStr}', // 必填，生成签名的随机串
+				    signature: '{$jsApiArr.signature}',// 必填，签名
+				    jsApiList: [
+						'onMenuShareTimeline',
+				        'onMenuShareAppMessage',
+				        'onMenuShareQQ',
+				        'onMenuShareWeibo',
+				        'onMenuShareQZone'
+				    ] // 必填，需要使用的JS接口列表，所有JS接口列表见附录2
+				});
+
+				wx.ready(function () {
+				    wx.checkJsApi({
+				        jsApiList: ['chooseImage'], // 需要检测的JS接口列表，所有JS接口列表见附录2,
+				        success: function(res) {
+				            console.log(res);
+				            // 以键值对的形式返回，可用的api值true，不可用为false
+				            // 如：{"checkResult":{"chooseImage":true},"errMsg":"checkJsApi:ok"}
+				        }
+				    });
+				    var wxShareObj = { // 分享参数
+				        title: '开通忒666会员，更多福利等你来领！', // 分享标题
+				        desc: '点击查看详情', // 分享描述
+				        link: window.location.href, // 分享链接，该链接域名或路径必须与当前页面对应的公众号JS安全域名一致
+				        // 该链接是重定向链接，因为需要获取用户code，但是该链接又无法直接写微信获取code的链接，
+				        // 所以需要点击后重新加载新的页面，来实现重定向，重新打开获取code的微信链接，实现获取用户信息的功能；
+				        imgUrl: '{$shareImg}', // 分享图标
+				        fail: function (res) {
+				            alert(JSON.stringify(res));
+				        }
+				    };
+				    // 2.1 监听“分享给朋友”，按钮点击、自定义分享内容及分享结果接口
+				    wx.onMenuShareAppMessage(wxShareObj);
+
+				    // 2.2 监听“分享到朋友圈”按钮点击、自定义分享内容及分享结果接口
+				    wx.onMenuShareTimeline(wxShareObj);
+
+				    // 2.3 监听“分享到QQ”按钮点击、自定义分享内容及分享结果接口
+				    wx.onMenuShareQQ(wxShareObj);
+
+				    // 2.4 监听“分享到微博”按钮点击、自定义分享内容及分享结果接口
+				    wx.onMenuShareWeibo(wxShareObj);
+
+				    // 2.5 监听“分享到QZone”按钮点击、自定义分享内容及分享接口
+				    wx.onMenuShareQZone(wxShareObj);
+				});
+			</script>
+
+
+			<script>
+				//banner
+				var swiper1 = new Swiper('.swiper-container1', {
+					pagination: '.swiper-pagination1',
+					paginationClickable: true,
+					loop: true,
+					autoplay: 2000
+				});
+				var value;
+				$('.ok').change(function() {
+					value = this.checked ? "true" : "false";
+
+				})
+
+				mui('body').on('tap', '#kaitong', function(event) {
+
+					if(value == 'false') {
+						alert("请阅读协议");
+					} else {
+
+						window.location.href = 'http://www.xatei666.com/wx_pay/example/huiyuan.php?order_sn={$temp.paysn}&order_amount=66.6';
+					}
+
+				});
+			</script>
+	</body>
+
+</html>

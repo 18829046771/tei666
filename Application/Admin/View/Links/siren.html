@@ -1,0 +1,117 @@
+<extend name="Index:app" />
+<block name="css">
+
+</block>
+<block name="content">
+    <div class="row">
+        <div class="col-xs-12">
+            <div class="box">
+
+                <div class="box-header">
+                   <!-- <h3 class="box-title"><a href="{:U('Links/jiemu_add')}" class="btn btn-primary Normal">添加节目</a></h3>-->
+                    <div class="box-tools">
+                        <div class="input-group input-group-sm" >
+
+                        </div>
+                    </div>
+                </div>
+                <form class="form-horizontal" action="" method="post" enctype="multipart/form-data">
+                    <div class="box-header">
+                     
+                        <div class="box-tools">
+                           <!--<div class="input-group input-group-sm" style="width: 150px;">
+
+                             <input type="text" name="search" id="search" class="form-control pull-right" placeholder="搜索">
+		                     <div class="input-group-btn">
+		                       <button type="submit" class="btn btn-default"><i class="fa fa-search"></i></button>
+		                     </div>
+
+                           </div>-->
+                        </div>
+                    </div>
+                </form>
+                <!-- /.box-header -->
+                <form class="form-horizontal" action="{:U('Links/deletesiren')}" method="post" enctype="multipart/form-data" id="r_list">
+                <div class="box-body table-responsive no-padding" >
+                    <table class="table table-hover">
+                        <tr>
+                            <th>姓名</th>
+                            <th>电话</th>
+                            <th>入住时间</th>
+                            <th>人数</th>
+                            <th>目的地</th>
+                            <th>景点</th>
+                            <th>酒店</th>
+                            <th>用车</th>
+                            <th>旅游服务</th>
+                            <th>下单时间</th>
+                            <th>下单账号</th>
+                            <!--<th>操作功能</th>-->
+                        </tr>
+                        <volist name="list" id="vo">
+                            <tr>
+                                <td>{$vo.name}<if condition="$vo.sex eq 1">先生<else/>女士</if>
+                                	
+                                </td>
+                                <td>{$vo.phone}</td>
+                                <td>{$vo.zhu_time}</td>
+                                <td>{$vo.num}</td>
+                                <td>{$vo.mudidi}</td>
+                                <td>{$vo.jingdian}</td>
+                                <td>{$vo.jiudian}</td>
+                                <td>{$vo.che}</td>
+                                <td>{$vo.fuwu}</td>
+                                <td>{$vo.time}</td>
+                                <td>
+                                	{$vo.fen}
+                                    <input type="checkbox" name="{$vo.id}" value="{$vo.id}" id="checkbox"/>
+                                </td>
+                               
+                               
+                            </tr>
+                        </volist>
+                    </table>
+                </div>
+                <!-- /.box-body -->
+                <div class="box-footer clearfix" style="text-align: center;">
+                    <ul class="pagination pagination-sm no-margin">
+                        {$page}
+                    </ul>
+                    <div class="form-group">
+                    <a href="javascript:checkbox_all();" class="btn btn-primary btn-xs">全选</a>&nbsp;<a href="javascript:checkbox_none();" class="btn btn-primary btn-xs">取消全选</a>
+                    <input type="submit" id="btn1" value="删除"class="btn btn-primary btn-xs"/>
+                    </div>
+                </div>
+                </form>
+            </div>
+            <!-- /.box -->
+        </div>
+    </div>
+</block>
+<block name="js">
+    <script>
+
+        function checkbox_all()
+        {
+            $('#r_list :checkbox').each(function(){
+                if(!$(this).is(':checked'))
+                {
+                    $(this).click();
+                    $('#r_list :checkbox').attr('checked',true);
+                }
+            });
+        }
+        function checkbox_none()
+        {
+            $('#r_list :checkbox').each(function(){
+                if($(this).is(':checked'))
+                {
+                    $(this).click();
+                }
+            });
+        }
+    </script>
+</block>
+
+
+

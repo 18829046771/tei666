@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<title>忒惠玩</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1,user-scalable=no">
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black">
+		<link rel="stylesheet" href="__PUBLIC__/wan/css/swiper.min.css" />
+		<link rel="stylesheet" type="text/css" href="__PUBLIC__/wan/css/mui.min.css" />
+		<link rel="stylesheet" type="text/css" href="__PUBLIC__/wan/css/mui.picker.min.css" />
+		<link rel="stylesheet" type="text/css" href="__PUBLIC__/wan/css/mui.poppicker.css" />
+		<link rel="stylesheet" href="__PUBLIC__/wan/css/index.css" />
+		<script src="__PUBLIC__/wan/js/rem.js"></script>
+		<style type="text/css">
+			.mui-popup-button{color: #8a8a8a;}
+			.mui-popup-button-bold{color: #fe8110;}
+			.modalbox{width: 100%;height:100%;position: fixed;top:0;left:0;z-index: 9999;display: none;}
+			.zz-box{width: 100%;height:100%;background: rgba(44,44,44,.7);position: absolute;left:0;top:0;z-index: 2;}
+			.modal-title{padding:0rem;height:0.8rem}
+			.modal-icon{font-size: .4rem;float: right;color: #777}
+			.modal-cen{width:6rem;height:3.55rem;background: #fff;border-radius: 5px;z-index: 10;left:0;right:0;top:0;bottom:0;margin:auto;position: absolute;overflow: hidden;}
+			.modal-show{padding:.3rem 0 .5rem 0;text-align: center;font-size: .28rem;}
+			.modal-btnbox{width: 100%;background: #f3f3f3;margin-top:0.55rem}
+			.modal-btn{font-size: .28rpx;color:#666;text-align: center;height:1rem;width:50%;line-height: 1rem;}
+			.modal-btnbox .active{background: #ff9600;color:#fff}
+		</style>
+	</head>
+
+	<body>
+		<header class="mui-bar mui-bar-nav zt-header">
+
+			<a href="javascript:history.back(-1)" class="mui-pull-left ss-togbtn"><img src="__PUBLIC__/wan/images/back.png"></a>
+			<h1 class="mui-title" style="color: black;">
+				我报名的活动
+			</h1>
+
+		</header>
+		<div class="myplay">
+			<php>$empty = '<div style="text-align: center;color: #666;margin: 1.5rem auto;">您还没有参加活动，赶快去报名吧。</div>';</php>
+			<volist name="dataList" id="vo" empty="$empty">
+				<div class="d_list">
+					<div class="d_list_top mui-clearfix">
+						<div class="d_list_topleft">
+							订单编号：{$vo.paysn}
+						</div>
+						<div class="d_list_topright">
+							<if condition="$vo['hd']['type'] eq 1"> <!-- 是否为免费活动 -->
+								免费
+							<else />
+								<if condition="$vo['pay_state'] eq 1"> <!-- 是否已支付 -->
+								    <if condition="$vo['tuikuan'] eq 1">退款中 <!-- 是否申请退款 -->
+								    <elseif condition="$vo['tuikuan'] eq 2"/>已退款
+								    <else />支付成功
+									</if>
+								<else />
+									待支付
+								</if>
+							</if>
+						</div>
+					</div>
+					<div class="d_list_center">
+						<a a href="{:U('My/orderdet', ['bid' => $vo['id']])}" class="d_list_centerleft">
+							<div class="d_shopimg">
+								<img src="{$vo.hd.photo}" />
+							</div>
+						</a>
+						<div class="d_list_centerright">
+							<a href="{:U('Index/det', ['id' => $vo['hd']['id']])}">
+								<div class="d_shopname">
+									{$vo.hd.title}
+								</div>
+							</a>
+							<a a href="{:U('My/orderdet', ['bid' => $vo['id']])}">
+								<div class="d_shopnindex">
+									活动地址：<span class="color_black">{$vo.hd.address}</span>
+								</div>
+								<div class="d_shopnindex">
+									活动时间：<span class="color_black">{:date('Y年m月d日 H时i分', $vo['hd']['start_time'])}</span>
+								</div>
+								<div class="d_shopnindex">
+									联系电话：<span class="color_black">{$vo.hd.phone}</span>
+								</div>
+							</a>
+							<div class="d_shopnindex" style="margin-top:0.4rem ;">
+
+								<div class="d_bug">
+									数量：<span class="color_black">{$vo.number}份  &nbsp; ¥{$vo.money}</span>
+								</div>
+
+								<if condition="$vo['hd']['type'] eq 1"> <!-- 是否为免费活动 -->
+									<div class="d_aright qx_btn" data-id="{$vo.id}">
+										<div class="shopobj">
+											取消活动
+										</div>
+									</div>
+								<else />
+
+									<if condition="$vo['pay_state'] eq 1"> <!-- 是否已支付 -->
+										<!-- 是否申请退款 -->
+										<if condition="($vo['tk'] eq 1) AND ($vo['tuikuan'] eq 0)"> <!-- 是否可退款 -->
+											<div class="d_aright tk_btn" data-id="{$vo.id}">
+												<div class="shopobj">
+													申请退款
+												</div>
+											</div>
+										</if>
+									<else />
+										<div class="d_aright zf_btn" data-bid="{$vo.id}" data-paysn="{$vo.paysn}" data-money="{$vo.money}">
+											<div class="shopobj">
+												去支付
+											</div>
+										</div>
+									</if>
+
+								</if>
+
+							</div>
+						</div>
+					</div>
+				</div>
+
+			</volist>
+
+		</div>
+
+		<!--新增弹窗  其他地方的弹窗都一样-->
+		<div class="modalbox" id="tuikuan">
+			<div class="zz-box"></div>
+			<div class="modal-cen">
+				<div class="modal-title">
+					<div class="modal-icon">
+						<span class="cloes-btn mui-icon mui-icon-closeempty" style="font-size: 0.8rem"></span>
+					</div>
+				</div>
+				<div class="modal-show">
+					<input type="hidden" name="tid" id="tid" />
+					<div class="modal-text">退款之后本次活动名额将不会为您保留！</div>
+				</div>
+				<div class="modal-btnbox flex-s">
+					<div class="modal-btn" id="tqd">确定</div>
+					<div class="modal-btn active" id="tqx">取消</div>
+				</div>
+			</div>
+		</div>
+
+
+	</body>
+	<script src="__PUBLIC__/wan/js/jquery.min.js" type="text/javascript" charset="utf-8"></script>
+	<script src="__PUBLIC__/wan/js/mui.min.js"></script>
+	<script src="__PUBLIC__/wan/js/city.data-3.js"></script>
+	<script src="__PUBLIC__/wan/js/mui.picker.min.js"></script>
+	<script src="__PUBLIC__/wan/js/mui.poppicker.js"></script>
+	<script src="__PUBLIC__/layer-3.1.1/layer.js" type="text/javascript"></script>
+	<script>
+		// 退款
+		$('.tk_btn').click(function() {
+			$('#tuikuan').show();
+			var id = $(this).data('id');
+			$("#tid").val(id);
+		});
+
+		$("#tqd").click(function (argument) {
+			var id = $("#tid").val();
+			if (id != '') {
+				$.ajax({
+	                type : 'POST',
+	                url:"{:U('My/tuikuan')}",
+	                data : {id: id},
+	                success: function(data){
+	                	$('#tuikuan').hide();
+	                	layer.msg(data.msg, {icon: 1});
+	                    if(data.state == 1){
+	                    	$("#tid").val('');
+	                    	setTimeout(function() {
+	                    		location.reload();
+	                    	}, 1500);
+	                    }
+	                }
+	            });
+			}
+		});
+
+		$('#tqx').click(function(){
+			$('#tuikuan').hide();
+		});
+
+		$('.zz-box,.cloes-btn').click(function(){
+			$('.modalbox').hide();
+		});
+
+		// 取消活动
+		$('.qx_btn').click(function() {
+			var id = $(this).data('id');
+            $.ajax({
+                type : 'POST',
+                url:"{:U('My/quxiao')}",
+                data : {id: id},
+                success: function(data){
+                	layer.msg(data.msg, {icon: 1});
+                    if(data.state == 1){
+                    	location.reload();
+                    }
+                }
+            });
+		});
+
+		// 去支付
+		$('.zf_btn').click(function() {
+			var bid = $(this).data('bid');
+			var paysn = $(this).data('paysn');
+			var money = $(this).data('money');
+			window.location.href = 'http://www.xatei666.com/wx_pay/example/huodong.php?bid=' + bid + '&order_sn=' + paysn + '&order_amount=' + money;
+		});
+		
+	</script>
+</html>

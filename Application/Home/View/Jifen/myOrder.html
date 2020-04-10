@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<title>忒666</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1,user-scalable=no">
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black">
+		<link rel="stylesheet" href="__PUBLIC__/xin/css/mui.min.css">
+		<link rel="stylesheet" href="__PUBLIC__/xin/css/swiper.min.css" />
+		<link rel="stylesheet" href="__PUBLIC__/xin/css/index.css" />
+		<link rel="stylesheet" type="text/css" href="__PUBLIC__/xin/css/myoder.css" />
+		<script src="__PUBLIC__/xin/js/rem.js"></script>
+		<style type="text/css">
+			.zt-header a img {
+				width: 0.28rem;
+				margin-top: .22rem;
+			}
+			
+			.zt-header {
+				background: white !important;
+				height: 1rem;
+				transition: all .1s;
+			}
+		</style>
+	</head>
+
+	<body>
+<include file="Include/right" />
+		
+		<!--header-->
+		<header class="mui-bar mui-bar-nav zt-header">
+			<!---->
+			<a href="javascript:history.back(-1)" class="mui-pull-left ss-togbtn"><img src="__PUBLIC__/xin/images/back.png" /></a>
+
+			<h1 class="mui-title" style="color: black;">
+						积分订单
+					</h1>
+		</header>
+		<div class="top" >
+			<div class="top_tab" style="font-size: 0">
+				<div onclick="ajaxList(-1,this)" class="tab one nav" os="-1" data-num="fa" style="width: 25%">
+					全部订单
+				</div>
+				<div onclick="ajaxList(1,this)" class="tab nav" os="1" data-num="fa" style="width: 25%">
+					待发货
+				</div>
+				<div onclick="ajaxList(2,this)" class="tab nav" data-num="shou" os="2" style="width: 25%">
+					待收货
+				</div>
+				<div onclick="ajaxList(3,this)" class="tab nav" data-num="shou" os="2" style="width: 25%">
+					待评价
+				</div>
+			</div>
+
+			<!-------------------------------------------代发货-------------------------------------->
+			<div class="shop_list ajax_return" id="fa">
+
+				
+				
+			</div>
+
+		</div>
+		
+		<img src="__PUBLIC__/xin/images/wuhuo.png" alt="" id="wuhuo" style="display: none;" />
+		</div>
+		<script src="__PUBLIC__/xin/js/mui.min.js"></script>
+		<script src="__PUBLIC__/xin/js/jquery.min.js"></script>
+		<script src="__PUBLIC__/xin/js/swiper.min.js"></script>
+        <include file="public/comm" />
+		<script>
+            // layer.msg('dddd');
+
+			// $(function() {
+			// 	$(".tab").click(function() {
+			// 		var tabs = $(".tab")
+			// 		for(var a = 0; a < tabs.length; a++) {
+			// 			tabs[a].classList.remove('one')
+            //
+			// 		}
+			// 		this.classList.add('one')
+			// 		var act = this.getAttribute('data-num')
+			// 		var demo = $("#" + act)
+			// 		var show = $(".shop_list")
+			// 		for(var i = 0; i < show.length; i++) {
+			// 			console.log()
+			// 			show[i].style.display = "none"
+            //
+			// 		}
+			//
+			// 		demo.css('display', 'block')
+            //
+			// 	})
+			// })
+		</script>
+	</body>
+
+</html>
+
+<script>
+	ajaxList($('.nav').attr('os'),'');
+	function ajaxList(os,that,flag) {
+	    $(that).addClass('one').siblings().removeClass('one')
+		if(flag != 1){
+            var index = layer.msg('正在加载',{time:false})
+		}
+        $.ajax({
+            type : "POST",
+            url:"{:U('jifen/myOrderAjax')}",
+            data : {os:os},
+            success: function(data){
+                layer.close(index);
+                $('.ajax_return').html(data)
+            }
+        });
+    }
+
+
+
+	//取消订单
+	$(".quxiao").click(function(){
+		var id=$(this).attr("ids");
+		$.ajax({
+            type : "POST",
+            contenttype :"application/x-www-form-urlencoded;charset=utf-8", 
+            url:"{:U('Home/My/quxiao')}",
+            data : {'id':id},
+            dataType : 'json',
+            success: function(data){
+			    if(data.state==1){
+			    	 alert(data.msg);
+			    	 window.location.reload();
+			    }else{
+			    	 alert(data.msg);
+			    }
+            }
+        });
+	})
+	
+	//我要退款
+	
+	$(".tuikuan").click(function(){
+		var id=$(this).attr("ids");
+		$.ajax({
+            type : "POST",
+            contenttype :"application/x-www-form-urlencoded;charset=utf-8", 
+            url:"{:U('Home/My/tuikuan')}",
+            data : {'id':id},
+            dataType : 'json',
+            success: function(data){
+			    if(data.state==1){
+			    	 alert(data.msg);
+			    	 window.location.reload();
+			    }else{
+			    	 alert(data.msg);
+			    }
+            }
+        });
+	})
+	
+	//撤销退款
+	$(".chexiao").click(function(){
+		var id=$(this).attr("ids");
+		$.ajax({
+            type : "POST",
+            contenttype :"application/x-www-form-urlencoded;charset=utf-8", 
+            url:"{:U('Home/My/chexiao')}",
+            data : {'id':id},
+            dataType : 'json',
+            success: function(data){
+			    if(data.state==1){
+			    	 alert(data.msg);
+			    	 window.location.reload();
+			    }else{
+			    	 alert(data.msg);
+			    }
+            }
+        });
+	})
+	//  确定收货
+	$(".shouhuo").click(function(){
+		var id=$(this).attr("ids");
+		$.ajax({
+            type : "POST",
+            contenttype :"application/x-www-form-urlencoded;charset=utf-8", 
+            url:"{:U('Home/My/shouhuo')}",
+            data : {'id':id},
+            dataType : 'json',
+            success: function(data){
+			    if(data.state==1){
+			    	 alert(data.msg);
+			    	 window.location.reload();
+			    }else{
+			    	 alert(data.msg);
+			    }
+            }
+        });
+	})
+	
+	
+	
+</script>

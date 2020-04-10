@@ -1,0 +1,463 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<title>忒666</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1,user-scalable=no">
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black">
+		<link rel="stylesheet" href="__PUBLIC__/xin/css/mui.min.css">
+		<link rel="stylesheet" href="__PUBLIC__/xin/css/swiper.min.css" />
+		<link rel="stylesheet" href="__PUBLIC__/xin/css/index.css" />
+		<script src="__PUBLIC__/xin/js/rem.js"></script>
+		<link rel="stylesheet" type="text/css" href="__PUBLIC__/xin/css/jfall.css" />
+		<style type="text/css">
+			.sp-right input {
+				display: inline-block;
+				margin-bottom: 0;
+				margin: 5px;
+				padding: 6px;
+				font-size: 0.2rem;
+			}
+			
+			.acti {
+				
+				background: #fff!important;
+				color: #a91319!important;
+				border: 1px solid #a91319!important;
+			}
+			
+			.spxq-number {
+				flex-wrap: wrap;
+			}
+			
+			.sp-right {
+				width: 100% !important;
+			}
+			
+			.cpxq-xqshow>p {
+				margin-bottom: 0px !important;
+			}
+			
+			.czdq-firbox {
+				font-size: .2rem;
+				color: #6d6d6d;
+				display: flex;
+				margin-top: .05rem;
+				flex-wrap: wrap;
+			}
+			
+		</style>
+	</head>
+
+	<body>
+		<include file="Include/right"/>
+		<!--侧滑菜单容器-->
+		<div id="offCanvasWrapper" class="mui-off-canvas-wrap mui-draggable mui-scalable">
+			<!--菜单部分-->
+			<include file="Include/left" />
+			<!--主体-->
+			<div class="mui-inner-wrap">
+				<!--header-->
+				<header class="mui-bar mui-bar-nav zt-header">
+					<!---->
+					<a href="{:U('Home/Xin/index')}" class="mui-pull-left"><img class="header-list_img" src="__PUBLIC__/xin/images/logo-icon.png" /></a>
+					<a id="offCanvasBtn" href="#offCanvasSide" class="mui-pull-right"><img src="__PUBLIC__/xin/images/cd-icon.png" alt="" /></a>
+					<h1 class="mui-title header-list_txt">
+						产品详情
+					</h1>
+				</header>
+				<div id="offCanvasContentScroll" class="mui-content mui-scroll-wrapper">
+					<div class="mui-scroll">
+						<div class="cpxq-box">
+							<!--banner-->
+							<div class="swiper-container swiper-container4 cpxq-banner">
+								<div class="swiper-wrapper">
+									
+
+									<if condition="$temp['art_img_url_s'] neq null">
+										<div class="swiper-slide"><img src="{$temp.art_img_url_s}" alt="" /></div>
+									</if>
+
+									<if condition="$temp['art_title'] neq null">
+										<div class="swiper-slide"><img src="{$temp.art_title}" alt="" /></div>
+									</if>
+
+									<if condition="$temp['art_keywords'] neq null">
+										<div class="swiper-slide"><img src="{$temp.art_keywords}" alt="" /></div>
+									</if>
+
+									<if condition="$temp['art_description'] neq null">
+										<div class="swiper-slide"><img src="{$temp.art_description}" alt="" /></div>
+									</if>
+
+								</div>
+								<!-- Add Pagination -->
+								<div class="swiper-pagination swiper-pagination4"></div>
+							</div>
+							<!--txt-->
+							<if condition="$yingxiao_store eq null">
+								<div class="cpxq-txtbox">
+									<div class="cpxq-name">{$temp.product_title}</div>
+									<div class="cpxq-firbox">
+										<span class="cpxq-fir_red">会员价: <span class="font-size48" id="huiyuanjia">{$temp.huiyuan}</span></span>
+										&nbsp;&nbsp;&nbsp;
+										<span class="cpxq-fir_333">商城价:<span id="shangchengjia">{$temp.jiage}</span></span>
+									</div>
+								</div>
+							</if>
+
+							<if condition="$yingxiao_store neq null">
+								<if condition="$endtime neq null">
+									<div class="cpxq-txtbox" style="padding:0.2rem 0 ; padding-top: 0;">
+										<div class="cpxq-firbox xs_shopmoney">
+											<div class="xs_carleft">
+												<span style="color: white;">￥<span style="font-size: 0.4rem;">{$yingxiao_store.jiage}</span></span><span style="margin-left: 0.3rem; color: white; font-size: 0.2rem;">商城价<span style="text-decoration: line-through;">{$temp.jiage}</span></span>
+											</div>
+											<div class="xs_carright">
+												<div class="carright_top">
+													距优惠结束
+												</div>
+												<div class="carright_btn">
+													<span class="mk_time" id="shi"></span>&nbsp;:
+													<span class="mk_time" id="fen"></span>&nbsp;:
+													<span class="mk_time" id="miao"></span>&nbsp;
+												</div>
+											</div>
+										</div>
+										<div class="cpxq-name" style="padding: 0 0.3rem; margin-top: 0.2rem;">{$temp.product_title}</div>
+										<div class="xs_shoptime">
+											此商品{$yingxiao_store.ktime}开抢，请提前加购！
+										</div>
+
+									</div>
+									<else/>
+
+									<div class="cpxq-txtbox" style="padding:0.2rem 0 ; padding-top: 0;">
+										<div class="cpxq-firbox xs_shopmoney">
+											<div class="xs_carleft">
+												秒杀价：<span style="color: white;">￥<span style="font-size: 0.4rem;">{$yingxiao_store.jiage}</span></span><span style="margin-left: 0.3rem; color: white; font-size: 0.2rem;">商城价<span style="text-decoration: line-through;">{$temp.jiage}</span></span>
+											</div>
+											<div class="xs_carright">
+												<div class="carright_btn" style="margin-top:0.1rem ;">
+													限量<span class="mk_time pnum">{$yingxiao_store.num}</span>件
+												</div>
+												<div class="carright_top" style="margin-top:0 ;">
+													先到先得售完即止
+												</div>
+
+											</div>
+										</div>
+										<div class="cpxq-name" style="padding: 0 0.3rem; margin: 0.2rem 0;">{$temp.product_title}</div>
+										<div class="xs_shoptime">
+											此商品{$yingxiao_store.ktime}开抢，请提前加购！
+										</div>
+
+									</div>
+
+								</if>
+
+							</if>
+
+							<!--txt-->
+
+							<!--guige-->
+							<if condition="$guige neq null">
+
+								<div class="spxq-number flex-s" style="height: auto;">
+									<div class="spxq-left" style="width:100%;">产品规格</div>
+									<div class="spxq-rig sp-right">
+										<volist name="guige" id="vo">
+											<input type="button" value='{$vo.guige}' money='{$vo.money}' ids="{$vo.id}">
+										</volist>
+
+									</div>
+								</div>
+							</if>
+							<!--number-->
+							<if condition="$yingxiao_store eq null">
+								<div class="spxq-number flex-s">
+									<div class="spxq-left">购买数量</div>
+									<div class="spxq-right">
+										<div class="number-s btn-op"><img src="__PUBLIC__/xin/images/number-s.jpg" alt="" /></div>
+										<input class="number-sl mui-input-numbox" type="number" value="1" min="0" />
+										<div class="number-j btn-op"><img src="__PUBLIC__/xin/images/number-j.jpg" alt="" /></div>
+									</div>
+								</div>
+								<else/>
+								<div class="spxq-number flex-s">
+									<div class="spxq-left">购买数量</div>
+									<div class="spxq-right">
+										<div class=" btn-op"><img src="__PUBLIC__/xin/images/number-s.jpg" alt="" /></div>
+										<input class="number-sl mui-input-numbox" type="number" value="1" min="0" />
+										<div class=" btn-op"><img src="__PUBLIC__/xin/images/number-j.jpg" alt="" /></div>
+									</div>
+								</div>
+							</if>
+
+							<!--详情-->
+
+							<div class="cpxq-xqbox">
+								<div class="cpxq-title"><img src="__PUBLIC__/xin/images/xq-icon.png" alt="" /> 详情</div>
+								<div class="cpxq-xqshowbox">
+									<if condition="$temp.shipin neq null">
+										<div class="cpxq-spbox">
+											<div class="cpxq-sp"></div>
+										</div>
+									</if>
+									<!--后台传过来的-->
+									<div class="cpxq-xqshow">
+										{$temp.art_content}
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<!-- off-canvas backdrop -->
+				<div class="mui-off-canvas-backdrop"></div>
+				<div class="cpxq-bom_box flex-s">
+					<div class="cpxq-bom_left">
+						<a href="{:U('Home/Qita/qi_cpxq',array('id'=>$temp['art_id']))}">
+							<div class="cpxq-bom_list active">
+								<div class="cpxq-bom_img"><img src="__PUBLIC__/xin/images/xq-xx-icon2.png" alt="" /></div>
+								<div class="cpxq-bom_name">纵览</div>
+								<div class="cpxq-bom_active"><img src="__PUBLIC__/xin/images/coxq-bom_active.png" alt="" /></div>
+							</div>
+						</a>
+						<a href="{:U('Home/Qita/qi_cpxq_sysm',array('id'=>$temp['art_id']))}">
+							<div class="cpxq-bom_list">
+								<div class="cpxq-bom_img"><img src="__PUBLIC__/xin/images/xq-sysm-icon.png" alt="" /></div>
+								<div class="cpxq-bom_name">使用说明</div>
+							</div>
+						</a>
+						<a href="{:U('Home/Qita/qi_cpxq_zz',array('id'=>$temp['art_id']))}">
+							<div class="cpxq-bom_list">
+								<div class="cpxq-bom_img"><img src="__PUBLIC__/xin/images/xq-zz-icon.png" alt="" /></div>
+								<div class="cpxq-bom_name">资质</div>
+							</div>
+						</a>
+						<a href="{:U('Home/Qita/qi_cpxq_pl',array('id'=>$temp['art_id']))}">
+							<div class="cpxq-bom_list">
+								<div class="cpxq-bom_img"><img src="__PUBLIC__/xin/images/xq-pl-icon.png" alt="" /></div>
+								<div class="cpxq-bom_name">评论</div>
+							</div>
+						</a>
+					</div>
+					<div class="cpxq-bom_right" id="mai">立即购买</div>
+				</div>
+			</div>
+		</div>
+		<script src="__PUBLIC__/xin/js/mui.min.js"></script>
+		<script src="__PUBLIC__/xin/js/jquery.min.js"></script>
+		<script src="__PUBLIC__/xin/js/swiper.min.js"></script>
+		<script src="__PUBLIC__/xin/ckplayer/ckplayer.min.js"></script>
+		<script src="__PUBLIC__/xin/js/index.js"></script>
+
+		<script type="text/javascript" src="http://res.wx.qq.com/open/js/jweixin-1.2.0.js"></script>
+		<script type="text/javascript">
+			wx.config({
+			    debug: false, // 开启调试模式,调用的所有api的返回值会在客户端alert出来，若要查看传入的参数，可以在pc端打开，参数信息会通过log打出，仅在pc端时才会打印。
+			    appId: '{$jsApiArr.appId}', // 必填，公众号的唯一标识
+			    timestamp: '{$jsApiArr.timestamp}', // 必填，生成签名的时间戳
+			    nonceStr: '{$jsApiArr.nonceStr}', // 必填，生成签名的随机串
+			    signature: '{$jsApiArr.signature}',// 必填，签名
+			    jsApiList: [
+					'onMenuShareTimeline',
+			        'onMenuShareAppMessage',
+			        'onMenuShareQQ',
+			        'onMenuShareWeibo',
+			        'onMenuShareQZone'
+			    ] // 必填，需要使用的JS接口列表，所有JS接口列表见附录2
+			});
+
+			wx.ready(function () {
+			    wx.checkJsApi({
+			        jsApiList: ['chooseImage'], // 需要检测的JS接口列表，所有JS接口列表见附录2,
+			        success: function(res) {
+			            console.log(res);
+			            // 以键值对的形式返回，可用的api值true，不可用为false
+			            // 如：{"checkResult":{"chooseImage":true},"errMsg":"checkJsApi:ok"}
+			        }
+			    });
+			    var wxShareObj = { // 分享参数
+			        title: '{$temp.product_title}', // 分享标题
+			        desc: '点击查看商品详情', // 分享描述
+			        link: window.location.href, // 分享链接，该链接域名或路径必须与当前页面对应的公众号JS安全域名一致
+			        // 该链接是重定向链接，因为需要获取用户code，但是该链接又无法直接写微信获取code的链接，
+			        // 所以需要点击后重新加载新的页面，来实现重定向，重新打开获取code的微信链接，实现获取用户信息的功能；
+			        imgUrl: '{$temp.img}', // 分享图标
+			        fail: function (res) {
+			            alert(JSON.stringify(res));
+			        }
+			    };
+			    // 2.1 监听“分享给朋友”，按钮点击、自定义分享内容及分享结果接口
+			    wx.onMenuShareAppMessage(wxShareObj);
+
+			    // 2.2 监听“分享到朋友圈”按钮点击、自定义分享内容及分享结果接口
+			    wx.onMenuShareTimeline(wxShareObj);
+
+			    // 2.3 监听“分享到QQ”按钮点击、自定义分享内容及分享结果接口
+			    wx.onMenuShareQQ(wxShareObj);
+
+			    // 2.4 监听“分享到微博”按钮点击、自定义分享内容及分享结果接口
+			    wx.onMenuShareWeibo(wxShareObj);
+
+			    // 2.5 监听“分享到QZone”按钮点击、自定义分享内容及分享接口
+			    wx.onMenuShareQZone(wxShareObj);
+			});
+		</script>
+		
+		<script>
+			var swiper1 = new Swiper('.swiper-container4', {
+				pagination: '.swiper-pagination4',
+				paginationClickable: true,
+				loop: true,
+				autoplay: 2000
+			});
+
+			//视频
+			var videoObject = {
+				container: '.cpxq-sp', //容器的ID或className   http://vdo.361weixin.cn/%E5%92%8C%E5%BD%A9%E5%8D%B0%20%E9%98%B2%E8%AF%88%E9%AA%97.mp4
+				variable: 'player', //播放函数名称
+				poster: '{$temp.art_img_url}', //封面图片
+				//flashplayer:true,
+				video: [ //视频地址列表形式
+					['{$temp.shipin}', 'video/mp4']
+				]
+			};
+
+			var player = new ckplayer(videoObject);
+		</script>
+	</body>
+
+</html>
+
+<script>
+	//变色 取值
+	var str = '';
+	$('.sp-right input').click(function() {
+
+		$(this).siblings('input').removeClass('acti');
+		$(this).addClass('acti');
+
+		str = $(this).attr('ids'); //规格值
+          genggai(str);
+	})
+	
+	//更改页面显示的会员价和商城价
+			function genggai(str){
+				  var id=str;
+				    $.ajax({
+			            type : "POST",
+			            contenttype :"application/x-www-form-urlencoded;charset=utf-8", 
+			            url:"{:U('Home/Xin/guige')}",
+			            data : {'id':id},
+			            dataType : 'json',
+			            success: function(data){
+			            	   
+						    if(data.state==1){
+						    	var shangcheng_money=data.msg;
+						    	var huiyuan_money=data.money_huiyuan;
+						    	$("#huiyuanjia").html(huiyuan_money);
+						    	$("#shangchengjia").html(shangcheng_money);
+						    	
+						    }else{
+						    	 alert(data.msg);
+						    }
+			            }
+			        }); 
+			}
+
+	mui('body').on('tap', '#mai', function(event) {
+		var ids = "{$temp['art_id']}"; //产品id
+		var type = "{$type}"; //用户会员等级
+		var chang_store = "{$chang_store}"; //营销产品ID
+
+		var num = $(".mui-input-numbox").val(); //购买数量   
+		//判断规格
+		var guige_num = "{$guige_num}";
+		if(guige_num == '1') {
+			//有规格
+			if(str == '') {
+				alert("请选择规格");
+				return false;
+			}
+		} else {
+			//无规格
+			str = '1';
+		}
+
+		//判断数量
+		if(num == '0' || num == '') {
+			alert("请选择数量");
+			return false;
+		}
+		//判断是否微会员
+		if(type == '0') {
+			mui.init({
+				swipeBack: true //启用右滑关闭功能
+			});
+			var btnArray = ['放弃办理', '办理会员'];
+			mui.confirm('本商品成为会员可享受会员价', '提示', btnArray, function(e) {
+
+				if(e.index == 1) {
+
+					//办理会员
+					mui.openWindow({
+						url: '/index.php/Home/Huiyuan/myvip.html'
+					});
+
+				} else {
+
+					if(chang_store == "") {
+						//取消
+						url1 = '/index.php/Home/Qita/odersheng.html?id=' + ids + '&str=' + str + '&num=' + num;
+					} else {
+						url1 = '/index.php/Home/Qita/odersheng.html?id=' + ids + '&str=' + str + '&num=' + num + '&chang_store=' + chang_store;
+					}
+
+					mui.openWindow({
+						url: url1
+					});
+				}
+			});
+		} else {
+			window.location.href = '/index.php/Home/Qita/odersheng.html?id=' + ids + '&str=' + str + '&num=' + num + '&chang_store=' + chang_store;
+		}
+
+	});
+
+	var endtime = "{$endtime}";
+//	console.log(endtime);
+	//倒计时
+	function getCountDown(timestamp) {
+		setInterval(function() {
+			var nowTime = new Date();
+			var endTime = new Date(timestamp * 1000);
+
+			var t = endTime.getTime() - nowTime.getTime();
+			//            var d=Math.floor(t/1000/60/60/24);
+			var hour = Math.floor(t / 1000 / 60 / 60 % 24);
+			var min = Math.floor(t / 1000 / 60 % 60);
+			var sec = Math.floor(t / 1000 % 60);
+
+			if(hour < 10) {
+				hour = "0" + hour;
+			}
+			if(min < 10) {
+				min = "0" + min;
+			}
+			if(sec < 10) {
+				sec = "0" + sec;
+			}
+			$("#shi").text(hour)
+			$("#fen").text(min)
+			$("#miao").text(sec)
+		}, 1000);
+	}
+
+	//调用函数：
+	getCountDown(endtime); //时间戳可以去百度一下，这里的时间是2015年12月31日18：00：00
+</script>

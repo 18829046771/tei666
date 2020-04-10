@@ -1,0 +1,124 @@
+<extend name="Index:app" />
+
+<block name="css">
+
+</block>
+<block name="content">
+    <div class="row">
+        <div class="col-xs-12">
+            <div class="box">
+                
+                <div class="box-header">
+                   <!-- <h3 class="box-title"><a href="{:U('CasesManagement/add')}" class="btn btn-primary Normal">添加案例</a></h3>-->
+                    <div class="box-tools">
+                        <div class="input-group input-group-sm" >
+
+                        </div>
+                    </div>
+                </div>
+                <form class="form-horizontal" action="{:U('CasesManagement/shouhuo')}" method="post" enctype="multipart/form-data">
+                    <div class="box-header">
+                        <h3 class="box-title">收货管理</h3>
+                        
+                        <div class="box-tools">
+                        <div class="input-group input-group-sm" style="width: 150px;">
+
+                        <input type="text" name="search" value="{$search}" class="form-control pull-right" placeholder="请输入订单编号">
+                        <div class="input-group-btn">
+                        <button type="submit" class="btn btn-default"><i class="fa fa-search"></i></button>
+                        </div>
+
+                        </div>
+                        </div>
+                    </div>
+                </form>
+                <!-- /.box-header -->
+                <form class="form-horizontal" action="{:U('CasesManagement/deleteAll')}" method="post" enctype="multipart/form-data" id="r_list">
+                <div class="box-body table-responsive no-padding" >
+                    <table class="table table-hover">
+                        <tr>
+                            <th>订单序号</th>
+                            <th>产品名称</th>
+                            <th>产品规格</th>
+                            <th>订单价格</th>
+                            <th>下单人电话</th>
+                            <th>下单人</th>
+                            <th>所属分类</th>
+                            <th>状态</th>
+                            <th>结束订单</th>
+                            
+                           
+                        </tr>
+                        <volist name="list" id="vo">
+                            <tr>
+                                <td>{$vo.paysn}</td>
+                                <td>
+                                	{$vo.name}
+                                </td>
+                                 <th>{$vo.guige}</th>
+                                 <td>
+                                	{$vo.zong}
+                                </td>
+                                 <td>
+                                	{$vo.user}
+                                </td>
+                                 <td>
+                                	{$vo.username}
+                                </td>
+                                 <td>
+                                	{$vo.fen}
+                                </td>
+                                 <td>
+                                                                                                       已收货
+                                </td>
+                                
+                                <th>
+                                	<a href="{:U('CasesManagement/jieshu',array('id'=>$vo['id']))}" class="btn btn-primary btn-xs">结束订单</a>
+                                </th>
+                                
+                                
+                            </tr>
+                        </volist>
+                    </table>
+                </div>
+                <!-- /.box-body -->
+                <div class="box-footer clearfix" style="text-align: center;">
+                    <ul class="pagination pagination-sm no-margin">
+                        {$page}
+                    </ul>
+                    <div class="form-group">
+                  
+                    </div>
+                </div>
+                </form>
+            </div>
+            <!-- /.box -->
+        </div>
+    </div>
+</block>
+<block name="js">
+	
+    <script>
+     
+     
+        function checkbox_all()
+        {
+            $('#r_list :checkbox').each(function(){
+                if(!$(this).is(':checked'))
+                {
+                    $(this).click();
+                    $('#r_list :checkbox').attr('checked',true);
+                }
+            });
+        }
+        function checkbox_none()
+        {
+            $('#r_list :checkbox').each(function(){
+                if($(this).is(':checked'))
+                {
+                    $(this).click();
+                }
+            });
+        }
+    </script>
+</block>

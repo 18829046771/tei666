@@ -1,0 +1,222 @@
+<extend name="Index:app" />
+<block name="css">
+	<style>
+		.t_top {
+			width: 100%;
+			font-size: 0;
+			margin-top: 70px;
+		}
+		
+		.t_one {
+			width: 20%;
+			display: inline-block;
+			margin: 0 2%;
+			font-size: 0;
+		}
+		
+		.one_left {
+			display: inline-block;
+			width: 80px;
+			height: 80px;
+			background-size: 70%;
+			background-position: center center;
+			background-repeat: no-repeat;
+			/*background-color: deepskyblue;*/
+			vertical-align: top;
+		}
+		
+		.one_right {
+			box-sizing: border-box;
+			padding-left: 15px;
+			display: inline-block;
+			width: 66%; 
+			height: 80px;
+			background-color: white;
+			vertical-align: top;
+		}
+		
+		.ot_top {
+			width: 100%;
+			font-size: 14px;
+			height: 30px;
+			line-height: 30px;
+		}
+		
+		.ot_btn {
+			width: 100%;
+			font-size: 16px;
+			height: 50px;
+			font-weight: 550;
+		}
+		
+		.t_btn {
+			margin: 60px 2%;
+			width: 90%;
+			height: 500px; 
+			border-top: 1px solid deepskyblue;
+			background-color: white;
+			display: inline-block;
+			box-sizing: border-box;
+			padding: 0 1%;
+			overflow: auto;
+		}
+		
+		.tn_top {
+			width: 100%;
+			height: 30px;
+		}
+		
+		.tp_txt {
+			height: 30px;
+			line-height: 30px;
+			padding-left: 10px;
+			display: inline-block;
+			font-size: 14px;
+		}
+		
+		.tp_right {
+			float: right;
+			height: 30px;
+			width: 30px;
+			text-align: center;
+			line-height: 30px;
+			font-size: 15px;
+		}
+		.t_table{
+			border: 0px solid transparent;
+		}
+		.te_top {
+			width: 100%;
+			height:30px;
+			font-size: 15px;
+			border: 0px solid transparent;
+			border-bottom: 1px solid #C7C7CC;
+		}
+		
+		.te_list {
+			border: 0px solid transparent;
+			width: 100%;
+			height: 30px;
+			font-size: 15px;
+			border-bottom: 1px solid #C7C7CC;
+		}
+		.te_top>th,.te_list>td{
+			padding: 0 48px;
+			border: 0px solid transparent;
+		}
+		.tn_tbn{
+			width: 100%;
+			height: 30px;
+			margin-top: 30px;
+			
+		}
+		.tn_tbns{
+			display: inline-block;
+			padding: 5px 10px;
+			background-color: #C7C7CC;
+			border-radius: 5px;
+			font-size: 14px;
+			float: right;
+		}
+	</style>
+
+</block>
+<block name="content">
+	<div class="t_top">
+		<div class="t_one">
+			<div class="one_left" style="background-color: deepskyblue; background-image: url(__PUBLIC__/houtai/mon2.png);" >
+				
+			</div>
+			<div class="one_right">
+				<div class="ot_top">
+					订单数量
+				</div>
+				<div class="ot_btn">
+					{$dan}
+				</div>
+			</div>
+		</div>
+		<div class="t_one">
+			<div class="one_left"  style=" background-color: #37a45e;background-image: url(__PUBLIC__/houtai/mon1.png);">
+				
+			</div>
+			<div class="one_right">
+				<div class="ot_top">
+					销售额
+				</div>
+				<div class="ot_btn">
+					{$zong}
+				</div>
+			</div>
+		</div>
+		<div class="t_one">
+			<div class="one_left"  style=" background-color: #eda027;background-image: url(__PUBLIC__/houtai/mon3.png);">
+			
+			</div>
+			<div class="one_right">
+				<div class="ot_top">
+					会员数量
+				</div>
+				<div class="ot_btn">
+					{$huiyuan}
+				</div>
+			</div>
+		</div>
+		<div class="t_one">
+			<div class="one_left"  style="background-color: #d5553b;background-image: url(__PUBLIC__/houtai/mon4.png);">
+				
+			</div>
+			<div class="one_right">
+				<div class="ot_top">
+					商品数量
+				</div>
+				<div class="ot_btn">
+					{$store}
+				</div>
+			</div>
+		</div>
+		<div class="t_btn">
+			<div class="tn_top">
+				<div class="tp_txt">
+					最近订单
+				</div>
+				<!--<div class="tp_right">
+——
+				</div>-->
+			</div>
+			<table style="width: 100%;" border="" class="t_table" cellspacing="" cellpadding="">
+				<tr class="te_top">
+					
+					<th>订单号</th>
+					<th>订单金额</th>
+					<th>下单时间</th>
+					<th>支付渠道</th>
+					<th>支付状态</th>
+					<th>支付时间</th>
+				</tr>
+				<volist name="jin" id="vo">
+					<tr class="te_list">
+						<td>{$vo.paysn}</td>
+						<td>{$vo.zong}</td>
+						<td>{$vo.time}</td>
+						<td>微信支付</td>
+						
+						<td>已支付</td>
+						<td>{$vo.zhifu_time}</td>
+	
+					</tr>
+				</volist>
+				
+			</table>
+			<!--<div class="tn_tbn">
+				<div class="tn_tbns">
+					查看全部订单
+				</div>
+			</div>-->
+		</div>
+	</div>
+</block>
+<block name="js">
+	<script>
+	</script>
+</block>

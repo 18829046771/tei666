@@ -1,0 +1,398 @@
+<!doctype html>
+<html lang="zh" class="no-js">
+
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<title>忒666</title>
+		<script src="__PUBLIC__/wo/js/mui.min.js"></script>
+		<link href="__PUBLIC__/wo/css/mui.min.css" rel="stylesheet" />
+		<link rel="stylesheet" href="__PUBLIC__/wo/css/gxf.css" />
+		<link rel="stylesheet" href="__PUBLIC__/wo/css/myapp.css">
+		<link rel="stylesheet" href="__PUBLIC__/wo/css/iconfont.css">
+		<!--<link href='http://fonts.googleapis.com/css?family=Titillium+Web:400,600,700' rel='stylesheet' type='text/css'>-->
+		<link rel="stylesheet" href="__PUBLIC__/wo/css/reset.css">
+		<!-- CSS reset -->
+		<link rel="stylesheet" href="__PUBLIC__/wo/css/style.css">
+		<link rel="stylesheet" href="__PUBLIC__/wo/css/zy.media.min.css">
+		<script type="text/javascript" charset="utf-8">
+			mui.init();
+		</script>
+		<style>
+			
+		</style>
+	</head>
+
+	<body>
+		<include file="Include/right" />
+		<header class="mui-bar mui-bar-nav topbar-box">
+			<a href="###" class="mui-left logobox">
+				<img src="__PUBLIC__/wo/images/logo.png" alt="">
+			</a>
+			<a id="cd-menu-trigger" href="#0" class="mui-icon mui-action-menu mui-icon-bars mui-pull-right color-fff"></a>
+			<h1 class="mui-title color-fff">其他商品</h1>
+		</header>
+		<main class="cd-main-content">
+			<!--轮播图-->
+                    <div id="slider" class="mui-slider" >
+                        <div id="slider" class="mui-slider">
+								<div class="mui-slider-group mui-slider-loop">
+									<!-- 额外增加的一个节点(循环轮播：第一个节点是最后一张轮播) -->
+									<div class="mui-slider-item mui-slider-item-duplicate">
+										<a href="{$url5}">
+											<img src="{$tu5}">
+										</a>
+									</div>
+									<!-- 第一张 -->
+									<div class="mui-slider-item">
+										<a href="{$url1}">
+											<img src="{$tu1}">
+										</a>
+									</div>
+									<!-- 第三张 -->
+									<div class="mui-slider-item">
+										<a href="{$url2}">
+											<img src="{$tu2}">
+										</a>
+									</div>
+									<!-- 第二张 -->
+									<div class="mui-slider-item">
+										<a href="{$url3}">
+											<img src="{$tu3}">
+										</a>
+									</div>
+									<!-- 第三张 -->
+									<div class="mui-slider-item">
+										<a href="{$url4}">
+											<img src="{$tu4}">
+										</a>
+									</div>
+									<!-- 第四张 -->
+									<div class="mui-slider-item">
+										<a href="{$url5}">
+											<img src="{$tu5}">
+										</a>
+									</div>
+									<!-- 额外增加的一个节点(循环轮播：最后一个节点是第一张轮播) -->
+									<div class="mui-slider-item mui-slider-item-duplicate">
+										<a href="{$url1}">
+											<img src="{$tu1}">
+										</a>
+									</div>
+								</div>
+								<div class="mui-slider-indicator">
+									<div class="mui-indicator mui-active"></div>
+									<div class="mui-indicator"></div>
+									<div class="mui-indicator"></div>
+									<div class="mui-indicator"></div>
+									<div class="mui-indicator"></div>
+								</div>
+							</div>
+                    </div>
+                    <!--轮播图 end-->
+                    <div class="mui-input-row" style=" width:90%;margin:0 auto;position:relative;height:50px;padding:5px 0 ">
+								<form class="form-horizontal" action="" method="post" enctype="multipart/form-data">
+									<input type="text" class="mui-input" placeholder="搜索" name="sousuo" id="sousuo" >
+								    <button class="mui-icon mui-icon-search" style="background: transparent;border:0;right:5px;position: absolute"  type="submit" ></button>
+								</form>
+								
+							</div>
+                    <!--分类列表-->
+                    
+                    
+                    <div class="mui-row" style="padding:10px 0 0 0;background: #fff;">
+                    	<volist  name="list"  id="vo">
+                    		    <div class="mui-col-xs-4" style="margin-bottom:10px;">
+		                            <a href="###" class="mui-text-center mui-block">
+		                                <span class="mui-icon">
+										    <img style="width:55%" class="jgimg" src="/Public/Uploads/Cate/{$vo.cate_img_url}" alt="" />
+										</span>
+									<p class="color-333">{$vo.cate_name}</p>
+		                            </a>
+		                        </div>
+                    	</volist>
+                        
+                       
+                        
+                    </div>
+                    <!--分类列表  end-->
+                    <!--美容装潢-->
+                    
+                    <!--<volist name="arr" id="vo" key="k" >
+                    	<div class="mrzh-box <if condition="($k eq 1) OR ($k eq 3) OR ($k eq 5)"> bg-bule</if>">
+	                        <h4 class="toptit">{$vo.fen}</h4>
+	                        <div class="mui-row">
+	                        	<volist name="vo" id="vi" offset="0" length='2'>
+	                        		<div class="mui-col-xs-6">
+		                                <div class="left-mrzh">
+		                                    <a href="{:U('Home/Index/cpxq',array('id'=>$vi['art_id']))}" class="mrzh-boximg">
+		                                        <img src="{$vi.art_img_url}" alt="" class="cpxq-imgbox">
+		                                    </a>
+		                                    <a href="{:U('Home/Index/cpxq',array('id'=>$vi['art_id']))}" class="mrzh-textbox">
+		                                        <h4 class="text-name">{$vi.product_title}</h4>
+		                                        <p class="price-tit">￥{$vi.jiage}</p>
+		                                    </a>
+		                                </div>
+		                            </div>
+	                        	</volist>
+	                            
+	                            
+	                        </div>
+	                        <div class="mor-link">
+	                            <a href="{:U('Home/Index/mrzh',array('id'=>$vo['fen_id']))}" class="more-linkbtn">
+	                                查看更多>>
+	                            </a>
+	                        </div>
+	                    </div>
+                    </volist>-->
+                     <!--汽车电子-->
+                    <div class="mrzh-box  bg-bule">
+	                        <h4 class="toptit">{$arr1.fen}</h4>
+	                        <div class="mui-row">
+	                        	<volist name="arr1" id="vi" offset="0" length='2'>
+	                        		<div class="mui-col-xs-6">
+		                                <div class="left-mrzh">
+		                                    <a href="###" class="mrzh-boximg">
+		                                        <img src="{$vi.art_img_url}" alt="" class="cpxq-imgbox">
+		                                    </a>
+		                                    <a href="###" class="mrzh-textbox">
+		                                        <h4 class="text-name">{$vi.product_title}</h4>
+		                                        <p class="price-tit">￥{$vi.jiage}</p>
+		                                    </a>
+		                                </div>
+		                            </div>
+	                        	</volist>
+	                            
+	                            
+	                        </div>
+	                        <div class="mor-link">
+	                            <a href="###" class="more-linkbtn">
+	                                查看更多>>
+	                            </a>
+	                        </div>
+	                </div>
+                    <!--汽车电子 end-->
+                    <!--美容装潢 -->
+                    <if condition="$arr2 neq null">
+                    	
+                    
+                    <div class="mrzh-box  bg-bule">
+	                        <h4 class="toptit">{$arr2.fen}</h4>
+	                        <div class="mui-row">
+	                        	<volist name="arr2" id="vi" offset="0" length='2'>
+	                        		<div class="mui-col-xs-6">
+		                                <div class="left-mrzh">
+		                                    <a href="###" class="mrzh-boximg">
+		                                        <img src="{$vi.art_img_url}" alt="" class="cpxq-imgbox">
+		                                    </a>
+		                                    <a href="###" class="mrzh-textbox">
+		                                        <h4 class="text-name">{$vi.product_title}</h4>
+		                                        <p class="price-tit">￥{$vi.jiage}</p>
+		                                    </a>
+		                                </div>
+		                            </div>
+	                        	</volist>
+	                            
+	                            
+	                        </div>
+	                        <div class="mor-link">
+	                            <a href="###" class="more-linkbtn">
+	                                查看更多>>
+	                            </a>
+	                        </div>
+	                </div>
+	                </if>
+	                <!--美容装潢 end-->
+	                 <!--配置/动力提升-->
+	                <if condition="$arr3 neq null">
+                    	
+                    
+                    <div class="mrzh-box  bg-bule">
+	                        <h4 class="toptit">{$arr3.fen}</h4>
+	                        <div class="mui-row">
+	                        	<volist name="arr3" id="vi" offset="0" length='2'>
+	                        		<div class="mui-col-xs-6">
+		                                <div class="left-mrzh">
+		                                    <a href="###" class="mrzh-boximg">
+		                                        <img src="{$vi.art_img_url}" alt="" class="cpxq-imgbox">
+		                                    </a>
+		                                    <a href="###" class="mrzh-textbox">
+		                                        <h4 class="text-name">{$vi.product_title}</h4>
+		                                        <p class="price-tit">￥{$vi.jiage}</p>
+		                                    </a>
+		                                </div>
+		                            </div>
+	                        	</volist>
+	                            
+	                            
+	                        </div>
+	                        <div class="mor-link">
+	                            <a href="###" class="more-linkbtn">
+	                                查看更多>>
+	                            </a>
+	                        </div>
+	                </div>
+	                </if>
+	                 <!--配置/动力提升 end-->
+	                <!--消耗品/易损件-->
+	                <if condition="$arr4 neq null">
+                    	
+                    
+                    <div class="mrzh-box  bg-bule">
+	                        <h4 class="toptit">{$arr4.fen}</h4>
+	                        <div class="mui-row">
+	                        	<volist name="arr4" id="vi" offset="0" length='2' >
+	                        		<div class="mui-col-xs-6">
+		                                <div class="left-mrzh">
+		                                    <a href="###" class="mrzh-boximg">
+		                                        <img src="{$vi.art_img_url}" alt="" class="cpxq-imgbox">
+		                                    </a>
+		                                    <a href="###" class="mrzh-textbox">
+		                                        <h4 class="text-name">{$vi.product_title}</h4>
+		                                        <p class="price-tit">￥{$vi.jiage}</p>
+		                                    </a>
+		                                </div>
+		                            </div>
+	                        	</volist>
+	                            
+	                            
+	                        </div>
+	                        <div class="mor-link">
+	                            <a href="###" class="more-linkbtn">
+	                                查看更多>>
+	                            </a>
+	                        </div>
+	                </div>
+	                </if>
+	                <!--消耗品/易损件 end-->
+	                 <!--汽车生活-->
+	                <if condition="$arr5 neq null">
+                    	
+                    
+                    <div class="mrzh-box  bg-bule">
+	                        <h4 class="toptit">{$arr5.fen}</h4>
+	                        <div class="mui-row">
+	                        	<volist name="arr5" id="vi" offset="0" length='2'>
+	                        		<div class="mui-col-xs-6">
+		                                <div class="left-mrzh">
+		                                    <a href="###" class="mrzh-boximg">
+		                                        <img src="{$vi.art_img_url}" alt="" class="cpxq-imgbox">
+		                                    </a>
+		                                    <a href="###" class="mrzh-textbox">
+		                                        <h4 class="text-name">{$vi.product_title}</h4>
+		                                        <p class="price-tit">￥{$vi.jiage}</p>
+		                                    </a>
+		                                </div>
+		                            </div>
+	                        	</volist>
+	                            
+	                            
+	                        </div>
+	                        <div class="mor-link">
+	                            <a href="###" class="more-linkbtn">
+	                                查看更多>>
+	                            </a>
+	                        </div>
+	                </div>
+	                </if>
+	                
+	                
+                    
+                   
+                   
+                   
+                    <!--汽车生活 end-->
+                    
+                    
+                    
+                    
+                    
+                    <!--联系方式-->
+                    <div class="lxfs-box">
+                        <div class="mui-row bottom-set">
+                             <div class="mui-col-xs-2">
+                                 <div class="weixin-left bg-weixin">
+                                     <span class="mui-icon iconfont icon-weixin color-fff font-size24 margin-top6"></span>
+                                 </div>
+                             </div>
+                            <div class="mui-col-xs-10">
+                                <div class="mui-row">
+                                    <div class="mui-col-xs-6">
+                                        <p class="font-size14 color-333">微信媒体号</p>
+                                        <img src="__PUBLIC__/wo/images/wei11.jpg" alt="" class="erweima-img">
+                                    </div>
+                                    <div class="mui-col-xs-6">
+                                        <p class="font-size14 color-333">微信服务号</p>
+                                        <img src="__PUBLIC__/wo/images/wei22.jpg" alt="" class="erweima-img">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="chujing-lxfs">
+                        	<p class="color-898989">联系我们</p>
+							<p class="color-898989 font-size20">400-999-0049</p>
+							<p class="color-898989">广告合作</p>
+							<p class="color-898989 font-size20">029-88601160</p>
+                            
+                        </div>
+                    </div>
+                    <!--联系方式 end-->
+                    <!--中间的内容 end-->
+
+		</main>
+		<!-- cd-main-content -->
+		<div class="weixn-chatbox">
+            <div class="wecaht-bxoncon">
+                <a target="_blank" href="http://wpa.qq.com/msgrd?v=3&uin=17523217&site=qq&menu=yes">
+                    <span class="mui-icon mui-icon-weixin font-size28 color-fff margin-top8"></span>
+                </a>
+            </div>
+        </div>
+		<nav id="cd-lateral-nav">
+			<div class="ch-top">
+				<img class="bg" src="__PUBLIC__/wo/images/chtop.png" alt="" />
+				<if condition="$username eq null">
+							<div class="tx-box">
+								<div class="tx-border">
+									<img src="__PUBLIC__/wo/images/tx.png" alt="" />
+								</div>
+							</div>
+							<div class="btn-box">
+								<a href="###" class="btn-dl mui-btn">登录</a>
+								<a href="###" class="btn-zc mui-btn">注册</a>
+							</div>
+						<else/>
+							<div class="tx-box">
+								<div class="tx-border">
+									<img src="{$userimg}" alt="" />
+								</div>
+							</div>
+							<div class="btn-box">
+								<div>{$username}</div>
+							</div>
+						</if>
+			</div>
+			<div class="mui-content">
+				<ul class="mui-table-view">
+				
+				</ul>
+			</div>
+		</nav>
+		<script src="__PUBLIC__/wo/js/jquery.min.js"></script>
+		<script src="__PUBLIC__/wo/js/main.js"></script>
+		<!-- Resource jQuery -->
+		<!--<script src="__PUBLIC__/wo/js/main.js"></script>-->
+	</body>
+	<script>
+	    mui('.mui-scroll-wrapper').on('tap','a' ,function(){location.href = this.getAttribute('href')})
+	</script>
+	<script type="text/javascript" charset="utf-8">
+	    //获得slider插件对象
+	    var gallery = mui('.mui-slider');
+	    gallery.slider({
+	        interval:2000//自动轮播周期，若为0则不自动播放，默认为0；
+	    });
+	    mui('.mui-scroll-wrapper').scroll();
+	</script>
+</html>

@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<title>忒666</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1,user-scalable=no">
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black">
+		<link rel="stylesheet" href="__PUBLIC__/xin/css/mui.min.css">
+		<link rel="stylesheet" href="__PUBLIC__/xin/css/swiper.min.css" />
+		<link rel="stylesheet" href="__PUBLIC__/xin/css/index.css" />
+		<script src="__PUBLIC__/xin/js/rem.js"></script>
+		<style type="text/css">
+			.jitxt {
+				padding-left: 0.2rem;
+				border-left: 2px solid #334f88;
+			}
+			
+			.map-topa {
+				margin-top: 2.5rem;
+			}
+			.cide-num{
+				margin-top:0.2rem;
+			}
+			.vpshop-cide {
+				position: absolute;
+				top: 0.5rem;
+
+				width: 100%;
+				height: 3.5rem;
+				padding: 0 5%;
+			}
+			
+			.tj-bo {
+				width: 100%;
+				padding: 0.2rem 0;
+				display: inline-block;
+				font-size: 0.25rem;
+				color: #7e7e7e;
+				text-align: left;
+				border-bottom: 1px solid #C7C7CC;
+			}
+			
+			.tab_a {
+				color: black;
+			}
+			a{
+				text-decoration: none;color: black;
+			}
+		</style>
+	</head>
+
+	<body>
+		<include file="Include/right" />
+		<!--侧滑菜单容器-->
+		<div id="offCanvasWrapper" class="mui-off-canvas-wrap mui-draggable mui-scalable">
+			<!--菜单部分-->
+			<include file="Include/left" />
+			<!--主体-->
+			<div class="mui-inner-wrap">
+				<!--header-->
+				<header class="mui-bar mui-bar-nav zt-header">
+					<!---->
+					<a href="{:U('Home/Xin/index')}" class="mui-pull-left"><img class="header-list_img" src="__PUBLIC__/xin/images/logo-icon.png" /></a>
+					<a id="offCanvasBtn" href="#offCanvasSide" class="mui-pull-right"><img src="__PUBLIC__/xin/images/cd-icon.png" alt="" /></a>
+					<h1 class="mui-title header-list_txt">
+						会员中心
+					</h1>
+				</header>
+				<!--<div id="offCanvasContentScroll" class="mui-content mui-scroll-wrapper">-->
+				<div id="offCanvasContentScroll" class="mui-content mui-scroll-wrapper">
+
+					<div class="mui-scroll">
+						<div class="vpshop-bgm">
+
+						</div>
+
+						<div class="vpshop-cide">
+							<div class="vpshop-cides">
+								<span class="isvip">
+									忒666会员
+								</span>
+								<div class="cide_img">
+									<img class="img_size" src="{$user.img}" />
+								</div>
+								<div class="cide-name name-size">
+									会员名: <span>{$user.sename}</span>
+								</div>
+								<div class="cide-name time-size">
+									会员将于{$user.type_endtime}到期
+								</div>
+								<div class="cide-num">
+									<div class="num-txt">
+										会员编号: <span>
+											{$user.number}
+										</span>
+									</div>
+									<a href="{:U('Huiyuan/ktvip')}">
+									<div class="pay-vip" id="xifei">
+										立即续费
+									</div>
+									</a>
+								</div>
+							</div>
+						</div>
+
+						<div class="vpshop-user">
+							<div class="mk-title border0 map-topa">
+								<span class="jitxt">积分</span>
+								<div class="huan">
+									<a href="{:U('Jifen/jifenshop')}">
+										<div class="huan_left" id="toshop">
+										<div class="left_txt">
+											积分兑换
+										</div>
+									</div>
+									</a>
+									<div class="huan_fen">
+										<div class="jifen-num">
+											我的积分: <span style="color:#d3894d;">{$user.jifen}积分</span>
+										</div>
+										<div class="jifen-tishi">
+											{$user.jifen}积分将于2018年12月31日清零
+										</div>
+									</div>
+								</div>
+
+							</div>
+
+						</div>
+						<!--banner图---------------------------->
+						<div class="img-banner">
+							<div class="swiper-container swiper-container2 img-banner swiper-container-horizontal">
+								<div class="swiper-wrapper" style="transform: translate3d(-750px, 0px, 0px); transition-duration: 0ms;">
+									<if condition="$bann1.picture_url neq null">
+										<div class="swiper-slide swiper-slide-active" data-swiper-slide-index="0" style="width: 375px;">
+											<if condition="$bann1.url neq null">
+												<a href="{$bann1.url}"><img src="{$bann1.picture_url}" alt=""></a>
+												<else/>
+												<a href="{:U('Home/Xin/hong',array('id'=>$bann1['id']))}"><img src="{$bann1.picture_url}" alt=""></a>	
+												
+											</if>
+											
+										</div>
+									</if>
+									<if condition="$bann2.picture_url neq null">
+										<div class="swiper-slide swiper-slide-prev" data-swiper-slide-index="1" style="width: 375px;">
+											<if condition="$bann2.url neq null">
+												<a href="{$bann2.url}"><img src="{$bann2.picture_url}" alt=""></a>
+												<else/>
+												<a href="{:U('Home/Xin/hong',array('id'=>$bann2['id']))}"><img src="{$bann2.picture_url}" alt=""></a>	
+												
+											</if>
+											
+										</div>
+									</if>
+									<if condition="$bann3.picture_url neq null">
+										<div class="swiper-slide swiper-slide-active" data-swiper-slide-index="2" style="width: 375px;">
+											<if condition="$bann3.url neq null">
+												<a href="{$bann3.url}"><img src="{$bann3.picture_url}" alt=""></a>
+												<else/>
+												<a href="{:U('Home/Xin/hong',array('id'=>$bann3['id']))}"><img src="{$bann3.picture_url}" alt=""></a>	
+												
+											</if>
+											
+										</div>
+									</if>
+									<if condition="$bann4.picture_url neq null">
+										<div class="swiper-slide swiper-slide-next" data-swiper-slide-index="3" style="width: 375px;">
+											<if condition="$bann4.url neq null">
+												<a href="{$bann4.url}"><img src="{$bann4.picture_url}" alt=""></a>
+												<else/>
+												<a href="{:U('Home/Xin/hong',array('id'=>$bann4['id']))}"><img src="{$bann4.picture_url}" alt=""></a>	
+												
+											</if>
+											
+										</div>
+									</if>
+									<if condition="$bann5.picture_url neq null">
+										<div class="swiper-slide swiper-slide-active" data-swiper-slide-index="4" style="width: 375px;">
+											<if condition="$bann5.url neq null">
+												<a href="{$bann5.url}"><img src="{$bann5.picture_url}" alt=""></a>
+												<else/>
+												<a href="{:U('Home/Xin/hong',array('id'=>$bann5['id']))}"><img src="{$bann5.picture_url}" alt=""></a>	
+												
+											</if>
+											
+										</div>
+									</if>
+									
+									
+									
+									
+									
+								</div>
+								<!-- Add Pagination -->
+								<div class="swiper-pagination swiper-pagination2 swiper-pagination-clickable swiper-pagination-bullets"><span class="swiper-pagination-bullet"></span><span class="swiper-pagination-bullet swiper-pagination-bullet-active"></span><span class="swiper-pagination-bullet"></span></div>
+							</div>
+						</div>
+						<!--汽车装饰-->
+						<div class="mk-box">
+							<div class="mk-title border0">
+								<span class="jitxt">会员权益列表</span>
+							</div>
+							<div class="mk-showbox">
+								<div class="tj-bo">
+									<span class="tab_a">
+										权益一：
+									</span> {$quan1.text}<!--会员名为用户授权后微信名。-->
+								</div>
+								<div class="tj-bo">
+									<span class="tab_a">
+										权益二：
+									</span> {$quan2.text}<!--会员编号为马粉标号码。-->
+								</div>
+								<div class="tj-bo">
+									<span class="tab_a">
+										权益三：
+									</span>{$quan3.text} <!--权益列表为马粉相关福利的展示及福利说明-->
+								</div>
+								<div class="tj-bo">
+									<span class="tab_a">
+										权益四：
+									</span> {$quan4.text}<!--点击续费按钮进入到会员购买支付页面。-->
+								</div>
+								<div class="tj-bo" style="border-bottom: 0px solid #C7C7CC;">
+									<span class="tab_a">
+										权益五：
+									</span> {$quan5.text}<!--点击兑换中心进入到积分商城。-->
+								</div>
+
+							</div>
+						</div>
+						<include file="Include/footer" />
+					</div>
+				</div>
+				<!-- off-canvas backdrop -->
+				<div class="mui-off-canvas-backdrop"></div>
+			</div>
+		</div>
+		<script src="__PUBLIC__/xin/js/mui.min.js"></script>
+		<script src="__PUBLIC__/xin/js/jquery.min.js"></script>
+		<script src="__PUBLIC__/xin/js/swiper.min.js"></script>
+		<script src="__PUBLIC__/xin/js/index.js"></script>
+		<script>
+			//img-banner
+			var swiper2 = new Swiper('.swiper-container2', {
+				pagination: '.swiper-pagination2',
+				paginationClickable: true,
+				loop: true,
+				autoplay: 3000
+			});
+//			$('#xifei').click(function() {
+//				
+//			})
+			$("#toshop").click(function() {
+				console.log(123)
+			})
+		</script>
+	</body>
+
+</html>

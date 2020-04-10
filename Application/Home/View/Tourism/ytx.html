@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<title>忒666</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1,user-scalable=no">
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black">
+		<link rel="stylesheet" href="__PUBLIC__/xin/css/mui.min.css">
+		<link rel="stylesheet" href="__PUBLIC__/xin/css/swiper.min.css" />
+		<link rel="stylesheet" href="__PUBLIC__/xin/css/index.css" />
+		<script src="__PUBLIC__/xin/js/rem.js"></script>
+		<style type="text/css">
+			.zt-header {
+				background: -moz-linear-gradient(top, #374f88 0%, #336999 100%);
+				background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #374f88), color-stop(100%, #336999));
+				background: -webkit-linear-gradient(top, #374f88 0%, #336999 100%);
+				background: -o-linear-gradient(top, #374f88 0%, #336999 100%);
+				background: -ms-linear-gradient(top, #374f88 0%, #336999 100%);
+				background: linear-gradient(to bottom, #374f88 0%, #336999 100%);
+			}
+			
+			.ytx-list-txt {
+				padding: .15rem 0;
+			}
+			.cgj-nav-list {
+			    width: auto;
+			    text-align: center;
+			}
+			
+		</style>
+		<script>
+		var _hmt = _hmt || [];
+		(function() {
+		  var hm = document.createElement("script");
+		  hm.src = "https://hm.baidu.com/hm.js?27840755bf9c5ae945c2936a17ab0b8b";
+		  var s = document.getElementsByTagName("script")[0]; 
+		  s.parentNode.insertBefore(hm, s);
+		})();
+		</script>
+	</head>
+
+	<body>
+		<include file="Include/right"/>
+		<!--侧滑菜单容器-->
+		<div id="offCanvasWrapper" class="mui-off-canvas-wrap mui-draggable mui-scalable">
+			<!--菜单部分-->
+			<include file="Include/left" />
+			<!--主体-->
+			<div class="mui-inner-wrap">
+				<!--header-->
+				<header class="mui-bar mui-bar-nav zt-header" style="background:#ffffff;">
+					<!---->
+					<a href="{:U('Home/Xin/index')}" class="mui-pull-left"><img class="header-list_img" src="__PUBLIC__/xin/images/logo-icon.png" /></a>
+					<a id="offCanvasBtn" href="#offCanvasSide" class="mui-pull-right"><img src="__PUBLIC__/xin/images/cd-icon.png" alt="" /></a>
+					<h1 class="mui-title header-list_txt">
+						忒游
+					</h1>
+				</header>
+				<div id="offCanvasContentScroll" class="mui-content mui-scroll-wrapper">
+					<div class="mui-scroll">
+						<!--banner-->
+						<div class="swiper-container swiper-container1 index-banner">
+							<div class="swiper-wrapper">
+								<if condition="$tu1['picture_url'] neq null">
+									<div class="swiper-slide">
+										<if condition="$tu1.url neq null">
+											<a href="{$tu1.url}"><img src="{$tu1.picture_url}" alt="" /></a>
+											<else/>
+											<a href="{:U('Home/Xin/hong',array('id'=>$tu1['id']))}"><img src="{$tu1.picture_url}" alt="" /></a>	
+											
+										</if>
+										
+									</div>
+								</if>
+								<if condition="$tu2['picture_url'] neq null">
+									<div class="swiper-slide">
+										<if condition="$tu2.url neq null">
+											<a href="{$tu2.url}"><img src="{$tu2.picture_url}" alt="" /></a>
+											<else/>
+											<a href="{:U('Home/Xin/hong',array('id'=>$tu2['id']))}"><img src="{$tu2.picture_url}" alt="" /></a>	
+											
+										</if>
+										
+									</div>
+								</if>
+								<if condition="$tu3['picture_url'] neq null">
+									<div class="swiper-slide">
+										<if condition="$tu3.url neq null">
+											<a href="{$tu3.url}"><img src="{$tu3.picture_url}" alt="" /></a>
+											<else/>
+											<a href="{:U('Home/Xin/hong',array('id'=>$tu3['id']))}"><img src="{$tu3.picture_url}" alt="" /></a>	
+											
+										</if>
+										
+									</div>
+								</if>
+								<if condition="$tu4['picture_url'] neq null">
+									<div class="swiper-slide">
+										<if condition="$tu4.url neq null">
+											<a href="{$tu4.url}"><img src="{$tu4.picture_url}" alt="" /></a>
+											<else/>
+											<a href="{:U('Home/Xin/hong',array('id'=>$tu4['id']))}"><img src="{$tu4.picture_url}" alt="" /></a>	
+											
+										</if>
+										
+									</div>
+								</if>
+								<if condition="$tu5['picture_url'] neq null">
+									<div class="swiper-slide">
+										<if condition="$tu5.url neq null">
+											<a href="{$tu5.url}"><img src="{$tu5.picture_url}" alt="" /></a>
+											<else/>
+											<a href="{:U('Home/Xin/hong',array('id'=>$tu5['id']))}"><img src="{$tu5.picture_url}" alt="" /></a>	
+											
+										</if>
+										
+									</div>
+								</if>
+
+							</div>
+							<!-- Add Pagination -->
+							<div class="swiper-pagination swiper-pagination1"></div>
+						</div>
+						<!--banner-end-->
+
+						<div class="mk-box">
+							<!---搜索-->
+							<form id="form1" action="{:U('Tourism/sou')}" method="post" enctype="multipart/form-data">
+								<div class="cgj-ssbox">
+									<div class="cgj-ss">
+										<div class="mui-input-row mui-search">
+											<input type="search" name="sou" id="sou" class="mui-input-clear" placeholder="关键词搜索">
+										</div>
+									</div>
+								</div>
+							</form>
+
+							<!--nav-icon-->
+							<div class="nav-icon-box flex-s">
+								<volist name="temp" id="vo" offset="0" length='4'>
+									<a href="{:U('Home/Tourism/ytx_list',array('id'=>$vo['cate_id']))}">
+										<div class="cgj-nav-list">
+											<img src="/Public/Uploads/Cate/{$vo.cate_img_url}" alt="" />
+											<div>{$vo.cate_name}</div>
+										</div>
+									</a>
+								</volist>
+
+								<a href="{:U('Home/Tourism/srdingzhi')}">
+									<div class="cgj-nav-list">
+										<img src="/Public/Uploads/Cate/{$si.cate_img_url}" alt="" />
+										<div>{$si.cate_name}</div>
+									</div>
+								</a>
+							</div>
+						</div>
+						<!--国际游-->
+						<volist name="arr" id="vo" offset="0" length='4'>
+							<div class="mk-box">
+								<div class="mk-title border0">
+									<span>{$vo.fen}</span>
+									<a href="{:U('Home/Tourism/ytx_list',array('id'=>$vo['art_cate_id']))}"><span class="float-r color-666 mk-gd_btn">查看更多&nbsp; ></span></a>
+								</div>
+								<div class="mk-showbox" style="padding:0 0.3rem">
+									<a href="{:U('Home/Tourism/ytx_cpxq',array('id'=>$vo['art_id']))}">
+										<div class="ytx-list-box">
+											<div class="ytx-list-img"><img src="{$vo.art_img_url}" alt="" /></div>
+											<div class="ytx-list-txt">
+												<div class="yxt-list-name">
+													{$vo.product_title}
+													<span class="float-r color-red">会员价：{$vo.huiyuan}/人起</span>
+												</div>
+												<!--<div class="ytx-list-show">{$vo.guige}</div>-->
+												<div class="ytx-list-show" style="text-align: right;margin-top: 0.15rem;">商城价：{$vo.jiage}/人起</div>
+											</div>
+										</div>
+									</a>
+								</div>
+							</div>
+						</volist>
+
+						<!--国内游-->
+						<!--<div class="mk-box">
+							<div class="mk-title border0">
+								<span>国内游</span>
+								<a href="{:U('Home/Tourism/ytx_list')}"><span class="float-r color-666 mk-gd_btn">查看更多&nbsp; ></span></a>
+							</div>
+							<div class="mk-showbox">
+								<a href="{:U('Home/Tourism/ytx_cpxq')}">
+									<div class="ytx-list-box">
+										<div class="ytx-list-img"><img src="__PUBLIC__/xin/images/15.png" alt="" /></div>
+										<div class="ytx-list-txt">
+											<div class="yxt-list-name">
+												苏梅岛双方六日（自由行）
+												<span class="float-r color-red">4380元/人起</span>
+											</div>
+											<div class="ytx-list-show">不逃离、不乏味，生活一样可以很有趣生活一样可以很有趣生活一样可以很有趣</div>
+										</div>
+									</div>
+								</a>
+							</div>
+						</div>-->
+						<!--省内游-->
+						<!--<div class="mk-box">
+							<div class="mk-title border0">
+								<span>省内游</span>
+								<a href="{:U('Home/Tourism/ytx_list')}"><span class="float-r color-666 mk-gd_btn">查看更多&nbsp; ></span></a>
+							</div>
+							<div class="mk-showbox">
+								<div class="ytx-list-box">
+									<div class="ytx-list-img"><img src="__PUBLIC__/xin/images/15.png" alt="" /></div>
+									<div class="ytx-list-txt">
+										<div class="yxt-list-name">
+											苏梅岛双方六日（自由行）
+											<span class="float-r color-red">4380元/人起</span>
+										</div>
+										<div class="ytx-list-show">不逃离、不乏味，生活一样可以很有趣生活一样可以很有趣生活一样可以很有趣</div>
+									</div>
+								</div>
+							</div>
+						</div>-->
+						<!--亲子游-->
+						<!--<div class="mk-box">
+							<div class="mk-title border0">
+								<span>亲子游</span>
+								<a href="{:U('Home/Tourism/ytx_list')}"><span class="float-r color-666 mk-gd_btn">查看更多&nbsp; ></span></a>
+							</div>
+							<div class="mk-showbox">
+								<div class="ytx-list-box">
+									<div class="ytx-list-img"><img src="__PUBLIC__/xin/images/15.png" alt="" /></div>
+									<div class="ytx-list-txt">
+										<div class="yxt-list-name">
+											苏梅岛双方六日（自由行）
+											<span class="float-r color-red">4380元/人起</span>
+										</div>
+										<div class="ytx-list-show">不逃离、不乏味，生活一样可以很有趣生活一样可以很有趣生活一样可以很有趣</div>
+									</div>
+								</div>
+							</div>
+						</div>-->
+						<!--私人订制-->
+						<!--<div class="mk-box">
+							<div class="mk-title border0">
+								<span>私人订制</span>
+								<a href="{:U('Home/Tourism/ytx_list')}"><span class="float-r color-666 mk-gd_btn">查看更多&nbsp; ></span></a>
+							</div>
+							<div class="mk-showbox">
+								<div class="ytx-list-box">
+									<div class="ytx-list-img"><img src="__PUBLIC__/xin/images/15.png" alt="" /></div>
+									<div class="ytx-list-txt">
+										<div class="yxt-list-name">
+											苏梅岛双方六日（自由行）
+											<span class="float-r color-red">4380元/人起</span>
+										</div>
+										<div class="ytx-list-show">不逃离、不乏味，生活一样可以很有趣生活一样可以很有趣生活一样可以很有趣</div>
+									</div>
+								</div>
+							</div>
+						</div>-->
+						<!--	footer-->
+						<include file="Include/footer" />
+					</div>
+				</div>
+				<!-- off-canvas backdrop    __PUBLIC__/xin/__PUBLIC__/xin/ckplayer/   -->
+				<div class="mui-off-canvas-backdrop"></div>
+			</div>
+		</div>
+		<script src="__PUBLIC__/xin/js/mui.min.js"></script>
+		<script src="__PUBLIC__/xin/js/jquery.min.js"></script>
+		<script src="__PUBLIC__/xin/js/swiper.min.js"></script>
+		<script src="__PUBLIC__/xin/js/index.js"></script>
+		<script>
+			//banner
+			var swiper1 = new Swiper('.swiper-container1', {
+				pagination: '.swiper-pagination1',
+				paginationClickable: true,
+				loop: true,
+				autoplay: 2000
+			});
+
+			document.getElementById("search").addEventListener("keypress", function(event) {
+				if(event.keyCode == "13") {
+					document.activeElement.blur(); //收起虚拟键盘
+					toSearch(); // 完成搜索事件
+					event.preventDefault(); // 阻止默认事件---阻止页面刷新
+				}
+			});
+
+			function toSearch() {
+				//				var sou=$("#sou").val();
+				//				alert(sou);
+				$("#form1").submit();
+			}
+		</script>
+	</body>
+
+</html>

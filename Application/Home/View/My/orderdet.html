@@ -1,0 +1,456 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<title>忒666</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1,user-scalable=no">
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black">
+		<link rel="stylesheet" href="__PUBLIC__/xin/css/mui.min.css">
+		<link rel="stylesheet" href="__PUBLIC__/xin/css/swiper.min.css" />
+		<link rel="stylesheet" href="__PUBLIC__/xin/css/index.css" />
+		<script src="__PUBLIC__/xin/js/rem.js"></script>
+		<style type="text/css">
+			.zt-header a img {
+				width: 0.28rem;
+				margin-top: .22rem;
+			}
+			
+			.zt-header {
+				background: white !important;
+				height: 1rem;
+				transition: all .1s;
+			}
+			
+			.clearfix:after {
+				content: "020";
+				display: block;
+				height: 0;
+				clear: both;
+				visibility: hidden;
+			}
+			
+			.top {
+				margin-top: 1rem;
+				width: 100%;
+				display: inline-block;
+				margin-bottom: 1.1rem;
+			}
+			
+			.listob {
+				margin-top: 2px;
+				width: 100%;
+				display: inline-block;
+				padding: 0.2rem 0;
+				background-color: white;
+				vertical-align: top;
+			}
+			
+			.item {
+				width: 100%;
+				padding: 0 0.2rem;
+			}
+			
+			.one_top {
+				width: 100%;
+			}
+			
+			.top_left {
+				display: inline-block;
+				width: 30%;
+				box-sizing: border-box;
+				float: left;
+				height: 2rem;
+				padding: 5px;
+				padding-left: 0px;
+			}
+			
+			.top_left img {
+				width: 100%;
+				height: 100%;
+				margin: 0;
+				padding: 0;
+				display: block;
+			}
+			
+			.top_center {
+				width: 70%;
+				float: left;
+				height: 2rem;
+				box-sizing: border-box;
+				padding: 0.2rem 5px;
+			}
+			
+			.shop_name {
+				width: 100%;
+				font-size: 0.3rem;
+				display: -webkit-box;
+				-webkit-box-orient: vertical;
+				-webkit-line-clamp: 2;
+				overflow: hidden;
+				font-weight: 550;
+			}
+			
+			.shop_num {
+				width: 100%;
+				font-size: 0.3rem;
+				color: #858585;
+				height: 0.4rem;
+			}
+			
+			.tu_in {
+				width: 100%;
+				display: inline-block;
+				vertical-align: top;
+				padding: 0 0.2rem;
+				background-color: white;
+				margin-top: 0.2rem;
+			}
+			
+			.tuin_one {
+				width: 100%;
+				min-height: 0.8rem;
+				display: inline-block;
+				vertical-align: top;
+				position: relative;
+			}
+			
+			.tuin_left {
+				display: inline-block;
+				width: 30%;
+				box-sizing: border-box;
+				float: left;
+				height: 0.8rem;
+				font-size: 0.3rem;
+				line-height: 0.8rem;
+			}
+			
+			.tuin_right {
+				width: 70%;
+				float: left;
+				line-height: 0.8rem;
+				box-sizing: border-box;
+				font-size: 0.3rem;
+			}
+			
+			.a_paddingright {
+				box-sizing: border-box;
+				word-wrap: break-word;
+				padding-right: 0.7rem;
+			}
+			
+			.copy {
+				width: 0.6rem;
+				line-height: 0.8rem;
+				text-align: center;
+				height: 0.8rem;
+				position: absolute;
+				right: 0;
+				top: 0;
+				color: #fe3400;
+				font-size: 0.3rem;
+			}
+			
+			.a_color {
+				color: #cecece;
+			}
+			
+			.b_color {
+				color: #fe4924;
+			}
+			
+			.a_txtright {
+				text-align: right;
+			}
+			
+			.a_bagsize {
+				font-size: 0.35rem;
+			}
+			
+			.a_boder {
+				border-top: 1px solid #eeeeee;
+			}
+			
+			.fixe {
+				position: fixed;
+				z-index: 999;
+				height: 1.1rem;
+				width: 100%;
+				background-color: white;
+				border-top: 1px solid #eeeeee;
+				bottom: 0;
+				text-align: center;
+				overflow: hidden;
+			}
+			
+			.fixe_btn {
+				display: inline-block;
+				height: 0.6rem;
+				padding: 0 0.3rem;
+				line-height: 0.6rem;
+				font-size: 0.25rem;
+				color: #737373;
+				border: 1px solid #737373;
+				border-radius: 50px;
+				margin: 0 0.3rem;
+				margin-top: 0.3rem;
+			}
+			.a_wuli {
+				float: right;
+				line-height: 0.8rem;
+				text-align: center;
+				height: 0.8rem;
+				color: #fe3400;
+				font-size: 0.3rem;
+				display: inline-block;
+			}
+			.a_wuli:active{
+				color: #fe3400;
+			}
+		</style>
+	</head>
+
+	<body>
+		<header class="mui-bar mui-bar-nav zt-header">
+			<a href="javascript:history.back(-1)" class="mui-pull-left ss-togbtn"><img src="__PUBLIC__/xin/images/back.png" /></a>
+			<h1 class="mui-title" style="color:#333333;">订单详情</h1>
+		</header>
+		<div class="top">
+			<div class="listob">
+				<div class="item">
+					<div class="one_top clearfix">
+						<div class="top_left">
+							<img src="{$res.img}">
+						</div>
+						<div class="top_center">
+							<div class="shop_name">
+								{$res.name}
+							</div>
+							<div class="shop_num">
+								规格：{$res.guige}
+							</div>
+							<div class="shop_num">
+								数量：x{$res.num}
+							</div>
+						</div>
+					</div>
+
+				</div>
+			</div>
+			<div class="tu_in">
+				<eq name="res.type" value="1">
+					<div class="tuin_one">
+						<div class="tuin_left">联系人：</div>
+						<div class="tuin_right">{$res.lianxi}</div>
+					</div>
+					<div class="tuin_one">
+						<div class="tuin_left">联系电话：</div>
+						<div class="tuin_right">{$res.lianxiphoto}</div>
+					</div>
+				<else />
+					<div class="tuin_one">
+						<div class="tuin_left">收货人：</div>
+						<div class="tuin_right">{$res.address.name}</div>
+					</div>
+					<div class="tuin_one">
+						<div class="tuin_left">收货电话：</div>
+						<div class="tuin_right">{$res.address.dian}</div>
+					</div>
+					<div class="tuin_one">
+						<div class="tuin_left">收货地址：</div>
+						<div class="tuin_right">
+							{$res.address.address}{$res.address.xiangqing}
+						</div>
+					</div>
+				</eq>
+			</div>
+			<div class="tu_in">
+				<div class="tuin_one">
+					<div class="tuin_left">订单编号：</div>
+					<div class="tuin_right a_paddingright">{$res.paysn}</div>
+					<div class="copy btn" id="copy" data-clipboard-text="{$res.paysn}">复制</div>
+				</div>
+				<div class="tuin_one">
+					<div class="tuin_left">下单时间：</div>
+					<div class="tuin_right">{$res.time}</div>
+				</div>
+				<div class="tuin_one">
+					<div class="tuin_left">发货时间：</div>
+					<div class="tuin_right">
+						<switch name="res.flag">
+							<case value="1">代付款</case>
+							<case value="2">待发货</case>
+						    <case value="3|4|5|6|7">
+								{$res.wuliu_time}
+								<a href="{:U('My/wl', ['id' => $res['id']])}" class="a_wuli">查看物流</a>
+						    </case>
+						</switch>
+					</div>
+				</div>
+				<div class="tuin_one">
+					<div class="tuin_left">完成时间：</div>
+					<div class="tuin_right">
+						<switch name="res.flag">
+							<case value="1">代付款</case>
+							<case value="2">待发货</case>
+							<case value="3">待收货</case>
+							<case value="4">待评价</case>
+							<case value="5">{$res.wan_time}</case>
+							<case value="6">退款中</case>
+							<case value="7">已退款</case>
+						</switch>
+					</div>
+				</div>
+			</div>
+			<div class="tu_in">
+				<div class="tuin_one">
+					<div class="tuin_left a_color">
+						商品总价
+					</div>
+					<div class="tuin_right a_color a_txtright">
+						¥{$res.zjg}
+					</div>
+				</div>
+				<div class="tuin_one">
+					<div class="tuin_left a_color">
+						运费（快递）
+					</div>
+					<div class="tuin_right a_color a_txtright">
+						¥{$res.money_you}
+					</div>
+				</div>
+				<div class="tuin_one">
+					<div class="tuin_left a_bagsize">
+						订单总价
+					</div>
+					<div class="tuin_right a_bagsize a_txtright">
+						¥{$res.zong}
+					</div>
+				</div>
+				<div class="tuin_one a_boder">
+					<div class="tuin_left a_bagsize">
+						实付款
+					</div>
+					<div class="tuin_right a_bagsize a_txtright b_color">
+						¥{$res.zong}
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<neq name="res.flag" value="7">
+			<div class="fixe">
+				<switch name="res.flag">
+					<case value="1">
+						<span class="fixe_btn quxiao" ids="{$res.id}">取消订单</span>
+					</case>
+					<case value="2|3|4|5">
+						<span class="fixe_btn tuikuan" ids="{$res.id}">申请退款</span>
+					</case>
+					<case value="2|3">
+						<span class="fixe_btn shouhuo" ids="{$res.id}">确认收货</span>
+					</case>
+					<case value="4">
+						<span class="fixe_btn pinglun">评论</span>
+					</case>
+					<case value="6">
+						<span class="fixe_btn chexiao" ids="{$res.id}">撤销退款</span>
+					</case>
+				</switch>
+			</div>
+		</neq>
+
+	</body>
+	<script src="__PUBLIC__/xin/js/mui.min.js"></script>
+	<script src="__PUBLIC__/xin/js/jquery.min.js"></script>
+	<script src="__PUBLIC__/xin/js/swiper.min.js"></script>
+	<script src="__PUBLIC__/xin/js/copy.js" type="text/javascript" charset="utf-8"></script>
+	<script type="text/javascript" src="__PUBLIC__/layer-3.1.1/layer.js"></script>
+	<script type="text/javascript">
+		var btns = document.querySelectorAll('.copy');
+		var clipboard = new ClipboardJS(btns);
+		clipboard.on('success', function(e) {
+			console.log(e);
+			layer.msg('复制成功');
+		});
+		clipboard.on('error', function(e) {
+			console.log(e);
+			layer.msg('复制失败，请重试！');
+		});
+
+		// 取消订单
+		$(".quxiao").click(function(){
+			var id = $(this).attr("ids");
+			$.ajax({
+	            type : "POST",
+	            url:"{:U('My/quxiao')}",
+	            data: {id: id},
+	            success: function(data){
+				    if(data.state==1){
+				    	 alert(data.msg);
+				    	 window.location.reload();
+				    }else{
+				    	 alert(data.msg);
+				    }
+	            }
+	        });
+		});
+
+		//  确定收货
+		$(".shouhuo").click(function(){
+			var id = $(this).attr("ids");
+			$.ajax({
+	            type : "POST",
+	            url:"{:U('My/shouhuo')}",
+	            data : {id: id},
+	            success: function(data){
+				    if(data.state==1){
+				    	 alert(data.msg);
+				    	 window.location.reload();
+				    }else{
+				    	 alert(data.msg);
+				    }
+	            }
+	        });
+		});
+
+		//  评论
+		$(".pinglun").click(function(){
+			window.location.href = "{:U('Che/fbpl', ['id' => $res['store_id'], 'dingid' => $res['id']])}";
+		});
+
+		// 申请退款
+		$(".tuikuan").click(function(){
+			var id = $(this).attr("ids");
+			mui.confirm('您确定要退款吗？', '温馨提示', ['取消', '确定'], function(e){
+				if(e.index == 1){
+					window.location.href = "{:U('My/tk')}?id=" + id;
+				}
+			});
+		});
+
+		// 撤销退款
+		$(".chexiao").click(function(){
+			var id = $(this).attr("ids");
+			mui.confirm('您确定要撤销退款吗？', '温馨提示', ['取消', '确定'], function(e){
+				if(e.index == 1){
+					$.ajax({
+			            type : "POST",
+			            url:"{:U('My/chexiao')}",
+			            data : {id: id},
+			            success: function(data){
+						    if(data.state==1){
+						    	 alert(data.msg);
+						    	 window.location.reload();
+						    }else{
+						    	 alert(data.msg);
+						    }
+			            }
+			        });
+				}
+			});
+		});
+	</script>
+
+</html>

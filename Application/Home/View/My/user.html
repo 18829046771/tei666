@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<title>忒666</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1,user-scalable=no">
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black">
+		<link rel="stylesheet" href="__PUBLIC__/xin/css/mui.min.css">
+		<link rel="stylesheet" href="__PUBLIC__/xin/css/swiper.min.css" />
+		<link rel="stylesheet" href="__PUBLIC__/xin/css/index.css" />
+		<link rel="stylesheet" type="text/css" href="__PUBLIC__/xin/css/user.css" />
+		<script src="__PUBLIC__/xin/js/rem.js"></script>
+		<style type="text/css">
+			/*.top .tabs{
+				font-size: 0 !important;
+			}*/
+			.zt-header a img {
+				width: 0.6rem;
+				margin-top: .22rem;
+			}
+			/*.tabs_list {
+				display: inline-block;
+				width: 20% !important;
+				margin: 0 !important;
+			}*/
+			.zt-header {
+				background: #374f88 !important;
+				height: 1rem;
+				transition: all .1s;
+			}
+			/*.list_txt{
+				margin-top: 0.6rem !important;
+			}
+			.ping{
+				    background-image: url(../images/daipj.png.png);
+			}*/
+		</style>
+		<script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?27840755bf9c5ae945c2936a17ab0b8b";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+	</head>
+
+	<body>
+		<include file="Include/right"/>
+		<!--侧滑菜单容器-->
+		<div id="offCanvasWrapper" class="mui-off-canvas-wrap mui-draggable mui-scalable">
+			<!--菜单部分-->
+			 <include file="Include/left" />
+			<!--主体-->
+			<div class="mui-inner-wrap">
+				<!--header-->
+				<header class="mui-bar mui-bar-nav zt-header">
+					<!---->
+					<a href="{:U('Home/Xin/index')}" class="mui-pull-left "><img src="__PUBLIC__/xin/images/logo-iconb.png" /></a>
+					<a id="offCanvasBtn" href="#offCanvasSide" class="mui-pull-right"><img src="__PUBLIC__/xin/images/cd-iconb.png" alt="" /></a>
+					<h1 class="mui-title">
+						个人中心
+					</h1>
+				</header>
+				<div id="offCanvasContentScroll" class="mui-content mui-scroll-wrapper">
+
+					<div class="mui-scroll">
+						<div class="top">
+
+							<div class="icos">
+								<div class="ico_top" id="userindex">
+									<a href="{:U('My/userindex')}">
+										<img src="{$user.img}" />
+									</a>
+								</div>
+								<div class="ico_txt" id="aaa" tap="aaa()">
+									{$user.sename}
+								</div>
+							</div>
+							<div class="list">
+								<a style="width: 100%;display: inline-block;" href="{:U('My/myoder',array('id'=>'1'))}">我的订单  <span style="display: inline-block; color: #7E7E7E; float: right; margin-right: 0.2rem;font-size: 0.25rem;">全部订单</span></a>
+								
+								
+							</div>
+							<div class="tabs">
+								<div class="tabs_list fu">
+									<a href="{:U('My/myoder',array('id'=>'2'))}">
+										<div class="list_txt">
+											待付款
+										</div>
+									</a>
+								</div>
+								<div class="tabs_list fa">
+									<a href="{:U('My/myoder',array('id'=>'3'))}">
+										<div class="list_txt">
+											待发货
+										</div>
+									</a>
+								</div>
+								<div class="tabs_list shou">
+									<a href="{:U('My/myoder',array('id'=>'4'))}">
+										<div class="list_txt">
+											待收货
+										</div>
+									</a>
+								</div>
+								<div class="tabs_list ping" >
+									<a href="{:U('My/myoder',array('id'=>'5'))}">
+										<div class="list_txt">
+											待评价
+										</div>
+									</a>
+								</div>
+								<div class="tabs_list tui">
+									<a href="{:U('My/myodertui')}">
+										<div class="list_txt">
+											退款
+										</div>
+									</a>
+								</div>
+							</div>
+							<div class="list">
+								<a href="{:U('My/useritem')}">个人信息</a>
+							</div>
+							<if condition="$user['type'] eq 1">
+								<div class="list">
+									<a href="{:U('Huiyuan/vipindex')}">会员中心</a>
+								</div>
+								<else/>
+								<div class="list">
+									<a href="{:U('Huiyuan/myvip')}">会员中心</a>
+								</div>	
+								
+							</if>
+							<div class="list">
+								<a href="{:U('jifen/myOrder')}">积分订单</a>
+							</div>
+							<div class="list">
+								<a href="{:U('My/mapdemo')}">地址管理</a>
+							</div>
+							<div class="list">
+								<a href="{:U('My/longtime')}">常见问题</a>
+							</div>
+							<div class="list">
+								<a href="{:U('My/username')}">关于我们</a>
+							</div>
+						</div>
+					</div>
+				</div>
+	</body>
+				<script src="__PUBLIC__/xin/js/jquery.min.js"></script>
+				<script src="__PUBLIC__/xin/js/mui.min.js"></script>
+				<script src="__PUBLIC__/xin/js/swiper.min.js"></script>
+				<script src="__PUBLIC__/xin/js/index.js"></script>
+				<script type="text/javascript">
+//					$('.ico_txt').on("tap",function(){
+//					 
+//					});
+	
+				</script>
+</html>

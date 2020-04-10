@@ -1,0 +1,68 @@
+* .top {
+  width: 100%;
+  display: inline-block;
+  padding-top: 1rem;
+  background-color: white;
+}
+* .top .top_icos {
+  width: 100%;
+  height: 3rem;
+  padding: 0.35rem 0;
+  border-bottom: 1px solid #e5e5e5;
+}
+* .top .top_icos .ico_gai {
+  width: 100%;
+  height: 0.8rem;
+  line-height: 0.8rem;
+  text-align: center;
+  font-size: 0.3rem;
+}
+* .top .top_icos .ico_img {
+  width: 100%;
+  display: inline-block;
+}
+* .top .top_icos .ico_img .img-ico {
+  width: 1.5rem;
+  height: 1.5rem;
+  margin: 0 auto;
+}
+* .top .top_icos .ico_img .img-ico img {
+  width: 100%;
+  height: 100%;
+  display: block;
+  margin: 0;
+  padding: 0;
+  border-radius: 50px;
+}
+* .top .top_list {
+  width: 100%;
+  height: 1rem;
+  border-bottom: 1px solid #e5e5e5;
+  padding: 0 15px;
+  font-size: 0.3rem;
+}
+* .top .top_list .list_txt {
+  width: 30%;
+  display: inline-block;
+  line-height: 1rem;
+  padding: 0 5px;
+  text-align: center;
+}
+* .top .top_list .list_ipt {
+  float: right;
+  width: 69%;
+  height: 0.98rem;
+  border: 0;
+  margin-bottom: 0;
+  font-size: 0.3rem;
+}
+* .top .top_btn {
+  width: 80%;
+  margin: 0 auto;
+  line-height: 1rem;
+  height: 1rem;
+  text-align: center;
+  color: white;
+  margin-top: 1.5rem;
+  background-color: #ff9600;
+}

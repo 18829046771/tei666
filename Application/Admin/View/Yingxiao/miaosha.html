@@ -1,0 +1,107 @@
+<extend name="Index:app" />
+<block name="css">
+
+</block>
+<block name="content">
+    <div class="row">
+        <div class="col-xs-12">
+            <div class="box">
+
+                <div class="box-header">
+                    <h3 class="box-title"><a href="{:U('yingxiao/miao_add')}" class="btn btn-primary Normal">添加整点秒杀</a></h3>
+                    <div class="box-tools">
+                        当前显示状态：
+                        <eq name="display.type" value="1">
+                            <small class="label bg-blue">显示</small>
+                        <else />
+                            <small class="label bg-red">隐藏</small>
+                        </eq>
+                    	<a href="{:U('Yingxiao/miao_disp')}" id="xian" class="btn btn-primary Normal">首页显示</a>
+                        	
+                        <a href="{:U('Yingxiao/miao_noner')}"  id="yin" style="padding-left: 10px;" class="btn btn-primary Normal">首页隐藏</a>  
+                        <div class="input-group input-group-sm" >
+
+                        </div>
+                    </div>
+                </div>
+                <form class="form-horizontal">
+                    <div class="box-header">
+                        <h3 class="box-title">整点秒杀管理</h3>
+                    </div>
+                </form>
+                <!-- /.box-header -->
+                <form class="form-horizontal" action="{:U('yingxiao/miao_det')}" method="post" enctype="multipart/form-data" id="r_list">
+                <div class="box-body table-responsive no-padding" >
+                    <table class="table table-hover">
+                        <tr>
+                            <th>专场名称</th>
+                            <th>开始时间</th>
+                            <th>专场备注</th>
+
+                            <th>状态</th>
+                            <th>添加时间</th>
+                            <th>操作功能</th>
+                        </tr>
+                        <volist name="temp" id="vo">
+                            <tr>
+                                <td>{$vo.name}</td>
+                                <td>{$vo.ktime}</td>
+                                <td>{$vo.beizhu}</td>
+
+                                <td>
+                                	{$vo.zhuangtai}
+                                </td>
+                               
+                                <td>{$vo.time}</td>
+                                
+                                <td>
+                                    <a href="{:U('yingxiao/miao_edit',array('id'=>$vo['id']))}" class="btn btn-primary btn-xs">专场商品</a>
+                                    <a href="{:U('yingxiao/miao_delete',array('id'=>$vo['id']))}" class="btn btn-primary btn-xs">删除专场</a>
+                                    
+                                    <input type="checkbox" name="{$vo.id}" value="{$vo.id}" id="checkbox"/>
+                                </td>
+                            </tr>
+                        </volist>
+                    </table>
+                </div>
+                <!-- /.box-body -->
+                <div class="box-footer clearfix" style="text-align: center;">
+                    <ul class="pagination pagination-sm no-margin">
+                        {$page}
+                    </ul>
+                    <div class="form-group">
+                    <a href="javascript:checkbox_all();" class="btn btn-primary btn-xs">全选</a>&nbsp;<a href="javascript:checkbox_none();" class="btn btn-primary btn-xs">取消全选</a>
+                    <input type="submit" id="btn1" value="删除"class="btn btn-primary btn-xs"/>
+                    </div>
+                </div>
+                </form>
+            </div>
+            <!-- 3$THIS->DISPLAY /.box -->
+        </div>
+    </div>
+</block>
+<block name="js">
+    <script>
+
+        function checkbox_all()
+        {
+            $('#r_list :checkbox').each(function(){
+                if(!$(this).is(':checked'))
+                {
+                    $(this).click();
+                    $('#r_list :checkbox').attr('checked',true);
+                }
+            });
+        }
+        function checkbox_none()
+        {
+            $('#r_list :checkbox').each(function(){
+                if($(this).is(':checked'))
+                {
+                    $(this).click();
+                }
+            });
+        }
+    </script>
+</block>
+

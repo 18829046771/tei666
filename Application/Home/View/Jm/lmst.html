@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<title>忒666</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1,user-scalable=no">
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black">
+		<link rel="stylesheet" href="__PUBLIC__/xin/css/mui.min.css">
+		<link rel="stylesheet" href="__PUBLIC__/xin/css/swiper.min.css" />
+		<link rel="stylesheet" href="__PUBLIC__/xin/css/index.css" />
+		<script src="__PUBLIC__/xin/js/rem.js"></script>
+	</head>
+	<style>
+		.mk-box {
+			padding-top: .3rem;
+		}
+		
+		.qc-ssbox {
+			padding-bottom: 0;
+		}
+	</style>
+
+	<body>
+<include file="Include/right" />
+		
+		<!--侧滑菜单容器-->
+		<div id="offCanvasWrapper" class="mui-off-canvas-wrap mui-draggable mui-scalable">
+			<!--菜单部分-->
+			<include file="Include/left" />
+			<!--主体-->
+			<div class="mui-inner-wrap">
+				<!--header-->
+				<header class="mui-bar mui-bar-nav zt-header">
+					<!---->
+					<a href="{:U('Home/Xin/index')}" class="mui-pull-left"><img class="header-list_img" src="__PUBLIC__/xin/images/logo-icon.png" /></a>
+					<a id="offCanvasBtn" href="#offCanvasSide" class="mui-pull-right"><img src="__PUBLIC__/xin/images/cd-icon.png" alt="" /></a>
+					<h1 class="mui-title header-list_txt">
+						老马识途
+					</h1>
+				</header>
+				<div id="offCanvasContentScroll" class="mui-content mui-scroll-wrapper">
+					<div class="mui-scroll">
+						<!--banner-->
+						<div class="lmst-img">
+							<img src="__PUBLIC__/xin/images/lmst.png" alt="" />
+						</div>
+						<!--老马识途 ss-->
+						<form id="form1" action="{:U('Jm/lmst')}" method="post" enctype="multipart/form-data">
+							<div class="qc-ssbox">
+								<div class="cgj-ss">
+									<div class="mui-input-row mui-search">
+										<input type="search" name="sou" id="search" class="mui-input-clear" placeholder="关键词搜索">
+									</div>
+								</div>
+							</div>
+						</form>
+						<volist name="temp" id="vo">
+							<div class="mk-box">
+								<div class="mk-showbox">
+									<div class="ytx-list-box">
+										<div class="ytx-list-img" src='http://test-video1115.oss-cn-beijing.aliyuncs.com/%E7%A9%BA%E6%B0%94%E5%87%80%E5%8C%96%E5%99%A8%E5%B1%85%E7%84%B6%E8%83%BD%E5%90%83%EF%BC%81.mp4?Expires=1537328465&OSSAccessKeyId=TMP.AQHghSYHHqZ27eOqaYlrYORtI2B1TynoSuo6njpsNGdik7uWx5CkwjldOU0kAAAwLAIUUDrurh5X0tZyq9X9Nu9qGhtfudUCFA_6rP5dulmQGx_zH_VSg9FBN6kc&Signature=46UIJ5wwAGB2NKtLSCgPBAUINkA%3D' img='__PUBLIC__/xin/images/2.png'>
+										</div>
+										<div class="ytx-list-txt">
+											<div class="yxt-list-name">
+												{$vo.product_title}
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</volist>
+						  
+						<!--<div class="mk-box">
+							<div class="mk-showbox">
+								<div class="ytx-list-box">
+									<div class="ytx-list-img" src='http://test-video1115.oss-cn-beijing.aliyuncs.com/%E7%A9%BA%E6%B0%94%E5%87%80%E5%8C%96%E5%99%A8%E5%B1%85%E7%84%B6%E8%83%BD%E5%90%83%EF%BC%81.mp4?Expires=1537268311&OSSAccessKeyId=TMP.AQH_zeMN_SXfuecSWh0VBjhWyOQOHM08Wyk1vod3EX74_mwNkBlyxkw2r5fSADAtAhUAwnffsMANfFXsGxl3IhMCTmp43A0CFBdHhwkC2imOAT-SqbuQcXQMRJW3&Signature=pWxepWOjPlLtkcPruLKTO%2Fyc%2FjE%3D' img='__PUBLIC__/xin/images/2.png'>
+									</div>
+									<div class="ytx-list-txt">
+										<div class="yxt-list-name">
+											主持人2：马大帅 周一至周日16:00-17:00
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>-->
+
+						<!--	footer-->  <!--http://vdo.361weixin.cn/%E5%92%8C%E5%BD%A9%E5%8D%B0%20%E9%98%B2%E8%AF%88%E9%AA%97.mp4-->
+                        <include file="Include/footer" />
+					</div>
+				</div>
+				<!-- off-canvas backdrop -->
+				<div class="mui-off-canvas-backdrop"></div>
+			</div>
+		</div>
+		<script src="__PUBLIC__/xin/js/mui.min.js"></script>
+		<script src="__PUBLIC__/xin/js/jquery.min.js"></script>
+		<script src="__PUBLIC__/xin/js/swiper.min.js"></script>
+		<script src="__PUBLIC__/xin/ckplayer/ckplayer.js"></script>
+		<script src="__PUBLIC__/xin/js/index.js"></script>
+		<script>
+			document.getElementById("search").addEventListener("keypress",function(event) {
+			   if(event.keyCode == "13") {
+			    document.activeElement.blur();//收起虚拟键盘
+			    toSearch();// 完成搜索事件
+			    event.preventDefault(); // 阻止默认事件---阻止页面刷新
+			    }
+			});
+			
+			function toSearch(){
+				
+               $("#form1").submit();
+			}
+			
+			
+			
+			var arr = [];
+			for(var i = 0; i < $('.ytx-list-img').length; i++) {
+				$('.ytx-list-img').eq(i).attr('id', 'spShow' + i);
+				var src = $('.ytx-list-img').eq(i).attr('src');
+				var img = $('.ytx-list-img').eq(i).attr('img');
+				arr.push({
+					'id': 'spShow' + i,
+					'src': src,
+					'img': img
+				});
+			};
+			//console.log(arr);//后台传过来的数组
+			//	console.log(arr[0].id)
+			for(var j = 0; j < arr.length; j++) {
+				for(var i = 0; i < 1; i++) {
+					var videoObject = {
+						container: '#' + arr[j].id, //容器的ID或className
+						variable: play, //播放函数名称
+						flashplayer: true,
+						poster: arr[j].img, //封面图片
+						video: [ //视频地址列表形式
+							[arr[j].src, 'video/mp4']
+						]
+					};
+//					console.log(videoObject)
+
+					var play = new ckplayer(videoObject);
+				};
+//				console.log(1)
+			}
+		</script>
+	</body>
+
+</html>
+<script>
+	//阿里云 视频 地址
+	//http://test-video1115.oss-cn-beijing.aliyuncs.com/%E7%A9%BA%E6%B0%94%E5%87%80%E5%8C%96%E5%99%A8%E5%B1%85%E7%84%B6%E8%83%BD%E5%90%83%EF%BC%81.mp4?Expires=1537267815&OSSAccessKeyId=TMP.AQH_zeMN_SXfuecSWh0VBjhWyOQOHM08Wyk1vod3EX74_mwNkBlyxkw2r5fSADAtAhUAwnffsMANfFXsGxl3IhMCTmp43A0CFBdHhwkC2imOAT-SqbuQcXQMRJW3&Signature=0F1ueTLj0oaX%2BsQZdlxuZXal25I%3D
+</script>

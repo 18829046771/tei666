@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<title>个人资料</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1,user-scalable=no">
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black">
+		<link rel="stylesheet" href="__PUBLIC__/wan/css/swiper.min.css" />
+		<link rel="stylesheet" type="text/css" href="__PUBLIC__/wan/css/mui.min.css" />
+		<link rel="stylesheet" type="text/css" href="__PUBLIC__/wan/css/mui.picker.min.css" />
+		<link rel="stylesheet" type="text/css" href="__PUBLIC__/wan/css/mui.poppicker.css" />
+		<link rel="stylesheet" href="__PUBLIC__/wan/css/index.css" />
+		<script src="__PUBLIC__/wan/js/rem.js"></script>
+		<style type="text/css">
+			.mui-popup-button{
+				color: #8a8a8a;
+			}
+			.mui-popup-button-bold{
+				color: #fe8110;
+			}
+		</style>
+	</head>
+
+	<body>
+		<form action="{:U('My/edit')}" method="post" enctype="multipart/form-data">
+			<header class="mui-bar mui-bar-nav zt-header">
+
+				<a href="javascript:history.back(-1)" class="mui-pull-left ss-togbtn"><img src="__PUBLIC__/wan/images/back.png"></a>
+				<h1 class="mui-title" style="color: black;">
+					个人资料
+				</h1>
+				<div class="mui-btn mui-btn-blue mui-btn-link mui-pull-right bc">
+					保存
+				</div>
+			</header>
+			<div class="index_my">
+				<div class="myindex_ico">
+					<div class="myindex_icoleft">
+						头像
+					</div>
+					<div class="myindex_icoright rightico">
+						<div class="imgk">
+							<img class="yhico" src="{$res.img}" />
+							<input type="file" name="file" id="upipt" value="" class="upipt" onchange="setImg(this)" />
+						</div>
+					</div>
+				</div>
+				<div class="c_list">
+					<div class="c_listleft">
+						昵称
+					</div>
+					<div class="c_listright">
+						<input type="text" name="sename" onchange="inputnchange()" id="" value="{$res.sename}" class="c_input" />
+					</div>
+				</div>
+				<div class="c_list">
+					<div class="c_listleft">
+						出生日期
+					</div>
+					<input type="hidden" name="shengri" id="shengri" value="{$res.shengri}">
+					<div class="c_listright rightico" id="end">
+						<empty name="res.shengri">未设置<else />{$res.shengri}</empty>
+					</div>
+				</div>
+				<div class="c_list">
+					<div class="c_listleft">
+						性别
+					</div>
+					<input type="hidden" name="radio" id="radio" value="{$res.radio}">
+					<div class="c_listright">
+						<span class="t_sex c_list_sex <eq name="res.radio" value="1">c_list_sexactive</eq>" data-val="1">男</span>
+						<span class="t_sex c_list_sex <eq name="res.radio" value="2">c_list_sexactive</eq>" data-val="2">女</span>
+					</div>
+				</div>
+				<div class="c_list">
+					<div class="c_listleft">
+						电话
+					</div>
+					<div class="c_listright">
+						<input type="num" onchange="inputnchange()" name="photo" value="{$res.photo}" class="c_input phone" />
+					</div>
+				</div>
+			</div>
+		</form>
+	</body>
+	<script src="__PUBLIC__/wan/js/jquery.min.js" type="text/javascript" charset="utf-8"></script>
+	<script src="__PUBLIC__/wan/js/mui.min.js"></script>
+	<script src="__PUBLIC__/wan/js/city.data-3.js"></script>
+	<script src="__PUBLIC__/wan/js/mui.picker.min.js"></script>
+	<script src="__PUBLIC__/wan/js/mui.poppicker.js"></script>
+	<script type="text/javascript">
+		mui.init();
+
+		var fals = false;
+		var dtpicker = new mui.DtPicker({
+			type: "date", //设置日历初始视图模式 
+			beginDate: new Date(1900, 04, 25), //设置开始日期 
+			endDate: new Date(2050, 04, 25), //设置结束日期 
+			labels: ['年', '月', '日'], //设置默认标签区域提示语 
+			customData: {
+				
+			} //时间/日期别名 
+		})
+		function inputnchange(){
+			fals = true;
+		}
+		function start() {
+			fals = true;
+			dtpicker.show(function(e) {
+				console.log(e);
+				$('#start').text(e.text);
+				$('#start').css('color', 'black')
+			})
+
+		}
+		$('#start').click(function() {
+			console.log()
+			start()
+		})
+		//结束时间
+		function end() {
+			dtpicker.show(function(e) {
+				console.log(e);
+				$('#end').text(e.text);
+				$("#shengri").val(e.text);
+				$('#end').css('color', 'black')
+			})
+
+		}
+		$('#end').click(function() {
+			fals = true;
+			end();
+		})
+		$('.t_sex').click(function() {
+			fals = true;
+			$('.t_sex').removeClass('c_list_sexactive')
+			$(this).addClass('c_list_sexactive');
+			$("#radio").val($(this).data('val'))
+		})
+
+		$('.bc').click(function() {
+			var phone = $('.phone').val();
+			// 验证手机号码
+			if (phone == '') {
+				mui.alert('请输入手机号码！');
+				return false;
+			}
+
+			if(!(/^1[3|4|5|7|8][0-9]\d{4,8}$/.test(phone))){ 
+				mui.alert('手机号码格式错误！');
+				return false;
+			}
+
+			if (phone.length < 11) {
+				mui.alert('手机号码长度不足11位！');
+				return false;
+			}
+
+			$('form').submit();
+		})
+		
+		//图片预览
+		function setImg(that){
+			fals = true;
+			var reads = new FileReader();
+			var img = $('.yhico');
+			reads.readAsDataURL($(that).context.files[0]);
+			console.log(reads);
+			reads.onload = function(e) {
+				$('.yhico').attr('src',this.result);
+			};
+			
+		}
+	
+		//返回事件监听
+		pushHistory();
+		window.addEventListener("popstate", function(e) {
+			if(fals == true){
+				var btnArray = ['取消', '确定'];
+	            mui.confirm('暂不修改？', '个人资料', btnArray, function(e) {
+					if(e.index == 1) {
+						window.history.go(-1);
+					} else {
+						pushHistory();
+					}
+				})
+			}else{
+				window.history.go(-1);
+			}
+			
+        }, false);
+        function pushHistory() {
+            var state = {
+                title: "title",
+                url: "#"
+            };
+            window.history.pushState(state, "title", "#");
+        }
+
+	
+	</script>
+
+</html>

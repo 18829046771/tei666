@@ -1,0 +1,61 @@
+              .left-imgboxxxtj{
+					width: 80%;
+					margin: 0 auto;
+					overflow: hidden;
+					display: block;
+				}
+				.xxtj-imgleft{
+					width: 100%;
+					height: 80px;
+				}
+				.padding-15lt{
+					padding:0 15px;
+				}
+				.rtxxtj-textbox{
+					display: block;
+					overflow: hidden;
+				}
+				.tiotilet{
+					max-height: 50px;
+					overflow: hidden;
+					color: #333333;
+					line-height: 26px;
+				}
+				.pricebox-xxtj{
+					color: #f74b91;
+					font-size: 18px;
+					line-height: 36px;
+				}
+				.inputrest-xxtj{
+					border: solid #DCDCDC;
+					border-width: 0 0 1px 0!important;
+					border-radius: 0!important;
+				}
+				.marginbt-20{
+					margin: 20px 0;
+				}
+				.margin-top10{
+					margin-top: 16px;
+				}
+				.selectbox-xxtj{
+					width: 98%;
+					height: 36px;
+					line-height: 36px;
+					margin-bottom: 15px;
+					border: 1px solid #DCDCDC;
+					border-radius: 5px;
+					margin-top: 8px;
+				}
+				.teush-dele{
+					border-top: 1px solid #DCDCDC;
+					padding: 15px 0;
+				}
+				.margin-botm20{
+					margin-bottom: 20px;
+				}
+				.bgcolor-common{
+					background-color: #1eb4e2;
+				}
+				.padding-all0{
+					padding: 0!important;
+				}

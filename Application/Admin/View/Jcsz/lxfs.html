@@ -1,0 +1,50 @@
+<extend name="Index:app" />
+<block name="css">
+   
+</block>
+<block name="content">
+    <div class="row">
+        <div class="col-md-12">
+            <!-- Horizontal Form -->
+            <div class="box box-info">
+                <div class="box-header with-border">
+                    <h3 class="box-title">联系方式编辑</h3>
+                </div>
+                <!-- /.box-header -->
+                <!-- form start -->
+                <form class="form-horizontal" action="{:U('Jcsz/lxfscl',array('key_id'=>$obj['key_id']))}" method="post" enctype="multipart/form-data">
+
+                    <div class="form-group">
+                        <label for="inputPassword3" class="col-sm-2 control-label">联系方式</label>
+
+                        <div class="col-sm-6">
+                            <textarea class="form-control" rows="7" placeholder="文章描述" id="con_content" name="con_content">{$obj.con_content}</textarea>
+                        </div>
+                    </div>
+
+
+            </div>
+            <!-- /.box-body -->
+            <div class="box-footer">
+                <div class="col-sm-2">
+                </div>
+                <div class="col-sm-10">
+                    <button type="submit" class="btn btn-primary">提&nbsp;&nbsp;交</button>
+                </div>
+
+            </div>
+            <!-- /.box-footer -->
+            </form>
+            </div>
+            <!-- /.box -->
+            <!-- general form elements disabled -->
+
+            <!-- /.box -->
+        </div>
+        </div>
+</block>
+<block name="js">
+    <script>
+
+    </script>
+</block>

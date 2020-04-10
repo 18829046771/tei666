@@ -1,0 +1,29 @@
+<div class="header flex-s font30 bgfff">
+	<a href="{:U('Index/sx')}">
+		<div class="header_inline" id="top1">
+			筛选 <img src="__PUBLIC__/wan/images/index_sj.png" alt="" style="display: none;" />
+		</div>
+	</a>
+	<a href="{:U('Index/start', ['uniqid' => uniqid()])}">
+		<div class="header_inline" id="top2">
+			进行中 <img src="__PUBLIC__/wan/images/index_sj.png" alt="" style="display: none;" />
+		</div>
+	</a>
+	<a href="{:U('Index/end', ['uniqid' => uniqid()])}">
+		<div class="header_inline" id="top3">
+			已结束 <img src="__PUBLIC__/wan/images/index_sj.png" alt="" style="display: none;" />
+		</div>
+	</a>
+</div>
+
+<!--seach-->
+<div class="seach_box">
+	<form action="{:U('Index/seach')}" method="get" id="seachForm">
+		<div class="seach flex-s">
+			<input type="text" name="kw" id="kw" />
+			<div class="seach_icon">
+				<a href="javascript:;" id="seach"><img src="__PUBLIC__/wan/images/seach_icon.png" /></a>
+			</div>
+		</div>
+	</form>
+</div>

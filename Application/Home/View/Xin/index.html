@@ -1,0 +1,644 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<title>忒666</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1,user-scalable=no">
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black">
+		<link rel="stylesheet" href="__PUBLIC__/xin/css/mui.min.css">
+		<link rel="stylesheet" href="__PUBLIC__/xin/css/swiper.min.css" />
+		<link rel="stylesheet" href="__PUBLIC__/xin/css/index.css" />
+		<script src="__PUBLIC__/xin/js/rem.js"></script>
+		<style type="text/css">
+			.nav-icon-box,
+			.mk-ytxbox,
+			.mk-title {
+				background-color: white;
+			}
+			.tj-fir>span{
+				display:inline-block;
+				width:49%;
+			}
+			.you {}
+		
+			.ytx-img {
+				position: relative;
+			}
+			
+			.youico {
+				display: inline-block;
+				position: absolute;
+				left: 10%;
+				top: 0%;
+				padding: 0.05rem 0.3rem;
+				font-size: 0.2rem;
+				color: white;
+				border-radius: 5px;
+				/*background-color: #334f88;*/
+				background: -moz-linear-gradient(top, #F99163 0%, #FB5B34 100%);
+    			background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #F991635), color-stop(100%, #FB5B34));
+			    background: -webkit-linear-gradient(top, #F99163 0%, #FB5B34 100%);
+			    background: -o-linear-gradient(top, #F99163 0%, #FB5B34 100%);
+			    background: -ms-linear-gradient(top, #F99163 0%, #FB5B34 100%);
+			    background: linear-gradient(to bottom, #F99163 0%, #FB5B34 100%);
+			}
+			
+			.swiper-container3>.swiper-wrapper {
+				/*height: 4.2rem !important;*/
+			}
+			.Fm-box {
+				width: 100%;
+				padding: 0 .3rem;
+				border-top: 1px solid #f4f4f4;
+			}
+			.nav-icon-box {
+				padding: .2rem .3rem;
+				width: 100%;
+				padding-bottom: 0.1rem;
+			}
+			.nav-list {
+				width: 1.65rem;
+			}
+			.img-banner{
+				margin-top: 0.2rem;
+			}
+	
+/* 			.mk-box {
+   
+     background: transparent; 
+} */
+		</style>
+		
+		<script>
+		var _hmt = _hmt || [];
+		(function() {
+		  var hm = document.createElement("script");
+		  hm.src = "https://hm.baidu.com/hm.js?27840755bf9c5ae945c2936a17ab0b8b";
+		  var s = document.getElementsByTagName("script")[0]; 
+		  s.parentNode.insertBefore(hm, s);
+		})();
+       </script>
+		
+		
+	</head>
+
+	<body>
+		<include file="Include/right" />
+		<!--侧滑菜单容器-->
+		<div id="offCanvasWrapper" class="mui-off-canvas-wrap mui-draggable mui-scalable">
+			<!--菜单部分-->
+			<include file="Include/left" />
+			<!--主体-->
+			<div class="mui-inner-wrap">
+				<!--header-->
+				<header class="mui-bar mui-bar-nav zt-header">
+					<!--搜索-->
+					<!--<div class="header-ssbox">
+						<div class="mui-input-row mui-search">
+							<input type="search" class="mui-input-clear" placeholder="关键词搜索">
+						</div>
+					</div>-->
+					<!---->
+					<!--<a href="###" class="mui-pull-left ss-togbtn"><img src="__PUBLIC__/xin/images/ss-icon.png" /></a>-->
+					<a id="offCanvasBtn" href="#offCanvasSide" class="mui-pull-right"><img src="__PUBLIC__/xin/images/cd-icon.png" alt="" /></a>
+					<h1 class="mui-title">
+						<img src="__PUBLIC__/xin/images/logo.png" alt="" />
+					
+					</h1>
+				</header>
+				<div id="offCanvasContentScroll" class="mui-content mui-scroll-wrapper">
+					<div class="mui-scroll">
+						<!--banner-->
+						<div class="swiper-container swiper-container1 index-banner">
+							<div class="swiper-wrapper">
+								<if condition="$bann1.picture_url neq null">
+									<div class="swiper-slide">
+										<if condition="$bann1.url neq null">
+											<a href="{$bann1.url}"><img src="{$bann1.picture_url}" alt="" /></a>
+											<else/>
+										    <a href="{:U('Home/Xin/hong',array('id'=>$bann1['id']))}"><img src="{$bann1.picture_url}" alt="" /></a>
+											
+										</if>
+										
+									</div>
+								</if>
+
+								<if condition="$bann2.picture_url neq null">
+									<div class="swiper-slide">
+										<if condition="$bann2.url neq null">
+											<a href="{$bann2.url}"><img src="{$bann2.picture_url}" alt="" /></a>
+											<else/>
+										    <a href="{:U('Home/Xin/hong',array('id'=>$bann2['id']))}"><img src="{$bann2.picture_url}" alt="" /></a>
+											
+										</if>
+									
+									</div>
+								</if>
+								<if condition="$bann3.picture_url neq null">
+									<div class="swiper-slide">
+										<if condition="$bann3.url neq null">
+											<a href="{$bann3.url}"><img src="{$bann3.picture_url}" alt="" /></a>
+											<else/>
+										    <a href="{:U('Home/Xin/hong',array('id'=>$bann3['id']))}"><img src="{$bann3.picture_url}" alt="" /></a>
+											
+										</if>
+										
+									</div>
+								</if>
+								<if condition="$bann4.picture_url neq null">
+									<div class="swiper-slide">
+										<if condition="$bann4.url neq null">
+											<a href="{$bann4.url}">
+												<img src="{$bann4.picture_url}" alt="" />
+											</a>
+											<else/>
+										    <a href="{:U('Home/Xin/hong',array('id'=>$bann4['id']))}"><img src="{$bann4.picture_url}" alt="" /></a>
+											
+										</if>
+										
+									</div>
+								</if>
+								<if condition="$bann5.picture_url neq null">
+									<div class="swiper-slide">
+										<if condition="$bann5.url neq null">
+											<a href="{$bann5.url}"><img src="{$bann5.picture_url}" alt="" /></a>
+											<else/>
+										    <a href="{:U('Home/Xin/hong',array('id'=>$bann5['id']))}"><img src="{$bann5.picture_url}" alt="" /></a>
+											
+										</if>
+										
+									</div>
+								</if>
+
+							</div>
+							<!-- Add Pagination -->
+							<div class="swiper-pagination swiper-pagination1"></div>
+						</div>
+						<!--banner-end-->
+
+						<div class="mk-box">
+							<!--nav-icon  -->
+							<div class="nav-icon-box flex-s">
+								<a href="{:U('Home/Tourism/ytx')}">
+									<div class="nav-list">
+										<img src="__PUBLIC__/xin/images/ly-img.png" alt="" />
+										<div>忒 游</div>
+									</div>
+								</a>
+								<a href="{:U('Home/Che/cgj')}">
+									<div class="nav-list">
+										<img src="__PUBLIC__/xin/images/qc-img.png" alt="" />
+										<div>忒 车</div>
+									</div>
+								</a>
+								<!--<a href="{:U('Home/Jm/jchd')}">
+									href="{:U('Home/Jm/jm')}"
+									<div class="nav-list">
+										<img src="__PUBLIC__/xin/images/hd-img.png" alt="" />
+										<div>忒娃</div>
+									</div>
+								</a>-->
+								<a href="{:U('Home/Teiwa/cgj')}">
+									<div class="nav-list">
+										<img src="__PUBLIC__/xin/images/hd-img.png" alt="" />
+										<div>忒 娃</div>
+									</div>
+								</a>
+								<a href="{:U('Home/Qita/qi_cgj')}">
+									<!-- id="tishi" -->
+									<div class="nav-list">
+										<img src="__PUBLIC__/xin/images/qt-img.png" alt="" />
+										<div>忒色</div>
+									</div>
+								</a>
+							</div>
+
+							<!--马大帅-->
+
+							<div class="Fm-box flex-s">
+
+								<!--<a href="###"><img src="{$dan.picture_url}" alt="" /></a> -->
+								<!-- href="{:U('Home/Jm/jm')}"-->
+							</div>
+							<!--img-banner-->
+							<div class="img-banner">
+								<div class="swiper-container swiper-container2 img-banner">
+									<div class="swiper-wrapper">
+										<if condition="$zhong1.picture_url neq null">
+											<div class="swiper-slide">
+												<if condition="$zhong1.url neq null">
+													<a href="{$zhong1.url}"><img src="{$zhong1.picture_url}" alt="" /></a>
+													<else/>
+													<a href="{:U('Home/Xin/hong',array('id'=>$zhong1['id']))}"><img src="{$zhong1.picture_url}" alt="" /></a>	
+													
+												</if>
+												
+											</div>
+										</if>
+										<if condition="$zhong2.picture_url neq null">
+											<div class="swiper-slide">
+												<if condition="$zhong2.url neq null">
+													<a href="{$zhong2.url}"><img src="{$zhong2.picture_url}" alt="" /></a>
+													<else/>
+													<a href="{:U('Home/Xin/hong',array('id'=>$zhong2['id']))}"><img src="{$zhong2.picture_url}" alt="" /></a>	
+													
+												</if>
+												
+											</div>
+										</if>
+										<if condition="$zhong3.picture_url neq null">
+											<div class="swiper-slide">
+												<if condition="$zhong3.url neq null">
+													<a href="{$zhong3.url}"><img src="{$zhong3.picture_url}" alt="" /></a>
+													<else/>
+													<a href="{:U('Home/Xin/hong',array('id'=>$zhong3['id']))}"><img src="{$zhong3.picture_url}" alt="" /></a>	
+													
+												</if>
+												
+											</div>
+										</if>
+										<if condition="$zhong4.picture_url neq null">
+											<div class="swiper-slide">
+												<if condition="$zhong4.url neq null">
+													<a href="{$zhong4.url}"><img src="{$zhong4.picture_url}" alt="" /></a>
+													<else/>
+													<a href="{:U('Home/Xin/hong',array('id'=>$zhong4['id']))}"><img src="{$zhong4.picture_url}" alt="" /></a>	
+													
+												</if>
+												
+											</div>
+										</if>
+										<if condition="$zhong5.picture_url neq null">
+											<div class="swiper-slide">
+												<if condition="$zhong5.url neq null">
+													<a href="{$zhong5.url}"><img src="{$zhong5.picture_url}" alt="" /></a>
+													<else/>
+													<a href="{:U('Home/Xin/hong',array('id'=>$zhong5['id']))}"><img src="{$zhong5.picture_url}" alt="" /></a>	
+													
+												</if>
+												
+											</div>
+										</if>
+
+									</div>
+									<!-- Add Pagination -->
+									<div class="swiper-pagination swiper-pagination2"></div>
+								</div>
+							</div>
+
+						</div>
+
+						<!-- 限时购 -->
+						<if condition="($xianshi_type eq 1) AND ($xian neq null)">
+							<div class="mk-box">
+								<div class="mk-title">
+									<span>限时购</span>
+										  <a class="mai" href="###"><span class="float-r color-666 mk-gd_btn">更多  ></span></a>
+								</div>
+								<div class="mk-time_title">
+									限时购&nbsp; <span class="mk-time_txt" id="shi"></span>&nbsp; : &nbsp;<span class="mk-time_txt" id="fen"></span>&nbsp; : &nbsp;<span class="mk-time_txt" id="miao"></span>
+								</div>
+								<div class="mk-time_showbox">
+
+									<volist name="xian['store']" id="vo" offset="0" length='2'>
+										<a class="mai" href="###">
+											<div class="mk-time_show">
+												<div class="mk-time_showimg">
+													<img src="{$vo.store_img}" alt="" />
+												</div>
+												<div class="mk-time_fir">
+													<div class="sp-fir_red">¥{$vo.jiage}</div>
+													<div class="sp-fir_666">会员价：{$vo.store_huiyuan} &nbsp; 商城价：{$vo.store_jiage}</div>
+												</div>
+											</div>
+										</a>
+									</volist>
+
+								</div>
+
+							</div>
+						</if>
+
+						<!-- 整点秒杀 -->
+						<if condition="($miao_type eq 1) AND ($miaoxian neq null)">
+							<div class="mk-box">
+								<div class="mk-title">
+									<span>整点秒杀</span>
+									<a href="###" class="miaosha"><span class="float-r color-666 mk-gd_btn">更多  ></span></a>
+								</div>
+								<div class="mk-time_title">
+									整点秒杀&nbsp; <span class="mk-time_txt">{$miao_shi}</span>&nbsp; : &nbsp;<span class="mk-time_txt">{$miao_fen}</span>
+								</div>
+								<div class="mk-time_showbox">
+									<volist name="miaoxian['store']" id="vo" offset="0" length='2'>
+									    <a href="###" class="miaosha">   
+											<div class="mk-time_show">
+												<div class="mk-time_showimg">
+													<img src="{$vo.store_img}" alt="" />
+												</div>
+												<div class="mk-time_fir">
+													<div class="sp-fir_red">¥{$vo.jiage}</div>
+													<div class="sp-fir_666" style="color: #f59936; font-size: 0.2rem;">限购{$vo.num}件 </div>
+												</div>
+											</div>
+										</a>
+									</volist>
+								</div>
+							</div>
+						</if>
+
+						<div class="mk-box ytx-box">
+							<div class="mk-title" style="border-bottom: 0px solid #f4f4f4;">
+								<span>忒游</span>
+								<a href="{:U('Home/Tourism/ytx')}"><span class="float-r color-666 mk-gd_btn">更多  ></span></a>
+							</div>
+							<div class="mk-ytxbox">
+								<div class="swiper-container swiper-container3 ytx-banner">
+									<div class="swiper-wrapper">
+										<!--1.国际游-->
+										<div class="swiper-slide you">
+											<div class="ytx-list">
+												<div class="ytx-img">
+													<a href="{$store1.url}">
+														<img src="{$store1.img}" alt="" />
+														
+													</a>
+												</div>
+												<div class="ytx-txt">
+													<div class="ytx-txt_name flex-s">
+														<span>{$store1.store_name}</span>
+														<span class="sp-fir_red">{$store1.num}/人起</span>
+													</div>
+													<div class="ytx-txt_ts" style="float: right;">会员价：{$store1.member}/人起</div>
+												</div>
+											</div>
+										</div>
+										<!--2.国内-->
+										<div class="swiper-slide you">
+											<div class="ytx-list">
+												<div class="ytx-img">
+													<a href="{$store2.url}">
+														<img src="{$store2.img}" alt="" />
+													<!-- 	<div class="youico">
+															{:getCate($store2['art_cate_id'])['cate_name']}
+														</div> -->
+													</a>
+												</div>
+												<div class="ytx-txt">
+													<div class="ytx-txt_name flex-s">
+														<span>{$store2.store_name}</span>
+														<span class="sp-fir_red">{$store2.num}/人起</span>
+													</div>
+													<div class="ytx-txt_ts" style="float: right;">会员价：{$store2.member}/人起</div>
+												</div>
+											</div>
+										</div>
+										<!--3.陕西-->
+										<div class="swiper-slide you">
+											<div class="ytx-list">
+												<div class="ytx-img">
+													<a href="{$store3.url}">
+														<img src="{$store3.img}" alt="" />
+														<!-- <div class="youico">
+															{:getCate($store3['art_cate_id'])['cate_name']}
+														</div> -->
+													</a>
+												</div>
+												<div class="ytx-txt">
+													<div class="ytx-txt_name flex-s">
+														<span>{$store3.store_name}</span>
+														<span class="sp-fir_red">{$store3.num}/人起</span>
+													</div>
+													<div class="ytx-txt_ts" style="float: right;">会员价：{$store3.member}/人起</div>
+												</div>
+											</div>
+										</div>
+										<!--4.亲子游-->
+										<div class="swiper-slide you">
+											<div class="ytx-list">
+												<div class="ytx-img">
+													<a href="{$store4.url}">
+														<img src="{$store4.img}" alt="" />
+													<!-- 	<div class="youico">
+															{:getCate($store4['art_cate_id'])['cate_name']}
+														</div> -->
+													</a>
+												</div>
+												<div class="ytx-txt">
+													<div class="ytx-txt_name flex-s">
+														<span>{$store4.store_name}</span>
+														<span class="sp-fir_red">{$store4.num}/人起</span>
+													</div>
+													<div class="ytx-txt_ts" style="float: right;">会员价：{$store4.member}/人起</div>
+												</div>
+											</div>
+										</div>
+									
+										
+										
+										
+									</div>
+								</div>
+							</div>
+						</div>
+
+						<div class="mk-box">
+							<div class="mk-title">
+								<span>热卖产品</span>
+								<a href="{:U('Home/Che/cgj')}"><span class="float-r color-666 mk-gd_btn">更多热卖  ></span></a>
+							</div>
+							<div class="mk-showbox" style="padding:0;">
+								<div class="rm-box flex-s">
+									<div class="rm-left">
+										<a href="{$mai1.url}"><img src="{$mai1.img}" alt="" /></a>
+									</div>
+									<div class="rm-right">
+										<a href="{$mai2.url}">
+											<div class="rm-right_top"><img src="{$mai2.img}" /></div>
+										</a>
+										<a href="{$mai3.url}">
+											<div class="rm-right_bom"><img src="{$mai3.img}" /></div>
+										</a>
+									</div>
+								</div>
+							</div>
+						</div>
+
+						<div class="mk-box">
+							<div class="mk-title border0">
+								<span>推荐产品</span>
+								<a href="{:U('Home/Che/cgj')}"><span class="float-r color-666 mk-gd_btn">更多推荐  ></span></a>
+							</div>
+							<div class="mk-showbox1">
+								<div class="tj-box">
+									<volist name="tui" id="vo">
+										<a href="{$vo.url}">
+											<div class="tj-list">
+												<div class="tj-img"><img src="{$vo.img}" alt="" /></div>
+												<div class="tj-txt">
+													<div class="tj-name">{$vo.store_name}</div>
+													<div class="tj-fir">
+														<span class="tj-fir-red">会员价：{$vo.member}</span>
+														<span>商城价：{$vo.num}</span>
+													</div>
+												</div>
+											</div>
+										</a>
+									</volist>
+
+								</div>
+							</div>
+						</div>
+						<!--	footer-->
+						<include file="Include/footer" />
+
+					</div>
+				</div>
+				<!-- off-canvas backdrop -->
+				<div class="mui-off-canvas-backdrop"></div>
+			</div>
+		</div>
+		<script src="__PUBLIC__/xin/js/mui.min.js"></script>
+		<script src="__PUBLIC__/xin/js/jquery.min.js"></script>
+		<script src="__PUBLIC__/xin/js/swiper.min.js"></script>
+		<script src="__PUBLIC__/xin/js/index.js"></script>
+		<script>
+			var endtime = "{$endtime}";
+			//banner
+			var swiper1 = new Swiper('.swiper-container1', {
+				pagination: '.swiper-pagination1',
+				paginationClickable: true,
+				loop: true,
+				autoplay: 2000
+			});
+
+			//img-banner
+			var swiper2 = new Swiper('.swiper-container2', {
+				pagination: '.swiper-pagination2',
+				paginationClickable: true,
+				loop: true,
+				autoplay: 3000
+			});
+			mui('.mui-scroll-wrapper').scroll();
+
+			//忒游-banner
+			var swiper = new Swiper('.swiper-container3', {
+				slidesPerView: 1.25,
+				//								centeredSlides: true,
+				paginationClickable: true,
+				spaceBetween: 0,
+				//								slidesOffsetAfter : 20,
+				slidesOffsetBefore: 15,
+			});
+
+			//倒计时
+			function getCountDown(timestamp) {
+				setInterval(function() {
+					var nowTime = new Date();
+					var endTime = new Date(timestamp * 1000);
+
+					var t = endTime.getTime() - nowTime.getTime();
+					//            var d=Math.floor(t/1000/60/60/24);
+					var hour = Math.floor(t / 1000 / 60 / 60 % 24);
+					var min = Math.floor(t / 1000 / 60 % 60);
+					var sec = Math.floor(t / 1000 % 60);
+
+					if(hour < 10) {
+						hour = "0" + hour;
+					}
+					if(min < 10) {
+						min = "0" + min;
+					}
+					if(sec < 10) {
+						sec = "0" + sec;
+					}
+					$("#shi").text(hour)
+					$("#fen").text(min)
+					$("#miao").text(sec)
+				}, 1000);
+			}
+
+			//调用函数：
+			getCountDown(endtime); //时间戳可以去百度一下，这里的时间是2015年12月31日18：00：00
+
+			    mui('body').on('tap', '.mai', function(event) {
+				   var type="{$huiyuan}";
+				   if(type==1){
+				   	 window.location.href = '/index.php/Home/Yingxiao/xs_list.html';
+				   }else{
+				   	    mui.init({
+							swipeBack: true //启用右滑关闭功能
+						});
+				   	   
+				   	    var btnArray = ['放弃办理', '办理会员'];
+				        mui.confirm('本活动会员才可参与，是否办理', '提示', btnArray, function(e) {
+	
+							if(e.index == 1) {
+			
+								//办理会员
+								mui.openWindow({
+									url: '/index.php/Home/Huiyuan/myvip.html'
+								});
+			
+							} else {
+			
+								
+									url1 = '/index.php/Home/Xin/index.html';
+							
+			
+								mui.openWindow({
+									url: url1
+								});
+							}
+				        });
+				   	   
+				   	}
+				});
+				
+				mui('body').on('tap', '.miaosha', function(event) {
+				   var type="{$huiyuan}";
+				   if(type==1){
+				   	 window.location.href = '/index.php/Home/Yingxiao/zd_list.html';
+				   }else{
+				   	    mui.init({
+							swipeBack: true //启用右滑关闭功能
+						});
+				   	   
+				   	    var btnArray = ['放弃办理', '办理会员'];
+				        mui.confirm('本活动会员才可参与，是否办理', '提示', btnArray, function(e) {
+	
+							if(e.index == 1) {
+			
+								//办理会员
+								mui.openWindow({
+									url: '/index.php/Home/Huiyuan/myvip.html'
+								});
+			
+							} else {
+			
+								
+									url1 = '/index.php/Home/Xin/index.html';
+							
+			
+								mui.openWindow({
+									url: url1
+								});
+							}
+				        });
+				   	   
+				   	}
+				});
+				
+				
+				
+			
+			
+			
+			
+			
+		</script>
+	</body>
+
+</html>

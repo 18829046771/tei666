@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<title>忒惠玩</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1,user-scalable=no">
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black">
+		<link rel="stylesheet" href="__PUBLIC__/wan/css/mui.min.css">
+		<link rel="stylesheet" href="__PUBLIC__/wan/css/swiper.min.css" />
+		<link rel="stylesheet" href="__PUBLIC__/wan/css/index.css" />
+		<script src="__PUBLIC__/wan/js/rem.js"></script>
+	</head>
+
+	<body class="bgfff">
+		<div class="cen_box">
+			<!--seach-->
+			<!--<div class="seach_box">
+				<div class="seach flex-s">
+					<input type="text" />
+					<div class="seach_icon">
+						<a href="seach.html"><img src="__PUBLIC__/wan/images/seach_icon.png" alt="" /></a>
+						
+					</div>
+				</div>
+			</div>-->
+			<!--list-->
+			<div class="index_listbox">
+
+				<volist name="huodong" id="vo">
+					<if condition="$vo['flag'] eq 1">
+						<!--进行中 + active-->
+						<div class="index_list active"> 
+							<!--img-->
+							<div class="index_list_imgbox">
+								<a href="{:U('Index/det', ['id' => $vo['id'], 'uniqid' => uniqid()])}">
+									<img class="index_list_shopimg" src="{$vo.photo}" alt="" />
+								</a>
+								<!--收藏过  + index_list_sc_active-->
+								<div class="index_list_sc <eq name="vo.sc" value="1">index_list_sc_active</eq>" data-hid="{$vo.id}" data-url="{:U('Index/sc')}"></div>
+								<div class="index_list_status colfff font30">进行中...</div>
+							</div>
+
+							<!--text-->
+							<div class="index_list_textbox #333">
+								<div class="index_list_name font36">
+									<img src="__PUBLIC__/wan/images/huo_icon.png" alt="" />
+									{$vo.title}
+								</div>
+								<div class="index_list_time font24">
+									时间：{:date('Y-m-d H:i:s', $vo['start_time'])} &nbsp;  | &nbsp; 地址：{$vo.address}
+								</div>
+								<div class="index_list_firbox">
+									<if condition="$vo['type'] eq 1">
+										<span class="index_list_fir1 font40">免费</span> &nbsp;
+										<span class="index_list_fir2 font22 col808">此活动仅限会员参与</span>
+										<div class="index_list_bmbtn font24 colfff">立即报名</div>
+									</if>
+									<if condition="$vo['type'] eq 2">
+										<span class="index_list_fir1 font40">会员价 ¥{$vo.money_hy}</span> &nbsp;
+										<span class="index_list_fir2 font22 col808">商城价：¥{$vo.money}</span>
+										<div class="index_list_bmbtn font24 colfff">立即报名</div>
+									</if>
+									<if condition="$vo['type'] eq 3">
+										<span class="index_list_fir1 font40">会员价 ¥{$vo.money_hy}</span> &nbsp;
+										<span class="index_list_fir2 font22 col808">此活动仅限会员参与</span>
+										<div class="index_list_bmbtn font24 colfff">立即报名</div>
+									</if>
+								</div>
+
+							</div>
+						</div>
+					</if>
+					
+					<if condition="$vo['flag'] eq 2">
+						<div class="index_list">
+							<!--img-->
+							<div class="index_list_imgbox">
+								<a href="{:U('Index/det', ['id' => $vo['id'], 'uniqid' => uniqid()])}">
+									<img class="index_list_shopimg" src="{$vo.photo}" alt="" />
+								</a>
+								<div class="index_list_sc <eq name="vo.sc" value="1">index_list_sc_active</eq>" data-hid="{$vo.id}" data-url="{:U('Index/sc')}"></div>
+								<div class="index_list_status colfff font30">已售罄</div>
+							</div>
+
+							<!--text-->
+							<div class="index_list_textbox #333">
+								<div class="index_list_name font36">
+									<img src="__PUBLIC__/wan/images/huo_icon.png" alt="" />
+									{$vo.title}
+								</div>
+								<div class="index_list_time font24">
+									时间：{:date('Y-m-d H:i:s', $vo['start_time'])} &nbsp;  | &nbsp; 地址：{$vo.address}
+								</div>
+								<div class="index_list_firbox">
+									<if condition="$vo['type'] eq 1">
+										<span class="index_list_fir1 font40">免费</span> &nbsp;
+										<span class="index_list_fir2 font22 col808">此活动仅限会员参与</span>
+										<div class="index_list_bmbtn font24 colfff">已售罄</div>
+									</if>
+									<if condition="$vo['type'] eq 2">
+										<span class="index_list_fir1 font40">会员价 ¥{$vo.money_hy}</span> &nbsp;
+										<span class="index_list_fir2 font22 col808">商城价：¥{$vo.money}</span>
+										<div class="index_list_bmbtn font24 colfff">已售罄</div>
+									</if>
+									<if condition="$vo['type'] eq 3">
+										<span class="index_list_fir1 font40">会员价 ¥{$vo.money_hy}</span> &nbsp;
+										<span class="index_list_fir2 font22 col808">此活动仅限会员参与</span>
+										<div class="index_list_bmbtn font24 colfff">已售罄</div>
+									</if>
+								</div>
+
+							</div>
+						</div>
+					</if>
+
+					<if condition="$vo['flag'] eq 3">
+						<div class="index_list">
+							<!--img-->
+							<div class="index_list_imgbox">
+								<!--收藏过  + index_list_sc_active-->
+								<div class="index_list_sc <eq name="vo.sc" value="1">index_list_sc_active</eq>" data-hid="{$vo.id}" data-url="{:U('Index/sc')}"></div>
+								<a href="{:U('Index/det', ['id' => $vo['id'], 'uniqid' => uniqid()])}">
+									<img class="index_list_shopimg" src="{$vo.photo}" alt="" />
+									<div class="index_list_mb"></div>
+									<div class="index_list_end"><img src="__PUBLIC__/wan/images/end_pic.png" alt="" /></div>
+								</a>
+							</div>
+
+							<!--text-->
+							<div class="index_list_textbox #333">
+								<div class="index_list_name font36">
+									<img src="__PUBLIC__/wan/images/huo2_icon.png" alt="" />
+									{$vo.title}
+								</div>
+								<div class="index_list_time font24">
+									时间：{:date('Y-m-d H:i:s', $vo['start_time'])} &nbsp;  | &nbsp; 地址：{$vo.address}
+								</div>
+								<div class="index_list_firbox">
+									<if condition="$vo['type'] eq 1">
+										<span class="index_list_fir1 font40">免费</span> &nbsp;
+										<span class="index_list_fir2 font22 col808">此活动仅限会员参与</span>
+										<div class="index_list_bmbtn font24 colfff">活动结束</div>
+									</if>
+									<if condition="$vo['type'] eq 2">
+										<span class="index_list_fir1 font40">会员价 ¥{$vo.money_hy}</span> &nbsp;
+										<span class="index_list_fir2 font22 col808">商城价：¥{$vo.money}</span>
+										<div class="index_list_bmbtn font24 colfff">活动结束</div>
+									</if>
+									<if condition="$vo['type'] eq 3">
+										<span class="index_list_fir1 font40">会员价 ¥{$vo.money_hy}</span> &nbsp;
+										<span class="index_list_fir2 font22 col808">此活动仅限会员参与</span>
+										<div class="index_list_bmbtn font24 colfff">活动结束</div>
+									</if>
+								</div>
+
+							</div>
+						</div>
+					</if>
+
+				</volist>
+				<!--ts-->
+				<div class="list_ts">—— 没有更多了 ——</div>
+				
+			</div>
+		</div>
+		
+	</body>
+	<script src="__PUBLIC__/wan/js/jquery.min.js" type="text/javascript" charset="utf-8"></script>
+	<script src="__PUBLIC__/wan/js/mui.min.js"></script>
+	<script src="__PUBLIC__/wan/js/city.data-3.js"></script>
+	<script src="__PUBLIC__/wan/js/mui.picker.min.js"></script>
+	<script src="__PUBLIC__/wan/js/mui.poppicker.js"></script>
+	<script src="__PUBLIC__/wan/js/index2.js"></script>
+</html>

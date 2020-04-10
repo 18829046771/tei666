@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<title>忒666</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1,user-scalable=no">
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black">
+		<link rel="stylesheet" href="__PUBLIC__/xin/css/mui.min.css">
+		<link rel="stylesheet" href="__PUBLIC__/xin/css/swiper.min.css" />
+		<link rel="stylesheet" href="__PUBLIC__/xin/css/index.css" />
+		<link rel="stylesheet" href="__PUBLIC__/xin/css/mapdemo.css" />
+		<script src="__PUBLIC__/xin/js/rem.js"></script>
+		<style type="text/css">
+			.zt-header a img {
+				width: 0.28rem;
+				margin-top: .22rem;
+			}
+			
+			.zt-header {
+				background: white !important;
+				height: 1rem;
+				transition: all .1s;
+			}
+			
+			.clearfix:after {
+				/* content: "020"; */
+				display: block;
+				height: 0;
+				clear: both;
+				visibility: hidden;
+			}
+			.mui-popup-text{
+				color: #b4b4b4;
+				font-size: 0.3rem;
+			}
+			.mui-popup-button{
+				color: #b4b4b4;
+			}
+			.mui-popup-button.mui-popup-button-bold{
+				color: #ff9600;
+			}
+		</style>
+	</head>
+
+	<body>
+		<include file="Include/right"/>
+		<!--header-->
+		<header class="mui-bar mui-bar-nav zt-header">
+
+			<a href="javascript:history.back(-1)" class="mui-pull-left ss-togbtn"><img src="__PUBLIC__/xin/images/back.png" /></a>
+			<h1 class="mui-title" style="color: black;">地址管理</h1>
+		</header>
+		<div class="top">
+			<volist name="address" id="vo" key="k">
+				 <div class="top_list" id="a{$k}">
+					<div class="list_top">
+						<div class="top_name">
+							{$vo.name}<span>{$vo.dian}</span>
+						</div>
+						<div class="top_txt">
+							{$vo.address}{$vo.xiangqing}
+						</div>
+					</div>
+					<div class="list_btn clearfix">
+						<div ids="{$vo.id}" class="btn_left <if condition="$vo['mo'] eq 1">ai<else/>bi</if> " >
+							设为默认地址
+						</div>
+						<div ids="{$vo.id}" class="btn_right xiugai">编辑</div>
+						<div ids="{$vo.id}" class="btn_right remove" data-num="a{$k}">删除</div>
+					</div>
+				</div>
+			</volist>
+			    
+			
+			<div class="add">
+				<a href="{:U('Home/My/addmap')}">	新增地址</a>
+			</div>
+		</div>
+		<script src="__PUBLIC__/xin/js/mui.min.js"></script>
+		<script src="__PUBLIC__/xin/js/jquery.min.js"></script>
+		<script src="__PUBLIC__/xin/js/swiper.min.js"></script>
+		<script>
+			//切换
+			$(".btn_left").click(function() {
+				var ids = $(this).attr("ids");
+				var uid="{$uid}";
+				
+				$.ajax({
+		            type : "POST",
+		            contenttype :"application/x-www-form-urlencoded;charset=utf-8", 
+		            url:"{:U('Home/My/mo')}",
+		            data : {'ids':ids,'uid':uid},
+		            dataType : 'json',
+		            success: function(data){
+					    if(data.state==1){
+					    	 alert(data.msg);
+					    	 window.location.reload();
+					    }else{
+					    	 alert(data.msg);
+					    }
+		            }
+		        });
+
+			})
+			//删除
+			$('.remove').click(function() {
+				var isId = this.getAttribute("data-num")
+				 var ids=$(this).attr("ids");
+				mui.init({
+					swipeBack: true //启用右滑关闭功能
+				});
+				var btnArray = ['取消', '确认'];
+				mui.confirm('删除后无法恢复', '提示', btnArray, function(e) {
+					if(e.index == 1) {
+						
+							 $.ajax({
+					            type : "POST",
+					            contenttype :"application/x-www-form-urlencoded;charset=utf-8", 
+					            url:"{:U('Home/My/shan')}",
+					            data : {'ids':ids},
+					            dataType : 'json',
+					            success: function(data){
+								    if(data.state==1){
+								    	 alert(data.msg);
+								    	 window.location.reload();
+								    }else{
+								    	 alert(data.msg);
+								    }
+					            }
+					        });
+					} else {
+
+					}
+				})
+
+			})
+			//编辑
+			$('.xiugai').click(function(){
+				var id=$(this).attr("ids");
+				window.location.href='/index.php/Home/My/edit.html?id='+id;
+			})
+		</script>
+	</body>
+
+</html>

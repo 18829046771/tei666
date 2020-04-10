@@ -1,0 +1,162 @@
+<extend name="Index:app" />
+<block name="css">
+
+</block>
+<block name="content">
+    <div class="row">
+        <div class="col-xs-12">
+            <div class="box">
+
+                <div class="box-header">
+                   <!-- <h3 class="box-title"><a href="{:U('BrandManagement/add')}" class="btn btn-primary Normal">添加品牌</a></h3>-->
+                    <div class="box-tools">
+                        <div class="input-group input-group-sm" >
+
+                        </div>
+                    </div>
+                </div>
+                <form class="form-horizontal" action="{:U('point/orderList')}" method="get" enctype="multipart/form-data" style="display: inline-block;">
+                    <div class="box-header"  style="display: inline-block;">
+                        <h3 class="box-title">积分商城</h3> <i class="fa  fa-angle-right"></i> <h3 class="box-title">订单列表</h3>
+                        
+                    </div>
+                    <div class="box-header" style="display: inline-block;">
+                        <input value="{$consignee}" type="text"  placeholder="请输入下单人姓名"  name="consignee"  style="margin-left:90px;width:150px;font-size:16px;" >
+
+                    </div>
+                    <div class="box-header" style="display: inline-block;">
+                        <input value="{$mobile}" type="text"  placeholder="请输入下单人电话"  name="mobile"  style="margin-left:90px;width:150px;font-size:16px;" >
+
+                    </div>
+                    <div class="box-header" style="display: inline-block;">
+                        <input value="{$paysn}" type="text"  placeholder="请输入订单号"  name="paysn"  style="margin-left:90px;width:150px;font-size:16px;" >
+
+                    </div>
+                    
+                    <input type="submit"  value="搜索" class="btn btn-primary btn-xs" style="margin-top:-5px">
+                    
+                </form>
+                
+                <!-- /.box-header -->
+                <!--<form class="form-horizontal" action="{:U('Article/deleteAll')}" method="post" enctype="multipart/form-data" id="r_list">-->
+                <div class="box-body table-responsive no-padding" >
+                    <table class="table table-hover">
+                        <tr>
+                            <th>ID</th>
+                            <th>订单编号</th>
+                            <th>商品名称</th>
+                            <th>商品数量</th>
+                            <th>商品规格</th>
+                            <th>订单价格</th>
+                              <th>下单人电话</th>
+                            <th>下单人</th>
+                            <th>收货地址</th>
+
+                             <th>是否为会员</th>
+                            <th>状态</th>
+                            <th>下单时间</th>
+                            <th>支付时间</th>
+                            <th>是否分配服务商</th>
+                         
+                        </tr>
+                        <volist name="brand" id="vo">
+                            <tr>
+                                <td>{$vo.id}</td>
+                                <td>{$vo.paysn}</td>
+                                <th>{$vo.name}</th>
+                                <th>{$vo.num}</th>
+                                <td>
+                                    {$vo.spec}
+
+                                </td>
+                                <td>{$vo.zong} 积分</td>
+                                <td>{$vo.mobile}</td>
+                                <td>{$vo.consignee}</td>
+                                <td>{$vo.address}</td>
+
+                                <th>
+                                    <if condition="$vo.huiyuan eq 1 ">
+                                	  <div style="color: red;">会员</div>
+                                	<else/>
+                                		普通
+                                	</if>	
+                                </th>
+                                <td>
+                                	<if condition="($vo.ster eq 0) and ($vo.tuikuan eq 0) ">
+                                		待付款
+                                	</if>
+                                	<if condition="($vo.ster eq 1) and ($vo.tuikuan eq 0) ">
+                                		待发货
+                                	</if>
+                                	<if condition="($vo.ster eq 2) and ($vo.tuikuan eq 0 )">
+                                	 待收货
+                                	</if>
+                                	<if condition="($vo.ster eq 3) and ($vo.tuikuan eq 0 )">
+                                	已收货
+                                	</if>
+                                	<if condition="($vo.ster eq 4) and ($vo.tuikuan eq 0) ">
+                                		已完结
+                                	</if>
+                                	<if condition="$vo.tuikuan eq 1 ">
+                                		退款中
+                                	</if>
+                                	<if condition="$vo.tuikuan eq 2 ">
+                                	 已退款
+                                	</if>
+                                </td>
+                                 <th>{$vo.time}</th>
+                                 <th>{$vo.zhifu_time}</th>
+                                 <th>
+                                 	<if condition="$vo.fuwu neq null">
+                                 		<a href="{:U('BrandManagement/fuwu',array('id'=>$vo['id']))}" class="btn btn-primary btn-xs">分配服务商</a>
+                                 		<else/>
+                                 		<a href="###" class="btn btn-primary btn-xs">无服务商</a>
+                                 	</if>
+                                 </th>
+                                <!--<td>
+                                    <a href="{:U('BrandManagement/edit',array('id'=>$vo['id']))}" class="btn btn-primary btn-xs">编辑</a>
+                                    <a href="{:U('BrandManagement/delete',array('id'=>$vo['id']))}" class="btn btn-primary btn-xs">删除</a>
+                                  
+                                </td>-->
+                            </tr>
+                        </volist>
+                    </table>
+                </div>
+                <!-- /.box-body -->
+                <div class="box-footer clearfix" style="text-align: center;">
+                    <ul class="pagination pagination-sm no-margin">
+                        {$page}
+                    </ul>
+                    
+                </div>
+                <!--</form>-->
+            </div>
+            <!-- /.box -->
+        </div>
+    </div>
+</block>
+<block name="js">
+    <script>
+
+        function checkbox_all()
+        {
+            $('#r_list :checkbox').each(function(){
+                if(!$(this).is(':checked'))
+                {
+                    $(this).click();
+                    $('#r_list :checkbox').attr('checked',true);
+                }
+            });
+        }
+        function checkbox_none()
+        {
+            $('#r_list :checkbox').each(function(){
+                if($(this).is(':checked'))
+                {
+                    $(this).click();
+                }
+            });
+        }
+    </script>
+</block>
+

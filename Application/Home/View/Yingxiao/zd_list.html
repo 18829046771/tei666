@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<title>忒666</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1,user-scalable=no">
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black">
+		<link rel="stylesheet" type="text/css" href="__PUBLIC__/xin/css/mui.min.css" />
+		<link rel="stylesheet" href="__PUBLIC__/xin/css/swiper.min.css" />
+		<link rel="stylesheet" href="__PUBLIC__/xin/css/index.css" />
+		<link rel="stylesheet" type="text/css" href="__PUBLIC__/xin/css/zdall.css" />
+		<script src="__PUBLIC__/xin/js/rem.js"></script>
+		<style type="text/css">
+			.xs_time {
+				width: 100%;
+			}
+			
+			.zt-header {
+				background: -moz-linear-gradient(top, #374f88 0%, #336999 100%);
+				background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #374f88), color-stop(100%, #336999));
+				background: -webkit-linear-gradient(top, #374f88 0%, #336999 100%);
+				background: -o-linear-gradient(top, #374f88 0%, #336999 100%);
+				background: -ms-linear-gradient(top, #374f88 0%, #336999 100%);
+				background: linear-gradient(to bottom, #374f88 0%, #336999 100%);
+			}
+		</style>
+	</head>
+
+	<body>
+		<include file="Include/right"/>
+		<!--侧滑菜单容器-->
+		<div id="offCanvasWrapper" class="mui-off-canvas-wrap mui-draggable mui-scalable">
+			<!--菜单部分-->
+			<include file="Include/left" />
+			<!--主体-->
+			<div class="mui-inner-wrap">
+				<header class="mui-bar mui-bar-nav zt-header">
+					<!---->
+					<a href="{:U('Home/Xin/index')}" class="mui-pull-left"><img class="header-list_img" src="__PUBLIC__/xin/images/logo-icon.png"></a>
+					<a id="offCanvasBtn" href="#offCanvasSide" class="mui-pull-right"><img src="__PUBLIC__/xin/images/cd-icon.png" alt=""></a>
+					<h1 class="mui-title header-list_txt">
+						整点秒杀
+					</h1>
+				</header>
+				<div id="offCanvasContentScroll" class="mui-content mui-scroll-wrapper">
+					<div class="mui-scroll">
+						<div class="mk-box ytx-box">
+							<div class="mk-ytxbox">
+								<div class="swiper-container swiper-container3 ytx-banner">
+									<div class="swiper-wrapper swioj">
+										<volist name="miaosha" id="vo" key="k" >
+											<div class="swiper-slide">
+												<div class="xs_time  <if condition="$vo.zhuangtai eq 已开抢">xs_now <else/>xs_no</if>" data-num="a{$k}">
+													<div class="time_top">{$vo.name}</div>
+													<br />
+													<div class="time_txt">{$vo.zhuangtai}</div>
+												</div>
+											</div>
+										</volist>
+										
+										
+									</div>
+								</div>
+							</div>
+						</div>
+
+						<div class="xs_txt">
+							<div>限时限量 先到先得</div>
+						</div>
+						<!--商品列表-->
+						
+						<volist name="miaosha" id="vo" key="k">
+							<div class="xs_shop" style="display:block;" id="a{$k}">
+								<volist name="vo['store']" id="to">
+									<div class="zd_shoplist">
+										<div class="xs_shopleft">
+											<img src="{$to.store_img}" alt="" class="sx_img" />
+										</div>
+										<div class="zd_center">
+											<div class="zd_center_tabs">
+												{$to.store_name}
+											</div>
+											<div class="zd_center_name">
+												{$to.store_shuoming}
+											</div>
+											<div class="zd_center_money">
+												秒杀价<span>￥{$to.jiage}</span>
+											</div>
+											<div class="zd_center_tbn jd_num">
+												仅剩{$to.num}件
+											</div>
+										</div>
+										<if condition="$vo.zhuangtai eq 已开抢">
+											<div class="zd_right">
+												<if condition="$to.num eq 0">
+													<a href="###" class="to_zd">
+														已售空
+												    </a>
+												    <else/>
+												    <a href="{:U('Home/Che/cpxq',array('id'=>$to['store_id'],'chang_store'=>$to['id']))}" class="to_zd">
+														马上抢
+												    </a>
+												</if>
+			                                      
+											</div>
+										</if>
+										
+										<if condition="$vo.zhuangtai eq 未开始">
+											<div class="zd_right">
+												
+												   
+												    <div class="xs_tbs_right" style="width: 80%;margin-top: 2.1rem" id="ti">
+														设置提醒
+												    </div>
+												
+			                                      
+											</div>
+											
+										</if>
+										
+									</div>
+								</volist>
+								
+								
+							</div>
+						</volist>
+						
+						
+						
+						<!-- off-canvas backdrop -->
+						<div class="mui-off-canvas-backdrop"></div>
+					</div>
+				</div>
+				<script src="__PUBLIC__/xin/js/mui.min.js"></script>
+				<script src="__PUBLIC__/xin/js/jquery.min.js"></script>
+				<script src="__PUBLIC__/xin/js/swiper.min.js"></script>
+				<script src="__PUBLIC__/xin/js/index.js"></script>
+				<script>
+					//banner
+					var swiper1 = new Swiper('.swiper-container1', {
+						pagination: '.swiper-pagination1',
+						paginationClickable: true,
+						loop: true,
+						autoplay: 2000
+					});
+
+					//img-banner
+					var swiper2 = new Swiper('.swiper-container2', {
+						pagination: '.swiper-pagination2',
+						paginationClickable: true,
+						loop: true,
+						autoplay: 3000
+					});
+					mui('.mui-scroll-wrapper').scroll();
+					//忒游-banner
+					var swiper = new Swiper('.swiper-container3', {
+						slidesPerView: 1,
+						centeredSlides: true,
+						paginationClickable: true,
+						spaceBetween: 0,
+						resistanceRatio: 0,
+						width: window.innerWidth / 3,
+
+					});
+					var ishs = $(".xs_now").attr("data-num");
+					var de = $("#" + ishs);
+					var sh = $(".xs_shop")
+					for(var i = 0; i < sh.length; i++) {
+						sh[i].style.display = "none"
+
+					}
+					de.css('display', 'block');
+					$('.xs_time').on("tap", function() {
+						var tabs = $(".xs_time")
+						for(var a = 0; a < tabs.length; a++) {
+							tabs[a].classList.remove('xs_now')
+							tabs[a].classList.add('xs_no')
+						}
+						this.classList.add('xs_now')
+						var act = this.getAttribute('data-num')
+						var demo = $("#" + act)
+						var show = $(".xs_shop")
+						for(var i = 0; i < show.length; i++) {
+							show[i].style.display = "none"
+
+						}
+						demo.css('display', 'block')
+					});
+					
+					$('#ti').on("tap",function(){
+						alert("设置成功");
+					})
+				</script>
+	</body>
+
+</html>

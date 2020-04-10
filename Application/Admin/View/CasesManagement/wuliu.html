@@ -1,0 +1,53 @@
+<extend name="Index:app" />
+<block name="css">
+   
+</block>
+<block name="content">
+    <div class="row">
+        <div class="col-xs-12">
+            <div class="box" style="padding-bottom:50px">
+                <div class="box-header">
+                    <!--<h3 class="box-title">产品属性添加</h3>-->
+                    <div class="box-tools">
+                        <div class="input-group input-group-sm" style="width: 150px;">
+                        </div>
+                    </div>
+                </div>
+                <!-- /.box-header -->
+                <form class="form-horizontal" action="" method="post" enctype="multipart/form-data" id="r_list">
+                	<div class="ga">
+                		
+                	
+                     <div id="queryContext" class=""></div>
+                    
+                    <!--<a href="#" onclick="kdniao.query("3863890005544","韵达快递")">点击查询</a>
+                    
+                   -->
+                    </div>
+                   
+                     <div class="box-footer">
+                        
+
+                    </div>
+                    
+                </form>
+                
+            </div>
+            <!-- /.box -->
+        </div>
+    </div>
+</block>
+<block name="js">
+   <script type="text/javascript">
+	$(function(){
+		 var dan="{$dan}";
+		 var name="{$name}";
+//		 alert(dan);
+//		 alert(name);
+		//如果使用页面自动加载，需要在页面加载中调用以下函数
+//		kdniao.query("3863890005544","韵达快递");
+		kdniao.query(dan,name);
+	});
+</script>
+</block>
+

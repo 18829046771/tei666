@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<title>忒666</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1,user-scalable=no">
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black">
+		<link rel="stylesheet" href="__PUBLIC__/xin/css/mui.min.css">
+		<link rel="stylesheet" href="__PUBLIC__/xin/css/swiper.min.css" />
+		<link rel="stylesheet" href="__PUBLIC__/xin/css/index.css" />
+		<script src="__PUBLIC__/xin/js/rem.js"></script>
+	</head>
+	<style>
+		#offCanvasWrapper .mui-content {
+			background: #fff;
+		}
+	</style>
+
+	<body>
+		<include file="Include/right" />
+		<!--侧滑菜单容器-->
+		<div id="offCanvasWrapper" class="mui-off-canvas-wrap mui-draggable mui-scalable">
+			<!--菜单部分-->
+			<include file="Include/left" />
+			<!--主体-->
+			<div class="mui-inner-wrap">
+				<!--header-->
+				<header class="mui-bar mui-bar-nav zt-header">
+					<!---->
+					<a href="{:U('Home/Xin/index')}" class="mui-pull-left"><img class="header-list_img" src="__PUBLIC__/xin/images/logo-icon.png" /></a>
+					<a id="offCanvasBtn" href="#offCanvasSide" class="mui-pull-right"><img src="__PUBLIC__/xin/images/cd-icon.png" alt="" /></a>
+					<h1 class="mui-title header-list_txt">
+						评论列表
+					</h1>
+				</header>
+				<div id="offCanvasContentScroll" class="mui-content mui-scroll-wrapper">
+					<div class="mui-scroll">
+						<div class="cpxq-plbox">
+							
+							<!--有数据-->
+							<div class="cpxq-pl-yes">
+								<volist name="temp" id="vo">
+									<div class="cpxq-pl-list">
+										<div class="cpxq-pl-title">
+											<div class="cpxq-pl-tx"><img src="{$vo.img}" alt="" /></div>
+											<div class="cpxq-pl-name">{$vo.sename}</div>
+										</div>
+										<div class="cpxq-time">
+											<span>{$vo.time}</span> &nbsp;
+											<span>{$vo.art_name}</span>
+										</div>
+										<div class="cpxq-txt">{$vo.text}</div>
+									</div>
+								</volist>
+								
+								<!--<div class="cpxq-pl-list">
+									<div class="cpxq-pl-title">
+										<div class="cpxq-pl-tx"><img src="__PUBLIC__/xin/images/10.png" alt="" /></div>
+										<div class="cpxq-pl-name">我在清晨阳光里</div>
+									</div>
+									<div class="cpxq-time">
+										<span>2018-06-04</span> &nbsp;
+										<span>美国哈曼JBL GT7-6C</span>
+									</div>
+									<div class="cpxq-txt">服务超好，有问必答，效果吗值这个价钱!!!服务超好，有问必答，效果吗值这个价钱!!!服务超好，有问必答，效果吗值这个价钱!!!服务超好，有问必答，效果吗值这个价钱!!!服务超好，有问必答，效果吗值这个价钱!!!服务超好，有问必答，效果吗值这个价钱!!!服务超好，有问必答，效果吗值这个价钱!!!</div>
+								</div>-->
+								<div class="cpxq-pl-bom">
+									已经到底啦！只能帮你到这里了！
+								</div>
+							</div>
+
+						</div>
+					</div>
+				</div>
+				<!-- off-canvas backdrop -->
+				<div class="mui-off-canvas-backdrop"></div>
+				<div class="cpxq-bom_box flex-s">
+					<div class="cpxq-bom_left">
+						<a href="{:U('Home/Che/cpxq',array('id'=>$ids))}">
+							<div class="cpxq-bom_list">
+								<div class="cpxq-bom_img"><img src="__PUBLIC__/xin/images/xq-xx-icon.png" alt="" /></div>
+								<div class="cpxq-bom_name">纵览</div>
+							</div>
+						</a>
+						<a href="{:U('Home/Che/cpxq_sysm',array('id'=>$ids))}">
+							<div class="cpxq-bom_list">
+								<div class="cpxq-bom_img"><img src="__PUBLIC__/xin/images/xq-sysm-icon.png" alt="" /></div>
+								<div class="cpxq-bom_name">使用说明</div>
+							</div>
+						</a>
+						<a href="{:U('Home/Che/cpxq_zz',array('id'=>$ids))}">
+							<div class="cpxq-bom_list">
+								<div class="cpxq-bom_img"><img src="__PUBLIC__/xin/images/xq-zz-icon.png" alt="" /></div>
+								<div class="cpxq-bom_name">资质</div>
+							</div>
+						</a>
+						<a href="{:U('Home/Che/cpxq_pl',array('id'=>$ids))}">
+							<div class="cpxq-bom_list active">
+								<div class="cpxq-bom_img"><img src="__PUBLIC__/xin/images/xq-pl-icon2.png" alt="" /></div>
+								<div class="cpxq-bom_name">评论</div>
+								<div class="cpxq-bom_active"><img src="__PUBLIC__/xin/images/coxq-bom_active.png" alt="" /></div>
+							</div>
+						</a>
+					</div>
+					<a href="{:U('Home/Che/cpxq',array('id'=>$ids))}"><div class="cpxq-bom_right">立即购买</div></a>
+				</div>
+			</div>
+		</div>
+		<script src="__PUBLIC__/xin/js/mui.min.js"></script>
+		<script src="__PUBLIC__/xin/js/jquery.min.js"></script>
+		<script src="__PUBLIC__/xin/js/swiper.min.js"></script>
+		<script src="__PUBLIC__/xin/ckplayer/ckplayer.min.js"></script>
+		<script src="__PUBLIC__/xin/js/index.js"></script>
+	</body>
+
+</html>

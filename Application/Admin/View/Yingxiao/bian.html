@@ -1,0 +1,178 @@
+<extend name="Index:app" />
+<block name="title"><title>后台管理系统-编辑</title></block>
+
+<style type="text/css">
+        .img-item {
+            width: 80px!important;
+            height: 80px!important;
+            background: white;
+            text-align: center;
+            line-height: 75px;
+            margin-right:15px;
+            margin-top:15px;
+            font-size: 30px;
+            cursor: pointer;
+            border:1px solid #ccc;
+        }
+    </style>
+  
+<block name="content">
+    <div class="row">
+        <div class="col-md-12">
+            <!-- Horizontal Form -->
+            <div class="box box-info">
+                <div class="box-header with-border">
+                    <h3 class="box-title">编辑产品</h3>
+        
+                </div>
+                <!-- /.box-header -->
+                <!-- form start -->
+                <form class="form-horizontal" action="{:U('yingxiao/xianshi_bian')}" method="post" enctype="multipart/form-data">
+                    <div class="box-body">
+                        <div class="form-group">
+                            <label for="inputEmail3" class="col-sm-2 control-label">产品名称</label>
+                            <div class="col-sm-6">
+                                <select class="form-control"   id="art_id" name="art_id" onchange="selectGoods(this.value)">
+                                    <volist name="store" id="vo">
+                                        <option value="{$vo.art_id}" <if condition="$vo['art_id'] eq $temp['store_id']">selected = selected"</if> >|_&nbsp;{$vo.product_title}&nbsp;</option>
+                                    </volist>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+
+                    <input type="text" hidden name="ids" id="ids" value="{$temp.id}" >
+
+                    <div class="form-group">
+                        <label for="inputPassword3" class="col-sm-2 control-label">商品规格</label>
+
+                        <div class="col-sm-6">
+                            <div id="ajax_spec_data" class="form-group">
+                                <table class="table table-bordered" id="goods_spec_table1">
+
+                                    <tr>
+                                        <td style="width: 90px;">规格项</td>
+                                        <td>商城价</td>
+                                        <td>会员价</td>
+                                        <td>进货价</td>
+                                        <td>邮费</td>
+                                        <td>营销价</td>
+                                        <td>库存</td>
+                                    </tr>
+                                    <tbody id="goods_sp"></tbody>
+                                </table>
+
+                            </div>
+                        </div>
+                        <div>
+                            <div id="add" class=" btn btn-success" style="margin-left: 400px;">添加</div>
+                        </div>
+                    </div>
+
+                    <!-- /.box-body -->
+                    <div class="box-footer">
+                        <div class="col-sm-2">
+                        </div>
+                        <div class="col-sm-10">
+                        	 <input id="ajaxfileupload" type="file" style="display:none;">
+                            <button type="submit" class="btn btn-primary">提&nbsp;&nbsp;交</button>
+                        </div>
+
+                    </div>
+                    <!-- /.box-footer -->
+                </form>
+            </div>
+          
+        </div>
+    </div>
+</block>
+
+<block name="js">
+    <script src="__PUBLIC__/layer-3.1.1/layer.js"></script>
+    <script>
+        var tiannum = 0;
+        // 选择商品
+        function selectGoods(art_id) {
+            if (art_id == '') return false;
+            var index = layer.load();
+            $.ajax({
+                type : 'POST',
+                url:"{:U('Yingxiao/getGuige')}",
+                data : {art_id: art_id},
+                success: function(data){
+                    layer.close(index);
+                    $("#goods_sp").empty();
+                    if(data.state == 1){
+                        tiannum = data.tiannum;
+                        var dataList = data.data;
+                        dataList.forEach(function (vo, index) {
+                            index = index + 1;
+                            var html = ` <tr>
+                                <td style="width: 90px;">
+                                    <input type="text" name="gui${index}" value="${vo.guige}">
+                                </td>
+                                <td>                            
+                                    <input type="tel" name="jia${index}" value="${vo.money}">
+                                </td>
+                                <td>                            
+                                    <input type="tel" name="huiyuan${index}" value="${vo.money_huiyuan}">
+                                </td>
+                                <td>
+                                    <input type="tel" name="jin${index}" value="${vo.money_jin}">
+                                </td>
+                                <td>
+                                    <input type="tel" name="you${index}" value="${vo.money_you}">
+                                </td>
+                                <td>
+                                    <input type="tel" name="ying${index}" value="${vo.money_ying}">
+                                </td>
+                                <td>                            
+                                    <input type="tel" name="num${index}" value="${vo.num}">
+                                </td>
+                            </tr> `
+                            $("#goods_sp").append(html);
+                        });
+                    }else{
+                        tiannum = 0;
+                        alert(data.msg)
+                    }
+                }
+            });
+        }
+        selectGoods('{$temp.store_id}');
+
+        $("#add").click(function() {
+            if (tiannum >= 8) return false;
+            tiannum++
+            var tianhtml = ` <tr>
+                <td style="width: 90px;">
+                    <input type="text" name="gui${tiannum}">
+                </td>
+                <td>                            
+                    <input type="tel" name="jia${tiannum}">
+                </td>
+                <td>                            
+                    <input type="tel" name="huiyuan${tiannum}">
+                </td>
+                <td>
+                    <input type="tel" name="jin${tiannum}">
+                </td>
+                <td>
+                    <input type="tel" name="you${tiannum}">
+                </td>
+                <td>
+                    <input type="tel" name="ying${tiannum}">
+                </td>
+                <td>                            
+                    <input type="tel" name="num${tiannum}">
+                </td>
+            </tr> `
+
+            $("#goods_sp").append(tianhtml);
+
+        });
+    </script>
+</block>
+
+
+

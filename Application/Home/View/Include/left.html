@@ -1,0 +1,99 @@
+<!--菜单部分-->
+			<aside id="offCanvasSide" class="mui-off-canvas-right">
+				<div id="offCanvasSideScroll" class="mui-scroll-wrapper">
+					<div class="mui-scroll">
+						<div class="content">
+							<div class="right-box">
+								<!--header-->
+								<div class="right-header flex-s">
+									<a href="{:U('Home/Xin/index')}"><span class="right-backIndex">返回首页</span></a>
+									<span id="offCanvasHide" class="right-hide"><img src="__PUBLIC__/xin/images/closeempty.png" alt="" /></span>
+								</div>
+								<!--top-->
+								<div class="right-top">
+									<div class="right-imgbox">
+										<img src="{$Think.session.user.img}" alt="" />
+									</div>
+									<p class="right-name">{$Think.session.user.sename}</p> 
+								</div>
+								<!--list-->
+								<div class="right-listbox">
+									<a href="{:U('Home/Che/czdq',array('id'=>70))}">
+										<div class="right-list">
+											<div class="right-list_img"><img src="__PUBLIC__/xin/images/保险.png" alt="" /></div>
+											<div class="right-list_txt">车保险</div>
+										</div>
+									</a>
+									<a href="{:U('Home/Tourism/ytx_list',array('id'=>80))}">
+										<div class="right-list">
+											<div class="right-list_img"><img src="__PUBLIC__/xin/images/世界.png" alt="" /></div>
+											<div class="right-list_txt">逛世界</div>
+										</div>
+									</a>
+									<!--弹个车-->
+									<a href="{:U('Home/Che/czdq',array('id'=>75))}">
+										<div class="right-list">
+											<div class="right-list_img"><img src="__PUBLIC__/xin/images/租赁.png" alt="" /></div>
+											<div class="right-list_txt">车租赁</div>
+										</div>
+									</a>
+									
+									<a href="{:U('Home/Tourism/ytx_list',array('id'=>67))}">
+										<div class="right-list">
+											<div class="right-list_img"><img src="__PUBLIC__/xin/images/中国.png" alt="" /></div>
+											<div class="right-list_txt">游中国</div>
+										</div>
+									</a>
+									<!--车租赁-->
+									<a href="{:U('Home/Che/czdq',array('id'=>76))}">
+										<div class="right-list">
+											<div class="right-list_img"><img src="__PUBLIC__/xin/images/服务副本.png" alt="" /></div>
+											<div class="right-list_txt">车服务</div>
+										</div>
+									</a>
+									<a href="{:U('Home/Tourism/ytx_list',array('id'=>71))}">
+										<div class="right-list">
+											<div class="right-list_img"><img src="__PUBLIC__/xin/images/陕西省(1).png" alt="" /></div>
+											<div class="right-list_txt">玩陕西</div>
+										</div>
+									</a>
+									<!--车服务-->
+									<a href="{:U('Home/Che/czdq',array('id'=>78))}">
+										<div class="right-list">
+											<div class="right-list_img"><img src="__PUBLIC__/xin/images/智明－弹个车.png" alt="" /></div>
+											<div class="right-list_txt">弹个车</div>
+										</div>
+									</a>
+									<a href="{:U('Home/Tourism/ytx_list',array('id'=>72))}">
+										<div class="right-list">
+											<div class="right-list_img"><img src="__PUBLIC__/xin/images/发现页_家_家庭.png" alt="" /></div>
+											<div class="right-list_txt">Family忒</div>
+										</div>
+									</a>
+									<!--<a href="{:U('Home/Che/czdq',array('id'=>79))}">
+										<div class="right-list">
+											<div class="right-list_img"><img src="__PUBLIC__/xin/images/pjsj-img.png" alt="" /></div>
+											<div class="right-list_txt">配件升级</div>
+										</div>
+									</a>-->
+									<a href="{:U('Home/My/user')}">
+										<div class="right-list">
+											<div class="right-list_img"><img src="__PUBLIC__/xin/images/个人中心我的人物标准头面性.png" alt="" style="max-height: 90%;"/></div>
+											<div class="right-list_txt">个人中心</div>
+										</div>
+									</a>
+									<a href="{:U('Home/Tourism/srdingzhi')}">
+										<div class="right-list">
+											<div class="right-list_img"><img src="__PUBLIC__/xin/images/定制.png" alt="" /></div>
+											<div class="right-list_txt">私定制</div>
+										</div>
+									</a>
+									
+
+								</div>
+
+							</div>
+						</div>
+					</div>
+				</div>
+			</aside>

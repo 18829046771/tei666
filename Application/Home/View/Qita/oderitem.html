@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<title>忒666</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1,user-scalable=no">
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black">
+		<link rel="stylesheet" href="__PUBLIC__/xin/css/mui.min.css">
+		<link rel="stylesheet" href="__PUBLIC__/xin/css/swiper.min.css" />
+		<link rel="stylesheet" href="__PUBLIC__/xin/css/index.css" />
+		<link rel="stylesheet" href="__PUBLIC__/xin/css/oderitem.css" />
+		<script src="__PUBLIC__/xin/js/rem.js"></script>
+		<style type="text/css">
+			.zt-header a img {
+				width: 0.28rem;
+				margin-top: .22rem;
+			}
+			
+			.zt-header {
+				background: white !important;
+				height: 1rem;
+				transition: all .1s;
+			}
+			
+			.clearfix:after {
+				content: "020";
+				display: block;
+				height: 0;
+				clear: both;
+				visibility: hidden;
+			}
+			.pay{
+				margin-left: 5%;
+				display: inline-block;
+			}
+			.shop_name{
+					overflow : hidden;
+text-overflow: ellipsis;
+display: -webkit-box;
+-webkit-line-clamp: 3;
+-webkit-box-orient: vertical;
+height: 0.8rem !important;
+line-height: 0.4rem !important;
+overflow: hidden !important;
+			}
+		.list_txt{
+			margin: 0.1rem 0 !important;
+		}
+		.map_top{
+			padding-left: 30px !important;
+		}
+		 .item_top{
+		 	padding-left: 35px !important;
+		 }
+		</style>
+	</head>
+
+	<body>
+		<include file="Include/right"/>
+		<!--header-->
+		<header class="mui-bar mui-bar-nav zt-header">
+			<!---->
+			<a href="javascript:history.back(-1)" class="mui-pull-left ss-togbtn"><img src="__PUBLIC__/xin/images/back.png" /></a>
+
+			<h1 class="mui-title" style="color: black;">
+						订单详情
+					</h1>
+		</header>
+		<div class="top">
+			<div class="map">
+				<div class="map_top">
+					<span>
+					{$address.name}
+					</span>
+					<span>
+					{$address.dian}
+					</span>
+				</div>
+				<div class="map_btn">
+					<span style="float: left; width: 15%;">地址:</span>
+					<span style="float: left; width:85%; padding-right: 10px;">{$address.address}{$address.xiangqing}</span>
+				</div>
+			</div>
+			<div class="item">
+				<div class="item_top">
+					忒666
+				</div>
+				<div class="item_list">
+					<div class="list_one">
+						<div class="one_top clearfix">
+							<div class="top_left">
+								<img src="{$temp.img}" />
+							</div>
+							<div class="top_center">
+								<div class="shop_name">
+									{$temp.name}
+								</div>
+								<div class="shop_num">
+									{$temp.guige}
+								</div>
+								<div class="shop_num">
+									￥{$temp.jiage}
+								</div>
+							</div>
+							<div class="top_right">
+								x{$temp.num}
+							</div>
+						</div>
+						<div class="list_txt">
+							订单编号：<span>{$temp.paysn}</span>
+						</div>
+						<div class="list_txt">
+							下单时间：<span>{$temp.time}</span>
+						</div>
+						<div class="list_txt">
+							运&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;费：<span>{$store.youdi}</span>
+						</div>
+					</div>
+					
+				</div>
+
+			</div>
+
+
+
+			<if condition="$address eq null">
+				<a onclick="address()" class="pay">
+					去支付
+				</a>
+				<else/>
+				<a href="/wx_pay/example/jsapi.php?order_sn={$temp.paysn}&order_amount={$temp.zong}&order_id={$temp.store_id}" class="pay">
+					去支付
+				</a>	
+				
+			</if>
+			
+
+		</div>
+		<script src="__PUBLIC__/xin/js/mui.min.js"></script>
+		<script src="__PUBLIC__/xin/js/jquery.min.js"></script>
+		<script src="__PUBLIC__/xin/js/swiper.min.js"></script>
+		<script>
+			function address(){
+				alert("请设置收货地址");
+			}
+			$(".map").click(function (){
+				window.location.href='/index.php/Home/My/mapdemo.html';
+			})
+		</script>
+	</body>
+
+</html>

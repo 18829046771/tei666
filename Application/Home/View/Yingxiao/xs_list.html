@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<title>忒666</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1,user-scalable=no">
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black">
+		<link rel="stylesheet" type="text/css" href="__PUBLIC__/xin/css/mui.min.css" />
+		<link rel="stylesheet" href="__PUBLIC__/xin/css/swiper.min.css" />
+		<link rel="stylesheet" href="__PUBLIC__/xin/css/index.css" />
+		<link rel="stylesheet" type="text/css" href="__PUBLIC__/xin/css/jfall.css" />
+		<script src="__PUBLIC__/xin/js/rem.js"></script>
+		<style type="text/css">
+			.xs_time {
+				width: 100%;
+			}
+		</style>
+	</head>
+
+	<body>
+		<include file="Include/right"/>
+		<!--侧滑菜单容器-->
+		<div id="offCanvasWrapper" class="mui-off-canvas-wrap mui-draggable mui-scalable">
+			<!--菜单部分-->
+			<include file="Include/left" />
+			<!--主体-->
+			<div class="mui-inner-wrap">
+				<!--header-->
+				<header class="mui-bar mui-bar-nav zt-header">
+					
+					<a href="{:U('Home/Xin/index')}" class="mui-pull-left ss-togbtn"><img src="__PUBLIC__/xin/images/cd-icon.png" /></a>
+				
+					<h1 class="mui-title">
+						<img src="__PUBLIC__/xin/images/logo-icon.png" alt="" />
+						忒666
+					</h1>
+				</header>
+				<div id="offCanvasContentScroll" class="mui-content mui-scroll-wrapper">
+					<div class="mui-scroll">
+						<div class="mk-box ytx-box">
+							<div class="mk-ytxbox">
+								<div class="swiper-container swiper-container3 ytx-banner">
+									<div class="swiper-wrapper swioj">
+										<volist name="xianshigou" id="vo" key="k">
+											<div class="swiper-slide">
+												<div class="xs_time <if condition="$vo.zhuangtai eq 1">xs_now <else/>xs_no</if> " data-num="a{$k}">
+													<div class="time_top">{$vo.name}</div>
+													<br />
+													<div class="time_txt">{$vo.zhuangtai}</div>
+												</div>
+											</div>
+										</volist>
+										
+										
+									</div>
+								</div>
+							</div>
+						</div>
+
+						<div class="xs_txt">
+							<div>限时限量 先到先得</div>
+						</div>
+						<!--商品列表-->
+						
+						<volist name="xianshigou" id="vo" key="k">
+							<div class="xs_shop" style="display:block;" id="a{$k}">
+								<volist name="vo['store']" id="to">
+									<div class="xs_shoplist">
+										<div class="xs_shopleft">
+											<img src="{$to.store_img}" alt="" class="sx_img" />
+										</div>
+										<div class="xs_shopright">
+											<div class="xs_name">{$to.store_name}</div>
+											<div class="xs_txts">{$to.store_shuoming}</div>
+											<div class="xs_money">
+												<span style="font-size: 0.3rem;">限时价<span style="font-size: 0.3rem;color:#af1219;">￥{$to.jiage}</span></span><span class="hengxian">会员价{$to.store_huiyuan}商城价{$to.store_jiage}</span>
+											</div>
+											<if condition="$vo.zhuangtai eq 2">
+												<div class="xs_tbs">
+													<div class="xs_tbs_left jd_numall">活动已结束</div>
+													
+												</div>
+											</if>
+											<if condition="$vo.zhuangtai eq 1">
+												<div class="xs_tbs">
+													<if condition="$to.num eq 0">
+														<div class="xs_tbs_left jd_numall">已售空</div>
+													   
+													    <else/>
+													    <div class="xs_tbs_left jd_numall">剩余{$to.num}</div>
+													    <a href="{:U('Home/Che/cpxq',array('id'=>$to['store_id'],'chang_store'=>$to['id']))}" class="xs_tbs_right">马上抢</a>	
+													   
+													</if>
+													
+												</div>
+											</if>
+											<if condition="$vo.zhuangtai eq 0">
+												<div class="xs_tbs">
+													<div class="xs_tbs_lefts">限量{$to.num}件</div>
+										            <div class="xs_tbs_right" id="ti">设置提醒</div>
+												</div>
+											</if>
+											
+										</div>
+									</div>
+								</volist>
+								
+								
+							</div>
+						</volist>
+						
+						
+						<!-- off-canvas backdrop -->
+						<div class="mui-off-canvas-backdrop"></div>
+					</div>
+				</div>
+				<script src="__PUBLIC__/xin/js/mui.min.js"></script>
+				<script src="__PUBLIC__/xin/js/jquery.min.js"></script>
+				<script src="__PUBLIC__/xin/js/swiper.min.js"></script>
+				<script src="__PUBLIC__/xin/js/index.js"></script>
+				<script>
+					//banner
+					var swiper1 = new Swiper('.swiper-container1', {
+						pagination: '.swiper-pagination1',
+						paginationClickable: true,
+						loop: true,
+						autoplay: 2000
+					});
+
+					//img-banner
+					var swiper2 = new Swiper('.swiper-container2', {
+						pagination: '.swiper-pagination2',
+						paginationClickable: true,
+						loop: true,
+						autoplay: 3000
+					});
+					mui('.mui-scroll-wrapper').scroll();
+					//忒游-banner
+					var swiper = new Swiper('.swiper-container3', {
+						slidesPerView: 1,
+						centeredSlides: true,
+						paginationClickable: true,
+						spaceBetween: 0,
+						resistanceRatio : 0,
+						width: window.innerWidth / 3,
+
+					});
+					
+					var ishs=$(".xs_now").attr("data-num");
+					var de = $("#" + ishs);
+					var sh = $(".xs_shop")
+						for(var i = 0; i < sh.length; i++) {
+							sh[i].style.display = "none"
+
+						}
+					de.css('display', 'block');
+					$('.xs_time').on("tap", function() {
+						var tabs = $(".xs_time")
+						for(var a = 0; a < tabs.length; a++) {
+							tabs[a].classList.remove('xs_now')
+							tabs[a].classList.add('xs_no')
+						}
+						this.classList.add('xs_now')
+						var act = this.getAttribute('data-num')
+						var demo = $("#" + act)
+						var show = $(".xs_shop")
+						for(var i = 0; i < show.length; i++) {
+							show[i].style.display = "none"
+
+						}
+						demo.css('display', 'block')
+					});
+					
+					
+					$('#ti').on("tap",function(){
+						alert("设置成功");
+					})
+				</script>
+	</body>
+
+</html>

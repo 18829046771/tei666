@@ -1,0 +1,115 @@
+<extend name="Index:app" />
+<block name="css">
+
+</block>
+<block name="content">
+    <div class="row">
+        <div class="col-xs-12">
+            <div class="box box-primary">
+
+                <div class="box-header box-primary">
+                    <h3 class="box-title">已核销列表</h3>
+                    <div class="box-tools">
+                        <form class="form-inline" action="{:U('Order/oklis')}" method="get">
+                            <div class="input-group input-group-sm">
+                                <input type="text" name="phone" class="form-control" value="{$phone}" placeholder="手机号">
+                            </div>
+                            <!-- /input-group -->
+                            <div class="input-group input-group-sm">
+                                <input type="text" name="ming" class="form-control" value="{$ming}" placeholder="订单号">
+                                <div class="input-group-btn">
+                                    <button type="submit" class="btn btn-default"><i class="fa fa-search"></i></button>
+                                </div>
+                            </div>
+                            <!-- /input-group -->
+                        </form>
+                    </div>
+                </div>
+
+                <!-- /.box-header -->
+                <div class="box-body table-responsive no-padding" >
+                    <div class="mailbox-controls">
+                        <div class="btn-group">
+
+                            <form class="form-inline" action="{:U('Order/oklis')}" method="get">
+                                <div class="input-group input-group-sm">
+                                    <select class="form-control" name="cate_id" id="cate_id">
+                                        <option value="">产品类别</option>
+                                        <volist name="cate" id="vo">
+                                            <option value="{$vo.cate_id}" <eq name="cate_id" value="$vo.cate_id">selected="selected"</eq>>{$vo.cate_name}</option>
+                                        </volist>
+                                    </select>
+                                </div>
+
+                                <div class="input-group input-group-sm">
+                                    <input type="text" class="form-control" placeholder="开始时间" name="kaitime" id="kaitime" value="{$startDate}">
+                                </div>
+                                <div class="input-group input-group-sm">
+                                    <input type="text" class="form-control" placeholder="结束时间" name="endtime" id="endtime" value="{$endDate}">
+                                </div>
+
+                                <button type="submit" class="btn btn-default btn-sm">查询</button>
+
+                                <a href="{:U('Order/export', ['id' => $id, 'name' => $name, 'cate_id' => $cate_id, 'kaitime' => $startDate, 'endtime' => $endDate])}" class="btn btn-default btn-sm">
+                                    <i class="fa fa-cloud-download"></i>&nbsp;&nbsp;派单导出
+                                </a>
+                            </form>
+                        </div>
+                        <!-- /.btn-group -->
+                        <div class="pull-right">共 {$count} 条记录，总服务量：{$zfwl}，总服务费：{$zfwf}￥</div>
+                        <!-- /.pull-right -->
+                    </div>
+                    <table class="table table-hover table-bordered">
+                        <tr>
+                            <th>序号</th>
+                            <th>订单号</th>
+                            <th>产品名称</th>
+                            <th>产品类别</th>
+                            <th>派单时间</th>
+                            <th>预约时间</th>
+                            <th>派单完成时间</th>
+                            <th>服务量</th>
+                            <th>服务费</th>
+                            <th>服务状态</th>
+                        </tr>
+                        <volist name="list" id="vo">
+                            <tr>
+                                <td>{$i}</td>
+                                <td>{$vo.paysn}</td>
+                                <td>{$vo.chanpin_name}</td>
+                                <td>{$vo.cate_name}</td>
+                                <td>{$vo.time}</td>
+                                <td>{$vo.fuwu_time}</td>
+                                <td>{$vo.wan_time}</td>
+                                <td>{$vo.fwl}</td>
+                                <td>{$vo.fwf}</td>
+                                <td><span class="label label-success radius">已核销</span></td>
+                            </tr>
+                        </volist>
+                    </table>
+                </div>
+                <!-- /.box-body -->
+                <div class="box-footer clearfix" style="text-align: center;">
+                    <ul class="pagination pagination-sm no-margin">
+                        {$page}
+                    </ul>
+                </div>
+            </div>
+            <!-- /.box -->
+        </div>
+    </div>
+</block>
+<block name="js">
+<script type="text/javascript">
+    //执行一个laydate实例
+    laydate.render({
+      elem: '#kaitime'
+      ,type: 'datetime'
+    });
+    //执行一个laydate实例
+    laydate.render({
+      elem: '#endtime'
+      ,type: 'datetime'
+    });
+</script>
+</block>

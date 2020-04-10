@@ -1,0 +1,128 @@
+* .tops {
+  display: inline-block;
+  padding-top: 1rem;
+  position: relative;
+  width: 100%;
+}
+* .tops .kt_bgm {
+  height: 4.8rem;
+  display: inline-block;
+  width: 100%;
+  background-image: url(../images/ktbcm.png);
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+}
+* .tops .kt_ban {
+  width: 100%;
+  display: inline-block;
+  padding: 0 4%;
+}
+* .tops .kt_ban .ban-idnex {
+  box-sizing: border-box;
+  width: 100%;
+  display: inline-block;
+  margin-top: 2.5rem;
+}
+* .tops .kt_ban .ban-idnex .idnex_top {
+  box-sizing: border-box;
+  padding-left: 15px;
+  width: 100%;
+  height: 0.6rem;
+  line-height: 0.6rem;
+  font-size: 0.3rem;
+  color: #919191;
+}
+* .tops .kt_ban .ban-idnex .idnex_monye {
+  color: #d08549;
+  font-size: 0.3rem;
+}
+* .tops .kt_ban .ban-idnex .idnex_monye span {
+  font-size: 0.4rem;
+  font-weight: 600;
+}
+* .tops .kt_ban .ban-idnex .idnex_btn {
+  width: 80%;
+  height: 1rem;
+  color: white;
+  margin: 0 auto;
+  margin-top: 0.4rem;
+  border-radius: 5px;
+  line-height: 1rem;
+  text-align: center;
+  background: -webkit-linear-gradient(left, #f9cb95, #d79750);
+  /* Safari 5.1 - 6.0 */
+  background: -o-linear-gradient(right, #f9cb95, #d79750);
+  /* Opera 11.1 - 12.0 */
+  background: -moz-linear-gradient(right, #f9cb95, #d79750);
+  /* Firefox 3.6 - 15 */
+  background: linear-gradient(to right, #f9cb95, #d79750);
+}
+* .tops .kt_ban .ban-idnex .idnex_know {
+  margin-top: 0.3rem;
+  height: 0.4rem;
+  line-height: 0.4rem;
+  text-align: center;
+}
+* .tops .kt_ban .ban-idnex .idnex_know .read {
+  display: inline-block;
+  font-size: 0.25rem;
+}
+* .tops .kt_ban .ban-idnex .idnex_know .read a {
+  color: #d79750;
+}
+* .tops .kt_ban .ban-idnex .idnex_know .ok {
+  width: 0.3rem;
+  height: 0.3rem;
+}
+* .tops .header_top {
+  position: absolute;
+  top: 3.5rem;
+  width: 100%;
+  display: inline-block;
+  height: 4rem;
+  background-image: url(../images/db.png);
+  background-position: center center;
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+  padding: 0.5rem 6%;
+  overflow: hidden;
+}
+* .tops .header_top .top_list {
+  display: inline-block;
+  width: 32%;
+  height: 1.5rem;
+  margin-bottom: 4%;
+  background-position: center 15%;
+  background-repeat: no-repeat;
+  background-size: 30%;
+}
+* .tops .header_top .top_list .list_txt {
+  margin-top: 1rem;
+  width: 100%;
+  height: 0.25rem;
+  font-size: 0.25rem;
+  line-height: 0.25rem;
+  text-align: center;
+}
+* .tops .header_top .buff {
+  background-image: url(../images/buff.png);
+}
+* .tops .header_top .cb {
+  background-image: url(../images/cb.png);
+}
+* .tops .header_top .jf {
+  background-image: url(../images/jf.png);
+}
+* .tops .header_top .hd {
+  background-image: url(../images/hd.png);
+}
+* .tops .header_top .hym {
+  background-image: url(../images/hym.png);
+}
+* .tops .header_top .jfh {
+  background-image: url(../images/jfh.png);
+}
+* .tops .header_top .border {
+  border-right: 1px solid #C7C7CC;
+}

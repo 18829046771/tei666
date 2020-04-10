@@ -1,0 +1,127 @@
+<extend name="Index:app" />
+<block name="css">
+
+</block>
+<block name="content">
+    <div class="row">
+        <div class="col-xs-12">
+            <div class="box">
+                    <div class="box-header">
+                        <h3 class="box-title"></h3>
+                        <div class="box-tools">
+                            <form class="form-inline" action="{:U('Product/lis')}" method="post" enctype="multipart/form-data">
+                                <div class="input-group input-group-sm">
+                                    <input type="text" name="ming" class="form-control" value="{$ming}" placeholder="请输入产品名称...">
+                                    <div class="input-group-btn">
+                                        <button type="submit" class="btn btn-default"><i class="fa fa-search"></i></button>
+                                    </div>
+                                </div>
+                                <!-- /input-group -->
+                            </form>
+                        </div>
+                    </div>
+                <!-- /.box-header -->
+                <div class="box-body table-responsive no-padding" >
+                    <div class="mailbox-controls">
+                        <div class="btn-group">
+
+                            <form class="form-inline" action="{:U('Product/lis')}" method="get">
+                                <div class="input-group input-group-sm">
+                                    <input type="text" class="form-control" placeholder="开始时间" name="kaitime" id="kaitime" value="{$startDate}">
+                                </div>
+                                <div class="input-group input-group-sm">
+                                    <input type="text" class="form-control" placeholder="结束时间" name="endtime" id="endtime" value="{$endDate}">
+                                </div>
+                                <button type="submit" class="btn btn-default btn-sm">查询</button>
+                                <a href="{:U('Product/export', ['id' => $supply_info['id'], 'name' => $supply_info['name'], 'kaitime' => $startDate, 'endtime' => $endDate])}" class="btn btn-default btn-sm">
+                                    <i class="fa fa-cloud-download"></i>&nbsp;&nbsp;导出销量表
+                                </a>
+                            </form>
+
+                        </div>
+                        <!-- /.btn-group -->
+                        <div class="pull-right">共 {$count} 条记录，结算总金额：{$zjsj}，产品总销量：{$zxl}</div>
+                        <!-- /.pull-right -->
+                    </div>
+                    <table class="table table-hover table-bordered">
+                        <tr>
+                            <th>序号</th>
+                            <th>产品名称</th>
+                            <th>价格</th>
+                            <th>产品图片</th>
+                            <th>产品销量</th>
+                            <th>结算金额</th>
+                            <th>直属分类</th>
+                            <th>状态</th>
+                            <th>添加时间</th>
+                            <th>详情</th>
+                        </tr>
+                        <volist name="list" id="vo">
+                            <tr>
+                                <td>{$i}</td>
+                                <td>{$vo.product_title}</td>
+                                <td>{$vo.jinjia}</td>
+                                <td><img src="{$vo.art_img_url}" onerror="this.onerror='';src='__PUBLIC__/houtai/nopic.png'" width="50" height="50" /></td>
+                                <td>{$vo.xl}</td>
+                                <td>{$vo.jsj}</td>
+                                <td>{$vo.fen}</td>
+                                <td>
+                                	 <if condition="$vo['type'] eq 1">
+                                	 	上架
+                                	 	<else/>
+                                	 	下架
+                                	 </if>
+                                </td>
+                                <td>{$vo.art_date}</td>
+                                <td>
+                                    <a href="{:U('Product/order', ['art_id' => $vo['art_id']])}" class="btn btn-info btn-xs">查看订单</a>
+                                    <a href="{:U('Product/det', ['art_id' => $vo['art_id']])}" class="btn btn-primary btn-xs">产品详情</a>
+                                </td>
+                            </tr>
+                        </volist>
+                    </table>
+                </div>
+                <!-- /.box-body -->
+                <div class="box-footer clearfix" style="text-align: center;">
+                    <ul class="pagination pagination-sm no-margin">
+                        {$page}
+                    </ul>
+                </div>
+            </div>
+            <!-- /.box -->
+        </div>
+    </div>
+</block>
+<block name="js">
+    <script>
+//执行一个laydate实例
+laydate.render({
+  elem: '#kaitime'
+  ,type: 'datetime'
+});
+//执行一个laydate实例
+laydate.render({
+  elem: '#endtime'
+  ,type: 'datetime'
+});
+        function checkbox_all()
+        {
+            $('#r_list :checkbox').each(function(){
+                if(!$(this).is(':checked'))
+                {
+                    $(this).click();
+                    $('#r_list :checkbox').attr('checked',true);
+                }
+            });
+        }
+        function checkbox_none()
+        {
+            $('#r_list :checkbox').each(function(){
+                if($(this).is(':checked'))
+                {
+                    $(this).click();
+                }
+            });
+        }
+    </script>
+</block>
